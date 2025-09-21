@@ -1,7 +1,7 @@
 # OSINT Literacy Framework — Themed Tree (Flowchart, Colored, GitHub-safe)
 
 This diagram shows the six core areas of the OSINT Literacy Framework.
-It uses only ASCII characters in node labels to avoid Mermaid parser issues on GitHub.
+It uses only ASCII characters in node labels.
 
 ```mermaid
 flowchart TB

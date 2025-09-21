@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OSINT Literacy Framework – Clickable Mindmap</title>
+<style>
+body{font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#f7fafc; color:#222; margin:0; padding:2rem;}
+.container{max-width:1200px; margin:0 auto;}
+h1{margin-top:0; color:#1a73e8;}
+ul{list-style:none; padding-left:1rem; margin:0.25rem 0;}
+li{margin:0.2rem 0;}
+.label{cursor:default;}
+.leaf{color:#999; margin-right:0.3rem;}
+.toggle{cursor:pointer; display:inline-block; width:1.2rem; text-align:center; color:#5c3dff; font-weight:bold;}
+ul ul{border-left:2px solid #e0e6ef; margin-left:0.6rem; padding-left:0.8rem;}
+.root > .label{font-weight:700; font-size:1.1rem;}
+.hidden{display:none;}
+.open{display:block;}
+.note{margin-top:1rem; font-size:0.9rem; color:#444;}
+.badges span{display:inline-block; padding:0.2rem 0.5rem; border-radius:6px; margin-right:0.5rem; font-size:0.8rem;}
+.badge-methods{background:#ece8ff; color:#2e1ce8;}
+.badge-resp{background:#e9f7ef; color:#1d7f3a;}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>OSINT Literacy Framework – Clickable Mindmap</h1>
+  <div class="badges">
+    <span class="badge-methods">Methods</span>
+    <span class="badge-resp">Responsibility</span>
+  </div>
+  <ul id="tree">
+    <li class="root"><span class="toggle open">▾</span><span class="label root">OSINT Literacy Framework</span><ul class="open"><li><span class="toggle">▸</span><span class="label">Methods</span><ul><li><span class="toggle">▸</span><span class="label">Information Gathering</span><ul><li><span class="toggle">▸</span><span class="label">Specific skills</span><ul><li><span class="leaf">•</span> Targeted queries (Google, Bing, dorks)</li><li><span class="leaf">•</span> Social platforms and open/public databases</li><li><span class="leaf">•</span> Archives, scraping and automation</li><li><span class="leaf">•</span> Data archiving</li></ul></li><li><span class="toggle">▸</span><span class="label">Description</span><ul><li><span class="leaf">•</span> Efficiently collect relevant open data (text, images, metadata)</li></ul></li><li><span class="toggle">▸</span><span class="label">Examples</span><ul><li><span class="leaf">•</span> Google Advanced -> hidden PDFs</li><li><span class="leaf">•</span> Query social media with keywords</li></ul></li><li><span class="toggle">▸</span><span class="label">Level</span><ul><li><span class="leaf">•</span> Level 2 - Good proficiency</li></ul></li></ul></li><li><span class="toggle">▸</span><span class="label">Analysis and Synthesis</span><ul><li><span class="toggle">▸</span><span class="label">Specific skills</span><ul><li><span class="leaf">•</span> Graphs, maps, timelines</li><li><span class="leaf">•</span> Detect links, trends, anomalies</li><li><span class="leaf">•</span> Visualization for patterns</li></ul></li><li><span class="toggle">▸</span><span class="label">Description</span><ul><li><span class="leaf">•</span> Turn raw information into actionable intelligence</li></ul></li><li><span class="toggle">▸</span><span class="label">Examples</span><ul><li><span class="leaf">•</span> Map entities and connections</li><li><span class="leaf">•</span> Cross-reference geographic and socio-economic data</li></ul></li><li><span class="toggle">▸</span><span class="label">Level</span><ul><li><span class="leaf">•</span> Level 2 - Good proficiency</li></ul></li></ul></li><li><span class="toggle">▸</span><span class="label">Tools and Techniques Proficiency</span><ul><li><span class="toggle">▸</span><span class="label">Specific skills</span><ul><li><span class="leaf">•</span> Maltego, Shodan, SpiderFoot</li><li><span class="leaf">•</span> Specialized platforms, APIs</li><li><span class="leaf">•</span> Automation, AI-assisted processing</li></ul></li><li><span class="toggle">▸</span><span class="label">Description</span><ul><li><span class="leaf">•</span> Use tools to optimize OSINT processes</li></ul></li><li><span class="toggle">▸</span><span class="label">Examples</span><ul><li><span class="leaf">•</span> Visualize relations with Maltego</li><li><span class="leaf">•</span> API-based collection</li></ul></li><li><span class="toggle">▸</span><span class="label">Level</span><ul><li><span class="leaf">•</span> Level 2 - Good proficiency</li></ul></li></ul></li></ul></li><li><span class="toggle">▸</span><span class="label">Responsibility</span><ul><li><span class="toggle">▸</span><span class="label">Source Evaluation and Verification</span><ul><li><span class="toggle">▸</span><span class="label">Specific skills</span><ul><li><span class="leaf">•</span> Authenticity checks (images, videos, documents)</li><li><span class="leaf">•</span> Credibility assessment</li><li><span class="leaf">•</span> Cross-checking across sources</li></ul></li><li><span class="toggle">▸</span><span class="label">Description</span><ul><li><span class="leaf">•</span> Validate reliability of sources and information</li></ul></li><li><span class="toggle">▸</span><span class="label">Examples</span><ul><li><span class="leaf">•</span> Reverse image search</li><li><span class="leaf">•</span> Cross-check datasets</li></ul></li><li><span class="toggle">▸</span><span class="label">Level</span><ul><li><span class="leaf">•</span> Level 2 - Good proficiency</li></ul></li></ul></li><li><span class="toggle">▸</span><span class="label">Ethics, Legality, Security - OPSEC</span><ul><li><span class="toggle">▸</span><span class="label">Specific skills</span><ul><li><span class="leaf">•</span> GDPR, copyright, Terms of Service</li><li><span class="leaf">•</span> VPN, anonymity, secure browsing</li></ul></li><li><span class="toggle">▸</span><span class="label">Description</span><ul><li><span class="leaf">•</span> Ensure safe, legal, and ethical investigations</li></ul></li><li><span class="toggle">▸</span><span class="label">Examples</span><ul><li><span class="leaf">•</span> Use a VPN</li><li><span class="leaf">•</span> Verify licences before reuse</li></ul></li><li><span class="toggle">▸</span><span class="label">Level</span><ul><li><span class="leaf">•</span> Level 2 - Good proficiency</li></ul></li></ul></li><li><span class="toggle">▸</span><span class="label">Critical Thinking and Reflexivity</span><ul><li><span class="toggle">▸</span><span class="label">Specific skills</span><ul><li><span class="leaf">•</span> Detect cognitive biases</li><li><span class="leaf">•</span> Review hypotheses</li><li><span class="leaf">•</span> Reflective process and clear reporting</li></ul></li><li><span class="toggle">▸</span><span class="label">Description</span><ul><li><span class="leaf">•</span> Justify reasoning, show limits, ensure transparency</li></ul></li><li><span class="toggle">▸</span><span class="label">Examples</span><ul><li><span class="leaf">•</span> Publish with verifiable sources and traces</li></ul></li><li><span class="toggle">▸</span><span class="label">Level</span><ul><li><span class="leaf">•</span> Level 3 - Critical capability</li></ul></li></ul></li></ul></li></ul></li>
+  </ul>
+  <p class="note">Tip: click on the triangles ▸/▾ to expand/collapse branches. Right/left arrow keys expand/collapse the focused branch.</p>
+</div>
+<script>
+document.querySelectorAll('#tree .toggle').forEach(function(tg){
+  tg.addEventListener('click', function(e){
+    const li = e.target.closest('li');
+    const ul = li.querySelector(':scope > ul');
+    if(!ul) return;
+    const isOpen = ul.classList.contains('open');
+    if(isOpen) {
+      ul.classList.remove('open');
+      ul.classList.add('hidden');
+      tg.textContent='▸';
+    } else {
+      ul.classList.add('open');
+      ul.classList.remove('hidden');
+      tg.textContent='▾';
+    }
+  });
+});
+document.querySelectorAll('#tree .toggle').forEach(function(tg){ tg.tabIndex=0; });
+</script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSINT Literacy Framework – Interactive Mindmap (Themes + Icons + PDF)</title>
+<meta name="color-scheme" content="light dark">
+<style>
+  :root{
+    /* Light theme palette */
+    --bg:#f7fafc; --fg:#222; --muted:#5b6678; --line:#e0e6ef;
+    --card-bg:#fff; --card-bd:#d0d7de; --shadow:0 2px 6px rgba(0,0,0,.06);
+    --btn-bg:#fff; --btn-fg:#111; --btn-bd:#d0d7de; --btn-bg-hover:#f2f5f9;
+    --primary:#1A73E8; --primary-fg:#fff;
+
+    --gather-bg:#FFF7CC; --gather-bd:#FFCC00; --gather-fg:#2b2b2b;
+    --verify-bg:#FFE6D5; --verify-bd:#FF6F00; --verify-fg:#2b2b2b;
+    --analysis-bg:#E8F0FF; --analysis-bd:#1A73E8; --analysis-fg:#1a1a1a;
+    --tools-bg:#ECE8FF; --tools-bd:#5C3DFF; --tools-fg:#1a1a1a;
+    --ethics-bg:#EAF7EF; --ethics-bd:#2E9E44; --ethics-fg:#1a1a1a;
+    --critical-bg:#FDE7EF; --critical-bd:#D6336C; --critical-fg:#1a1a1a;
+  }
+  [data-theme="dark"]{
+    /* Dark theme palette */
+    --bg:#0f1420; --fg:#e6edf3; --muted:#98a1b2; --line:#273247;
+    --card-bg:#101826; --card-bd:#273247; --shadow:0 2px 6px rgba(0,0,0,.5);
+    --btn-bg:#162033; --btn-fg:#e6edf3; --btn-bd:#2a3852; --btn-bg-hover:#1a2740;
+    --primary:#59A5FF; --primary-fg:#0b111a;
+
+    --gather-bg:#3b3415; --gather-bd:#FFCC00; --gather-fg:#f4e9b0;
+    --verify-bg:#3a2316; --verify-bd:#FF6F00; --verify-fg:#ffd8c2;
+    --analysis-bg:#0f203d; --analysis-bd:#59A5FF; --analysis-fg:#d7e6ff;
+    --tools-bg:#1d1a37; --tools-bd:#8e7fff; --tools-fg:#e7e3ff;
+    --ethics-bg:#11261a; --ethics-bd:#4cd17a; --ethics-fg:#d2f1df;
+    --critical-bg:#31121c; --critical-bd:#ff6f91; --critical-fg:#ffd6e1;
+  }
+
+  html,body{margin:0; padding:0; background:var(--bg); color:var(--fg); font:16px/1.5 -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
+  .container{max-width:1200px; margin:0 auto; padding:1.25rem 1rem 2rem;}
+  header{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.75rem;}
+  h1{margin:0; color:var(--fg); font-weight:800; font-size:1.35rem;}
+  .legend{display:flex; flex-wrap:wrap; gap:.5rem .9rem; margin:.25rem 0 0.75rem; font-size:.9rem; color:var(--muted);}
+  .legend span{display:inline-flex; align-items:center; gap:.4rem;}
+  .swatch{width:14px; height:14px; border-radius:4px; display:inline-block; border:2px solid rgba(0,0,0,.15);}
+  .toolbar{display:flex; gap:.5rem; flex-wrap:wrap;}
+  .btn{background:var(--btn-bg); border:1px solid var(--btn-bd); color:var(--btn-fg); padding:.45rem .7rem; border-radius:8px; cursor:pointer; font-weight:600; box-shadow:var(--shadow);}
+  .btn:hover{background:var(--btn-bg-hover);}
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--primary); color:var(--primary-fg); border-color:var(--primary);}
+  .tree{list-style:none; margin:0; padding-left:0;}
+  .tree li{margin:.35rem 0; position:relative;}
+  .branch{display:flex; align-items:center; gap:.5rem;}
+  .toggle{cursor:pointer; user-select:none; width:1.35rem; height:1.35rem; line-height:1.2rem; text-align:center; color:var(--fg); font-weight:700; border-radius:6px; background:var(--card-bg); border:1px solid var(--card-bd); box-shadow:var(--shadow);}
+  .toggle:focus{outline:2px solid var(--primary); outline-offset:2px;}
+  .label{font-weight:700; display:flex; align-items:center; gap:.45rem;}
+  .icon{width:18px; height:18px; display:inline-block; vertical-align:middle;}
+  .children{margin:.35rem 0 .6rem 1.7rem; border-left:2px solid var(--line); padding-left:1rem;}
+  .hidden{display:none;}
+  .leaf{color:var(--muted); margin-right:.4rem;}
+  .box{background:var(--card-bg); border:1px solid var(--card-bd); border-radius:12px; padding:.7rem .85rem; box-shadow:var(--shadow); color:var(--fg);}
+  .subhead{font-size:.95rem; margin:.15rem 0 .35rem; font-weight:800;}
+
+  /* Top-level branch theming */
+  .t-gather > .branch .label{color:var(--gather-bd);}
+  .t-gather > .children{border-left-color:var(--gather-bd);}
+  .t-gather .box{background:var(--gather-bg); border-color:var(--gather-bd); color:var(--gather-fg);}
+
+  .t-verify > .branch .label{color:var(--verify-bd);}
+  .t-verify > .children{border-left-color:var(--verify-bd);}
+  .t-verify .box{background:var(--verify-bg); border-color:var(--verify-bd); color:var(--verify-fg);}
+
+  .t-analysis > .branch .label{color:var(--analysis-bd);}
+  .t-analysis > .children{border-left-color:var(--analysis-bd);}
+  .t-analysis .box{background:var(--analysis-bg); border-color:var(--analysis-bd); color:var(--analysis-fg);}
+
+  .t-tools > .branch .label{color:var(--tools-bd);}
+  .t-tools > .children{border-left-color:var(--tools-bd);}
+  .t-tools .box{background:var(--tools-bg); border-color:var(--tools-bd); color:var(--tools-fg);}
+
+  .t-ethics > .branch .label{color:var(--ethics-bd);}
+  .t-ethics > .children{border-left-color:var(--ethics-bd);}
+  .t-ethics .box{background:var(--ethics-bg); border-color:var(--ethics-bd); color:var(--ethics-fg);}
+
+  .t-critical > .branch .label{color:var(--critical-bd);}
+  .t-critical > .children{border-left-color:var(--critical-bd);}
+  .t-critical .box{background:var(--critical-bg); border-color:var(--critical-bd); color:var(--critical-fg);}
+
+  /* Root styling */
+  .root > .branch .label{font-size:1.05rem;}
+  .root > .children{border-left-color:var(--line);}
+
+  /* Footer */
+  .site-footer{margin-top:2rem; padding:1.2rem 0; border-top:2px solid var(--line); background:var(--card-bg); color:var(--fg);}
+  .site-footer .footwrap{display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; align-items:flex-start;}
+  .site-footer h2{font-size:1.0rem; margin:0 0 .5rem; font-weight:800; color:var(--fg);}
+  .site-footer p, .site-footer li{margin:.15rem 0;}
+  .site-footer a{color:var(--primary); text-decoration:none;}
+  .site-footer a:hover{text-decoration:underline;}
+  .site-footer .cc-icons svg{width:28px; height:28px; margin-right:.35rem; vertical-align:middle;}
+  .site-footer small{color:var(--muted);}
+  @media (max-width: 900px){
+    .site-footer .footwrap{grid-template-columns: 1fr;}
+  }
+
+  /* Print (PDF export) */
+  @media print{
+    :root{ color-scheme: light; }
+    [data-theme="dark"]{ color-scheme: light; }
+    body{background:#fff; color:#000;}
+    .toolbar, .legend{display:none !important;}
+    .container{max-width:100%; padding:0.5cm;}
+    .children{border-left-color:#bbb;}
+    .box{box-shadow:none;}
+    .toggle{display:none;}
+    a{color:#000; text-decoration:none;}
+    .site-footer{border-top:1px solid #bbb; background:#fff; color:#000;}
+    .site-footer a{color:#000; text-decoration:none;}
+    @page{size:A3 portrait; margin:1cm;}
+  }
+</style>
+</head>
+<body>
+<!-- SVG icons (inline symbols) -->
+<svg aria-hidden="true" style="position:absolute; width:0; height:0; overflow:hidden;">
+  <symbol id="ic-folder" viewBox="0 0 24 24"><path fill="currentColor" d="M10 4l2 2h8a2 2 0 012 2v9a3 3 0 01-3 3H5a3 3 0 01-3-3V7a3 3 0 013-3h5z"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 24 24"><path fill="currentColor" d="M10 2a8 8 0 105.29 14.29l4.7 4.7 1.41-1.41-4.7-4.7A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/></symbol>
+  <symbol id="ic-verify" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1l3 3 4-.5-1 3.9 3 2.6-3 2.6 1 3.9-4-.5-3 3-3-3-4 .5 1-3.9-3-2.6 3-2.6-1-3.9 4 .5 3-3zm-1 13l6-6-1.4-1.4L11 11.2 8.4 8.6 7 10l4 4z"/></symbol>
+  <symbol id="ic-chart" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h2v18H3V3zm4 8h2v10H7V11zm4-4h2v14h-2V7zm4 6h2v8h-2v-8zm4-10h2v18h-2V3z"/></symbol>
+  <symbol id="ic-gear" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8a4 4 0 110 8 4 4 0 010-8zm8.94 4.66l-1.72-.99c.05-.21.08-.43.08-.66s-.03-.45-.08-.66l1.72-.99a.5.5 0 00.18-.68l-1.8-3.11a.5.5 0 00-.62-.22l-1.72.99a6.97 6.97 0 00-1.14-.66l-.26-1.98A.5.5 0 0013.07 2h-3.6a.5.5 0 00-.49.41l-.26 1.98c-.4.17-.78.38-1.14.66l-1.72-.99a.5.5 0 00-.62.22L2.44 8.39a.5.5 0 00.18.68l1.72.99c-.05.21-.08.43-.08.66s.03-.45.08-.66l-1.72.99a.5.5 0 00-.18.68l1.8 3.11a.5.5 0 00.62.22l1.72-.99c.36.28.74.49 1.14.66l.26 1.98a.5.5 0 00.49.41h3.6a.5.5 0 00.49-.41l.26-1.98c.4-.17.78-.38 1.14-.66l1.72.99a.5.5 0 00.62-.22l1.8-3.11a.5.5 0 00-.18-.68z"/></symbol>
+  <symbol id="ic-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a5 5 0 00-5 5v3H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2v-8a2 2 0 00-2-2h-2V7a5 5 0 00-5-5zm-3 8V7a3 3 0 016 0v3H9z"/></symbol>
+  <symbol id="ic-brain" viewBox="0 0 24 24"><path fill="currentColor" d="M8 3a4 4 0 00-4 4v1a4 4 0 000 8v1a4 4 0 108 0V7a4 4 0 00-4-4zm8 0a4 4 0 014 4v1a4 4 0 010 8v1a4 4 0 11-8 0V7a4 4 0 014-4z"/></symbol>
+  <symbol id="ic-sun" viewBox="0 0 24 24"><path fill="currentColor" d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8zM1 13h3v-2H1v2zm10 10h2v-3h-2v3zM4.84 19.16l1.79 1.8 1.8-1.8-1.8-1.79-1.79 1.79zM13 1h-2v3h2V1zm7.83 3.84l-1.8-1.79-1.79 1.79 1.79 1.8 1.8-1.8zM20 11v2h3v-2h-3zm-8 8a6 6 0 110-12 6 6 0 010 12z"/></symbol>
+  <symbol id="ic-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></symbol>
+  <symbol id="ic-expand" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12h16v2H4zM4 6h16v2H4zM4 18h16v2H4z"/></symbol>
+  <symbol id="ic-collapse" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v2H4zM4 18h16v2H4z"/></symbol>
+  <symbol id="ic-print" viewBox="0 0 24 24"><path fill="currentColor" d="M6 9V2h12v7H6zm12 2h2a2 2 0 012 2v5h-4v4H8v-4H4v-5a2 2 0 012-2h2v2h10v-2z"/></symbol>
+  <symbol id="ic-theme" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 2v14a7 7 0 010-14z"/></symbol>
+</svg>
+
+<div class="container" id="app">
+  <header>
+    <h1><svg class="icon" aria-hidden="true"><use href="#ic-folder"/></svg> OSINT Literacy Framework</h1>
+    <div class="toolbar">
+      <button class="btn" id="expandAll" type="button"><svg class="icon"><use href="#ic-expand"/></svg> Expand all</button>
+      <button class="btn" id="collapseAll" type="button"><svg class="icon"><use href="#ic-collapse"/></svg> Collapse all</button>
+      <button class="btn btn-primary" id="printBtn" type="button" title="Export PDF (via Print)"><svg class="icon"><use href="#ic-print"/></svg> Export PDF</button>
+      <button class="btn" id="themeBtn" type="button" title="Toggle theme"><svg class="icon" id="themeIcon"><use href="#ic-moon"/></svg> Theme</button>
+    </div>
+  </header>
+
+  <div class="legend" aria-hidden="true">
+    <span><i class="swatch" style="background:var(--gather-bg); border-color:var(--gather-bd)"></i> Information gathering</span>
+    <span><i class="swatch" style="background:var(--verify-bg); border-color:var(--verify-bd)"></i> Source evaluation & verification</span>
+    <span><i class="swatch" style="background:var(--analysis-bg); border-color:var(--analysis-bd)"></i> Analysis & synthesis</span>
+    <span><i class="swatch" style="background:var(--tools-bg); border-color:var(--tools-bd)"></i> Tools & techniques</span>
+    <span><i class="swatch" style="background:var(--ethics-bg); border-color:var(--ethics-bd)"></i> Ethics, legality & security (OPSEC)</span>
+    <span><i class="swatch" style="background:var(--critical-bg); border-color:var(--critical-bd)"></i> Critical thinking & reflexivity</span>
+  </div>
+
+  <ul class="tree">
+    <li class="root">
+      <div class="branch">
+        <span class="toggle" tabindex="0" aria-expanded="true" aria-label="toggle">▾</span>
+        <span class="label"><svg class="icon"><use href="#ic-folder"/></svg> OSINT Literacy Framework</span>
+      </div>
+      <ul class="children">
+
+        <!-- 1) OSINT information gathering -->
+        <li class="t-gather">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><svg class="icon"><use href="#ic-search"/></svg> OSINT information gathering</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Targeted queries on search engines (Google, Bing) and specialized web</li>
+                <li><span class="leaf">•</span>Use of social platforms, public databases, open databases and online archives</li>
+                <li><span class="leaf">•</span>Scraping applications and automated collection tools</li>
+                <li><span class="leaf">•</span>Establish data archiving</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Ability to efficiently identify and collect relevant open data (text, images, metadata) using advanced search strategies (Boolean operators, filters, etc.).</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Use Google Advanced or dorks to find hidden PDF documents</li>
+                <li><span class="leaf">•</span>Query social networks with relevant keywords</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 2) Source evaluation and verification -->
+        <li class="t-verify">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><svg class="icon"><use href="#ic-verify"/></svg> Source evaluation and verification</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Authenticity check of information (images, videos, documents)</li>
+                <li><span class="leaf">•</span>Critical evaluation of source credibility and reliability</li>
+                <li><span class="leaf">•</span>Cross-checking data across different sources</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Evaluate the reliability of a source and confirm the authenticity of information (reverse image search, data triangulation, double-checking).</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Verify a photo through a reverse image search to confirm its origin</li>
+                <li><span class="leaf">•</span>Cross-check public datasets to validate facts</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 3) Information analysis and synthesis -->
+        <li class="t-analysis">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><svg class="icon"><use href="#ic-chart"/></svg> Information analysis and synthesis</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Analytical processing of data (graphs, timelines, maps)</li>
+                <li><span class="leaf">•</span>Detecting links, trends, and anomalies</li>
+                <li><span class="leaf">•</span>Using visualization tools to extract patterns</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Transform raw information into actionable intelligence by analysing data (trends, links, anomalies) and synthesizing results.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Cross-reference geographic data with socio-economic data to reveal trends</li>
+                <li><span class="leaf">•</span>Create a mind map of links between suspicious entities</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 4) OSINT tools and techniques proficiency -->
+        <li class="t-tools">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><svg class="icon"><use href="#ic-gear"/></svg> OSINT tools and techniques proficiency</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Use of OSINT tools (Maltego, Shodan, SpiderFoot...)</li>
+                <li><span class="leaf">•</span>Use of specialized platforms</li>
+                <li><span class="leaf">•</span>Automating collection and analysis</li>
+                <li><span class="leaf">•</span>A deliberate and well-managed use of artificial intelligence</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Know and effectively use tools (metadata analysis, geolocation, scripts, specialized engines) to optimize processes.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Automate Twitter feed collection via API</li>
+                <li><span class="leaf">•</span>Use Maltego to visualize relationships between accounts</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 5) Ethics, legality, and security (OPSEC) -->
+        <li class="t-ethics">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><svg class="icon"><use href="#ic-lock"/></svg> Ethics, legality, and security (OPSEC)</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Knowledge of legal frameworks (GDPR, copyright)</li>
+                <li><span class="leaf">•</span>Digital security practises (VPN, anonymity)</li>
+                <li><span class="leaf">•</span>Compliance with terms of service</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Understand the legal and ethical implications of data collection and ensure protection of one’s identity and sources.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Use a VPN and secure browser during investigations</li>
+                <li><span class="leaf">•</span>Verify content licences before reuse</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 6) Critical thinking and reflexivity -->
+        <li class="t-critical">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><svg class="icon"><use href="#ic-brain"/></svg> Critical thinking and reflexivity</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Detecting cognitive biases</li>
+                <li><span class="leaf">•</span>Critical analysis of hypotheses and reasoning</li>
+                <li><span class="leaf">•</span>Reflective review of process</li>
+                <li><span class="leaf">•</span>Clear, structured, and intelligible dissemination of investigative findings</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Go beyond surface appearances by questioning assumptions, identifying biases, and rigorously justifying reasoning. Analytical competence is demonstrated through the ability to explain the investigative process, articulate its significance, and acknowledge its potential limitations when presenting results.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Publish an investigation that explains the process, presents the traces found, and clearly outlines its conclusions, while allowing the reader to verify the sources and data mentioned.</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 3 — Critical capability</div>
+            </div></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<footer class="site-footer">
+  <div class="container footwrap">
+    <section>
+      <h2>Acknowledgements</h2>
+      <p>This study was supported by a grant from
+      <a href="https://www.ihemi.fr" target="_blank" rel="noopener">IHEMI – Institut des Hautes Études du Ministère de l’Intérieur</a>
+      as part of the <strong>MatrioscIA</strong> project.</p>
+    </section>
+
+    <section>
+      <h2>Contacts &amp; Slides</h2>
+      <ul style="list-style:none; padding-left:0;">
+        <li>oledeuff@gmail.com</li>
+        <li>rayya.roumanos@ijba.u-bordeaux-montaigne.fr</li>
+        <li>thais.barbosa-de-almeida@u-bordeaux-montaigne.fr</li>
+      </ul>
+      <p>Slides: <a href="https://oledeuff.github.com/conferences" target="_blank" rel="noopener">oledeuff.github.com/conferences</a></p>
+    </section>
+
+    <section>
+      <h2>License</h2>
+      <div class="cc-icons" aria-hidden="true" title="Creative Commons CC BY 4.0">
+        <svg viewBox="0 0 64 64" role="img" aria-label="CC">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <text x="32" y="39" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-weight="700" font-size="26" fill="currentColor">cc</text>
+        </svg>
+        <svg viewBox="0 0 64 64" role="img" aria-label="BY">
+          <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"></circle>
+          <text x="32" y="39" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-weight="700" font-size="26" fill="currentColor">by</text>
+        </svg>
+      </div>
+      <p><strong>Creative Commons Attribution (CC BY 4.0)</strong><br>
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">https://creativecommons.org/licenses/by/4.0/</a></p>
+      <small>© Authors. You are free to share/adapt with attribution.</small>
+    </section>
+  </div>
+</footer>
+
+<script>
+  // Theme handling with persistence
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  const themeIcon = document.getElementById('themeIcon');
+  const saved = localStorage.getItem('osint-theme');
+  if(saved){ root.setAttribute('data-theme', saved); if(saved==='dark'){ themeIcon.firstElementChild.setAttribute('href','#ic-sun'); } }
+  themeBtn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', cur);
+    localStorage.setItem('osint-theme', cur);
+    themeIcon.firstElementChild.setAttribute('href', cur==='dark' ? '#ic-sun' : '#ic-moon');
+  });
+
+  // Toggle one branch
+  function toggleBranch(tg, forceOpen=null){
+    const li = tg.closest('li');
+    const ul = li.querySelector(':scope > .children');
+    if(!ul) return;
+    const isOpen = !ul.classList.contains('hidden');
+    if(forceOpen === true || (!isOpen && forceOpen === null)){
+      ul.classList.remove('hidden');
+      tg.textContent='▾';
+      tg.setAttribute('aria-expanded','true');
+    } else if(forceOpen === false || (isOpen && forceOpen === null)) {
+      ul.classList.add('hidden');
+      tg.textContent='▸';
+      tg.setAttribute('aria-expanded','false');
+    }
+  }
+
+  // Setup individual toggles
+  document.querySelectorAll('.toggle').forEach(tg => {
+    tg.addEventListener('click', () => toggleBranch(tg));
+    tg.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleBranch(tg); }
+      if(e.key === 'ArrowLeft'){ toggleBranch(tg, false); }
+      if(e.key === 'ArrowRight'){ toggleBranch(tg, true); }
+    });
+  });
+
+  // Expand / Collapse all
+  const expandAllBtn = document.getElementById('expandAll');
+  const collapseAllBtn = document.getElementById('collapseAll');
+  expandAllBtn.addEventListener('click', () => {
+    document.querySelectorAll('.toggle').forEach(tg => toggleBranch(tg, true));
+  });
+  collapseAllBtn.addEventListener('click', () => {
+    const toggles = document.querySelectorAll('.toggle');
+    toggles.forEach((tg) => {
+      const isRoot = tg.closest('li').classList.contains('root');
+      toggleBranch(tg, isRoot ? true : false);
+    });
+  });
+
+  // Print to PDF
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>

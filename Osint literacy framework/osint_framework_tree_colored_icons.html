@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSINT Literacy Framework – Colored HTML Mindmap (Icons + Expand/Collapse + PDF)</title>
+<style>
+  :root{
+    --c-gather-bg:#FFF7CC; --c-gather-border:#FFCC00; --c-gather-text:#2b2b2b;
+    --c-verify-bg:#FFE6D5; --c-verify-border:#FF6F00; --c-verify-text:#2b2b2b;
+    --c-analysis-bg:#E8F0FF; --c-analysis-border:#1A73E8; --c-analysis-text:#1a1a1a;
+    --c-tools-bg:#ECE8FF; --c-tools-border:#5C3DFF; --c-tools-text:#1a1a1a;
+    --c-ethics-bg:#EAF7EF; --c-ethics-border:#2E9E44; --c-ethics-text:#1a1a1a;
+    --c-critical-bg:#FDE7EF; --c-critical-border:#D6336C; --c-critical-text:#1a1a1a;
+  }
+  html,body{margin:0; padding:0; background:#f7fafc; color:#222; font:16px/1.5 -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
+  .container{max-width:1200px; margin:0 auto; padding:1.25rem 1rem 2rem;}
+  header{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.75rem;}
+  h1{margin:0; color:#111; font-weight:800; font-size:1.35rem;}
+  .legend{display:flex; flex-wrap:wrap; gap:.5rem .9rem; margin:.25rem 0 0.75rem; font-size:.9rem;}
+  .legend span{display:inline-flex; align-items:center; gap:.4rem;}
+  .swatch{width:14px; height:14px; border-radius:4px; display:inline-block; border:2px solid rgba(0,0,0,.15);}
+  .toolbar{display:flex; gap:.5rem; flex-wrap:wrap;}
+  .btn{background:#fff; border:1px solid #d0d7de; color:#111; padding:.45rem .7rem; border-radius:8px; cursor:pointer; font-weight:600; box-shadow:0 1px 2px rgba(0,0,0,.05);}
+  .btn:hover{background:#f2f5f9;}
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:#1A73E8; color:#fff; border-color:#1A73E8;}
+  .btn-primary:hover{background:#155bc0;}
+  .tree{list-style:none; margin:0; padding-left:0;}
+  .tree li{margin:.35rem 0; position:relative;}
+  .branch{display:flex; align-items:center; gap:.5rem;}
+  .toggle{cursor:pointer; user-select:none; width:1.35rem; height:1.35rem; line-height:1.2rem; text-align:center; color:#444; font-weight:700; border-radius:6px; background:#fff; border:1px solid #d0d7de; box-shadow:0 1px 2px rgba(0,0,0,.05);}
+  .toggle:focus{outline:2px solid #1A73E8; outline-offset:2px;}
+  .label{font-weight:700; display:flex; align-items:center; gap:.45rem;}
+  .icon{font-size:1.1rem; line-height:1; display:inline-block;}
+  .children{margin:.35rem 0 .6rem 1.7rem; border-left:2px solid #e0e6ef; padding-left:1rem;}
+  .hidden{display:none;}
+  .leaf{color:#777; margin-right:.4rem;}
+  .box{background:#fff; border:1px solid #ddd; border-radius:12px; padding:.7rem .85rem; box-shadow:0 2px 6px rgba(0,0,0,.05);}
+  .subhead{font-size:.95rem; margin:.15rem 0 .35rem; font-weight:800;}
+  /* Top-level branch theming */
+  .t-gather > .branch .label{color:var(--c-gather-border);}
+  .t-gather > .children{border-left-color:var(--c-gather-border);}
+  .t-gather .box{background:var(--c-gather-bg); border-color:var(--c-gather-border); color:var(--c-gather-text);}
+
+  .t-verify > .branch .label{color:var(--c-verify-border);}
+  .t-verify > .children{border-left-color:var(--c-verify-border);}
+  .t-verify .box{background:var(--c-verify-bg); border-color:var(--c-verify-border); color:var(--c-verify-text);}
+
+  .t-analysis > .branch .label{color:var(--c-analysis-border);}
+  .t-analysis > .children{border-left-color:var(--c-analysis-border);}
+  .t-analysis .box{background:var(--c-analysis-bg); border-color:var(--c-analysis-border); color:var(--c-analysis-text);}
+
+  .t-tools > .branch .label{color:var(--c-tools-border);}
+  .t-tools > .children{border-left-color:var(--c-tools-border);}
+  .t-tools .box{background:var(--c-tools-bg); border-color:var(--c-tools-border); color:var(--c-tools-text);}
+
+  .t-ethics > .branch .label{color:var(--c-ethics-border);}
+  .t-ethics > .children{border-left-color:var(--c-ethics-border);}
+  .t-ethics .box{background:var(--c-ethics-bg); border-color:var(--c-ethics-border); color:var(--c-ethics-text);}
+
+  .t-critical > .branch .label{color:var(--c-critical-border);}
+  .t-critical > .children{border-left-color:var(--c-critical-border);}
+  .t-critical .box{background:var(--c-critical-bg); border-color:var(--c-critical-border); color:var(--c-critical-text);}
+
+  /* Root styling */
+  .root > .branch .label{font-size:1.05rem;}
+  .root > .children{border-left-color:#cfd8e3;}
+
+  /* Print (PDF export) */
+  @media print{
+    body{background:#fff;}
+    .toolbar, .legend{display:none !important;}
+    .container{max-width:100%; padding:0.5cm;}
+    .children{border-left-color:#bbb;}
+    .box{box-shadow:none;}
+    .toggle{display:none;}
+    a{color:#000; text-decoration:none;}
+    @page{size:A3 portrait; margin:1cm;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>OSINT Literacy Framework</h1>
+    <div class="toolbar">
+      <button class="btn" id="expandAll" type="button">Expand all</button>
+      <button class="btn" id="collapseAll" type="button">Collapse all</button>
+      <button class="btn btn-primary" id="printBtn" type="button" title="Export PDF (via Print)">Export PDF</button>
+    </div>
+  </header>
+
+  <div class="legend" aria-hidden="true">
+    <span><i class="swatch" style="background:var(--c-gather-bg); border-color:var(--c-gather-border)"></i> Information gathering</span>
+    <span><i class="swatch" style="background:var(--c-verify-bg); border-color:var(--c-verify-border)"></i> Source evaluation & verification</span>
+    <span><i class="swatch" style="background:var(--c-analysis-bg); border-color:var(--c-analysis-border)"></i> Analysis & synthesis</span>
+    <span><i class="swatch" style="background:var(--c-tools-bg); border-color:var(--c-tools-border)"></i> Tools & techniques</span>
+    <span><i class="swatch" style="background:var(--c-ethics-bg); border-color:var(--c-ethics-border)"></i> Ethics, legality & security (OPSEC)</span>
+    <span><i class="swatch" style="background:var(--c-critical-bg); border-color:var(--c-critical-border)"></i> Critical thinking & reflexivity</span>
+  </div>
+
+  <ul class="tree">
+    <li class="root">
+      <div class="branch">
+        <span class="toggle" tabindex="0" aria-expanded="true" aria-label="toggle">▾</span>
+        <span class="label"><span class="icon">🗂️</span> OSINT Literacy Framework</span>
+      </div>
+      <ul class="children">
+
+        <!-- 1) OSINT information gathering -->
+        <li class="t-gather">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><span class="icon">🔍</span> OSINT information gathering</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Targeted queries on search engines (Google, Bing) and specialized web</li>
+                <li><span class="leaf">•</span>Use of social platforms, public databases, open databases and online archives</li>
+                <li><span class="leaf">•</span>Scraping applications and automated collection tools</li>
+                <li><span class="leaf">•</span>Establish data archiving</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Ability to efficiently identify and collect relevant open data (text, images, metadata) using advanced search strategies (Boolean operators, filters, etc.).</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Use Google Advanced or dorks to find hidden PDF documents</li>
+                <li><span class="leaf">•</span>Query social networks with relevant keywords</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 2) Source evaluation and verification -->
+        <li class="t-verify">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><span class="icon">🕵️</span> Source evaluation and verification</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Authenticity check of information (images, videos, documents)</li>
+                <li><span class="leaf">•</span>Critical evaluation of source credibility and reliability</li>
+                <li><span class="leaf">•</span>Cross-checking data across different sources</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Evaluate the reliability of a source and confirm the authenticity of information (reverse image search, data triangulation, double-checking).</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Verify a photo through a reverse image search to confirm its origin</li>
+                <li><span class="leaf">•</span>Cross-check public datasets to validate facts</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 3) Information analysis and synthesis -->
+        <li class="t-analysis">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><span class="icon">📈</span> Information analysis and synthesis</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Analytical processing of data (graphs, timelines, maps)</li>
+                <li><span class="leaf">•</span>Detecting links, trends, and anomalies</li>
+                <li><span class="leaf">•</span>Using visualization tools to extract patterns</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Transform raw information into actionable intelligence by analysing data (trends, links, anomalies) and synthesizing results.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Cross-reference geographic data with socio-economic data to reveal trends</li>
+                <li><span class="leaf">•</span>Create a mind map of links between suspicious entities</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 4) OSINT tools and techniques proficiency -->
+        <li class="t-tools">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><span class="icon">⚙️</span> OSINT tools and techniques proficiency</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Use of OSINT tools (Maltego, Shodan, SpiderFoot...)</li>
+                <li><span class="leaf">•</span>Use of specialized platforms</li>
+                <li><span class="leaf">•</span>Automating collection and analysis</li>
+                <li><span class="leaf">•</span>A deliberate and well-managed use of artificial intelligence</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Know and effectively use tools (metadata analysis, geolocation, scripts, specialized engines) to optimize processes.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Automate Twitter feed collection via API</li>
+                <li><span class="leaf">•</span>Use Maltego to visualize relationships between accounts</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 5) Ethics, legality, and security (OPSEC) -->
+        <li class="t-ethics">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><span class="icon">🔐</span> Ethics, legality, and security (OPSEC)</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Knowledge of legal frameworks (GDPR, copyright)</li>
+                <li><span class="leaf">•</span>Digital security practises (VPN, anonymity)</li>
+                <li><span class="leaf">•</span>Compliance with terms of service</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Understand the legal and ethical implications of data collection and ensure protection of one’s identity and sources.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Use a VPN and secure browser during investigations</li>
+                <li><span class="leaf">•</span>Verify content licences before reuse</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 2 — Good proficiency</div>
+            </div></li>
+          </ul>
+        </li>
+
+        <!-- 6) Critical thinking and reflexivity -->
+        <li class="t-critical">
+          <div class="branch">
+            <span class="toggle" tabindex="0" aria-expanded="true">▾</span>
+            <span class="label"><span class="icon">🧠</span> Critical thinking and reflexivity</span>
+          </div>
+          <ul class="children">
+            <li><div class="box"><div class="subhead">Specific skills</div>
+              <ul>
+                <li><span class="leaf">•</span>Detecting cognitive biases</li>
+                <li><span class="leaf">•</span>Critical analysis of hypotheses and reasoning</li>
+                <li><span class="leaf">•</span>Reflective review of process</li>
+                <li><span class="leaf">•</span>Clear, structured, and intelligible dissemination of investigative findings</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Description</div>
+              <div>Go beyond surface appearances by questioning assumptions, identifying biases, and rigorously justifying reasoning. Analytical competence is demonstrated through the ability to explain the investigative process, articulate its significance, and acknowledge its potential limitations when presenting results.</div>
+            </div></li>
+            <li><div class="box"><div class="subhead">Examples</div>
+              <ul>
+                <li><span class="leaf">•</span>Publish an investigation that explains the process, presents the traces found, and clearly outlines its conclusions, while allowing the reader to verify the sources and data mentioned.</li>
+              </ul>
+            </div></li>
+            <li><div class="box"><div class="subhead">Level</div>
+              <div>Level 3 — Critical capability</div>
+            </div></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script>
+  // Toggle one branch
+  function toggleBranch(tg, forceOpen=null){
+    const li = tg.closest('li');
+    const ul = li.querySelector(':scope > .children');
+    if(!ul) return;
+    const isOpen = !ul.classList.contains('hidden');
+    if(forceOpen === true || (!isOpen && forceOpen === null)){
+      ul.classList.remove('hidden');
+      tg.textContent='▾';
+      tg.setAttribute('aria-expanded','true');
+    } else if(forceOpen === false || (isOpen && forceOpen === null)) {
+      ul.classList.add('hidden');
+      tg.textContent='▸';
+      tg.setAttribute('aria-expanded','false');
+    }
+  }
+
+  // Setup individual toggles
+  document.querySelectorAll('.toggle').forEach(tg => {
+    tg.addEventListener('click', () => toggleBranch(tg));
+    tg.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleBranch(tg); }
+      if(e.key === 'ArrowLeft'){ toggleBranch(tg, false); }
+      if(e.key === 'ArrowRight'){ toggleBranch(tg, true); }
+    });
+  });
+
+  // Expand / Collapse all
+  const expandAllBtn = document.getElementById('expandAll');
+  const collapseAllBtn = document.getElementById('collapseAll');
+  expandAllBtn.addEventListener('click', () => {
+    document.querySelectorAll('.toggle').forEach(tg => toggleBranch(tg, true));
+  });
+  collapseAllBtn.addEventListener('click', () => {
+    // Keep root open, collapse non-root branches
+    const toggles = document.querySelectorAll('.toggle');
+    toggles.forEach((tg, idx) => {
+      const isRoot = tg.closest('li').classList.contains('root');
+      toggleBranch(tg, isRoot ? true : false);
+    });
+  });
+
+  // Print to PDF
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
