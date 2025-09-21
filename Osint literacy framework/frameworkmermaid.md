@@ -1,97 +1,83 @@
-# 🧩 OSINT Literacy Framework — Mermaid Mindmap
+# OSINT Literacy Framework — Mindmap + Themed Tree (GitHub-safe)
 
-This mindmap summarizes the six core skill areas of the OSINT Literacy Framework,  
-including specific skills, descriptions, examples, and proficiency levels.
+> GitHub Mermaid ne supporte pas le stylage par classes sur `mindmap`.  
+> Ci-dessous : (1) un **mindmap simple** (sans couleurs) + (2) un **flowchart coloré** par thème qui rend correctement sur GitHub.
 
-# OSINT Literacy Framework — Themed Mindmap (Colored)
+---
+
+## 1) Mindmap (structure complète, sans couleurs)
 
 ```mermaid
 mindmap
-  root((OSINT Literacy Framework)):::root
-
-    IG(📥 Information Gathering):::gather
-      Specific skills:::gather
-        Targeted queries (Google, Bing, dorks):::gather
-        Social platforms & open/public databases:::gather
-        Archives, scraping & automation:::gather
-        Data archiving:::gather
-      Description:::gather
-        Efficiently collect relevant open data:::gather
-      Examples:::gather
-        Google Advanced → hidden PDFs:::gather
-        Query social media with keywords:::gather
-      Level:::gather
-        Level 2 — Good proficiency:::gather
-
-    SE(🕵️ Source Evaluation & Verification):::verify
-      Specific skills:::verify
-        Authenticity checks (images, videos, docs):::verify
-        Credibility assessment:::verify
-        Cross-checking across sources:::verify
-      Description:::verify
-        Validate sources & information:::verify
-      Examples:::verify
-        Reverse image search:::verify
-        Cross-check datasets:::verify
-      Level:::verify
-        Level 2 — Good proficiency:::verify
-
-    AS(📊 Analysis & Synthesis):::analyze
-      Specific skills:::analyze
-        Graphs • maps • timelines:::analyze
-        Detect links • trends • anomalies:::analyze
-        Visualization for patterns:::analyze
-      Description:::analyze
-        Turn raw info into intelligence:::analyze
-      Examples:::analyze
-        Map entities & connections:::analyze
-        Cross-ref geo & socio-economic data:::analyze
-      Level:::analyze
-        Level 2 — Good proficiency:::analyze
-
-    TP(⚙️ Tools & Techniques):::tools
-      Specific skills:::tools
-        Maltego • Shodan • SpiderFoot:::tools
-        Specialized platforms • APIs:::tools
-        Automation • AI-assisted processing:::tools
-      Description:::tools
-        Use tools to optimize processes:::tools
-      Examples:::tools
-        Maltego for relations graph:::tools
-        API-based collection:::tools
-      Level:::tools
-        Level 2 — Good proficiency:::tools
-
-    ES(🔐 Ethics • Legality • Security):::ethics
-      Specific skills:::ethics
-        GDPR • copyright • ToS:::ethics
-        VPN • anonymity • secure browsing:::ethics
-      Description:::ethics
-        Ensure safe, legal, ethical OSINT:::ethics
-      Examples:::ethics
-        Use a VPN:::ethics
-        Verify licences before reuse:::ethics
-      Level:::ethics
-        Level 2 — Good proficiency:::ethics
-
-    CT(🧠 Critical Thinking & Reflexivity):::critical
-      Specific skills:::critical
-        Detect biases:::critical
-        Review hypotheses:::critical
-        Reflective process & clear reporting:::critical
-      Description:::critical
-        Justify reasoning • show limits • transparency:::critical
-      Examples:::critical
-        Publish with verifiable sources & traces:::critical
-      Level:::critical
-        Level 3 — Critical capability:::critical
-
-%% === Theming (colors & contrast) ===
-classDef root fill:#ffffff,stroke:#444,color:#222,stroke-width:2px;
-
-classDef gather  fill:#FFF7CC,stroke:#FFCC00,color:#222,stroke-width:2px;
-classDef verify  fill:#FFE6D5,stroke:#FF6F00,color:#222,stroke-width:2px;
-classDef analyze fill:#E8F0FF,stroke:#1A73E8,color:#222,stroke-width:2px;
-classDef tools   fill:#ECE8FF,stroke:#5C3DFF,color:#222,stroke-width:2px;
-classDef ethics  fill:#EAF7EF,stroke:#2E9E44,color:#222,stroke-width:2px;
-classDef critical fill:#FDE7EF,stroke:#D6336C,color:#222,stroke-width:2px;
+  root((OSINT Literacy Framework))
+    📥 Information Gathering
+      Specific skills
+        Targeted queries (Google, Bing, dorks)
+        Social platforms, open/public databases, archives
+        Scraping & automation
+        Data archiving
+      Description
+        Efficiently identify and collect relevant open data (text, images, metadata)
+      Examples
+        Google Advanced → hidden PDFs
+        Query social media with keywords
+      Level
+        Level 2 — Good proficiency
+    🕵️ Source Evaluation & Verification
+      Specific skills
+        Authenticity checks (images, videos, docs)
+        Credibility assessment
+        Cross-checking across sources
+      Description
+        Validate reliability of sources and information
+      Examples
+        Reverse image search
+        Cross-check datasets to confirm facts
+      Level
+        Level 2 — Good proficiency
+    📊 Analysis & Synthesis
+      Specific skills
+        Graphs • maps • timelines
+        Detect links • trends • anomalies
+        Visualization tools for patterns
+      Description
+        Transform raw information into actionable intelligence
+      Examples
+        Map entities & connections
+        Cross-ref geo & socio-economic data
+      Level
+        Level 2 — Good proficiency
+    ⚙️ Tools & Techniques Proficiency
+      Specific skills
+        Maltego • Shodan • SpiderFoot
+        Specialized platforms • APIs
+        Automation • AI-assisted processing
+      Description
+        Use tools to optimize OSINT processes
+      Examples
+        Visualize relations with Maltego
+        Automate collection via APIs
+      Level
+        Level 2 — Good proficiency
+    🔐 Ethics • Legality • Security (OPSEC)
+      Specific skills
+        GDPR • copyright • ToS
+        VPN • anonymity • secure browsing
+      Description
+        Ensure safe, legal, and ethical investigations
+      Examples
+        Use a VPN
+        Verify licences before reuse
+      Level
+        Level 2 — Good proficiency
+    🧠 Critical Thinking & Reflexivity
+      Specific skills
+        Detect biases
+        Review hypotheses
+        Reflective process & clear reporting
+      Description
+        Justify reasoning • show limits • transparency
+      Examples
+        Publish with verifiable sources & traces
+      Level
+        Level 3 — Critical capability
