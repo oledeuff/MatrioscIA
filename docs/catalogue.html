@@ -16,25 +16,24 @@
     .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background:#f3f4f6; border:1px solid #e5e7eb; border-bottom-width:2px; padding:0 .35rem; border-radius:.375rem; font-size:.75rem;}
   </style>
 </head>
-<body class="min-h-screen bg-gray-50">
-  <header class="bg-gradient-to-r from-indigo-600 to-sky-500 text-white">
+<body class="min-h-screen bg-gray-50 flex flex-col">
+  <header class="bg-gradient-to-r from-emerald-600 to-lime-500 text-white">
     <div class="max-w-6xl mx-auto px-4 py-8">
       <h1 class="text-3xl font-bold">Catalogue d'outils OSINT</h1>
-      <p class="opacity-90">Filtres robustes, tri, et sections repliables par catégorie.</p>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 -mt-6">
+  <main class="max-w-6xl mx-auto px-4 -mt-6 flex-1 w-full">
     <section class="bg-white p-4 md:p-5 rounded-2xl shadow">
       <div class="grid md:grid-cols-4 gap-4">
         <div class="md:col-span-1">
           <label class="block text-sm font-medium mb-1">Recherche</label>
-          <input id="q" type="search" placeholder="Rechercher un outil, un mot-clé..." class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" />
+          <input id="q" type="search" placeholder="Rechercher un outil, un mot-clé..." class="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none" />
           <p class="text-xs text-gray-500 mt-1">Titre, description, tags, éditeur, catégorie.</p>
         </div>
         <div class="md:col-span-2">
           <label class="block text-sm font-medium mb-1">Catégories</label>
-          <select id="cats" multiple class="w-full border rounded-lg px-3 py-2 h-24 focus:ring-2 focus:ring-blue-500 outline-none">
+          <select id="cats" multiple class="w-full border rounded-lg px-3 py-2 h-24 focus:ring-2 focus:ring-green-500 outline-none">
             <option value="AI-Powered Search">AI-Powered Search</option><option value="API Search">API Search</option><option value="Advanced SOCMINT">Advanced SOCMINT</option><option value="Attack Surface Mapping">Attack Surface Mapping</option><option value="Automated OSINT">Automated OSINT</option><option value="Blockchain Analysis">Blockchain Analysis</option><option value="Cloud Resources">Cloud Resources</option><option value="Cloud Security">Cloud Security</option><option value="Corporate Intelligence">Corporate Intelligence</option><option value="Credential Leaks">Credential Leaks</option><option value="Cryptocurrency Forensics">Cryptocurrency Forensics</option><option value="Dark Web">Dark Web</option><option value="Data Breach Search">Data Breach Search</option><option value="Digital Forensics">Digital Forensics</option><option value="Domain Name Analysis">Domain Name Analysis</option><option value="Domain Research Tools">Domain Research Tools</option><option value="Domain and IP Research Tools">Domain and IP Research Tools</option><option value="Domain/IP Analysis">Domain/IP Analysis</option><option value="Email & Phone Analysis">Email & Phone Analysis</option><option value="Email Generation Tools">Email Generation Tools</option><option value="Email Search">Email Search</option><option value="Email Search Tools">Email Search Tools</option><option value="Email Verification">Email Verification</option><option value="Email Verification Tools">Email Verification Tools</option><option value="Encoding/Decoding">Encoding/Decoding</option><option value="Encrypted Communications">Encrypted Communications</option><option value="Encryption/Encoding">Encryption/Encoding</option><option value="Evidence Verification">Evidence Verification</option><option value="File Analysis">File Analysis</option><option value="Forensic Tools">Forensic Tools</option><option value="Fraud Investigation">Fraud Investigation</option><option value="Geolocation Analysis">Geolocation Analysis</option><option value="Geolocation Intelligence">Geolocation Intelligence</option><option value="Geospatial Intelligence">Geospatial Intelligence</option><option value="Hardware Analysis">Hardware Analysis</option><option value="IP Address Analysis">IP Address Analysis</option><option value="Image Analysis">Image Analysis</option><option value="Image Forensics">Image Forensics</option><option value="Image Geolocation">Image Geolocation</option><option value="Image Verification">Image Verification</option><option value="Information Gathering">Information Gathering</option><option value="Infrastructure Reconnaissance">Infrastructure Reconnaissance</option><option value="Internet Scanning">Internet Scanning</option><option value="Leak Analysis">Leak Analysis</option><option value="Malware Analysis">Malware Analysis</option><option value="Mapping Tools">Mapping Tools</option><option value="Metadata Analysis">Metadata Analysis</option><option value="Metadata Extraction">Metadata Extraction</option><option value="Mobile Emulation">Mobile Emulation</option><option value="Mobile Forensics">Mobile Forensics</option><option value="Multilingual Processing">Multilingual Processing</option><option value="Natural Language Processing (NLP)">Natural Language Processing (NLP)</option><option value="Network Analysis">Network Analysis</option><option value="Network Reconnaissance">Network Reconnaissance</option><option value="Network Security Monitoring">Network Security Monitoring</option><option value="Penetration Testing">Penetration Testing</option><option value="People Search">People Search</option><option value="Phone Number Analysis">Phone Number Analysis</option><option value="Phone Number Intelligence">Phone Number Intelligence</option><option value="Phone Numbers">Phone Numbers</option><option value="Privacy Tools">Privacy Tools</option><option value="Professional OSINT Services">Professional OSINT Services</option><option value="Public Records">Public Records</option><option value="Reputation Analysis">Reputation Analysis</option><option value="Search Engine">Search Engine</option><option value="Social Media Analysis">Social Media Analysis</option><option value="Social Media Intelligence">Social Media Intelligence</option><option value="Social Media Monitoring">Social Media Monitoring</option><option value="Social Media Search">Social Media Search</option><option value="Social MediaMonitoring">Social MediaMonitoring</option><option value="Threat Detection">Threat Detection</option><option value="Threat Intelligence">Threat Intelligence</option><option value="Training & Education">Training & Education</option><option value="Translation Tools">Translation Tools</option><option value="Transportation">Transportation</option><option value="Username Enumeration">Username Enumeration</option><option value="Username Search">Username Search</option><option value="Video Analysis">Video Analysis</option><option value="Video Verification">Video Verification</option><option value="Vulnerabilities">Vulnerabilities</option><option value="Vulnerability Intelligence">Vulnerability Intelligence</option><option value="Vulnerability Research">Vulnerability Research</option><option value="Web Archiving">Web Archiving</option><option value="Website Forensics">Website Forensics</option><option value="Wireless Networks">Wireless Networks</option>
           </select>
           <p class="text-xs text-gray-500 mt-1">Aucune sélection = toutes. Maintenir <span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> pour multi-sélection.</p>
@@ -62,10 +61,21 @@
 
     <section id="stats" class="text-sm text-gray-600 mt-3"></section>
 
-    <section id="groups" class="space-y-4 mt-2">
+    <section id="groups" class="space-y-4 mt-2 w-full">
       <!-- Category groups here -->
     </section>
   </main>
+
+  <footer class="mt-10 bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+      <div>
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline">CC BY</a> — 2025
+      </div>
+      <div>
+        Olivier Le Deuff, Lilian Perrin — Observatoire de l'OSINT‑Osintoscope — Projet MatrioscIA.
+      </div>
+    </div>
+  </footer>
 
   <script>
     (function() {
@@ -136,7 +146,6 @@
         var sortBy = els.sortBy ? els.sortBy.value : "title_asc";
         els.stats.textContent = rows.length + " / " + DATA.length + " outils affichés";
 
-        // Group by category
         var groupsMap = {};
         for (var i=0;i<rows.length;i++) {
           var r = rows[i];
@@ -145,14 +154,11 @@
           groupsMap[c].push(r);
         }
 
-        // Determine category order
         var cats = Object.keys(groupsMap);
         cats.sort(function(a,b){
-          if (sortBy==="cat_asc") return a.localeCompare(b);
-          return a.localeCompare(b); // default A-Z
+          return a.localeCompare(b);
         });
 
-        // Build HTML
         var html = "";
         for (var k=0;k<cats.length;k++) {
           var cat = cats[k];
@@ -199,7 +205,6 @@
         els.groups.innerHTML = html || '<div class="text-gray-500 text-sm">Aucun résultat</div>';
       }
 
-      // Wire events (no optional chaining)
       if (els.q) els.q.addEventListener("input", render);
       if (els.cats) els.cats.addEventListener("change", render);
       if (els.onlyAI) els.onlyAI.addEventListener("change", render);
@@ -212,7 +217,6 @@
         render();
       });
 
-      // First render
       render();
     })();
   </script>
