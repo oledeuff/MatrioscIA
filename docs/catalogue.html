@@ -6,6 +6,15 @@
   <title>Catalogue d'outils OSINT</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    /* CSS-only green gradient header: works without Tailwind gradient utilities */
+    .header-grad-green {
+      background: #059669; /* fallback */
+      background: -webkit-linear-gradient(90deg, #059669, #84cc16);
+      background: -moz-linear-gradient(90deg, #059669, #84cc16);
+      background: -o-linear-gradient(90deg, #059669, #84cc16);
+      background: linear-gradient(90deg, #059669, #84cc16);
+      color: #fff;
+    }
     .chip { display:inline-flex; align-items:center; padding:0.25rem 0.55rem; border-radius:9999px; font-size:0.75rem; border:1px solid rgba(0,0,0,0.08); }
     .tool-card { position: relative; overflow: hidden; transition: transform .15s ease, box-shadow .15s ease; }
     .tool-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
@@ -17,7 +26,7 @@
   </style>
 </head>
 <body class="min-h-screen bg-gray-50 flex flex-col">
-  <header class="bg-gradient-to-r from-emerald-600 to-lime-500 text-white">
+  <header class="header-grad-green">
     <div class="max-w-6xl mx-auto px-4 py-8">
       <h1 class="text-3xl font-bold">Catalogue d'outils OSINT</h1>
     </div>
@@ -69,7 +78,7 @@
   <footer class="mt-10 bg-white border-t">
     <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
       <div>
-        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline">CC BY</a> — 2025
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline">CC BY 4.0</a> — 2025
       </div>
       <div>
         Olivier Le Deuff, Lilian Perrin — Observatoire de l'OSINT‑Osintoscope — Projet MatrioscIA.
@@ -144,7 +153,7 @@
       function render() {
         var rows = filterData();
         var sortBy = els.sortBy ? els.sortBy.value : "title_asc";
-        els.stats.textContent = rows.length + " / " + DATA.length + " outils affichés";
+        document.getElementById('stats').textContent = rows.length + " / " + DATA.length + " outils affichés";
 
         var groupsMap = {};
         for (var i=0;i<rows.length;i++) {
@@ -155,9 +164,7 @@
         }
 
         var cats = Object.keys(groupsMap);
-        cats.sort(function(a,b){
-          return a.localeCompare(b);
-        });
+        cats.sort(function(a,b){ return a.localeCompare(b); });
 
         var html = "";
         for (var k=0;k<cats.length;k++) {
