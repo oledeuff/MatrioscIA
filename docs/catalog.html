@@ -1,338 +1,443 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>catalogue d’enquêtes de type OSINT</title>
-<style>
-:root{--bg:#fff;--fg:#0f172a;--muted:#475569;--card:#ffffff;--border:#e2e8f0;--chip:#f1f5f9;--chip-fg:#334155;--emerald:#059669;--amber:#d97706;--indigo:#4f46e5}
-*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
-.container{max-width:1120px;margin:0 auto;padding:0 16px}
-.header{background:linear-gradient(90deg,#6ee7b7,#34d399,#2dd4bf);padding:40px 0}
-.h1{margin:0;font-weight:800;font-size:28px}
-.sub{opacity:.85;font-size:18px;margin-top:6px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:768px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1200px){.grid{grid-template-columns:1fr 1fr 1fr}}
-.card{background:var(--card);border:1px solid var(--border);border-left:8px solid transparent;border-radius:12px;box-shadow:0 1px 2px rgba(0,0,0,.04);overflow:hidden}
-.card .body{padding:16px}
-.flex{display:flex}.items-start{align-items:flex-start}.gap-3{gap:12px}.mb-2{margin-bottom:8px}.mb-3{margin-bottom:12px}
-.logo{width:40px;height:40px;object-fit:contain;border-radius:4px;background:#fff}
-.title{font-weight:700;font-size:18px;margin:0;line-height:1.25}
-.p{font-size:14px;color:#334155;margin:0}
-.row{display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#475569}
-.badges,.authors{display:flex;flex-wrap:wrap;gap:8px}
-.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px}
-.badge-gray{background:var(--chip);color:var(--chip-fg)}
-.badge-ia{background:var(--indigo);color:#fff}
-.badge-pro{background:var(--emerald);color:#fff}
-.badge-rea{background:var(--amber);color:#fff}
-.controls{display:grid;grid-template-columns:1fr;gap:12px}
-@media(min-width:768px){.controls{grid-template-columns:1fr 1fr}}
-@media(min-width:1200px){.controls{grid-template-columns:1fr 1fr 1fr}}
-.label{font-size:13px;color:#334155;margin-bottom:4px}
-.input,.select,.date{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:10px;background:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border-radius:10px;border:1px solid var(--border);background:#fff;cursor:pointer}
-.btn.primary{background:#059669;color:#fff;border-color:#059669}
-.counter{font-size:14px;color:#475569;margin:8px 0 12px}
-.footer{border-top:1px solid var(--border);margin-top:28px}
-.footer .inner{padding:16px 0;color:#475569;font-size:14px}
-.error{display:none;margin:0 0 12px;padding:10px;border-radius:10px;background:#fef2f2;color:#b91c1c;font-size:14px}
-.drop{display:none;border:2px dashed #94a3b8;border-radius:12px;padding:16px;text-align:center;color:#334155;background:#f8fafc}
-.drop.show{display:block}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>catalogue d’enquêtes de type OSINT — Investigations audiovisuelles</title>
+  <!--
+    catalog_osint_all_in_one.html
+    OBJECTIF: Fichier autonome (HTML unique) avec styles + scripts inlined. Aucune dépendance locale.
+    Données: prévoir une variable globale window._DATA (tableau d'objets) injectée à la génération (pas de fetch).
+    Ce script calcule le nombre de fiches et l'affiche en console à l'initialisation.
+  -->
+  <script>
+    <script src="data_osint.js"></script>
+    // Si vous intégrez vos données, définissez window._DATA AVANT l'initialisation (exemple minimal ci-dessous) :
+    // window._DATA = [{
+    //   title: "Titre de l'enquête", content: "Résumé…", begin: "2023-10-19",
+    //   media: "Le Monde", "meta:links": "https://exemple.org",
+    //   commentaire: "",
+    //   auteurs: "Prénom Nom | Autrice Deux",
+    //   thématique: "stratégies militaires et influence",
+    //   "proactivité/réactivité": "réactive"
+    // }];
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card-border { border-left-width: 8px; }
+    .logo-fallback { display:flex;align-items:center;justify-content:center;border-radius:0.5rem;background:#f1f5f9;color:#475569;font-weight:700; }
+    .link-icon { text-decoration: none; }
+  </style>
 </head>
-<body>
-  <header class="header">
-    <div class="container">
-      <h1 class="h1">catalogue d’enquêtes de type OSINT</h1>
-      <p class="sub">Investigations audiovisuelles</p>
+<body class="bg-white text-slate-900">
+  <header class="sticky top-0 z-10 border-b border-slate-200 bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400/90 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-5">
+      <h1 class="text-2xl font-bold">catalogue d’enquêtes de type OSINT</h1>
+      <p class="text-emerald-950/90">Investigations audiovisuelles</p>
+      <div class="mt-4 bg-white/90 rounded-xl border border-slate-200 p-4">
+        <form id="filters" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3" aria-label="Filtres">
+          <div>
+            <label for="q" class="text-xs text-slate-600">Recherche</label>
+            <input id="q" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2" placeholder="Titre, résumé, commentaire…" autocomplete="off" />
+          </div>
+          <div>
+            <label for="media" class="text-xs text-slate-600">Média</label>
+            <select id="media" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2"></select>
+          </div>
+          <div>
+            <label for="authors" class="text-xs text-slate-600">Auteurs</label>
+            <select id="authors" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2"></select>
+          </div>
+          <div>
+            <label for="theme" class="text-xs text-slate-600">Thématique</label>
+            <select id="theme" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2"></select>
+          </div>
+          <div>
+            <label for="proact" class="text-xs text-slate-600">Proactivité</label>
+            <select id="proact" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2">
+              <option value="">(toutes)</option>
+              <option value="proactive">proactive</option>
+              <option value="reactive">reactive</option>
+            </select>
+          </div>
+          <div>
+            <label for="hasIA" class="text-xs text-slate-600">IA</label>
+            <select id="hasIA" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2">
+              <option value="">(tout)</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs text-slate-600">Date — du</label>
+            <input id="dfrom" type="date" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2" />
+          </div>
+          <div>
+            <label class="text-xs text-slate-600">au</label>
+            <input id="dto" type="date" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2" />
+          </div>
+          <div class="flex items-end gap-2">
+            <button type="button" id="reset" class="rounded-lg border border-slate-300 px-3 py-2 bg-white hover:border-emerald-500">Réinitialiser</button>
+            <button type="button" id="export" class="rounded-lg border border-slate-300 px-3 py-2 bg-white hover:border-emerald-500">Exporter en CSV</button>
+            <div class="ml-auto text-sm text-emerald-900" id="count"></div>
+          </div>
+        </form>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding:24px 0">
-    <div id="err" class="error"></div>
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <section id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" role="list"></section>
 
-    <section class="controls" aria-labelledby="filters">
-      <div>
-        <div class="label">Recherche (titre, résumé, commentaire)</div>
-        <input id="q" type="search" placeholder="Rechercher..." class="input"/>
+    <footer class="mt-8 text-sm text-emerald-900">
+      <div class="rounded-xl border border-slate-200 p-4 bg-emerald-50">
+        Projet <strong>MatrioscIA</strong>. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence <strong>CC BY</strong>
       </div>
-      <div>
-        <div class="label">Média</div>
-        <select id="f-media" class="select"></select>
-      </div>
-      <div>
-        <div class="label">Auteurs</div>
-        <select id="f-authors" class="select"></select>
-      </div>
-      <div>
-        <div class="label">Proactivité</div>
-        <select id="f-proact" class="select">
-          <option value="">(toutes)</option>
-          <option value="proactive">proactive</option>
-          <option value="reactive">reactive</option>
-        </select>
-      </div>
-      <div>
-        <div class="label">IA</div>
-        <select id="f-ia" class="select">
-          <option value="">(tout)</option>
-          <option value="yes">yes</option>
-          <option value="no">no</option>
-        </select>
-      </div>
-      <div style="display:flex;gap:8px;align-items:end">
-        <button id="btn-reset" class="btn">Réinitialiser</button>
-        <button id="btn-export" class="btn primary">Exporter en CSV</button>
-        <input id="file" type="file" accept="application/json,.json" style="display:none"/>
-        <button id="btn-import" class="btn" title="Importer data_osint.json si la page est ouverte en file://">Importer JSON</button>
-      </div>
-    </section>
-
-    <div id="drop" class="drop">Glissez-déposez votre <strong>data_osint.json</strong> ici</div>
-
-    <div id="counter" class="counter"></div>
-
-    <section>
-      <div id="results" class="grid"></div>
-    </section>
+    </footer>
   </main>
 
-  <footer class="footer">
-    <div class="container inner">
-      Projet MatrioscIA. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence CC BY
-    </div>
-  </footer>
+  <script>
+  // ========================= UTILITAIRES GÉNÉRAUX =========================
+  const deaccent = (s='') => s.normalize('NFD').replace(/\p{Diacritic}/gu,'');
+  const norm = (s='') => deaccent(String(s)).trim().toLowerCase().replace(/\s+/g,' ');
+  const trim = (s) => (s??'').toString().trim();
 
-<!-- OPTIONNEL : si tu veux éviter tout fetch, colle ici ton JSON complet
-<script id="osint-data" type="application/json">[ { "title":"...", "content":"...", ... } ]</script>
--->
-
-<script>
-/* === Chargement “failsafe” du JSON ===================================== */
-(async function init(){
-  const els = getEls();
-  const state = { data: [], filtered: [] };
-
-  // 1) Essayer un JSON inline (script#osint-data)
-  const inline = document.getElementById('osint-data');
-  if (inline && inline.textContent.trim().startsWith('[')) {
-    try {
-      state.data = JSON.parse(inline.textContent);
-      boot(state);
-      return;
-    } catch(e) { showErr('JSON inline invalide : '+e.message); }
-  }
-
-  // 2) Si http(s), tenter fetch('./data_osint.json')
-  if (location.protocol.startsWith('http')) {
-    try {
-      const r = await fetch('./data_osint.json', {cache:'no-store'});
-      if (!r.ok) throw new Error(r.status+' '+r.statusText);
-      state.data = await r.json();
-      boot(state);
-      return;
-    } catch(e) {
-      showErr('Impossible de charger data_osint.json : '+e.message);
-      showImporter(els, state);
+  // Date parser tolérant (day-first). Renvoie {iso, date} ou {iso:'',date:null}
+  function parseDateLoose(val){
+    const raw = trim(val);
+    if(!raw) return { iso:'', date:null };
+    const t = norm(raw).replace(/\./g,'/').replace(/-/g,'/');
+    // dd/mm/yyyy or dd/mm/yy
+    let m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+    if(m){
+      let [_,d,mo,y] = m; if(y.length===2) y = (Number(y) > 50 ? '19'+y : '20'+y);
+      const iso = `${y.padStart(4,'0')}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const date = new Date(iso);
+      return isNaN(date)?{iso:'',date:null}:{iso, date};
     }
-  } else {
-    // 3) file:// → proposer Importer (FileReader) + glisser-déposer
-    showErr('Ouverture locale détectée (file://). Utilise “Importer JSON”.');
-    showImporter(els, state);
+    // yyyy/mm/dd
+    m = t.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/);
+    if(m){
+      const [_,y,mo,d] = m; const iso = `${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const date = new Date(iso); return isNaN(date)?{iso:'',date:null}:{iso,date};
+    }
+    // Date.parse fallback
+    const d = new Date(raw);
+    if(!isNaN(d)){
+      const iso = d.toISOString().slice(0,10);
+      return { iso, date: new Date(iso) };
+    }
+    return { iso:'', date:null };
   }
-})();
 
-function getEls(){
-  return {
-    q: document.getElementById('q'),
-    media: document.getElementById('f-media'),
-    authors: document.getElementById('f-authors'),
-    pro: document.getElementById('f-proact'),
-    ia: document.getElementById('f-ia'),
-    reset: document.getElementById('btn-reset'),
-    exportBtn: document.getElementById('btn-export'),
-    importBtn: document.getElementById('btn-import'),
-    file: document.getElementById('file'),
-    drop: document.getElementById('drop'),
-    counter: document.getElementById('counter'),
-    results: document.getElementById('results'),
-    err: document.getElementById('err'),
+  // Détection IA (accent/casse insensible). Priorité commentaire, puis titre+résumé.
+  const IA_PAT = new RegExp(
+    [
+      'intelligence\\s*artificielle','\\bIA\\b','I\\.A\\.','\\bAI\\b','LLM','deepfake','apprentissage\\s+automatique','deep\\s*learning','reseau\\s*neuronal','modele\\s*de\\s*langue','generatif','ChatGPT','OpenAI','Midjourney','Stable\\s*Diffusion','Llama','ElevenLabs','Suno'
+    ].join('|'), 'i'
+  );
+  function hasIA(rec){
+    const comment = (rec.commentaire||rec.comment||'')+'';
+    const hc = IA_PAT.test(comment);
+    if(hc) return true;
+    const hay = `${rec.title||''} ${rec.content||''}`;
+    return IA_PAT.test(hay);
+  }
+
+  // Proactivité normalisée + heuristique
+  function normPro(raw, rec){
+    const v = norm(raw||'');
+    if(v.includes('proact')) return 'proactive';
+    if(v.includes('react')) return 'reactive';
+    const hay = norm(`${rec.title||''} ${rec.content||''} ${rec.commentaire||''}`);
+    if(/(fact ?check|vrai|faux|desinfo|debunk|verification)/.test(hay)) return 'reactive';
+    if(/(enquete|investigation|osint|cartograph|geolocalis|geoloc|analyse)/.test(hay)) return 'proactive';
+    return '';
+  }
+
+  // Médias: normalisation + fusions ("AFP factuel" -> AFP ; Observateurs -> France 24)
+  function normMedia(m){
+    const s = norm(m);
+    if(!s) return '';
+    if(/afp/.test(s)) return 'AFP';
+    if(/observateur/.test(s) || /les observateurs/.test(s)) return 'France 24';
+    if(/france ?24/.test(s)) return 'France 24';
+    if(/le monde/.test(s)) return 'Le Monde';
+    if(/lib[eé]ration/.test(s)) return 'Libération';
+    if(/figaro/.test(s)) return 'Le Figaro';
+    if(/mediapart/.test(s)) return 'Mediapart';
+    if(/new york times|nyt/.test(s)) return 'The New York Times';
+    if(/washington post/.test(s)) return 'The Washington Post';
+    if(/reuters/.test(s)) return 'Reuters';
+    if(/bbc/.test(s)) return 'BBC';
+    if(/guardian/.test(s)) return 'The Guardian';
+    if(/associated press|\bap\b/.test(s)) return 'Associated Press';
+    if(/bellingcat/.test(s)) return 'Bellingcat';
+    if(/arte/.test(s)) return 'Arte';
+    return m.toString().trim();
+  }
+
+  // Auteurs: splitter + dédoublonnage, conserver l'ordre
+  function splitAuthors(raw){
+    const r = (raw||'').toString();
+    const parts = r.split(/\s*(?:\||,|;|\/|\bet\b|&|\band\b)\s*/i)
+                   .map(s=>s.trim()).filter(Boolean);
+    const seen = new Set();
+    const out = [];
+    for(const p of parts){ const key = norm(p); if(!seen.has(key)){ seen.add(key); out.push(p); } }
+    return out;
+  }
+
+  // Thématique: normaliser + libellé + couleur
+  const THEME_COLORS = {
+    'humanitaire': '#8b5cf6',
+    'problematique environnementale': '#10b981',
+    'problematiques environnementales': '#10b981',
+    'strategies militaires': '#8B4513',
+    'strategies militaires et influence': '#78866B',
+    'crime organise': '#000000',
+    "repression de l'etat": '#f97316',
+    "repression de l’etat": '#f97316',
+    "repression de l etat": '#f97316',
+    "approfondissement de l'actualite": '#3b82f6',
+    "approfondissement de l’actualite": '#3b82f6',
+    'catastrophes naturelles': '#ef4444'
   };
-}
+  function themeKey(raw){
+    const k = norm(raw).replace(/’/g,"'");
+    return k;
+  }
+  function themeColor(raw){
+    const k = themeKey(raw);
+    if(THEME_COLORS[k]) return THEME_COLORS[k];
+    // Couleur stable de secours (hash -> HSL)
+    let h=0; for(let i=0;i<k.length;i++) h=(h*31 + k.charCodeAt(i))>>>0; h%=360;
+    const s=55,l=45; return `hsl(${h} ${s}% ${l}%)`;
+  }
+  function themeLabel(raw){
+    const t = (raw||'').toString().trim();
+    if(!t) return 'Sans thématique';
+    return t.replace(/’/g,"'");
+  }
 
-function showErr(msg){
-  const e=document.getElementById('err');
-  e.textContent=msg;
-  e.style.display='block';
-}
+  // Extraction première URL depuis meta:links (string | JSON | dict) ; sinon domaine -> https://domaine
+  function firstURL(val){
+    const raw = val==null? '': String(val).trim();
+    const urlRe = /(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:\/?#[\]@!$&'()*+,;=%]*)?/i;
+    try{
+      const parsed = JSON.parse(raw);
+      if(Array.isArray(parsed)){
+        for(const x of parsed){ const m = String(x).match(urlRe); if(m){ return m[0].startsWith('http')? m[0] : 'https://' + m[0]; } }
+      } else if(parsed && typeof parsed==='object'){
+        for(const v of Object.values(parsed)){ const m = String(v).match(urlRe); if(m){ return m[0].startsWith('http')? m[0] : 'https://' + m[0]; } }
+      }
+    }catch(_){}
+    const m = raw.match(urlRe);
+    if(m){ return m[0].startsWith('http')? m[0] : 'https://' + m[0]; }
+    return '';
+  }
 
-function showImporter(els, state){
-  els.importBtn.addEventListener('click', ()=> els.file.click());
-  els.file.addEventListener('change', ev=>{
-    const f=ev.target.files?.[0];
-    if(!f) return;
-    const fr=new FileReader();
-    fr.onload = () => {
-      try {
-        const json = JSON.parse(String(fr.result||'[]'));
-        state.data = json;
-        document.getElementById('err').style.display='none';
-        boot(state);
-      } catch(e){ showErr('JSON illisible : '+e.message); }
-    };
-    fr.readAsText(f);
-  });
-  // drag & drop
-  const dz = els.drop;
-  dz.classList.add('show');
-  ;['dragenter','dragover'].forEach(ev=>document.addEventListener(ev, e=>{e.preventDefault(); dz.style.borderColor='#16a34a'}));
-  ;['dragleave','drop'].forEach(ev=>document.addEventListener(ev, e=>{e.preventDefault(); dz.style.borderColor='#94a3b8'}));
-  document.addEventListener('drop', e=>{
-    const f=e.dataTransfer?.files?.[0];
-    if(!f) return;
-    const fr=new FileReader();
-    fr.onload = () => {
-      try {
-        const json = JSON.parse(String(fr.result||'[]'));
-        state.data = json;
-        document.getElementById('err').style.display='none';
-        dz.classList.remove('show');
-        boot(state);
-      } catch(err){ showErr('JSON illisible : '+err.message); }
-    };
-    fr.readAsText(f);
-  });
-}
+  // Logos Wikipédia (liste minimale)
+  const LOGOS = {
+    'AFP': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Agence_France-Presse_logo.svg/320px-Agence_France-Presse_logo.svg.png',
+    'France 24': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/France_24_logo.svg/320px-France_24_logo.svg.png',
+    'Le Monde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Le_Monde.svg/320px-Le_Monde.svg.png',
+    'Libération': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Logo_Lib%C3%A9ration.svg/320px-Logo_Lib%C3%A9ration.svg.png',
+    'Le Figaro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Le_Figaro_logo_2009.svg/320px-Le_Figaro_logo_2009.svg.png',
+    'Mediapart': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mediapart_logo.svg/320px-Mediapart_logo.svg.png',
+    'Arte': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Arte_Logo_2017.svg/320px-Arte_Logo_2017.svg.png',
+    'The New York Times': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_New_York_Times_logo_variation.jpg/320px-The_New_York_Times_logo_variation.jpg',
+    'The Washington Post': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Washington_Post_logo_2014.svg/320px-Washington_Post_logo_2014.svg.png',
+    'Reuters': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Reuters_Logo.svg/320px-Reuters_Logo.svg.png',
+    'BBC': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/BBC_Logo_2021.svg/320px-BBC_Logo_2021.svg.png',
+    'The Guardian': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_Guardian_2018.svg/320px-The_Guardian_2018.svg.png',
+    'Associated Press': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Associated_Press_logo_2012.svg/320px-Associated_Press_logo_2012.svg.png',
+    'Bellingcat': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Bellingcat_logo.svg/320px-Bellingcat_logo.svg.png'
+  };
 
-function boot(state){
-  // Normaliser (auteurs, proactivité, IA)
-  state.data = (state.data||[]).map((r,i)=>({
-    title: r.title||r.Titre||'(sans titre)',
-    content: r.content||r.presentation||r.Résumé||'',
-    date: r.date||r.begin||'',
-    media: (r.media||r['Lieu de publication']||'').toString().trim(),
-    link: Array.isArray(r.links)? (r.links[0]||'') : (r.link||r.links||''),
-    commentaire: r.commentaire||'',
-    authors: Array.isArray(r.authors)? r.authors : splitAuthors(r.authors||r.auteurs||''),
-    theme: r.theme||r.thématique||r['thématique']||'',
-    proact: normPro(r.proact||r.proactivité||r['proactivité']),
-    hasIA: normIAflag(r.hasIA, r.commentaire, r.title, r.content),
-    _id: i
-  }));
+  function logoFor(media){
+    const key = normMedia(media);
+    const url = LOGOS[key];
+    if(url) return { url, alt:key };
+    const txt = (key||'?').split(/\s+/).map(w=>w[0]||'').join('').slice(0,3).toUpperCase();
+    return { url:'', alt:txt, mono:txt };
+  }
 
-  buildFilters(state.data);
-  attachHandlers(state);
-  render(state);
-}
+  // ========================= CHARGEMENT + NORMALISATION =========================
+  const RAW = Array.isArray(window._DATA)? window._DATA : [];
+  console.log(`[catalog-osint] fiches intégrées: ${RAW.length}`);
 
-function splitAuthors(s){
-  return String(s||'').split(/\s*(?:\||,|;|\/|\bet\b|&)\s*/i).filter(Boolean);
-}
-function normPro(v){
-  const s=String(v||'').toLowerCase();
-  if (s.includes('proact')) return 'proactive';
-  if (s.includes('réact') || s.includes('react')) return 'reactive';
-  return '';
-}
-function normIAflag(flag, ...texts){
-  // si le champ explicite est fourni
-  const f = String(flag||'').toLowerCase();
-  if (['y','yes','oui','true','1'].includes(f)) return true;
-  if (['n','no','non','false','0'].includes(f)) return false;
-  // sinon heuristique textes
-  const hay = (texts||[]).join(' ').normalize('NFD').toLowerCase();
-  return /intelligence artificielle|\bia\b|i\.a\.|\bai\b|\bllm\b|deepfake|apprentissage automatique|deep ?learning|réseau neuronal|reseau neuronal|mod(?:e|è)le de langue|g(?:e|é)n(?:e|é)ratif|chatgpt|openai|midjourney|stable diffusion|\bllama\b|elevenlabs|\bsuno\b/.test(hay);
-}
+  function mapRecord(r){
+    const title = trim(r.title || r.Titre || r.titre || r.TITLE);
+    const content = trim(r.content || r.resume || r.résumé || r.Résumé || r.Summary || r.summary || '');
+    const begin = trim(r.begin || r.date || r['Date de publication'] || r['date de publication'] || r['Date'] || r['DATE'] || '');
+    const mediaRaw = trim(r.media || r['Lieu de publication'] || r.Média || r.media_name || '');
+    const media = normMedia(mediaRaw);
+    const link = firstURL(r['meta:links'] ?? r.links ?? r['Lien'] ?? r['URL'] ?? '');
+    const commentaire = trim(r.commentaire || r.notes || r['comment'] || '');
+    const authorsRaw = trim(r.auteurs || r['auteur·e·s'] || r['auteurs'] || r['authors'] || r['author'] || '');
+    const authors = splitAuthors(authorsRaw);
+    const themeRaw = trim(r.thématique || r['thematique'] || r['Thématique'] || r['Thème'] || r['theme'] || r['Theme'] || '');
+    const themeK = themeKey(themeRaw);
+    const themeC = themeColor(themeRaw);
+    const themeL = themeLabel(themeRaw);
+    const proRaw = trim(r['proactivité/réactivité'] || r['proactivite/reactivite'] || r['proactivité'] || r['proactivite'] || r['pro'] || r['type'] || '');
+    const proact = normPro(proRaw, {title,content,commentaire});
+    const ia = hasIA({title,content,commentaire});
+    const { iso, date } = parseDateLoose(begin);
 
-function buildFilters(rows){
-  const medias = [...new Set(rows.map(r=>r.media).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
-  const authors = [...new Set(rows.flatMap(r=>r.authors||[]))].sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
-  document.getElementById('f-media').innerHTML = '<option value="">(tous)</option>'+medias.map(v=>`<option>${escape(v)}</option>`).join('');
-  document.getElementById('f-authors').innerHTML = '<option value="">(tous)</option>'+authors.map(v=>`<option>${escape(v)}</option>`).join('');
-}
+    return { title, content, dateISO: iso, date, media, link, commentaire, authors, themeKey: themeK, themeColor: themeC, themeLabel: themeL || 'Sans thématique', proact, hasIA: ia };
+  }
 
-function attachHandlers(state){
-  ['q','f-media','f-authors','f-proact','f-ia'].forEach(id=>{
-    const el=document.getElementById(id);
-    el.addEventListener('input', ()=>render(state));
-    el.addEventListener('change', ()=>render(state));
-  });
-  document.getElementById('btn-reset').addEventListener('click', ()=>{
-    ['q','f-media','f-authors','f-proact','f-ia'].forEach(id=>{document.getElementById(id).value=''});
-    render(state);
-  });
-  document.getElementById('btn-export').addEventListener('click', ()=>exportCSV(state.filtered||[]));
-}
+  const ENRICHED = RAW.map(mapRecord)
+    .sort((a,b)=> (b.date?.getTime()||0) - (a.date?.getTime()||0) || a.title.localeCompare(b.title));
 
-function render(state){
-  const q = document.getElementById('q').value.trim().toLowerCase();
-  const fm = document.getElementById('f-media').value;
-  const fa = document.getElementById('f-authors').value;
-  const fp = document.getElementById('f-proact').value;
-  const fia= document.getElementById('f-ia').value;
+  const TOTAL = ENRICHED.length;
 
-  const rows = state.data.filter(r=>{
-    if (q){
-      const hay = (r.title+' '+r.content+' '+r.commentaire).toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    if (fm && r.media!==fm) return false;
-    if (fa && !(r.authors||[]).includes(fa)) return false;
-    if (fp && (r.proact||'')!==fp) return false;
-    if (fia==='yes' && !r.hasIA) return false;
-    if (fia==='no' && r.hasIA) return false;
-    return true;
-  });
+  // ========================= OPTIONS DE FILTRES =========================
+  const byAlpha = (a,b)=> a.localeCompare(b);
+  const medias = Array.from(new Set(ENRICHED.map(x=>x.media).filter(Boolean))).sort(byAlpha);
+  const allAuthors = Array.from(new Set(ENRICHED.flatMap(x=>x.authors).filter(Boolean))).sort(byAlpha);
+  const themeMap = new Map();
+  for(const x of ENRICHED){ if(!themeMap.has(x.themeKey)) themeMap.set(x.themeKey, x.themeLabel); }
+  if(themeMap.has("strategies militaires et influence")){
+    // clé normalisée unique, rien à faire
+  }
+  const themes = Array.from(themeMap.entries())
+    .map(([k,l])=>({k,l}))
+    .sort((a,b)=> a.l.localeCompare(b.l));
 
-  rows.sort((a,b)=>{
-    const da=a.date||'', db=b.date||'';
-    if (da===db) return a.title.localeCompare(b.title,'fr',{sensitivity:'base'});
-    return da<db ? 1 : -1;
-  });
+  const $ = sel=>document.querySelector(sel);
+  function setOptions(sel, values, placeholder){
+    const el = $(sel); el.innerHTML='';
+    const opt = document.createElement('option'); opt.value=''; opt.textContent = placeholder || '(toutes)'; el.appendChild(opt);
+    for(const v of values){ const o=document.createElement('option'); o.value=v; o.textContent=v; el.appendChild(o); }
+  }
 
-  state.filtered = rows;
-  document.getElementById('counter').textContent = `${rows.length} résultat(s) affiché(s) / ${state.data.length}`;
+  setOptions('#media', medias, '(tous)');
+  setOptions('#authors', allAuthors, '(tous)');
+  (function setThemeOptions(){
+    const el = $('#theme'); el.innerHTML='';
+    const opt0 = document.createElement('option'); opt0.value=''; opt0.textContent='(toutes)'; el.appendChild(opt0);
+    for(const {k,l} of themes){ const o=document.createElement('option'); o.value=k; o.textContent=l; el.appendChild(o); }
+    if(!themes.length){ const o=document.createElement('option'); o.value='(sans)'; o.textContent='(sans thématique)'; el.appendChild(o); }
+  })();
 
-  const html = rows.map(rec=>{
-    const pro = rec.proact==='proactive' ? '<span class="badge badge-pro">proactive</span>' : (rec.proact==='reactive' ? '<span class="badge badge-rea">reactive</span>' : '');
-    const ia  = rec.hasIA ? '<span class="badge badge-ia">IA</span>' : '';
-    const med = rec.media ? `<span class="badge badge-gray">${escape(rec.media)}</span>` : '';
-    const authors = (rec.authors||[]).map(a=>`<span class="badge badge-gray">${escape(a)}</span>`).join(' ');
-    const link = rec.link ? `<a href="${escapeAttr(rec.link)}" class="ml-2" target="_blank" rel="noopener" title="Ouvrir le lien">🔗</a>` : '';
+  const dates = ENRICHED.map(x=>x.date).filter(Boolean).sort((a,b)=>a-b);
+  if(dates.length){ const toISO=d=>d.toISOString().slice(0,10); document.getElementById('dfrom').min=toISO(dates[0]); document.getElementById('dto').min=toISO(dates[0]); document.getElementById('dfrom').max=toISO(dates.at(-1)); document.getElementById('dto').max=toISO(dates.at(-1)); }
+
+  // ========================= RENDU DES CARTES =========================
+  function contrastColor(hex){
+    const h = hex.startsWith('#')? hex.slice(1):hex;
+    let r,g,b; if(h.startsWith('hsl')){ return '#000'; }
+    if(h.length===3){ r=parseInt(h[0]+h[0],16); g=parseInt(h[1]+h[1],16); b=parseInt(h[2]+h[2],16);} else { r=parseInt(h.slice(0,2),16); g=parseInt(h.slice(2,4),16); b=parseInt(h.slice(4,6),16);} 
+    const lum = (0.299*r+0.587*g+0.114*b)/255; return lum>0.55? '#111' : '#fff';
+  }
+
+  function card(item){
+    const mediaLogo = logoFor(item.media);
+    const proChipCls = item.proact==='proactive' ? 'bg-emerald-600 text-white' : (item.proact==='reactive' ? 'bg-amber-600 text-white' : 'bg-slate-200 text-slate-700');
+    const themeBg = item.themeColor || '#94a3b8';
+    const themeTxt = contrastColor(themeBg);
+    const dateStr = item.date ? new Intl.DateTimeFormat('fr-FR',{year:'numeric',month:'long',day:'2-digit'}).format(item.date) : '(date manquante)';
+
     return `
-<article class="card" style="border-left-color:#94a3b8">
-  <div class="body">
-    <div class="flex items-start gap-3 mb-2"><div class="logo" aria-hidden="true"></div><h3 class="title">${escape(rec.title)}</h3></div>
-    <p class="p mb-3">${escape(rec.content||'')}</p>
-    <div class="badges mb-3">${med} ${ia} ${pro}</div>
-    ${authors?`<div class="authors mb-3">${authors}</div>`:''}
-    <div class="row"><time>${escape(rec.date || '(date manquante)')}</time>${link}</div>
-  </div>
-</article>`;
-  }).join('');
+    <article class="card-border rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden" style="border-left-color:${themeBg}" role="listitem">
+      <div class="p-4 space-y-3">
+        <div class="flex items-center gap-3">
+          ${mediaLogo.url ? `<img src="${mediaLogo.url}" alt="${mediaLogo.alt}" class="w-10 h-10 object-contain rounded"/>` : `<div class="logo-fallback w-10 h-10">${mediaLogo.mono||'?'}</div>`}
+          <h3 class="text-base font-semibold leading-snug">${item.title||'(titre manquant)'}</h3>
+        </div>
+        <p class="text-sm text-slate-700">${item.content||''}</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-700">${item.media||'—'}</span>
+          ${item.hasIA ? `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">IA</span>` : ''}
+          ${item.proact? `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${proChipCls}">${item.proact}</span>`:''}
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium" style="background:${themeBg}; color:${themeTxt};">${item.themeLabel||'Sans thématique'}</span>
+          ${item.authors.map(a=>`<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700">${a}</span>`).join('')}
+        </div>
+        <div class="flex items-center justify-between text-sm text-slate-600">
+          <span>${dateStr}</span>
+          ${item.link? `<a class="link-icon" href="${item.link}" target="_blank" rel="noopener" title="Ouvrir"><span aria-hidden="true">🔗</span><span class="sr-only">Ouvrir le lien</span></a>` : '<span class="text-slate-400">(pas de lien)</span>'}
+        </div>
+      </div>
+    </article>`;
+  }
 
-  document.getElementById('results').innerHTML = html || '<div class="card"><div class="body">Aucun résultat.</div></div>';
-}
+  // ========================= FILTRAGE =========================
+  const state = { q:'', media:'', author:'', theme:'', proact:'', hasIA:'', dfrom:'', dto:'' };
 
-function exportCSV(rows){
-  const headers=["title","content","date","media","link","commentaire","authors","theme","proact","hasIA"];
-  const esc=v=>('"'+String(v).replace(/"/g,'""')+'"');
-  const lines=[headers.join(',')];
-  rows.forEach(r=>{
-    lines.push([
-      esc(r.title||''), esc((r.content||'').replace(/\r?\n/g,' ')), esc(r.date||''), esc(r.media||''),
-      esc(r.link||''), esc((r.commentaire||'').replace(/\r?\n/g,' ')), esc((r.authors||[]).join(' | ')),
-      esc(r.theme||''), esc(r.proact||''), esc(r.hasIA?'yes':'no')
-    ].join(','));
-  });
-  const blob=new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8;'});
-  const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='export_filtre.csv';document.body.appendChild(a);a.click();URL.revokeObjectURL(url);a.remove();
-}
+  function applyFilters(){
+    const q = norm(state.q);
+    let out = ENRICHED.filter(x=>{
+      if(q){ const hay = norm(`${x.title} ${x.content} ${x.commentaire}`); if(!hay.includes(q)) return false; }
+      if(state.media && x.media!==state.media) return false;
+      if(state.author && !x.authors.includes(state.author)) return false;
+      if(state.theme && x.themeKey!==state.theme) return false;
+      if(state.proact && x.proact!==state.proact) return false;
+      if(state.hasIA){ if(state.hasIA==='yes' && !x.hasIA) return false; if(state.hasIA==='no' && x.hasIA) return false; }
+      if(state.dfrom){ if(!x.date || x.date < new Date(state.dfrom)) return false; }
+      if(state.dto){ const lim = new Date(state.dto); lim.setHours(23,59,59,999); if(!x.date || x.date > lim) return false; }
+      return true;
+    });
+    out = out.sort((a,b)=> (b.date?.getTime()||0) - (a.date?.getTime()||0) || a.title.localeCompare(b.title));
 
-function escape(s=''){return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function escapeAttr(s=''){return s.replace(/"/g,'&quot;');}
-</script>
+    const grid = document.getElementById('grid');
+    grid.innerHTML = out.map(card).join('');
+    document.getElementById('count').textContent = `${out.length} résultat(s) affiché(s) / ${TOTAL}`;
+
+    return out;
+  }
+
+  function bind(){
+    const f = document.getElementById('filters');
+    const ids = ['q','media','authors','theme','proact','hasIA','dfrom','dto'];
+    ids.forEach(id=>{
+      f.querySelector('#'+id).addEventListener('input', (e)=>{
+        if(id==='authors') state.author = e.target.value; else if(id==='theme') state.theme=e.target.value; else state[id]=e.target.value;
+        applyFilters();
+      });
+      f.querySelector('#'+id).addEventListener('change', (e)=>{
+        if(id==='authors') state.author = e.target.value; else if(id==='theme') state.theme=e.target.value; else state[id]=e.target.value;
+        applyFilters();
+      });
+    });
+
+    document.getElementById('reset').addEventListener('click', ()=>{
+      state.q=state.media=state.author=state.theme=state.proact=state.hasIA=state.dfrom=state.dto='';
+      ids.forEach(id=>{ const el=f.querySelector('#'+id); if(el) el.value=''; });
+      applyFilters();
+    });
+
+    document.getElementById('export').addEventListener('click', ()=>{
+      const rows = applyFilters();
+      const headers = ['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
+      const csv = [headers.join(',')].concat(rows.map(r=>{
+        const vals = [
+          r.title,
+          r.content,
+          r.dateISO,
+          r.media,
+          r.link,
+          r.commentaire,
+          r.authors.join(' | '),
+          r.themeLabel,
+          r.proact,
+          r.hasIA ? 'yes':'no'
+        ];
+        return vals.map(v=> '"'+ String(v??'').replace(/"/g,'""') +'"').join(',');
+      })).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'export_catalog_osint.csv';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  }
+
+  bind();
+  applyFilters();
+  </script>
 </body>
 </html>
