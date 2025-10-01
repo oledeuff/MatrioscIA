@@ -5,194 +5,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>catalogue d’enquêtes de type OSINT — Investigations audiovisuelles</title>
   <!--
-    catalog_osint_all_in_one.html
-    OBJECTIF: Fichier autonome (HTML unique) avec styles + scripts inlined. Aucune dépendance locale.
-    Données: prévoir une variable globale window._DATA (tableau d'objets) injectée à la génération (pas de fetch).
-    Ce script calcule le nombre de fiches et l'affiche en console à l'initialisation.
+    Fichier autonome (HTML unique) — AUCUN fetch.
+    ⚠️ Charge d'abord vos données avec: <script src="data_osint.js"></script>
+    où data_osint.js contient: window.DATA = [ { ... }, ... ]
+    Le script normalise et affiche les cartes + filtres + export CSV.
   -->
-  <script>
-    <script src="data_osint.js"></script>
-    // Si vous intégrez vos données, définissez window._DATA AVANT l'initialisation (exemple minimal ci-dessous) :
-    // window._DATA = [{
-    //   title: "Titre de l'enquête", content: "Résumé…", begin: "2023-10-19",
-    //   media: "Le Monde", "meta:links": "https://exemple.org",
-    //   commentaire: "",
-    //   auteurs: "Prénom Nom | Autrice Deux",
-    //   thématique: "stratégies militaires et influence",
-    //   "proactivité/réactivité": "réactive"
-    // }];
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .card-border { border-left-width: 8px; }
-    .logo-fallback { display:flex;align-items:center;justify-content:center;border-radius:0.5rem;background:#f1f5f9;color:#475569;font-weight:700; }
-    .link-icon { text-decoration: none; }
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#475569; --line:#e2e8f0; --soft:#f8fafc; --stripe:#f1f5f9;
+      --ia-bg:#e0e7ff; --ia-txt:#3730a3;
+      --pro-bg:#059669; --rea-bg:#d97706; --chip-txt:#ffffff;
+      --chip:#f1f5f9; --chip-txt2:#334155;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(90deg,#86efac,#34d399,#2dd4bf);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+    .wrap{max-width:1180px;margin:0 auto;padding:18px 16px}
+    h1{margin:0 0 2px;font-size:26px}
+    .subtitle{color:#064e3b}
+    .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:12px;box-shadow:0 8px 20px rgba(15,23,42,.06)}
+    label{display:block;font-size:12px;color:var(--muted);margin:4px 0}
+    select,input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--text);outline:none}
+    .filters{display:grid;gap:10px;grid-template-columns:1fr}
+    @media(min-width:900px){.filters{grid-template-columns:1.3fr 1fr 1fr 1fr 1fr 1fr}}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+    .btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+    .btn:hover{border-color:#10b981}
+    main{padding:16px}
+    .grid{max-width:1180px;margin:0 auto;display:grid;gap:12px;grid-template-columns:1fr}
+    @media(min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:1120px){.grid{grid-template-columns:1fr 1fr 1fr}}
+    .card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .card-inner{padding:12px}
+    .card-border{border-left:8px solid #94a3b8}
+    .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .logo{width:40px;height:40px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#fff}
+    .mono{width:40px;height:40px;border-radius:8px;background:#e2e8f0;color:#334155;display:flex;align-items:center;justify-content:center;font:700 14px/40px ui-sans-serif}
+    .title{margin:0;font-size:16px;line-height:1.25}
+    .desc{color:#475569;font-size:14px;margin:6px 0 10px}
+    .chips{display:flex;gap:6px;flex-wrap:wrap}
+    .chip{padding:2px 8px;border-radius:999px;border:1px solid var(--line);font-size:12px;background:var(--chip);color:var(--chip-txt2)}
+    .chip-ia{background:var(--ia-bg);color:var(--ia-txt);border-color:#c7d2fe}
+    .chip-pro{background:var(--pro-bg);color:var(--chip-txt);border-color:transparent}
+    .chip-rea{background:var(--rea-bg);color:var(--chip-txt);border-color:transparent}
+    .kv{display:flex;gap:8px;justify-content:space-between;align-items:center;font-size:12px;color:#334155}
+    .link{color:#0f172a;text-decoration:none;border:1px solid var(--line);padding:6px 8px;border-radius:10px}
+    .link:hover{border-color:#10b981}
+    footer{max-width:1180px;margin:22px auto 28px;color:#065f46;font-size:13px}
+    footer .foot{padding:14px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(120deg,#ecfdf5,#f0fdf4)}
   </style>
 </head>
-<body class="bg-white text-slate-900">
-  <header class="sticky top-0 z-10 border-b border-slate-200 bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400/90 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-4 py-5">
-      <h1 class="text-2xl font-bold">catalogue d’enquêtes de type OSINT</h1>
-      <p class="text-emerald-950/90">Investigations audiovisuelles</p>
-      <div class="mt-4 bg-white/90 rounded-xl border border-slate-200 p-4">
-        <form id="filters" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3" aria-label="Filtres">
+<body>
+  <header>
+    <div class="wrap">
+      <h1>catalogue d’enquêtes de type OSINT</h1>
+      <div class="subtitle">Investigations audiovisuelles</div>
+      <div class="panel">
+        <div class="filters" aria-label="Filtres">
           <div>
-            <label for="q" class="text-xs text-slate-600">Recherche</label>
-            <input id="q" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2" placeholder="Titre, résumé, commentaire…" autocomplete="off" />
+            <label for="q">Recherche</label>
+            <input id="q" placeholder="Titre, résumé, commentaire…" autocomplete="off" />
           </div>
           <div>
-            <label for="media" class="text-xs text-slate-600">Média</label>
-            <select id="media" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2"></select>
+            <label for="media">Média</label>
+            <select id="media"></select>
           </div>
           <div>
-            <label for="authors" class="text-xs text-slate-600">Auteurs</label>
-            <select id="authors" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2"></select>
+            <label for="authors">Auteurs</label>
+            <select id="authors"></select>
           </div>
           <div>
-            <label for="theme" class="text-xs text-slate-600">Thématique</label>
-            <select id="theme" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2"></select>
+            <label for="theme">Thématique</label>
+            <select id="theme"></select>
           </div>
           <div>
-            <label for="proact" class="text-xs text-slate-600">Proactivité</label>
-            <select id="proact" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2">
+            <label for="proact">Proactivité</label>
+            <select id="proact">
               <option value="">(toutes)</option>
               <option value="proactive">proactive</option>
               <option value="reactive">reactive</option>
             </select>
           </div>
           <div>
-            <label for="hasIA" class="text-xs text-slate-600">IA</label>
-            <select id="hasIA" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2">
+            <label for="hasIA">IA</label>
+            <select id="hasIA">
               <option value="">(tout)</option>
               <option value="yes">yes</option>
               <option value="no">no</option>
             </select>
           </div>
           <div>
-            <label class="text-xs text-slate-600">Date — du</label>
-            <input id="dfrom" type="date" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2" />
+            <label for="dfrom">Date — du</label>
+            <input id="dfrom" type="date" />
           </div>
           <div>
-            <label class="text-xs text-slate-600">au</label>
-            <input id="dto" type="date" class="w-full mt-1 rounded-lg border border-slate-300 px-3 py-2" />
+            <label for="dto">au</label>
+            <input id="dto" type="date" />
           </div>
-          <div class="flex items-end gap-2">
-            <button type="button" id="reset" class="rounded-lg border border-slate-300 px-3 py-2 bg-white hover:border-emerald-500">Réinitialiser</button>
-            <button type="button" id="export" class="rounded-lg border border-slate-300 px-3 py-2 bg-white hover:border-emerald-500">Exporter en CSV</button>
-            <div class="ml-auto text-sm text-emerald-900" id="count"></div>
-          </div>
-        </form>
+        </div>
+        <div class="toolbar">
+          <button class="btn" id="reset">Réinitialiser</button>
+          <button class="btn" id="export">Exporter en CSV</button>
+          <span id="count" style="margin-left:auto;color:#065f46"></span>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-6">
-    <section id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" role="list"></section>
-
-    <footer class="mt-8 text-sm text-emerald-900">
-      <div class="rounded-xl border border-slate-200 p-4 bg-emerald-50">
-        Projet <strong>MatrioscIA</strong>. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence <strong>CC BY</strong>
-      </div>
+  <main>
+    <div id="grid" class="grid" role="list"></div>
+    <footer>
+      <div class="foot">Projet <strong>MatrioscIA</strong>. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence <strong>CC BY</strong></div>
     </footer>
   </main>
 
+  <!-- 1) Appelez VOTRE DATA avant le script principal -->
+  <script src="data_osint.js"></script>
+
   <script>
-  // ========================= UTILITAIRES GÉNÉRAUX =========================
+  // ========================= UTILITAIRES =========================
   const deaccent = (s='') => s.normalize('NFD').replace(/\p{Diacritic}/gu,'');
   const norm = (s='') => deaccent(String(s)).trim().toLowerCase().replace(/\s+/g,' ');
   const trim = (s) => (s??'').toString().trim();
 
-  // Date parser tolérant (day-first). Renvoie {iso, date} ou {iso:'',date:null}
+  // Date tolérante
   function parseDateLoose(val){
-    const raw = trim(val);
-    if(!raw) return { iso:'', date:null };
+    const raw = trim(val); if(!raw) return { iso:'', date:null };
     const t = norm(raw).replace(/\./g,'/').replace(/-/g,'/');
-    // dd/mm/yyyy or dd/mm/yy
-    let m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
-    if(m){
-      let [_,d,mo,y] = m; if(y.length===2) y = (Number(y) > 50 ? '19'+y : '20'+y);
-      const iso = `${y.padStart(4,'0')}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const date = new Date(iso);
-      return isNaN(date)?{iso:'',date:null}:{iso, date};
-    }
-    // yyyy/mm/dd
-    m = t.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/);
-    if(m){
-      const [_,y,mo,d] = m; const iso = `${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      const date = new Date(iso); return isNaN(date)?{iso:'',date:null}:{iso,date};
-    }
-    // Date.parse fallback
-    const d = new Date(raw);
-    if(!isNaN(d)){
-      const iso = d.toISOString().slice(0,10);
-      return { iso, date: new Date(iso) };
-    }
+    let m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/); // dd/mm/yyyy
+    if(m){ let [_,d,mo,y]=m; if(y.length===2) y=(+y>50? '19'+y : '20'+y);
+      const iso=`${y.padStart(4,'0')}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`; const date=new Date(iso);
+      return isNaN(date)?{iso:'',date:null}:{iso,date}; }
+    m = t.match(/^(\d{4})\/(\d{1,2})\/(\d{1,2})$/); // yyyy/mm/dd
+    if(m){ const [_,y,mo,d]=m; const iso=`${y}-${String(mo).padStart(2,'0')}-${String(d).padStart(2,'0')}`; const date=new Date(iso); return isNaN(date)?{iso:'',date:null}:{iso,date}; }
+    const d=new Date(raw); if(!isNaN(d)){ const iso=d.toISOString().slice(0,10); return {iso, date:new Date(iso)}; }
     return { iso:'', date:null };
   }
 
-  // Détection IA (accent/casse insensible). Priorité commentaire, puis titre+résumé.
-  const IA_PAT = new RegExp(
-    [
-      'intelligence\\s*artificielle','\\bIA\\b','I\\.A\\.','\\bAI\\b','LLM','deepfake','apprentissage\\s+automatique','deep\\s*learning','reseau\\s*neuronal','modele\\s*de\\s*langue','generatif','ChatGPT','OpenAI','Midjourney','Stable\\s*Diffusion','Llama','ElevenLabs','Suno'
-    ].join('|'), 'i'
-  );
-  function hasIA(rec){
-    const comment = (rec.commentaire||rec.comment||'')+'';
-    const hc = IA_PAT.test(comment);
-    if(hc) return true;
-    const hay = `${rec.title||''} ${rec.content||''}`;
-    return IA_PAT.test(hay);
+  // Détection IA
+  const IA_PAT = new RegExp([
+    'intelligence\\s*artificielle','\\bIA\\b','I\\.A\\.','\\bAI\\b','LLM','deepfake','apprentissage\\s*automatique','deep\\s*learning','reseau\\s*neuronal','modele\\s*de\\s*langue','generatif','ChatGPT','OpenAI','Midjourney','Stable\\s*Diffusion','Llama','ElevenLabs','Suno'
+  ].join('|'),'i');
+  function hasIAFields({title,content,commentaire}){
+    if(IA_PAT.test(commentaire||'')) return true;
+    return IA_PAT.test(`${title||''} ${content||''}`);
   }
 
-  // Proactivité normalisée + heuristique
-  function normPro(raw, rec){
-    const v = norm(raw||'');
-    if(v.includes('proact')) return 'proactive';
-    if(v.includes('react')) return 'reactive';
-    const hay = norm(`${rec.title||''} ${rec.content||''} ${rec.commentaire||''}`);
+  // Proactivité
+  function normPro(raw, ctx){
+    const v=norm(raw||''); if(v.includes('proact')) return 'proactive'; if(v.includes('react')) return 'reactive';
+    const hay = norm(`${ctx.title||''} ${ctx.content||''} ${ctx.commentaire||''}`);
     if(/(fact ?check|vrai|faux|desinfo|debunk|verification)/.test(hay)) return 'reactive';
-    if(/(enquete|investigation|osint|cartograph|geolocalis|geoloc|analyse)/.test(hay)) return 'proactive';
+    if(/(enquete|investigation|osint|cartograph|geolocalis|analyse)/.test(hay)) return 'proactive';
     return '';
   }
 
-  // Médias: normalisation + fusions ("AFP factuel" -> AFP ; Observateurs -> France 24)
-  function normMedia(m){
-    const s = norm(m);
-    if(!s) return '';
-    if(/afp/.test(s)) return 'AFP';
-    if(/observateur/.test(s) || /les observateurs/.test(s)) return 'France 24';
-    if(/france ?24/.test(s)) return 'France 24';
-    if(/le monde/.test(s)) return 'Le Monde';
-    if(/lib[eé]ration/.test(s)) return 'Libération';
-    if(/figaro/.test(s)) return 'Le Figaro';
-    if(/mediapart/.test(s)) return 'Mediapart';
-    if(/new york times|nyt/.test(s)) return 'The New York Times';
-    if(/washington post/.test(s)) return 'The Washington Post';
-    if(/reuters/.test(s)) return 'Reuters';
-    if(/bbc/.test(s)) return 'BBC';
-    if(/guardian/.test(s)) return 'The Guardian';
-    if(/associated press|\bap\b/.test(s)) return 'Associated Press';
-    if(/bellingcat/.test(s)) return 'Bellingcat';
-    if(/arte/.test(s)) return 'Arte';
-    return m.toString().trim();
-  }
-
-  // Auteurs: splitter + dédoublonnage, conserver l'ordre
+  // Auteurs
   function splitAuthors(raw){
-    const r = (raw||'').toString();
-    const parts = r.split(/\s*(?:\||,|;|\/|\bet\b|&|\band\b)\s*/i)
-                   .map(s=>s.trim()).filter(Boolean);
-    const seen = new Set();
-    const out = [];
-    for(const p of parts){ const key = norm(p); if(!seen.has(key)){ seen.add(key); out.push(p); } }
+    const r=(raw||'').toString();
+    const parts=r.split(/\s*(?:\||,|;|\/|\bet\b|&|\band\b)\s*/i).map(s=>s.trim()).filter(Boolean);
+    const seen=new Set(), out=[]; for(const p of parts){ const k=norm(p); if(!seen.has(k)){ seen.add(k); out.push(p); } }
     return out;
   }
 
-  // Thématique: normaliser + libellé + couleur
+  // Thématiques: clé, label, couleur
   const THEME_COLORS = {
     'humanitaire': '#8b5cf6',
-    'problematique environnementale': '#10b981',
     'problematiques environnementales': '#10b981',
+    'problematique environnementale': '#10b981',
     'strategies militaires': '#8B4513',
     'strategies militaires et influence': '#78866B',
     'crime organise': '#000000',
@@ -203,68 +183,36 @@
     "approfondissement de l’actualite": '#3b82f6',
     'catastrophes naturelles': '#ef4444'
   };
-  function themeKey(raw){
-    const k = norm(raw).replace(/’/g,"'");
-    return k;
-  }
-  function themeColor(raw){
-    const k = themeKey(raw);
-    if(THEME_COLORS[k]) return THEME_COLORS[k];
-    // Couleur stable de secours (hash -> HSL)
-    let h=0; for(let i=0;i<k.length;i++) h=(h*31 + k.charCodeAt(i))>>>0; h%=360;
-    const s=55,l=45; return `hsl(${h} ${s}% ${l}%)`;
-  }
-  function themeLabel(raw){
-    const t = (raw||'').toString().trim();
-    if(!t) return 'Sans thématique';
-    return t.replace(/’/g,"'");
-  }
+  function themeKey(raw){ return norm(raw).replace(/’/g,"'"); }
+  function themeColor(raw){ const k=themeKey(raw); if(THEME_COLORS[k]) return THEME_COLORS[k]; let h=0; for(let i=0;i<k.length;i++) h=(h*31+k.charCodeAt(i))>>>0; h%=360; return `hsl(${h} 55% 45%)`; }
+  function themeLabel(raw){ const t=(raw||'').toString().trim(); return t? t.replace(/’/g,"'") : 'Sans thématique'; }
+  function contrast(hex){ if(hex.startsWith('hsl')) return '#000'; const h=hex.replace('#',''); let r,g,b; if(h.length===3){r=parseInt(h[0]+h[0],16);g=parseInt(h[1]+h[1],16);b=parseInt(h[2]+h[2],16);} else {r=parseInt(h.slice(0,2),16);g=parseInt(h.slice(2,4),16);b=parseInt(h.slice(4,6),16);} const lum=(0.299*r+0.587*g+0.114*b)/255; return lum>0.55?'#111':'#fff'; }
 
-  // Extraction première URL depuis meta:links (string | JSON | dict) ; sinon domaine -> https://domaine
-  function firstURL(val){
-    const raw = val==null? '': String(val).trim();
-    const urlRe = /(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:\/?#[\]@!$&'()*+,;=%]*)?/i;
-    try{
-      const parsed = JSON.parse(raw);
-      if(Array.isArray(parsed)){
-        for(const x of parsed){ const m = String(x).match(urlRe); if(m){ return m[0].startsWith('http')? m[0] : 'https://' + m[0]; } }
-      } else if(parsed && typeof parsed==='object'){
-        for(const v of Object.values(parsed)){ const m = String(v).match(urlRe); if(m){ return m[0].startsWith('http')? m[0] : 'https://' + m[0]; } }
-      }
-    }catch(_){}
-    const m = raw.match(urlRe);
-    if(m){ return m[0].startsWith('http')? m[0] : 'https://' + m[0]; }
-    return '';
-  }
-
-  // Logos Wikipédia (liste minimale)
-  const LOGOS = {
-    'AFP': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Agence_France-Presse_logo.svg/320px-Agence_France-Presse_logo.svg.png',
-    'France 24': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/France_24_logo.svg/320px-France_24_logo.svg.png',
-    'Le Monde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Le_Monde.svg/320px-Le_Monde.svg.png',
-    'Libération': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Logo_Lib%C3%A9ration.svg/320px-Logo_Lib%C3%A9ration.svg.png',
-    'Le Figaro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Le_Figaro_logo_2009.svg/320px-Le_Figaro_logo_2009.svg.png',
-    'Mediapart': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mediapart_logo.svg/320px-Mediapart_logo.svg.png',
-    'Arte': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Arte_Logo_2017.svg/320px-Arte_Logo_2017.svg.png',
-    'The New York Times': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_New_York_Times_logo_variation.jpg/320px-The_New_York_Times_logo_variation.jpg',
-    'The Washington Post': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Washington_Post_logo_2014.svg/320px-Washington_Post_logo_2014.svg.png',
-    'Reuters': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Reuters_Logo.svg/320px-Reuters_Logo.svg.png',
-    'BBC': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/BBC_Logo_2021.svg/320px-BBC_Logo_2021.svg.png',
-    'The Guardian': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_Guardian_2018.svg/320px-The_Guardian_2018.svg.png',
-    'Associated Press': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Associated_Press_logo_2012.svg/320px-Associated_Press_logo_2012.svg.png',
-    'Bellingcat': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Bellingcat_logo.svg/320px-Bellingcat_logo.svg.png'
+  // Logos Wikipédia
+  const LOGOS={
+    'AFP':'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Agence_France-Presse_logo.svg/320px-Agence_France-Presse_logo.svg.png',
+    'France 24':'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/France_24_logo.svg/320px-France_24_logo.svg.png',
+    'Le Monde':'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Le_Monde.svg/320px-Le_Monde.svg.png',
+    'Libération':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Logo_Lib%C3%A9ration.svg/320px-Logo_Lib%C3%A9ration.svg.png',
+    'Le Figaro':'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Le_Figaro_logo_2009.svg/320px-Le_Figaro_logo_2009.svg.png',
+    'Mediapart':'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Mediapart_logo.svg/320px-Mediapart_logo.svg.png',
+    'Arte':'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Arte_Logo_2017.svg/320px-Arte_Logo_2017.svg.png',
+    'The New York Times':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_New_York_Times_logo_variation.jpg/320px-The_New_York_Times_logo_variation.jpg',
+    'The Washington Post':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Washington_Post_logo_2014.svg/320px-Washington_Post_logo_2014.svg.png',
+    'Reuters':'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Reuters_Logo.svg/320px-Reuters_Logo.svg.png',
+    'BBC':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/BBC_Logo_2021.svg/320px-BBC_Logo_2021.svg.png',
+    'The Guardian':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_Guardian_2018.svg/320px-The_Guardian_2018.svg.png',
+    'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Associated_Press_logo_2012.svg/320px-Associated_Press_logo_2012.svg.png',
+    'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Bellingcat_logo.svg/320px-Bellingcat_logo.svg.png'
   };
+  function normMedia(m){ const s=norm(m); if(!s) return ''; if(/afp/.test(s)) return 'AFP'; if(/observateur/.test(s)) return 'France 24'; if(/france ?24/.test(s)) return 'France 24'; if(/le monde/.test(s)) return 'Le Monde'; if(/lib[eé]ration/.test(s)) return 'Libération'; if(/figaro/.test(s)) return 'Le Figaro'; if(/mediapart/.test(s)) return 'Mediapart'; if(/new york times|nyt/.test(s)) return 'The New York Times'; if(/washington post/.test(s)) return 'The Washington Post'; if(/reuters/.test(s)) return 'Reuters'; if(/bbc/.test(s)) return 'BBC'; if(/guardian/.test(s)) return 'The Guardian'; if(/associated press|\bap\b/.test(s)) return 'Associated Press'; if(/bellingcat/.test(s)) return 'Bellingcat'; if(/arte/.test(s)) return 'Arte'; return (m||'').toString().trim(); }
+  function logoFor(media){ const key=normMedia(media); const url=LOGOS[key]; if(url) return {url,alt:key}; const mono=(key||'?').split(/\s+/).map(w=>w[0]||'').join('').slice(0,3).toUpperCase(); return {url:'',alt:mono,mono}; }
 
-  function logoFor(media){
-    const key = normMedia(media);
-    const url = LOGOS[key];
-    if(url) return { url, alt:key };
-    const txt = (key||'?').split(/\s+/).map(w=>w[0]||'').join('').slice(0,3).toUpperCase();
-    return { url:'', alt:txt, mono:txt };
-  }
+  // URL principale
+  function firstURL(val){ const raw=val==null? '': String(val).trim(); const urlRe=/(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:\/?#[\]@!$&'()*+,;=%]*)?/i; try{ const p=JSON.parse(raw); if(Array.isArray(p)){ for(const x of p){ const m=String(x).match(urlRe); if(m) return m[0].startsWith('http')?m[0]:'https://'+m[0]; } } else if(p&&typeof p==='object'){ for(const v of Object.values(p)){ const m=String(v).match(urlRe); if(m) return m[0].startsWith('http')?m[0]:'https://'+m[0]; } } }catch(_){ } const m=raw.match(urlRe); return m? (m[0].startsWith('http')?m[0]:'https://'+m[0]) : ''; }
 
-  // ========================= CHARGEMENT + NORMALISATION =========================
-  const RAW = Array.isArray(window._DATA)? window._DATA : [];
+  // ========================= CHARGEMENT & NORMALISATION =========================
+  const RAW = Array.isArray(window.DATA)? window.DATA : [];
   console.log(`[catalog-osint] fiches intégrées: ${RAW.length}`);
 
   function mapRecord(r){
@@ -278,161 +226,110 @@
     const authorsRaw = trim(r.auteurs || r['auteur·e·s'] || r['auteurs'] || r['authors'] || r['author'] || '');
     const authors = splitAuthors(authorsRaw);
     const themeRaw = trim(r.thématique || r['thematique'] || r['Thématique'] || r['Thème'] || r['theme'] || r['Theme'] || '');
-    const themeK = themeKey(themeRaw);
-    const themeC = themeColor(themeRaw);
-    const themeL = themeLabel(themeRaw);
-    const proRaw = trim(r['proactivité/réactivité'] || r['proactivite/reactivite'] || r['proactivité'] || r['proactivite'] || r['pro'] || r['type'] || '');
-    const proact = normPro(proRaw, {title,content,commentaire});
-    const ia = hasIA({title,content,commentaire});
+    const tKey = themeKey(themeRaw);
+    const tColor = themeColor(themeRaw);
+    const tLabel = themeLabel(themeRaw);
+    const proact = normPro(r['proactivité/réactivité'] || r['proactivite/reactivite'] || r['proactivité'] || r['proactivite'] || r['pro'] || r['type'] || '', {title,content,commentaire});
+    const ia = hasIAFields({title,content,commentaire});
     const { iso, date } = parseDateLoose(begin);
 
-    return { title, content, dateISO: iso, date, media, link, commentaire, authors, themeKey: themeK, themeColor: themeC, themeLabel: themeL || 'Sans thématique', proact, hasIA: ia };
+    return { title, content, dateISO: iso, date, media, link, commentaire, authors, themeKey: tKey, themeColor: tColor, themeLabel: tLabel, proact, hasIA: ia };
   }
 
-  const ENRICHED = RAW.map(mapRecord)
-    .sort((a,b)=> (b.date?.getTime()||0) - (a.date?.getTime()||0) || a.title.localeCompare(b.title));
-
+  const ENRICHED = RAW.map(mapRecord).sort((a,b)=> (b.date?.getTime()||0) - (a.date?.getTime()||0) || a.title.localeCompare(b.title));
   const TOTAL = ENRICHED.length;
 
-  // ========================= OPTIONS DE FILTRES =========================
-  const byAlpha = (a,b)=> a.localeCompare(b);
+  // ========================= OPTIONS DES FILTRES =========================
+  const byAlpha=(a,b)=> a.localeCompare(b);
   const medias = Array.from(new Set(ENRICHED.map(x=>x.media).filter(Boolean))).sort(byAlpha);
   const allAuthors = Array.from(new Set(ENRICHED.flatMap(x=>x.authors).filter(Boolean))).sort(byAlpha);
   const themeMap = new Map();
   for(const x of ENRICHED){ if(!themeMap.has(x.themeKey)) themeMap.set(x.themeKey, x.themeLabel); }
-  if(themeMap.has("strategies militaires et influence")){
-    // clé normalisée unique, rien à faire
-  }
-  const themes = Array.from(themeMap.entries())
-    .map(([k,l])=>({k,l}))
-    .sort((a,b)=> a.l.localeCompare(b.l));
+  const themes = Array.from(themeMap.entries()).map(([k,l])=>({k,l})).sort((a,b)=>a.l.localeCompare(b.l));
 
   const $ = sel=>document.querySelector(sel);
-  function setOptions(sel, values, placeholder){
-    const el = $(sel); el.innerHTML='';
-    const opt = document.createElement('option'); opt.value=''; opt.textContent = placeholder || '(toutes)'; el.appendChild(opt);
-    for(const v of values){ const o=document.createElement('option'); o.value=v; o.textContent=v; el.appendChild(o); }
-  }
+  function setOptions(el, values, placeholder){ el.innerHTML=''; const o=document.createElement('option'); o.value=''; o.textContent=placeholder||'(toutes)'; el.appendChild(o); for(const v of values){ const opt=document.createElement('option'); opt.value=v; opt.textContent=v; el.appendChild(opt);} }
 
-  setOptions('#media', medias, '(tous)');
-  setOptions('#authors', allAuthors, '(tous)');
-  (function setThemeOptions(){
-    const el = $('#theme'); el.innerHTML='';
-    const opt0 = document.createElement('option'); opt0.value=''; opt0.textContent='(toutes)'; el.appendChild(opt0);
-    for(const {k,l} of themes){ const o=document.createElement('option'); o.value=k; o.textContent=l; el.appendChild(o); }
-    if(!themes.length){ const o=document.createElement('option'); o.value='(sans)'; o.textContent='(sans thématique)'; el.appendChild(o); }
-  })();
+  setOptions(document.getElementById('media'), medias, '(tous)');
+  setOptions(document.getElementById('authors'), allAuthors, '(tous)');
+  (function(){ const el=document.getElementById('theme'); el.innerHTML=''; const o=document.createElement('option'); o.value=''; o.textContent='(toutes)'; el.appendChild(o); for(const {k,l} of themes){ const opt=document.createElement('option'); opt.value=k; opt.textContent=l; el.appendChild(opt);} if(!themes.length){ const opt=document.createElement('option'); opt.value='(sans)'; opt.textContent='(sans thématique)'; el.appendChild(opt);} })();
 
   const dates = ENRICHED.map(x=>x.date).filter(Boolean).sort((a,b)=>a-b);
   if(dates.length){ const toISO=d=>d.toISOString().slice(0,10); document.getElementById('dfrom').min=toISO(dates[0]); document.getElementById('dto').min=toISO(dates[0]); document.getElementById('dfrom').max=toISO(dates.at(-1)); document.getElementById('dto').max=toISO(dates.at(-1)); }
 
-  // ========================= RENDU DES CARTES =========================
-  function contrastColor(hex){
-    const h = hex.startsWith('#')? hex.slice(1):hex;
-    let r,g,b; if(h.startsWith('hsl')){ return '#000'; }
-    if(h.length===3){ r=parseInt(h[0]+h[0],16); g=parseInt(h[1]+h[1],16); b=parseInt(h[2]+h[2],16);} else { r=parseInt(h.slice(0,2),16); g=parseInt(h.slice(2,4),16); b=parseInt(h.slice(4,6),16);} 
-    const lum = (0.299*r+0.587*g+0.114*b)/255; return lum>0.55? '#111' : '#fff';
-  }
-
+  // ========================= RENDU CARTE =========================
   function card(item){
-    const mediaLogo = logoFor(item.media);
-    const proChipCls = item.proact==='proactive' ? 'bg-emerald-600 text-white' : (item.proact==='reactive' ? 'bg-amber-600 text-white' : 'bg-slate-200 text-slate-700');
+    const logo = logoFor(item.media);
     const themeBg = item.themeColor || '#94a3b8';
-    const themeTxt = contrastColor(themeBg);
+    const themeTxt = contrast(themeBg);
+    const proCls = item.proact==='proactive' ? 'chip-pro' : (item.proact==='reactive' ? 'chip-rea' : '');
     const dateStr = item.date ? new Intl.DateTimeFormat('fr-FR',{year:'numeric',month:'long',day:'2-digit'}).format(item.date) : '(date manquante)';
 
     return `
-    <article class="card-border rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden" style="border-left-color:${themeBg}" role="listitem">
-      <div class="p-4 space-y-3">
-        <div class="flex items-center gap-3">
-          ${mediaLogo.url ? `<img src="${mediaLogo.url}" alt="${mediaLogo.alt}" class="w-10 h-10 object-contain rounded"/>` : `<div class="logo-fallback w-10 h-10">${mediaLogo.mono||'?'}</div>`}
-          <h3 class="text-base font-semibold leading-snug">${item.title||'(titre manquant)'}</h3>
+    <article class="card card-border" style="border-left-color:${themeBg}" role="listitem">
+      <div class="card-inner">
+        <div class="top">
+          ${logo.url ? `<img class="logo" src="${logo.url}" alt="${logo.alt}">` : `<div class="mono">${logo.mono||'?'}</div>`}
+          <h3 class="title">${item.title||'(titre manquant)'}</h3>
         </div>
-        <p class="text-sm text-slate-700">${item.content||''}</p>
-        <div class="flex flex-wrap gap-1.5">
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-700">${item.media||'—'}</span>
-          ${item.hasIA ? `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 text-indigo-800">IA</span>` : ''}
-          ${item.proact? `<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${proChipCls}">${item.proact}</span>`:''}
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium" style="background:${themeBg}; color:${themeTxt};">${item.themeLabel||'Sans thématique'}</span>
-          ${item.authors.map(a=>`<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700">${a}</span>`).join('')}
+        <p class="desc">${item.content||''}</p>
+        <div class="chips">
+          <span class="chip">${item.media||'—'}</span>
+          ${item.hasIA ? `<span class="chip chip-ia">IA</span>` : ''}
+          ${item.proact ? `<span class="chip ${proCls}">${item.proact}</span>` : ''}
+          <span class="chip" style="background:${themeBg};color:${themeTxt};border-color:${themeBg}">${item.themeLabel||'Sans thématique'}</span>
+          ${item.authors.map(a=>`<span class="chip">${a}</span>`).join('')}
         </div>
-        <div class="flex items-center justify-between text-sm text-slate-600">
+        <div class="kv">
           <span>${dateStr}</span>
-          ${item.link? `<a class="link-icon" href="${item.link}" target="_blank" rel="noopener" title="Ouvrir"><span aria-hidden="true">🔗</span><span class="sr-only">Ouvrir le lien</span></a>` : '<span class="text-slate-400">(pas de lien)</span>'}
+          ${item.link? `<a class="link" href="${item.link}" target="_blank" rel="noopener" title="Ouvrir"><span aria-hidden="true">🔗</span><span class="sr-only">Ouvrir le lien</span></a>` : '<span style="color:#94a3b8">(pas de lien)</span>'}
         </div>
       </div>
     </article>`;
   }
 
-  // ========================= FILTRAGE =========================
-  const state = { q:'', media:'', author:'', theme:'', proact:'', hasIA:'', dfrom:'', dto:'' };
-
+  // ========================= FILTRES =========================
+  const state={ q:'', media:'', author:'', theme:'', proact:'', hasIA:'', dfrom:'', dto:'' };
   function applyFilters(){
     const q = norm(state.q);
     let out = ENRICHED.filter(x=>{
-      if(q){ const hay = norm(`${x.title} ${x.content} ${x.commentaire}`); if(!hay.includes(q)) return false; }
+      if(q){ const hay=norm(`${x.title} ${x.content} ${x.commentaire}`); if(!hay.includes(q)) return false; }
       if(state.media && x.media!==state.media) return false;
       if(state.author && !x.authors.includes(state.author)) return false;
       if(state.theme && x.themeKey!==state.theme) return false;
       if(state.proact && x.proact!==state.proact) return false;
       if(state.hasIA){ if(state.hasIA==='yes' && !x.hasIA) return false; if(state.hasIA==='no' && x.hasIA) return false; }
       if(state.dfrom){ if(!x.date || x.date < new Date(state.dfrom)) return false; }
-      if(state.dto){ const lim = new Date(state.dto); lim.setHours(23,59,59,999); if(!x.date || x.date > lim) return false; }
+      if(state.dto){ const lim=new Date(state.dto); lim.setHours(23,59,59,999); if(!x.date || x.date > lim) return false; }
       return true;
     });
     out = out.sort((a,b)=> (b.date?.getTime()||0) - (a.date?.getTime()||0) || a.title.localeCompare(b.title));
-
-    const grid = document.getElementById('grid');
-    grid.innerHTML = out.map(card).join('');
+    document.getElementById('grid').innerHTML = out.map(card).join('');
     document.getElementById('count').textContent = `${out.length} résultat(s) affiché(s) / ${TOTAL}`;
-
     return out;
   }
 
   function bind(){
-    const f = document.getElementById('filters');
-    const ids = ['q','media','authors','theme','proact','hasIA','dfrom','dto'];
+    const ids=['q','media','authors','theme','proact','hasIA','dfrom','dto'];
     ids.forEach(id=>{
-      f.querySelector('#'+id).addEventListener('input', (e)=>{
-        if(id==='authors') state.author = e.target.value; else if(id==='theme') state.theme=e.target.value; else state[id]=e.target.value;
-        applyFilters();
-      });
-      f.querySelector('#'+id).addEventListener('change', (e)=>{
-        if(id==='authors') state.author = e.target.value; else if(id==='theme') state.theme=e.target.value; else state[id]=e.target.value;
-        applyFilters();
-      });
+      const el=document.getElementById(id);
+      el.addEventListener('input', e=>{ if(id==='authors') state.author=e.target.value; else if(id==='theme') state.theme=e.target.value; else state[id]=e.target.value; applyFilters(); });
+      el.addEventListener('change', e=>{ if(id==='authors') state.author=e.target.value; else if(id==='theme') state.theme=e.target.value; else state[id]=e.target.value; applyFilters(); });
     });
-
     document.getElementById('reset').addEventListener('click', ()=>{
-      state.q=state.media=state.author=state.theme=state.proact=state.hasIA=state.dfrom=state.dto='';
-      ids.forEach(id=>{ const el=f.querySelector('#'+id); if(el) el.value=''; });
+      Object.keys(state).forEach(k=> state[k]='');
+      ids.forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
       applyFilters();
     });
-
     document.getElementById('export').addEventListener('click', ()=>{
-      const rows = applyFilters();
-      const headers = ['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
-      const csv = [headers.join(',')].concat(rows.map(r=>{
-        const vals = [
-          r.title,
-          r.content,
-          r.dateISO,
-          r.media,
-          r.link,
-          r.commentaire,
-          r.authors.join(' | '),
-          r.themeLabel,
-          r.proact,
-          r.hasIA ? 'yes':'no'
-        ];
+      const rows=applyFilters();
+      const headers=['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
+      const csv=[headers.join(',')].concat(rows.map(r=>{
+        const vals=[r.title,r.content,r.dateISO,r.media,r.link,r.commentaire,r.authors.join(' | '),r.themeLabel,r.proact,r.hasIA?'yes':'no'];
         return vals.map(v=> '"'+ String(v??'').replace(/"/g,'""') +'"').join(',');
       })).join('\n');
-      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'export_catalog_osint.csv';
-      a.click();
-      URL.revokeObjectURL(a.href);
+      const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='export_catalog_osint.csv'; a.click(); URL.revokeObjectURL(a.href);
     });
   }
 
