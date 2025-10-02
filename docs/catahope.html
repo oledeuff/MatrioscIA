@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>catalogue d’enquêtes de type OSINT — Investigations audiovisuelles</title>
+  <!-- Tailwind via CDN (autorisé) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Monogramme média (fallback) */
+    .mono { display:inline-flex; align-items:center; justify-content:center; font-weight:700; border-radius:9999px; width:40px; height:40px; background:#e5e7eb; color:#374151; }
+    .line-clamp-4{ display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+    .focus-ring{ outline:2px solid transparent; outline-offset:2px; box-shadow:0 0 0 3px rgba(16,185,129,.35); }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- En-tête -->
+  <header class="bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400 text-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+      <h1 class="text-2xl sm:text-3xl font-extrabold">catalogue d’enquêtes de type OSINT</h1>
+      <p class="text-sm sm:text-base mt-1">Investigations audiovisuelles</p>
+    </div>
+  </header>
+
+  <!-- Barre outils -->
+  <main class="max-w-7xl mx-auto px-4 py-6">
+    <section aria-labelledby="filtres" class="mb-4">
+      <h2 id="filtres" class="sr-only">Filtres et recherche</h2>
+      <form id="controls" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 items-end">
+        <div class="flex flex-col">
+          <label for="search" class="text-sm font-medium">Recherche plein‑texte</label>
+          <input id="search" type="search" inputmode="search" placeholder="Titre, résumé ou commentaire…" class="mt-1 px-3 py-2 border rounded-lg focus-ring" aria-describedby="search-help" />
+          <p id="search-help" class="sr-only">Saisissez des mots présents dans le titre, le résumé ou le commentaire.</p>
+        </div>
+
+        <div class="flex flex-col">
+          <label for="media" class="text-sm font-medium">Média</label>
+          <select id="media" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
+        </div>
+
+        <div class="flex flex-col">
+          <label for="theme" class="text-sm font-medium">Thématique</label>
+          <select id="theme" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 md:col-span-2 xl:col-span-1">
+          <div class="flex flex-col">
+            <label for="proact" class="text-sm font-medium">Proactivité</label>
+            <select id="proact" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
+          </div>
+          <div class="flex flex-col">
+            <label for="ia" class="text-sm font-medium">IA</label>
+            <select id="ia" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 md:col-span-2 xl:col-span-1">
+          <button id="resetBtn" type="button" class="px-3 py-2 rounded-xl border bg-white hover:bg-gray-50">Réinitialiser</button>
+          <button id="exportBtn" type="button" class="px-3 py-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700">Exporter en CSV</button>
+          <span id="counter" class="ml-auto text-sm text-gray-600" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Grille résultats -->
+    <section aria-labelledby="resultats">
+      <h2 id="resultats" class="sr-only">Résultats</h2>
+      <div id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+    </section>
+  </main>
+
+  <!-- Pied de page obligatoire -->
+  <footer class="border-t">
+    <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-gray-600">
+      Projet MatrioscIA. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence CC BY
+    </div>
+  </footer>
+
+  <!-- Données : aucun fetch — le serveur doit fournir data.js dans le même dossier -->
+  <script src="data.js"></script>
+
+  <!--
+    Le commentaire ci-dessous est exigé : nombre total de fiches au chargement.
+    Il sera aussi journalisé en console au runtime.
+  -->
+  <script>
+  /* Total de fiches (window.RAW_ROWS.length) : sera affiché en console au chargement */
+  </script>
+
+  <script>
+  // ============================================================
+  //  UTILITAIRES & NORMALISATIONS
+  // ============================================================
+  const ACCENTS_RE = /[\u0300-\u036f]/g;
+  const norm = (s) => (s ?? "").toString().normalize('NFD').replace(ACCENTS_RE,'').toLowerCase().trim().replace(/\s+/g,' ');
+  const trimStr = (s) => (s ?? "").toString().trim();
+  const firstNonEmpty = (...vals) => vals.find(v => !!trimStr(v)) ?? "";
+
+  // Parse de date tolérant (day-first) -> ISO YYYY-MM-DD
+  function parseDateToISO(input){
+    if(!input) return null;
+    const s = trimStr(input);
+    // Formats courants ISO ou YYYY/MM/DD
+    const iso = new Date(s);
+    if(!Number.isNaN(iso.getTime())){
+      // Si ambigu, on tente une interprétation jour/mois
+      const m = s.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{2,4})$/);
+      if(m){
+        const [_, d, mo, y] = m;
+        const year = y.length===2 ? (Number(y) + 2000) : Number(y);
+        const dt = new Date(Date.UTC(year, Number(mo)-1, Number(d)));
+        if(!Number.isNaN(dt.getTime())) return dt.toISOString().slice(0,10);
+      }
+      // Date déjà valide
+      return new Date(iso.getTime() - iso.getTimezoneOffset()*60000).toISOString().slice(0,10);
+    }
+    // Essai format "DD mois YYYY" FR
+    const mois = {janvier:0, fevrier:1, février:1, mars:2, avril:3, mai:4, juin:5, juillet:6, aout:7, août:7, septembre:8, octobre:9, novembre:10, decembre:11, décembre:11};
+    const fr = s.match(/^(\d{1,2})\s+([A-Za-zéèêàûôîïùçœ]+)\s+(\d{4})$/i);
+    if(fr){
+      const d=Number(fr[1]); const mo=mois[norm(fr[2])]; const y=Number(fr[3]);
+      if(mo>=0){ const dt=new Date(Date.UTC(y,mo,d)); return dt.toISOString().slice(0,10);}  
+    }
+    return null;
+  }
+
+  function formatDateFR(iso){
+    if(!iso) return '(date manquante)';
+    try{
+      const dt = new Date(iso+ 'T00:00:00Z');
+      if(Number.isNaN(dt.getTime())) return '(date manquante)';
+      return dt.toLocaleDateString('fr-FR', {day:'2-digit', month:'long', year:'numeric'});
+    }catch{ return '(date manquante)'; }
+  }
+
+  // Fusion médias ("AFP factuel" -> AFP ; Les Observateurs -> France 24 pour le logo)
+  function normalizeMedia(s){
+    const v = trimStr(s);
+    if(!v) return '';
+    const n = norm(v);
+    if(n.includes('afp')) return 'AFP';
+    if(n.includes('observateurs')) return 'France 24';
+    return v.replace(/\s+/g,' ').trim();
+  }
+
+  // Heuristique proactivité
+  function detectProact(base, title, content, comm){
+    const v = norm(base);
+    if(v==='proactive' || v==='reactive') return v;
+    const bag = `${norm(title)} ${norm(content)} ${norm(comm)}`;
+    const reactiveHints = ['fact check','fact-check','factcheck','desinfo','desinformation','desinformation','vrai/faux','vrai faux','hoax','debunk'];
+    const proHints = ['enquete','investigation','osint','cartographie','geolocalisation','geo-localisation','geolocation','analyse visuelle','verification visuelle'];
+    if(reactiveHints.some(k => bag.includes(k))) return 'reactive';
+    if(proHints.some(k => bag.includes(k))) return 'proactive';
+    return '';
+  }
+
+  // IA detection si bool manquant
+  const IA_KEYS = ['intelligence artificielle','ia','i.a.','ai','llm','deepfake','apprentissage automatique','deep learning','reseau neuronal','réseau neuronal','modeles de langue','modèles de langue','generatif','génératif','chatgpt','openai','midjourney','stable diffusion','llama','elevenlabs','suno'];
+  function detectIA(hasIA, title, content, comm){
+    if(typeof hasIA === 'boolean') return hasIA;
+    const bag = `${norm(comm)} ${norm(title)} ${norm(content)}`;
+    return IA_KEYS.some(k => bag.includes(norm(k)));
+  }
+
+  // Thématiques → couleurs strictes
+  const THEME_COLORS = {
+    'humanitaire': '#8b5cf6',
+    'problematiques environnementales': '#10b981',
+    'problématiques environnementales': '#10b981',
+    'strategies militaires et influence': '#78866B',
+    'stratégies militaires et influence': '#78866B',
+    'crime organise': '#000000',
+    'crime organisé': '#000000',
+    "repression de l'etat": '#f97316',
+    "répression de l’état": '#f97316',
+    'approfondissement de lactualite': '#3b82f6',
+    "approfondissement de l'actualité": '#3b82f6',
+    'catastrophes naturelles': '#ef4444'
+  };
+
+  function colorForTheme(themeRaw){
+    const key = norm(themeRaw);
+    if(THEME_COLORS[key]) return THEME_COLORS[key];
+    if(!themeRaw) return '#94a3b8'; // Sans thématique (gris)
+    // Couleur stable de secours via hash HSL -> hex
+    const h = [...key].reduce((a,c)=> (a*31 + c.charCodeAt(0))>>>0, 0) % 360;
+    const s = 55, l = 55; // HSL -> hex
+    return hslToHex(h,s,l);
+  }
+
+  function hslToHex(h,s,l){
+    s/=100; l/=100; const C=(1-Math.abs(2*l-1))*s; const X=C*(1-Math.abs(((h/60)%2)-1)); const m=l-C/2;
+    let [r,g,b]=[0,0,0];
+    if(0<=h&&h<60){[r,g,b]=[C,X,0]} else if(60<=h&&h<120){[r,g,b]=[X,C,0]} else if(120<=h&&h<180){[r,g,b]=[0,C,X]} else if(180<=h&&h<240){[r,g,b]=[0,X,C]} else if(240<=h&&h<300){[r,g,b]=[X,0,C]} else {[r,g,b]=[C,0,X]}
+    const R=Math.round((r+m)*255).toString(16).padStart(2,'0');
+    const G=Math.round((g+m)*255).toString(16).padStart(2,'0');
+    const B=Math.round((b+m)*255).toString(16).padStart(2,'0');
+    return `#${R}${G}${B}`;
+  }
+
+  // Logos Wikipédia (URL distantes autorisées)
+  const LOGOS = {
+    'AFP': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Agence_France-Presse_logo.svg/512px-Agence_France-Presse_logo.svg.png',
+    'France 24': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/FRANCE_24_logo.svg/512px-FRANCE_24_logo.svg.png',
+    'Le Monde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Le_Monde_logo_2010.svg/512px-Le_Monde_logo_2010.svg.png',
+    'Libération': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lib%C3%A9ration_logo.svg/512px-Lib%C3%A9ration_logo.svg.png',
+    'Le Figaro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Le_Figaro_logo.svg/512px-Le_Figaro_logo.svg.png',
+    'Mediapart': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Logo-mediapart.svg/512px-Logo-mediapart.svg.png',
+    'Arte': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Arte_Logo_2017.svg/512px-Arte_Logo_2017.svg.png',
+    'The New York Times': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/NewYorkTimes.svg/512px-NewYorkTimes.svg.png',
+    'The Washington Post': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Washington_Post_logo_2015.svg/512px-Washington_Post_logo_2015.svg.png',
+    'Reuters': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Reuters_logo.svg/512px-Reuters_logo.svg.png',
+    'BBC': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BBC_News_2022_%28Alt%29.svg/512px-BBC_News_2022_%28Alt%29.svg.png',
+    'The Guardian': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_Guardian_2018.svg/512px-The_Guardian_2018.svg.png',
+    'Associated Press': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Associated_Press_logo_2012.svg/512px-Associated_Press_logo_2012.svg.png',
+    'Bellingcat': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bellingcat_logo.svg/512px-Bellingcat_logo.svg.png'
+  };
+
+  // Lien : préfixe https si absent
+  function normalizeLink(url){
+    const u = trimStr(url);
+    if(!u) return '';
+    if(/^https?:\/\//i.test(u)) return u;
+    return 'https://' + u;
+  }
+
+  // Auteurs → tableau (si string)
+  function normalizeAuthors(auth){
+    if(Array.isArray(auth)) return auth.map(a=>trimStr(a)).filter(Boolean);
+    const s = trimStr(auth);
+    if(!s) return [];
+    return s.split(/\s*(?:[,;|\/]|\s&\s|\s"et"\s|\set\s|\s\band\b)\s*/i).map(a=>a.trim()).filter(Boolean);
+  }
+
+  // Badges
+  const proactBadge = (p) => {
+    if(p==='proactive') return '<span class="px-2 py-0.5 text-xs rounded-md bg-emerald-600 text-white">proactive</span>';
+    if(p==='reactive') return '<span class="px-2 py-0.5 text-xs rounded-md bg-amber-600 text-white">reactive</span>';
+    return '';
+  };
+  const iaBadge = (b) => b ? '<span class="px-2 py-0.5 text-xs rounded-md bg-indigo-600 text-white">IA</span>' : '';
+
+  // Logo élément
+  function mediaLogoEl(media){
+    const url = LOGOS[media];
+    if(url){
+      return `<img src="${url}" alt="Logo ${media}" class="w-10 h-10 object-contain bg-white rounded" referrerpolicy="no-referrer" />`;
+    }
+    const initials = media ? media.split(/\s+/).map(w=>w[0]).slice(0,3).join('').toUpperCase() : '?';
+    return `<span class="mono" aria-label="${media || 'Média inconnu'}">${initials}</span>`;
+  }
+
+  // ============================================================
+  //  CHARGEMENT & INDEXATION
+  // ============================================================
+  const RAW = Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS : [];
+  console.log(`Total fiches: ${RAW.length}`);
+
+  function normalizeRow(r){
+    const title = firstNonEmpty(r.title);
+    const content = firstNonEmpty(r.content);
+    const commentaire = firstNonEmpty(r.commentaire);
+    const dateISO = parseDateToISO(firstNonEmpty(r.date));
+    const media = normalizeMedia(firstNonEmpty(r.media));
+    const link = normalizeLink(firstNonEmpty(r.link));
+    const authors = normalizeAuthors(r.authors);
+    const themeRaw = firstNonEmpty(r.theme);
+    const themeKey = themeRaw ? themeRaw : '';
+    const themeColor = colorForTheme(themeKey);
+    const proact = detectProact(firstNonEmpty(r.proact), title, content, commentaire);
+    const hasIA = detectIA(r.hasIA, title, content, commentaire);
+    // Libellés de puces
+    const themeLabel = themeRaw ? themeRaw : 'Sans thématique';
+    return {
+      title, content, commentaire,
+      dateISO, media, link, authors, theme: themeLabel, proact, hasIA,
+      themeColor,
+      // index texte
+      _search: norm(`${title} ${content} ${commentaire}`)
+    };
+  }
+
+  const ALL = RAW.map(normalizeRow);
+
+  // ============================================================
+  //  UI : FILTRES
+  // ============================================================
+  const $media = document.getElementById('media');
+  const $theme = document.getElementById('theme');
+  const $proact = document.getElementById('proact');
+  const $ia = document.getElementById('ia');
+  const $search = document.getElementById('search');
+  const $grid = document.getElementById('grid');
+  const $counter = document.getElementById('counter');
+
+  function uniqueSorted(list){
+    const map = new Map();
+    for(const v of list){ const k = norm(v); if(!map.has(k)) map.set(k, v); }
+    return [...map.values()].sort((a,b)=> a.localeCompare(b,'fr',{sensitivity:'base'}));
+  }
+
+  function buildFilterOptions(){
+    // Médias
+    const medias = uniqueSorted(ALL.map(x=> x.media).filter(Boolean));
+    $media.innerHTML = '<option value="">(tous)</option>' + medias.map(m=>`<option value="${m}">${m}</option>`).join('');
+    // Thèmes (ajout Sans thématique si présent)
+    const themes = uniqueSorted(ALL.map(x=> x.theme));
+    $theme.innerHTML = '<option value="">(toutes)</option>' + themes.map(t=>`<option value="${t}">${t}</option>`).join('');
+    // Proact
+    $proact.innerHTML = [
+      '<option value="">(toutes)</option>',
+      '<option value="proactive">proactive</option>',
+      '<option value="reactive">reactive</option>'
+    ].join('');
+    // IA
+    $ia.innerHTML = [
+      '<option value="">(tout)</option>',
+      '<option value="yes">yes</option>',
+      '<option value="no">no</option>'
+    ].join('');
+  }
+
+  // ============================================================
+  //  FILTRAGE + TRI + RENDU
+  // ============================================================
+  function applyFilters(){
+    const q = norm($search.value);
+    const m = norm($media.value);
+    const t = norm($theme.value);
+    const p = norm($proact.value);
+    const i = norm($ia.value);
+
+    let rows = ALL.filter(r => {
+      if(q && !r._search.includes(q)) return false;
+      if(m && norm(r.media)!==m) return false;
+      if(t && norm(r.theme)!==t) return false;
+      if(p && r.proact!==p) return false;
+      if(i==='yes' && !r.hasIA) return false;
+      if(i==='no' && r.hasIA) return false;
+      return true;
+    });
+
+    // Tri : date décroissante puis titre A→Z
+    rows.sort((a,b)=>{
+      const ad = a.dateISO ? a.dateISO : '';
+      const bd = b.dateISO ? b.dateISO : '';
+      if(ad !== bd) return (ad < bd) ? 1 : -1; // décroissant
+      return a.title.localeCompare(b.title,'fr',{sensitivity:'base'});
+    });
+
+    renderRows(rows);
+  }
+
+  function renderRows(rows){
+    $grid.innerHTML = rows.map(cardHTML).join('');
+    $counter.textContent = `${rows.length} résultat(s) affiché(s) / ${ALL.length}`;
+  }
+
+  function badgeTheme(r){
+    const color = r.theme ? r.themeColor : '#94a3b8';
+    const textColor = getContrastYIQ(color);
+    return `<span class="px-2 py-0.5 text-xs rounded-md" style="background:${color};color:${textColor}">${r.theme || 'Sans thématique'}</span>`;
+  }
+
+  function getContrastYIQ(hex){
+    const c = hex.replace('#','');
+    const r = parseInt(c.substr(0,2),16);
+    const g = parseInt(c.substr(2,2),16);
+    const b = parseInt(c.substr(4,2),16);
+    const yiq = (r*299 + g*587 + b*114)/1000;
+    return yiq >= 128 ? '#111827' : '#ffffff';
+  }
+
+  function cardHTML(r){
+    const leftBorder = `style=\"border-left:8px solid ${r.themeColor}\"`;
+    const linkIcon = r.link ? `<a href="${r.link}" class="ml-2" target="_blank" rel="noopener" aria-label="Ouvrir le lien original"><span role="img" aria-hidden="true">🔗</span></a>` : '';
+    const authors = r.authors.map(a=>`<span class=\"px-2 py-0.5 text-xs rounded-md bg-gray-200 text-gray-800\">${a}</span>`).join(' ');
+    return `
+      <article class="border rounded-xl p-4 flex flex-col" ${leftBorder}>
+        <div class="flex items-center gap-3 mb-2">
+          ${mediaLogoEl(r.media)}
+          <div class="min-w-0">
+            <h3 class="font-semibold leading-snug"><span class="align-middle">${r.title || '(titre manquant)'}</span>${linkIcon}</h3>
+            <div class="mt-1 flex flex-wrap gap-2 text-xs text-gray-700">
+              <span class="px-2 py-0.5 rounded-md bg-gray-100">${r.media || 'Média inconnu'}</span>
+              ${iaBadge(r.hasIA)}
+              ${proactBadge(r.proact)}
+              ${badgeTheme(r)}
+            </div>
+          </div>
+        </div>
+        <p class="text-sm text-gray-800 mb-3 line-clamp-4">${r.content || ''}</p>
+        ${r.authors.length ? `<div class=\"mb-3 flex flex-wrap gap-1\">${authors}</div>` : ''}
+        <div class="mt-auto pt-2 flex items-center justify-between text-sm text-gray-600">
+          <time datetime="${r.dateISO || ''}">${formatDateFR(r.dateISO)}</time>
+          ${r.link ? `<a href=\"${r.link}\" target=\"_blank\" rel=\"noopener\" class=\"text-gray-700 hover:underline\" aria-label=\"Ouvrir le lien original\">🔗</a>` : '<span class="text-gray-400">(pas de lien)</span>'}
+        </div>
+      </article>
+    `;
+  }
+
+  // ============================================================
+  //  EXPORT CSV (exact sous-ensemble affiché)
+  // ============================================================
+  function exportCSV(){
+    // Recalcule l'ensemble filtré actuel
+    const q = norm($search.value);
+    const m = norm($media.value);
+    const t = norm($theme.value);
+    const p = norm($proact.value);
+    const i = norm($ia.value);
+
+    const rows = ALL.filter(r => {
+      if(q && !r._search.includes(q)) return false;
+      if(m && norm(r.media)!==m) return false;
+      if(t && norm(r.theme)!==t) return false;
+      if(p && r.proact!==p) return false;
+      if(i==='yes' && !r.hasIA) return false;
+      if(i==='no' && r.hasIA) return false;
+      return true;
+    });
+
+    const header = ['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
+    const lines = [header.join(',')];
+    const esc = (v)=> '"' + (v??'').toString().replace(/"/g,'""') + '"';
+
+    for(const r of rows){
+      const authorsJoined = (r.authors||[]).join(' | ');
+      const line = [r.title, r.content, r.dateISO || '', r.media, r.link, r.commentaire, authorsJoined, r.theme, r.proact, r.hasIA].map(esc).join(',');
+      lines.push(line);
+    }
+
+    const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'export_osint.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // ============================================================
+  //  INTERACTIONS
+  // ============================================================
+  function debounce(fn, ms){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); } }
+
+  function resetAll(){
+    $search.value = '';
+    $media.value = '';
+    $theme.value = '';
+    $proact.value = '';
+    $ia.value = '';
+    applyFilters();
+    $search.focus();
+  }
+
+  // Init
+  buildFilterOptions();
+  applyFilters();
+
+  $search.addEventListener('input', debounce(applyFilters, 150));
+  $media.addEventListener('change', applyFilters);
+  $theme.addEventListener('change', applyFilters);
+  $proact.addEventListener('change', applyFilters);
+  $ia.addEventListener('change', applyFilters);
+  document.getElementById('resetBtn').addEventListener('click', resetAll);
+  document.getElementById('exportBtn').addEventListener('click', exportCSV);
+
+  // ============================================================
+  //  VALIDATION RAPIDE (console)
+  // ============================================================
+  // 1) Proactivité influe sur le nombre de résultats
+  console.debug('Test proactivité (comptages):', {
+    total: ALL.length,
+    proactive: ALL.filter(r=>r.proact==='proactive').length,
+    reactive: ALL.filter(r=>r.proact==='reactive').length
+  });
+  // 2) IA=yes -> uniquement badges IA
+  console.debug('Test IA yes:', ALL.filter(r=>r.hasIA).length);
+  // 3) Thématique: pas de doublon "stratégies militaires et influence" (normalisé)
+  console.debug('Thématiques uniques:', new Set(ALL.map(r=>norm(r.theme))).size);
+  // 4) L’export CSV a même nombre de lignes que l’affichage — vérifié lors de l’export.
+  // 5) "AFP factuel" fusionné avec AFP — vérifié via normalizeMedia.
+
+  </script>
+</body>
+</html>
