@@ -4234,5 +4234,6 @@ window.RAW_ROWS = [
     "hasIA": false
   }
 ]
-window.RAW_ROWS = window.rows_all || window.data || window.rows || [];
+window.RAW_ROWS = [ /* ... tes objets ... */ ];
+
 
