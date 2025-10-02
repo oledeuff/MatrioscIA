@@ -4234,7 +4234,7 @@ window.RAW_ROWS = [
     "hasIA": false
   }
 ]
-console.log("✔ RAW_ROWS chargées :", Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS.length : "—");
+
 
 
 
