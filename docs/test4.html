@@ -20,20 +20,22 @@
   <!-- HEADER compact -->
   <header class="sticky top-0 z-10 border-b border-emerald-200 bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400/90 backdrop-blur">
     <div class="mx-auto max-w-6xl px-3 py-2">
-      <h1 class="m-0 text-xl font-bold text-emerald-950">catalogue d’enquêtes de type OSINT</h1>
-      <p class="mt-0 text-xs text-emerald-900/90">Investigations audiovisuelles</p>
+      <div class="flex items-end justify-between">
+        <div>
+          <h1 class="m-0 text-xl font-bold text-emerald-950">catalogue d’enquêtes de type OSINT</h1>
+          <p class="mt-0 text-xs text-emerald-900/90">Investigations audiovisuelles</p>
+        </div>
+        <span id="count" class="text-xs text-emerald-950"></span>
+      </div>
 
-      <!-- Filtres -->
-      <div class="rounded-lg border border-emerald-200 bg-white p-2 shadow-sm">
-        <div class="grid gap-2 md:grid-cols-2 xl:grid-cols-6">
+      <!-- Bandeau filtres très concis -->
+      <div class="mt-2 rounded-lg border border-emerald-200 bg-white p-2 shadow-sm">
+        <div class="grid gap-2 md:grid-cols-3 xl:grid-cols-6">
           <label class="text-[11px] text-slate-600">Recherche
             <input id="f-q" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" placeholder="titre, résumé, commentaire…" />
           </label>
           <label class="text-[11px] text-slate-600">Média
             <select id="f-media" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm"></select>
-          </label>
-          <label class="text-[11px] text-slate-600">Auteurs
-            <select id="f-author" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm"></select>
           </label>
           <label class="text-[11px] text-slate-600">Thématique
             <select id="f-theme" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm"></select>
@@ -52,20 +54,19 @@
               <option value="no">no</option>
             </select>
           </label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="text-[11px] text-slate-600">De
+              <input id="f-from" type="date" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" />
+            </label>
+            <label class="text-[11px] text-slate-600">À
+              <input id="f-to" type="date" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" />
+            </label>
+          </div>
         </div>
 
-        <div class="mt-2 grid gap-2 md:grid-cols-3 xl:grid-cols-6">
-          <label class="text-[11px] text-slate-600">Date (De)
-            <input id="f-from" type="date" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" />
-          </label>
-          <label class="text-[11px] text-slate-600">Date (À)
-            <input id="f-to" type="date" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" />
-          </label>
-          <div class="flex items-end gap-2">
-            <button id="btn-reset" class="mt-1 inline-flex items-center rounded-md border border-slate-200 bg-white px-3 py-1 text-sm font-semibold hover:border-emerald-400">Réinitialiser</button>
-            <button id="btn-export" class="mt-1 inline-flex items-center rounded-md border border-emerald-300 bg-emerald-600 px-3 py-1 text-sm font-semibold text-white hover:bg-emerald-700">Exporter en CSV</button>
-            <span id="count" class="ml-auto text-xs text-emerald-900"></span>
-          </div>
+        <div class="mt-2 flex items-center gap-2">
+          <button id="btn-reset" class="inline-flex items-center rounded-md border border-slate-200 bg-white px-3 py-1 text-sm font-semibold hover:border-emerald-400">Réinitialiser</button>
+          <button id="btn-export" class="inline-flex items-center rounded-md border border-emerald-300 bg-emerald-600 px-3 py-1 text-sm font-semibold text-white hover:bg-emerald-700">Exporter en CSV</button>
         </div>
       </div>
     </div>
@@ -82,34 +83,13 @@
   <!-- ======== APPEL DE TES DONNÉES ======== -->
   <script src="data_osint.js"></script>
 
-  <!-- 👇 Autodétection du tableau global fourni par data_osint.js -->
-  <script>
-  (function attachRAWROWS(){
-    if (Array.isArray(window.RAW_ROWS)) return;
-    const preferred = [
-      'rows_all','rows','data','DATA','DATA_OSINT','DATASET',
-      'DATA_ROWS','osint_data','OSINT_DATA','enquetes','entries','table'
-    ];
-    for (const k of preferred) { if (Array.isArray(window[k])) { window.RAW_ROWS = window[k]; break; } }
-    if (!Array.isArray(window.RAW_ROWS)) {
-      const candidates = Object.keys(window)
-        .filter(k => Array.isArray(window[k]) && window[k].length && typeof window[k][0] === 'object');
-      if (candidates.length) window.RAW_ROWS = window[candidates[0]];
-    }
-    if (!Array.isArray(window.RAW_ROWS)) {
-      console.error('❌ Aucune donnée détectée depuis data_osint.js');
-      const warn = document.createElement('div');
-      warn.style.cssText = "position:sticky;top:0;z-index:50;background:#fee2e2;color:#991b1b;padding:6px 10px;border-bottom:1px solid #fecaca;font:12px system-ui";
-      warn.textContent = "❌ Impossible de détecter les données. Vérifie data_osint.js (nom du tableau global).";
-      document.body.prepend(warn);
-    } else {
-      console.log('✅ Données détectées :', (Object.entries(window).find(([k,v]) => v === window.RAW_ROWS) || [ 'RAW_ROWS' ])[0], '→', window.RAW_ROWS.length, 'lignes');
-    }
-  })();
-  </script>
-
   <!-- ===================== LOGIQUE ===================== -->
   <script>
+  /*
+    Ce script attend window.RAW_ROWS (longueur: N fiches).
+    Merci de garder data_osint.js simple: window.RAW_ROWS = [ {...}, ... ];
+  */
+
   /* ---------- utils ---------- */
   const deburr = (s='')=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   const norm = (s)=>deburr(String(s||'').toLowerCase().trim());
@@ -123,13 +103,13 @@
     const mIso = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
     if(mIso){ const [_,y,mo,d]=mIso; return `${y.padStart(4,'0')}-${mo.padStart(2,'0')}-${d.padStart(2,'0')}`; }
     const mDF = s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})/);
-    if(mDF){ let [_,d,mo,y]=mDF; if(y.length===2){ y = (Number(y)>50?'19':'20')+y; } return `${y.padStart(4,'0')}-${mo.padStart(2,'0')}-${d.padStart(2,'0')}`; }
+    if(mDF){ let [_,d,mo,y]=mDF; if(y.length===2){ y=(Number(y)>50?'19':'20')+y; } return `${y.padStart(4,'0')}-${mo.padStart(2,'0')}-${d.padStart(2,'0')}`; }
     const mY = s.match(/^(\d{4})$/); if(mY){ return `${s}-01-01`; }
     return '';
   }
   const dateFR = (iso)=> {
     if(!iso) return '(date manquante)';
-    const [y,m,d] = iso.split('-').map(n=>Number(n));
+    const [y,m,d] = iso.split('-').map(Number);
     return new Date(y, m-1, d).toLocaleDateString('fr-FR',{year:'numeric',month:'short',day:'2-digit'});
   };
 
@@ -196,15 +176,15 @@
     'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/a/a2/Associated_Press_logo_2012.svg',
     'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/4/4d/Bellingcat_logo.svg'
   };
-  const _initials = s => (s||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase();
+  const initials = s => (s||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase();
   function mediaLogoHTML(media){
     const m = normalizeMedia(media);
     const url = WIKI_LOGO_URL[m];
     if(url){
       return `<img src="${url}" alt="${m}" class="h-10 w-10 rounded-md border border-slate-200 bg-white object-contain p-1"
-        onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'${_initials(m)}'}))">`;
+        onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'${initials(m)}'}))">`;
     }
-    return `<div class="logo-fallback" title="${m}">${_initials(m)}</div>`;
+    return `<div class="logo-fallback" title="${m}">${initials(m)}</div>`;
   }
 
   /* ======== Thématiques : palette + fallback HSL ======== */
@@ -311,10 +291,14 @@
   }
 
   /* ======== Lecture des données (depuis data_osint.js) ======== */
-  const ALL = (Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS : []).map(normalizeRow);
+  if(!Array.isArray(window.RAW_ROWS)){
+    console.error('❌ Aucune donnée trouvée. data_osint.js doit définir window.RAW_ROWS = [ {...}, ... ]');
+    window.RAW_ROWS = [];
+  }
+  const ALL = window.RAW_ROWS.map(normalizeRow);
 
   /* ======== État + facettes ======== */
-  const state = { q:'', media:'', author:'', theme:'', pro:'', ia:'', from:'', to:'' };
+  const state = { q:'', media:'', theme:'', pro:'', ia:'', from:'', to:'' };
   const buildFacet = (list, mapFn=(x)=>x)=> uniq(list.map(mapFn).filter(Boolean)).sort((a,b)=>norm(a).localeCompare(norm(b)));
 
   function fillSelect(id, values, mapVal){
@@ -326,14 +310,12 @@
 
   function rebuildFilterOptions(){
     const mediaOpts  = buildFacet(ALL, r=>r.media);
-    const authorOpts = buildFacet(ALL.flatMap(r=>r.authors));
     const themeOpts  = buildFacet(ALL, r=>r.themeLabel);
 
     fillSelect('f-media',  ['(tous)'].concat(mediaOpts), v=>v==='(tous)'?'':v);
-    fillSelect('f-author', ['(tous)'].concat(authorOpts), v=>v==='(tous)'?'':v);
     fillSelect('f-theme',  ['(toutes)'].concat(themeOpts), v=>v==='(toutes)'?'':v);
 
-    // dates min/max
+    // dates min/max simples
     const dates = ALL.map(r=>r.dateISO).filter(Boolean).sort();
     const from = dates[0]||''; const to = dates[dates.length-1]||'';
     const $from = document.getElementById('f-from');
@@ -344,7 +326,7 @@
 
   /* ======== Filtrage / Tri ======== */
   function matchRange(iso, from, to){
-    if(!iso) return false; // sans date → exclus de la plage
+    if(!iso) return false; // sans date → exclu de la plage
     if(from && iso < from) return false;
     if(to   && iso > to)   return false;
     return true;
@@ -356,7 +338,6 @@
       const hay = norm([r.title, r.content, r.commentaire].join(' '));
       if(q && !hay.includes(q)) return false;
       if(state.media && r.media !== state.media) return false;
-      if(state.author && !r.authors.includes(state.author)) return false;
       if(state.theme && r.themeLabel !== state.theme) return false;
       if(state.pro && r.proact !== state.pro) return false;
       if(state.ia==='yes' && !r.hasIA) return false;
@@ -453,11 +434,10 @@
     wireSelect('f-ia', v=> state.ia = v);
     wireSelect('f-pro', v=> state.pro = v);
     wireSelect('f-media', v=> state.media = (v==='(tous)'?'':v));
-    wireSelect('f-author', v=> state.author = (v==='(tous)'?'':v));
     wireSelect('f-theme', v=> state.theme = (v==='(toutes)'?'':v));
 
     document.getElementById('btn-reset').addEventListener('click', ()=>{
-      state.q=''; state.media=''; state.author=''; state.theme=''; state.pro=''; state.ia='';
+      state.q=''; state.media=''; state.theme=''; state.pro=''; state.ia='';
       rebuildFilterOptions();
       document.getElementById('f-q').value='';
       apply();
@@ -469,7 +449,6 @@
         const hay = norm([r.title, r.content, r.commentaire].join(' '));
         if(q && !hay.includes(q)) return false;
         if(state.media && r.media !== state.media) return false;
-        if(state.author && !r.authors.includes(state.author)) return false;
         if(state.theme && r.themeLabel !== state.theme) return false;
         if(state.pro && r.proact !== state.pro) return false;
         if(state.ia==='yes' && !r.hasIA) return false;
