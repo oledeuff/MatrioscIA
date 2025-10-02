@@ -75,10 +75,43 @@
     <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-gray-600">
       Projet MatrioscIA. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence CC BY
     </div>
-  </footer>
-
-  <!-- Données : aucun fetch — le serveur doit fournir data.js dans le même dossier -->
-  <script src="data.js"></script>
+  </footer>  <!-- Données : aucun fetch — le serveur doit fournir data.js (ou un autre nom via ?data=...) dans le même dossier -->
+  <script>
+    // Chargeur de données robuste : essaie ?data=…, puis data.js, puis data_osint.js
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const candidate = params.get('data');
+      const candidates = [candidate, 'data.js', 'data_osint.js'].filter(Boolean);
+      function inject(src, onload){
+        const s = document.createElement('script');
+        s.src = src; s.onload = onload; s.onerror = () => next();
+        document.head.appendChild(s);
+      }
+      function next(){
+        const src = candidates.shift();
+        if(!src){
+          showDataError('Aucun fichier de données trouvé (essayé: ?data=…, data.js, data_osint.js).');
+          return;
+        }
+        inject(src, ()=>{
+          if(!Array.isArray(window.RAW_ROWS)){
+            // Compat noms alternatifs
+            window.RAW_ROWS = window.RAW_ROWS || window.raw_rows || window.rows || window.DATA || window.data || [];
+          }
+          document.dispatchEvent(new CustomEvent('data-ready'));
+        });
+      }
+      function showDataError(msg){
+        const bar = document.createElement('div');
+        bar.setAttribute('role','alert');
+        bar.className = 'bg-red-50 text-red-800 border border-red-200 px-4 py-3';
+        bar.textContent = 'Données non chargées : ' + msg + ' — Placez un fichier qui expose window.RAW_ROWS = [...]';
+        document.body.insertBefore(bar, document.body.firstChild);
+        document.dispatchEvent(new CustomEvent('data-ready'));
+      }
+      next();
+    })();
+  </script>
 
   <!--
     Le commentaire ci-dessous est exigé : nombre total de fiches au chargement.
@@ -255,7 +288,7 @@
   // ============================================================
   //  CHARGEMENT & INDEXATION
   // ============================================================
-  const RAW = Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS : [];
+  let RAW = []; function initData(){ RAW = Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS : []; console.log(`Total fiches: ${RAW.length}`); ALL.length = 0; RAW.map(normalizeRow).forEach(x=>ALL.push(x)); buildFilterOptions(); applyFilters(); }
   console.log(`Total fiches: ${RAW.length}`);
 
   function normalizeRow(r){
@@ -282,7 +315,7 @@
     };
   }
 
-  const ALL = RAW.map(normalizeRow);
+  const ALL = []; // rempli dans initData()
 
   // ============================================================
   //  UI : FILTRES
@@ -458,9 +491,8 @@
     $search.focus();
   }
 
-  // Init
-  buildFilterOptions();
-  applyFilters();
+  // Init différée : attendre le signal du chargeur de données
+  document.addEventListener('data-ready', initData);
 
   $search.addEventListener('input', debounce(applyFilters, 150));
   $media.addEventListener('change', applyFilters);
