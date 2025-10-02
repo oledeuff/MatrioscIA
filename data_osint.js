@@ -4234,4 +4234,5 @@ window.DATA = [
     "hasIA": false
   }
 ]
-window.RAW_ROWS = window.rows_all; // alias, rien d’autre à changer
+window.RAW_ROWS = window.rows_all || window.data || window.rows || [];
+

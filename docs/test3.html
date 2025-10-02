@@ -82,45 +82,6 @@
   <!-- ======== APPEL DE TES DONNÉES ======== -->
   <script src="data_osint.js"></script>
 
-  <!-- ======== DATA DE TEST (seulement si window.RAW_ROWS absent) ======== -->
-  <script>
-  if(!Array.isArray(window.RAW_ROWS)){
-    window.RAW_ROWS = [
-      { // IA = yes, thème = environnemental, média = France 24 (logo), reactive
-        "Titre":"Détection d’un deepfake climatique",
-        "Résumé":"Debunk d’une vidéo virale : analyse acoustique + IA.",
-        "Date de publication":"22/06/2024",
-        "Lieu de publication":"France 24",
-        "meta:links":"https://observers.france24.com/",
-        "auteurs":"Jane Doe; Jean Martin",
-        "thématique":"Problématiques environnementales",
-        "proactivité/réactivité":"réactive",
-        "commentaire":"deepfake, intelligence artificielle"
-      },
-      { // IA = no, thème = stratégies militaires, média = Bellingcat (logo), proactive
-        "title":"Cartographie d’un convoi",
-        "content":"Imagerie satellite et géolocalisation (OSINT).",
-        "begin":"2023-03-12",
-        "media":"Bellingcat",
-        "meta:links":"https://www.bellingcat.com/",
-        "auteurs":"John Roe / Alice Foo",
-        "thématique":"Stratégies militaires et influence",
-        "proactivité":"proactive",
-        "commentaire":"OSINT pur, pas d’IA"
-      },
-      { // IA = no, thème = approfondissement, média = Le Monde (logo), reactive
-        "titre":"Chronologie d’une rumeur",
-        "resume":"Fil narratif multi-plateformes ; vérification.",
-        "begin":"02/11/2022",
-        "media":"Le Monde",
-        "meta:links":"{\"url\":\"https://www.lemonde.fr/\"}",
-        "auteurs":"A. Dubois",
-        "thématique":"Approfondissement de l'actualité",
-        "proactivité/réactivité":"reactive",
-        "commentaire":"fact-check (pas d'IA)"
-      }
-    ];
-  }
   </script>
 
   <!-- ===================== LOGIQUE ===================== -->
@@ -175,78 +136,94 @@
 
   // media normalization & logos
   function normalizeMedia(name){
-    const n = norm(name);
-    if(!n) return '';
-    if(n.includes('afp')) return 'AFP';
-    if(n.includes('france 24')) return 'France 24';
-    if(n.includes('observateurs')) return 'France 24';
-    if(n.includes('le monde')) return 'Le Monde';
-    if(n.includes('liberation')) return 'Libération';
-    if(n.includes('figaro')) return 'Le Figaro';
-    if(n.includes('mediapart')) return 'Mediapart';
-    if(n.includes('guardian')) return 'The Guardian';
-    if(n.includes('washington post')) return 'The Washington Post';
-    if(n.includes('new york times') || n==='nyt') return 'The New York Times';
-    if(n.includes('reuters')) return 'Reuters';
-    if(n==='ap' || n.includes('associated press')) return 'Associated Press';
-    if(n.includes('bbc')) return 'BBC';
-    if(n.includes('arte')) return 'Arte';
-    if(n.includes('bellingcat')) return 'Bellingcat';
-    return (name||'').toString().trim();
-  }
+  const n = (name||'').trim();
+  const k = n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  if(!k) return '';
+  if(k.includes('afp')) return 'AFP'; // inclut AFP factuel
+  if(k.includes('france 24') || k.includes('observateur')) return 'France 24'; // Observateurs → France 24
+  if(k.includes('le monde')) return 'Le Monde';
+  if(k.includes('liberation')) return 'Libération';
+  if(k.includes('figaro')) return 'Le Figaro';
+  if(k.includes('mediapart')) return 'Mediapart';
+  if(k.includes('guardian')) return 'The Guardian';
+  if(k.includes('washington post')) return 'The Washington Post';
+  if(k.includes('new york times') || k==='nyt') return 'The New York Times';
+  if(k.includes('reuters')) return 'Reuters';
+  if(k==='ap' || k.includes('associated press')) return 'Associated Press';
+  if(k.includes('bbc')) return 'BBC';
+  if(k.includes('arte')) return 'Arte';
+  if(k.includes('bellingcat')) return 'Bellingcat';
+  return n;
+}
 
-  const WIKI_LOGO = {
-    'AFP':'https://upload.wikimedia.org/wikipedia/commons/2/27/Agence_France-Presse_logo.svg',
-    'France 24':'https://upload.wikimedia.org/wikipedia/commons/0/0b/France_24_2013.svg',
-    'Le Monde':'https://upload.wikimedia.org/wikipedia/commons/8/82/Le_Monde_Logo_2022.svg',
-    'Libération':'https://upload.wikimedia.org/wikipedia/commons/0/02/Liberation_logo.svg',
-    'Le Figaro':'https://upload.wikimedia.org/wikipedia/commons/0/0b/Le_Figaro_logo.svg',
-    'Mediapart':'https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Mediapart.svg',
-    'Arte':'https://upload.wikimedia.org/wikipedia/commons/5/5b/Arte_Logo_2017.svg',
-    'The New York Times':'https://upload.wikimedia.org/wikipedia/commons/7/77/The_New_York_Times_logo.svg',
-    'The Washington Post':'https://upload.wikimedia.org/wikipedia/commons/a/a0/Washington_Post_logo.svg',
-    'Reuters':'https://upload.wikimedia.org/wikipedia/commons/e/e5/Reuters_Logo.svg',
-    'BBC':'https://upload.wikimedia.org/wikipedia/commons/b/bb/BBC.svg',
-    'The Guardian':'https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Guardian_logo.svg',
-    'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/a/a2/Associated_Press_logo_2012.svg',
-    'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/4/4d/Bellingcat_logo.svg'
-  };
-  const initials = (s)=> (s||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase();
-  function mediaLogoHTML(media){
-    const logo = WIKI_LOGO[media];
-    if(logo){
-      return `<img src="${logo}" alt="${media}" class="h-10 w-10 rounded-md border border-slate-200 bg-white object-contain p-1"
-              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'${initials(media)}'}))">`;
-    }
-    return `<div class="logo-fallback" title="${media}">${initials(media)}</div>`;
+const WIKI_LOGO_URL = {
+  'AFP':'https://upload.wikimedia.org/wikipedia/commons/2/27/Agence_France-Presse_logo.svg',
+  'France 24':'https://upload.wikimedia.org/wikipedia/commons/0/0b/France_24_2013.svg',
+  'Le Monde':'https://upload.wikimedia.org/wikipedia/commons/8/82/Le_Monde_Logo_2022.svg',
+  'Libération':'https://upload.wikimedia.org/wikipedia/commons/0/02/Liberation_logo.svg',
+  'Le Figaro':'https://upload.wikimedia.org/wikipedia/commons/0/0b/Le_Figaro_logo.svg',
+  'Mediapart':'https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Mediapart.svg',
+  'Arte':'https://upload.wikimedia.org/wikipedia/commons/5/5b/Arte_Logo_2017.svg',
+  'The New York Times':'https://upload.wikimedia.org/wikipedia/commons/7/77/The_New_York_Times_logo.svg',
+  'The Washington Post':'https://upload.wikimedia.org/wikipedia/commons/a/a0/Washington_Post_logo.svg',
+  'Reuters':'https://upload.wikimedia.org/wikipedia/commons/e/e5/Reuters_Logo.svg',
+  'BBC':'https://upload.wikimedia.org/wikipedia/commons/b/bb/BBC.svg',
+  'The Guardian':'https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Guardian_logo.svg',
+  'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/a/a2/Associated_Press_logo_2012.svg',
+  'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/4/4d/Bellingcat_logo.svg'
+};
+
+const _initials = s => (s||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase();
+
+function mediaLogoHTML(media){
+  const m = normalizeMedia(media);
+  const url = WIKI_LOGO_URL[m];
+  if(url){
+    return `<img src="${url}" alt="${m}" class="h-10 w-10 rounded-md border border-slate-200 bg-white object-contain p-1"
+      onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'${_initials(m)}'}))">`;
   }
+  return `<div class="logo-fallback" title="${m}">${_initials(m)}</div>`;
+}
 
   // Thèmes (palette)
   const THEME_CANON = {
-    'humanitaire': {label:'humanitaire', color:'#8b5cf6'},
-    'problematique-environnementale': {label:'problématiques environnementales', color:'#10b981'},
-    'strategies-militaires-et-influence': {label:'stratégies militaires et influence', color:'#78866B'},
-    'crime-organise': {label:'crime organisé', color:'#000000'},
-    'repression-de-l-etat': {label:"répression de l'état", color:'#f97316'},
-    'approfondissement-de-l-actualite': {label:"approfondissement de l'actualité", color:'#3b82f6'},
-    'catastrophes-naturelles': {label:'catastrophes naturelles', color:'#ef4444'}
-  };
-  const THEME_GREY = {label:'Sans thématique', color:'#94a3b8'};
+  'humanitaire': {label:'humanitaire', color:'#8b5cf6'},
+  'problematique-environnementale': {label:'problématiques environnementales', color:'#10b981'},
+  'strategies-militaires-et-influence': {label:'stratégies militaires et influence', color:'#78866B'},
+  'crime-organise': {label:'crime organisé', color:'#000000'},
+  'repression-de-l-etat': {label:"répression de l'état", color:'#f97316'},
+  'approfondissement-de-l-actualite': {label:"approfondissement de l'actualité", color:'#3b82f6'},
+  'catastrophes-naturelles': {label:'catastrophes naturelles', color:'#ef4444'}
+};
 
-  function normalizeTheme(t){
-    const n = slug(t||'');
-    // correspondances robustes (accents/pluriels pris en charge par slug)
-    if(n.includes('environnement')) return 'problematique-environnementale';
-    if(n.includes('strategie') && n.includes('militaire')) return 'strategies-militaires-et-influence';
-    if(n.includes('approfondissement') && n.includes('actualite')) return 'approfondissement-de-l-actualite';
-    if(n.includes('catastrophe') && n.includes('naturel')) return 'catastrophes-naturelles';
-    if(n.includes('repression') && n.includes('etat')) return 'repression-de-l-etat';
-    if(n.includes('crime') && n.includes('organis')) return 'crime-organise';
-    if(n.includes('humanitaire')) return 'humanitaire';
-    // exacts
-    if(THEME_CANON[n]) return n;
-    return ''; // inconnu → gris
-  }
+// hash → couleur HSL stable
+function hashColor(s){
+  let h=0; for(let i=0;i<s.length;i++){ h = (h*31 + s.charCodeAt(i))>>>0; }
+  const hue = h % 360; return `hsl(${hue} 45% 55%)`;
+}
+
+function normalizeThemeKey(raw){
+  const s = (raw||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  const k = s.replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,'-');
+  if(!k) return '';
+  if(k.includes('environnement')) return 'problematique-environnementale';
+  if(k.includes('strategie') && k.includes('militaire')) return 'strategies-militaires-et-influence';
+  if(k.includes('approfondissement') && k.includes('actualite')) return 'approfondissement-de-l-actualite';
+  if(k.includes('catastroph') && k.includes('naturel')) return 'catastrophes-naturelles';
+  if(k.includes('repression') && k.includes('etat')) return 'repression-de-l-etat';
+  if(k.includes('crime') && k.includes('organis')) return 'crime-organise';
+  if(k.includes('humanitaire')) return 'humanitaire';
+  return THEME_CANON[k] ? k : ''; // sinon inconnu
+}
+
+function themeFromCell(raw){
+  const key = normalizeThemeKey(raw);
+  if(key) return { key, label: THEME_CANON[key].label, color: THEME_CANON[key].color };
+  // Fallback : garder le libellé d’origine + couleur stable (au lieu de “Sans thématique”)
+  const label = String(raw||'').toString().trim() || 'Sans thématique';
+  return { key: 'other', label, color: label==='Sans thématique' ? '#94a3b8' : hashColor(label) };
+}
+
 
   // Proactivité
   function normalizeProactivity(raw, hay){
