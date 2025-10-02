@@ -82,6 +82,21 @@
   <!-- ======== DONNÉES : appel de ton fichier data_osint.js ======== -->
   <!-- Il doit définir : window.RAW_ROWS = [ {...}, {...}, ... ] -->
   <script src="data_osint.js"></script>
+  <script>
+function getRawRows(){
+  const candidates = [
+    'rows_all','rows','data','DATA','DATA_OSINT','DATASET',
+    'DATA_ROWS','osint_data','OSINT_DATA','enquetes','entries','table'
+  ];
+  for(const k of candidates){
+    if (Array.isArray(window[k])) return window[k];
+  }
+  if (Array.isArray(window.RAW_ROWS)) return window.RAW_ROWS; // au cas où
+  console.error('Aucune donnée détectée. Assure-toi que data_osint.js expose une variable globale (ex : rows_all = [...])');
+  return [];
+}
+</script>
+
 
   <!-- ===================== LOGIQUE ===================== -->
   <script>
@@ -278,7 +293,12 @@
   }
 
   // ====== LECTURE DES DONNÉES PROVENANT DE data_osint.js ======
-  const ALL = (window.RAW_ROWS||[]).map(normalizeRow);
+  // AVANT
+// const ALL = (window.RAW_ROWS||[]).map(normalizeRow);
+
+// APRÈS
+const ALL = getRawRows().map(normalizeRow);
+
 
   // ---------- ÉTAT + FACETTES ----------
   const state = { q:'', media:'', author:'', theme:'', pro:'', ia:'', from:'', to:'' };

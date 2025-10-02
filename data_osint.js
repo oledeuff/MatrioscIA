@@ -1,4 +1,4 @@
-window.RAW_ROWS = [
+window.DATA = [
   {
     "title": "Non, porter des lunettes de soleil n'augmente pas le risque d'avoir un cancer",
     "content": "Les rayons UV peuvent endommager les yeux, comme c'est le cas pour la peau lors d'un coup de soleil. Pourtant, dans une vidéo partagée sur les réseaux sociaux, un naturopathe explique que porter des lunettes de soleil augmenterait les risques d'avoir un cancer, en empêchant le corps de créer de la mélanine - laquelle participe à la protection de la peau contre les rayons UV. C'est faux: porter des lunettes ne rend pas la peau plus sensible, comme l'expliquent à l'AFP des professionnels de la vue, de la peau et des cancers, rappelant les dangers de l'exposition au soleil pour les yeux. L'exposition solaire reste par ailleurs la cause principale des cancers de la peau.",
