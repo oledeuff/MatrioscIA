@@ -28,7 +28,7 @@
         <span id="count" class="text-xs text-emerald-950"></span>
       </div>
 
-      <!-- Bandeau filtres très concis -->
+      <!-- Bandeau filtres très concis (sans dates) -->
       <div class="mt-2 rounded-lg border border-emerald-200 bg-white p-2 shadow-sm">
         <div class="grid gap-2 md:grid-cols-3 xl:grid-cols-6">
           <label class="text-[11px] text-slate-600">Recherche
@@ -54,19 +54,12 @@
               <option value="no">no</option>
             </select>
           </label>
-          <div class="grid grid-cols-2 gap-2">
-            <label class="text-[11px] text-slate-600">De
-              <input id="f-from" type="date" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" />
-            </label>
-            <label class="text-[11px] text-slate-600">À
-              <input id="f-to" type="date" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" />
-            </label>
+          <div class="flex items-end">
+            <div class="flex gap-2">
+              <button id="btn-reset" class="inline-flex items-center rounded-md border border-slate-200 bg-white px-3 py-1 text-sm font-semibold hover:border-emerald-400">Réinitialiser</button>
+              <button id="btn-export" class="inline-flex items-center rounded-md border border-emerald-300 bg-emerald-600 px-3 py-1 text-sm font-semibold text-white hover:bg-emerald-700">Exporter en CSV</button>
+            </div>
           </div>
-        </div>
-
-        <div class="mt-2 flex items-center gap-2">
-          <button id="btn-reset" class="inline-flex items-center rounded-md border border-slate-200 bg-white px-3 py-1 text-sm font-semibold hover:border-emerald-400">Réinitialiser</button>
-          <button id="btn-export" class="inline-flex items-center rounded-md border border-emerald-300 bg-emerald-600 px-3 py-1 text-sm font-semibold text-white hover:bg-emerald-700">Exporter en CSV</button>
         </div>
       </div>
     </div>
@@ -86,8 +79,8 @@
   <!-- ===================== LOGIQUE ===================== -->
   <script>
   /*
-    Ce script attend window.RAW_ROWS (longueur: N fiches).
-    Merci de garder data_osint.js simple: window.RAW_ROWS = [ {...}, ... ];
+    Ce script attend window.RAW_ROWS = [ {...}, ... ] depuis data_osint.js
+    Tous les styles/scripts sont inlined (sauf Tailwind via CDN). Pas de filtre "dates".
   */
 
   /* ---------- utils ---------- */
@@ -98,7 +91,7 @@
 
   // parse date -> ISO
   function parseDateToISO(v){
-    if(!v) return '';
+    if(!v && v!==0) return '';
     const s = String(v).trim();
     const mIso = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
     if(mIso){ const [_,y,mo,d]=mIso; return `${y.padStart(4,'0')}-${mo.padStart(2,'0')}-${d.padStart(2,'0')}`; }
@@ -110,12 +103,14 @@
   const dateFR = (iso)=> {
     if(!iso) return '(date manquante)';
     const [y,m,d] = iso.split('-').map(Number);
-    return new Date(y, m-1, d).toLocaleDateString('fr-FR',{year:'numeric',month:'short',day:'2-digit'});
+    const dt = new Date(y, m-1, d);
+    if(Number.isNaN(dt.getTime())) return '(date manquante)';
+    return dt.toLocaleDateString('fr-FR',{year:'numeric',month:'short',day:'2-digit'});
   };
 
   // URL extraction
   function firstURL(v){
-    if(!v) return '';
+    if(!v && v!==0) return '';
     const s = String(v).trim();
     try{
       const parsed = JSON.parse(s);
@@ -261,16 +256,16 @@
     const comment = pick(r, ['commentaire','notes','note']);
     const auteurs = pick(r, ['auteurs','authors','auteur','author']);
     const thematique = pick(r, ['thématique','thematique','theme','thème']);
-    const proactRaw = pick(r, ['proactivité/réactivité','proactivité','proactivite','type','typologie']);
+    const proactRaw = pick(r, ['proactivité/réactivité','proactivité','proactivite','type','typologie','proact']);
 
     const media = normalizeMedia(mediaRaw||'');
     const url = firstURL(links);
-    const authors = splitAuthors(auteurs||'');
+    const authors = splitAuthors(auteurs||''); // dans tes données, c'est parfois déjà un tableau → split gère aussi la string
 
     const themeObj = themeFromCell(thematique);
     const hay = [title,content,comment].filter(Boolean).join(' ');
     const proact = normalizeProactivity(proactRaw, hay);
-    const hasIA = detectIA(comment, title, content);
+    const hasIA = typeof r.hasIA === 'boolean' ? r.hasIA : detectIA(comment, title, content);
     const dateISO = parseDateToISO(begin);
 
     return {
@@ -296,9 +291,10 @@
     window.RAW_ROWS = [];
   }
   const ALL = window.RAW_ROWS.map(normalizeRow);
+  console.log('✔ Données chargées :', ALL.length);
 
   /* ======== État + facettes ======== */
-  const state = { q:'', media:'', theme:'', pro:'', ia:'', from:'', to:'' };
+  const state = { q:'', media:'', theme:'', pro:'', ia:'' };
   const buildFacet = (list, mapFn=(x)=>x)=> uniq(list.map(mapFn).filter(Boolean)).sort((a,b)=>norm(a).localeCompare(norm(b)));
 
   function fillSelect(id, values, mapVal){
@@ -314,24 +310,9 @@
 
     fillSelect('f-media',  ['(tous)'].concat(mediaOpts), v=>v==='(tous)'?'':v);
     fillSelect('f-theme',  ['(toutes)'].concat(themeOpts), v=>v==='(toutes)'?'':v);
-
-    // dates min/max simples
-    const dates = ALL.map(r=>r.dateISO).filter(Boolean).sort();
-    const from = dates[0]||''; const to = dates[dates.length-1]||'';
-    const $from = document.getElementById('f-from');
-    const $to   = document.getElementById('f-to');
-    $from.value = from; $to.value = to;
-    state.from = $from.value; state.to = $to.value;
   }
 
   /* ======== Filtrage / Tri ======== */
-  function matchRange(iso, from, to){
-    if(!iso) return false; // sans date → exclu de la plage
-    if(from && iso < from) return false;
-    if(to   && iso > to)   return false;
-    return true;
-  }
-
   function apply(){
     const q = norm(state.q);
     let rows = ALL.filter(r=>{
@@ -342,7 +323,6 @@
       if(state.pro && r.proact !== state.pro) return false;
       if(state.ia==='yes' && !r.hasIA) return false;
       if(state.ia==='no'  &&  r.hasIA) return false;
-      if(!matchRange(r.dateISO, state.from, state.to)) return false;
       return true;
     });
 
@@ -361,7 +341,7 @@
     const m = hex.replace('#',''); const r=parseInt(m.substr(0,2),16), g=parseInt(m.substr(2,2),16), b=parseInt(m.substr(4,2),16);
     return ((r*299 + g*587 + b*114)/1000) >= 140 ? '#111827' : '#ffffff';
   }
-  function escapeHTML(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+  function escapeHTML(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
   function card(r){
     const left = `style="border-left:8px solid ${r.themeColor}"`;
@@ -370,7 +350,7 @@
     const ia = r.hasIA ? '<span class="chip chip-ia">IA</span>' : '';
     const mediaChip = r.media ? `<span class="chip chip-media">${r.media}</span>` : '';
     const themeChip = `<span class="chip" style="background:${r.themeColor};color:${contrastingText(r.themeColor)}">${r.themeLabel}</span>`;
-    const authors = r.authors.map(a=>`<span class="chip chip-author">${escapeHTML(a)}</span>`).join(' ');
+    const authors = (Array.isArray(r.authors)?r.authors:[]).map(a=>`<span class="chip chip-author">${escapeHTML(a)}</span>`).join(' ');
     const link = r.link ? `<a class="ml-auto" href="${r.link}" target="_blank" rel="noopener" aria-label="Ouvrir le lien"><span class="text-xl">🔗</span></a>` : '<span class="ml-auto text-slate-400 text-xl" title="Aucun lien">∅</span>';
     return `
     <article class="flex flex-col gap-2 rounded-lg border border-slate-200 p-3 shadow-sm" ${left}>
@@ -407,7 +387,7 @@
     for(const r of rows){
       lines.push([
         r.title, r.content, r.dateISO||'', r.media, r.link||'',
-        r.commentaire, r.authors.join(' | '), r.themeLabel, r.proact, r.hasIA? 'yes':'no'
+        r.commentaire, (Array.isArray(r.authors)?r.authors:[]).join(' | '), r.themeLabel, r.proact, r.hasIA? 'yes':'no'
       ].map(esc).join(','));
     }
     return lines.join('\r\n');
@@ -429,8 +409,6 @@
   }
   function attachUI(){
     document.getElementById('f-q').addEventListener('input', (e)=>{ state.q = e.target.value; apply(); });
-    document.getElementById('f-from').addEventListener('change',(e)=>{ state.from = e.target.value; apply(); });
-    document.getElementById('f-to').addEventListener('change',(e)=>{ state.to = e.target.value; apply(); });
     wireSelect('f-ia', v=> state.ia = v);
     wireSelect('f-pro', v=> state.pro = v);
     wireSelect('f-media', v=> state.media = (v==='(tous)'?'':v));
@@ -453,7 +431,6 @@
         if(state.pro && r.proact !== state.pro) return false;
         if(state.ia==='yes' && !r.hasIA) return false;
         if(state.ia==='no'  &&  r.hasIA) return false;
-        if(!matchRange(r.dateISO, state.from, state.to)) return false;
         return true;
       }).sort((a,b)=>{
         const ad=a.dateISO||'0000-00-00', bd=b.dateISO||'0000-00-00';
