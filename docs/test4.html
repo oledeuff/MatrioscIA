@@ -1,452 +1,183 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>catalogue d’enquêtes de type OSINT</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<meta name="color-scheme" content="light">
-<style>
-  .logo-fallback{width:40px;height:40px;border-radius:8px;background:#f1f5f9;color:#334155;display:flex;align-items:center;justify-content:center;font-weight:700}
-  .chip{border-radius:9999px;padding:.125rem .5rem;font-size:.75rem;line-height:1rem}
-  .chip-author{background:#f1f5f9;color:#334155;border:1px solid #e2e8f0}
-  .chip-media{background:#f8fafc;border:1px solid #e2e8f0;color:#334155}
-  .chip-ia{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3}
-  .chip-pro{background:#059669;color:#fff}
-  .chip-rea{background:#d97706;color:#fff}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OSINT – Liste des contenus</title>
+  <style>
+    :root { --bg:#0b0d10; --card:#12161b; --ink:#e9eef4; --muted:#98a2b3; --chip:#1e2630; --accent:#6ee7b7; }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Inter,"Helvetica Neue",Arial}
+    .wrap{max-width:1100px;margin:40px auto;padding:0 16px}
+    h1{font-size:clamp(20px,3vw,28px);margin:0 0 12px}
+    .bar{display:flex;align-items:center;gap:12px;justify-content:space-between;margin:0 0 18px}
+    .count{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid #232a33;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px}
+    .title{font-weight:600;font-size:16px;margin:0}
+    .media{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{background:var(--chip);color:var(--ink);border:1px solid #2a3340;border-radius:999px;padding:4px 10px;font-size:12px}
+    .chip.ia{border-color:#2a4035}
+    .meta{color:var(--muted);font-size:13px}
+    .actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{appearance:none;border:1px solid #2a3340;background:#141a21;color:var(--ink);padding:8px 10px;border-radius:10px;font-size:13px;text-decoration:none}
+    .btn:hover{border-color:#394353}
+    .btn.accent{border-color:#2a4035;background:#152019}
+    .empty,.error{padding:18px;border:1px dashed #2a3340;border-radius:12px;color:var(--muted);background:#0f1318}
+    details summary{cursor:pointer;list-style:none}
+    details summary::-webkit-details-marker{display:none}
+    .sr{position:absolute;left:-9999px}
+  </style>
 </head>
-<body class="bg-white text-slate-900">
-  <!-- HEADER compact -->
-  <header class="sticky top-0 z-10 border-b border-emerald-200 bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400/90 backdrop-blur">
-    <div class="mx-auto max-w-6xl px-3 py-2">
-      <div class="flex items-end justify-between">
-        <div>
-          <h1 class="m-0 text-xl font-bold text-emerald-950">catalogue d’enquêtes de type OSINT</h1>
-          <p class="mt-0 text-xs text-emerald-900/90">Investigations audiovisuelles</p>
-        </div>
-        <span id="count" class="text-xs text-emerald-950"></span>
-      </div>
-
-      <!-- Bandeau filtres très concis (sans dates) -->
-      <div class="mt-2 rounded-lg border border-emerald-200 bg-white p-2 shadow-sm">
-        <div class="grid gap-2 md:grid-cols-3 xl:grid-cols-6">
-          <label class="text-[11px] text-slate-600">Recherche
-            <input id="f-q" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm" placeholder="titre, résumé, commentaire…" />
-          </label>
-          <label class="text-[11px] text-slate-600">Média
-            <select id="f-media" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm"></select>
-          </label>
-          <label class="text-[11px] text-slate-600">Thématique
-            <select id="f-theme" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm"></select>
-          </label>
-          <label class="text-[11px] text-slate-600">Proactivité
-            <select id="f-pro" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm">
-              <option value="">(toutes)</option>
-              <option value="proactive">proactive</option>
-              <option value="reactive">reactive</option>
-            </select>
-          </label>
-          <label class="text-[11px] text-slate-600">IA
-            <select id="f-ia" class="mt-1 w-full rounded-md border border-slate-200 px-2 py-1 text-sm">
-              <option value="">(tout)</option>
-              <option value="yes">yes</option>
-              <option value="no">no</option>
-            </select>
-          </label>
-          <div class="flex items-end">
-            <div class="flex gap-2">
-              <button id="btn-reset" class="inline-flex items-center rounded-md border border-slate-200 bg-white px-3 py-1 text-sm font-semibold hover:border-emerald-400">Réinitialiser</button>
-              <button id="btn-export" class="inline-flex items-center rounded-md border border-emerald-300 bg-emerald-600 px-3 py-1 text-sm font-semibold text-white hover:bg-emerald-700">Exporter en CSV</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<body>
+  <div class="wrap">
+    <div class="bar">
+      <h1>Veille OSINT</h1>
+      <div id="counter" class="count">Chargement…</div>
     </div>
-  </header>
+    <div id="app" class="grid" aria-live="polite"></div>
+    <div id="fallback"></div>
+  </div>
 
-  <!-- GRID -->
-  <main class="mx-auto max-w-6xl px-3 py-3">
-    <div id="grid" class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3"></div>
-    <footer class="mt-4 rounded-lg border border-emerald-100 bg-emerald-50 p-3 text-emerald-900 text-sm">
-      Projet <strong>MatrioscIA</strong>. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence <strong>CC BY</strong>
-    </footer>
-  </main>
-
-  <!-- ======== APPEL DE TES DONNÉES ======== -->
+  <!-- 1) Charger D’ABORD les données -->
   <script src="data_osint.js"></script>
 
-  <!-- ===================== LOGIQUE ===================== -->
+  <!-- 2) Puis le script d’affichage -->
   <script>
-  /*
-    Ce script attend window.RAW_ROWS = [ {...}, ... ] depuis data_osint.js
-    Tous les styles/scripts sont inlined (sauf Tailwind via CDN). Pas de filtre "dates".
-  */
+    (function () {
+      // Vérifs & logs utiles
+      const hasArray = Array.isArray(window.RAW_ROWS);
+      console.log("✔ RAW_ROWS chargées :", hasArray ? window.RAW_ROWS.length : "—");
 
-  /* ---------- utils ---------- */
-  const deburr = (s='')=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  const norm = (s)=>deburr(String(s||'').toLowerCase().trim());
-  const slug = (s)=>norm(s).replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,'-');
-  const uniq = (arr)=>Array.from(new Set(arr.filter(Boolean)));
+      const app = document.getElementById('app');
+      const counter = document.getElementById('counter');
+      const fallback = document.getElementById('fallback');
 
-  // parse date -> ISO
-  function parseDateToISO(v){
-    if(!v && v!==0) return '';
-    const s = String(v).trim();
-    const mIso = s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
-    if(mIso){ const [_,y,mo,d]=mIso; return `${y.padStart(4,'0')}-${mo.padStart(2,'0')}-${d.padStart(2,'0')}`; }
-    const mDF = s.match(/^(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})/);
-    if(mDF){ let [_,d,mo,y]=mDF; if(y.length===2){ y=(Number(y)>50?'19':'20')+y; } return `${y.padStart(4,'0')}-${mo.padStart(2,'0')}-${d.padStart(2,'0')}`; }
-    const mY = s.match(/^(\d{4})$/); if(mY){ return `${s}-01-01`; }
-    return '';
-  }
-  const dateFR = (iso)=> {
-    if(!iso) return '(date manquante)';
-    const [y,m,d] = iso.split('-').map(Number);
-    const dt = new Date(y, m-1, d);
-    if(Number.isNaN(dt.getTime())) return '(date manquante)';
-    return dt.toLocaleDateString('fr-FR',{year:'numeric',month:'short',day:'2-digit'});
-  };
+      if (!hasArray) {
+        counter.textContent = "0 élément";
+        fallback.innerHTML = `
+          <div class="error">
+            <strong>Impossible de lire <code>window.RAW_ROWS</code>.</strong><br>
+            Vérifie que <code>data_osint.js</code> est chargé <em>avant</em> ce script et que le chemin du fichier est correct.
+          </div>`;
+        return;
+      }
 
-  // URL extraction
-  function firstURL(v){
-    if(!v && v!==0) return '';
-    const s = String(v).trim();
-    try{
-      const parsed = JSON.parse(s);
-      if(typeof parsed === 'string') return parsed;
-      if(Array.isArray(parsed)){
-        for(const it of parsed){
-          if(typeof it==='string' && /https?:\/\//i.test(it)) return it;
-          if(typeof it==='object' && it && typeof it.url==='string') return it.url;
+      const rows = window.RAW_ROWS;
+
+      // Mise à jour compteur
+      counter.textContent = rows.length + (rows.length > 1 ? " éléments" : " élément");
+
+      if (!rows.length) {
+        fallback.innerHTML = `<div class="empty">Aucune donnée à afficher.</div>`;
+        return;
+      }
+
+      // Rendu des cartes (sans filtre de dates)
+      const frag = document.createDocumentFragment();
+
+      rows.forEach((r, idx) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        // Champs avec garde-fous
+        const title = (r.title || 'Sans titre').toString();
+        const media = (r.media || '—').toString();
+        const theme = (r.theme || '—').toString();
+        const proact = (r.proact || '').toString();
+        const hasIA = !!r.hasIA;
+        const date = r.date ? r.date : '—';
+        const authors = Array.isArray(r.authors) ? r.authors.filter(Boolean).join(', ') : '';
+
+        // Titre
+        const h3 = document.createElement('h3');
+        h3.className = 'title';
+        h3.textContent = title;
+        card.appendChild(h3);
+
+        // Infos médias / thèmes
+        const chips = document.createElement('div');
+        chips.className = 'media';
+
+        const chipMedia = document.createElement('span');
+        chipMedia.className = 'chip';
+        chipMedia.textContent = media;
+        chips.appendChild(chipMedia);
+
+        if (theme && theme !== '—') {
+          const chipTheme = document.createElement('span');
+          chipTheme.className = 'chip';
+          chipTheme.textContent = theme;
+          chips.appendChild(chipTheme);
         }
-      }
-      if(typeof parsed==='object' && parsed){
-        if(typeof parsed.url==='string') return parsed.url;
-        const any = Object.values(parsed).find(x=>typeof x==='string' && /https?:\/\//i.test(x));
-        if(any) return any;
-      }
-    }catch(_e){}
-    const m = s.match(/https?:\/\/[^\s'"]+/i);
-    if(m) return m[0];
-    if(/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(s)) return 'https://'+s;
-    return '';
-  }
 
-  /* ======== Média : normalisation + logos Wikipédia ======== */
-  function normalizeMedia(name){
-    const n = (name||'').trim();
-    const k = n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-    if(!k) return '';
-    if(k.includes('afp')) return 'AFP';                          // inclut "AFP factuel"
-    if(k.includes('france 24') || k.includes('observateur')) return 'France 24'; // Observateurs -> France 24
-    if(k.includes('le monde')) return 'Le Monde';
-    if(k.includes('liberation')) return 'Libération';
-    if(k.includes('figaro')) return 'Le Figaro';
-    if(k.includes('mediapart')) return 'Mediapart';
-    if(k.includes('guardian')) return 'The Guardian';
-    if(k.includes('washington post')) return 'The Washington Post';
-    if(k.includes('new york times') || k==='nyt') return 'The New York Times';
-    if(k.includes('reuters')) return 'Reuters';
-    if(k==='ap' || k.includes('associated press')) return 'Associated Press';
-    if(k.includes('bbc')) return 'BBC';
-    if(k.includes('arte')) return 'Arte';
-    if(k.includes('bellingcat')) return 'Bellingcat';
-    return n;
-  }
+        if (proact) {
+          const chipPro = document.createElement('span');
+          chipPro.className = 'chip';
+          chipPro.textContent = proact;
+          chips.appendChild(chipPro);
+        }
 
-  const WIKI_LOGO_URL = {
-    'AFP':'https://upload.wikimedia.org/wikipedia/commons/2/27/Agence_France-Presse_logo.svg',
-    'France 24':'https://upload.wikimedia.org/wikipedia/commons/0/0b/France_24_2013.svg',
-    'Le Monde':'https://upload.wikimedia.org/wikipedia/commons/8/82/Le_Monde_Logo_2022.svg',
-    'Libération':'https://upload.wikimedia.org/wikipedia/commons/0/02/Liberation_logo.svg',
-    'Le Figaro':'https://upload.wikimedia.org/wikipedia/commons/0/0b/Le_Figaro_logo.svg',
-    'Mediapart':'https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Mediapart.svg',
-    'Arte':'https://upload.wikimedia.org/wikipedia/commons/5/5b/Arte_Logo_2017.svg',
-    'The New York Times':'https://upload.wikimedia.org/wikipedia/commons/7/77/The_New_York_Times_logo.svg',
-    'The Washington Post':'https://upload.wikimedia.org/wikipedia/commons/a/a0/Washington_Post_logo.svg',
-    'Reuters':'https://upload.wikimedia.org/wikipedia/commons/e/e5/Reuters_Logo.svg',
-    'BBC':'https://upload.wikimedia.org/wikipedia/commons/b/bb/BBC.svg',
-    'The Guardian':'https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Guardian_logo.svg',
-    'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/a/a2/Associated_Press_logo_2012.svg',
-    'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/4/4d/Bellingcat_logo.svg'
-  };
-  const initials = s => (s||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase();
-  function mediaLogoHTML(media){
-    const m = normalizeMedia(media);
-    const url = WIKI_LOGO_URL[m];
-    if(url){
-      return `<img src="${url}" alt="${m}" class="h-10 w-10 rounded-md border border-slate-200 bg-white object-contain p-1"
-        onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'${initials(m)}'}))">`;
-    }
-    return `<div class="logo-fallback" title="${m}">${initials(m)}</div>`;
-  }
+        if (hasIA) {
+          const chipIA = document.createElement('span');
+          chipIA.className = 'chip ia';
+          chipIA.textContent = 'IA mentionnée';
+          chips.appendChild(chipIA);
+        }
 
-  /* ======== Thématiques : palette + fallback HSL ======== */
-  const THEME_CANON = {
-    'humanitaire': {label:'humanitaire', color:'#8b5cf6'},
-    'problematique-environnementale': {label:'problématiques environnementales', color:'#10b981'},
-    'strategies-militaires-et-influence': {label:'stratégies militaires et influence', color:'#78866B'},
-    'crime-organise': {label:'crime organisé', color:'#000000'},
-    'repression-de-l-etat': {label:"répression de l'état", color:'#f97316'},
-    'approfondissement-de-l-actualite': {label:"approfondissement de l'actualité", color:'#3b82f6'},
-    'catastrophes-naturelles': {label:'catastrophes naturelles', color:'#ef4444'}
-  };
-  function hashColor(s){ let h=0; for(let i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))>>>0; } const hue=h%360; return `hsl(${hue} 45% 55%)`; }
-  function normalizeThemeKey(raw){
-    const s = (raw||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-    const k = s.replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,'-');
-    if(!k) return '';
-    if(k.includes('environnement')) return 'problematique-environnementale';
-    if(k.includes('strategie') && k.includes('militaire')) return 'strategies-militaires-et-influence';
-    if(k.includes('approfondissement') && k.includes('actualite')) return 'approfondissement-de-l-actualite';
-    if(k.includes('catastroph') && k.includes('naturel')) return 'catastrophes-naturelles';
-    if(k.includes('repression') && k.includes('etat')) return 'repression-de-l-etat';
-    if(k.includes('crime') && k.includes('organis')) return 'crime-organise';
-    if(k.includes('humanitaire')) return 'humanitaire';
-    if(THEME_CANON[k]) return k;
-    return '';
-  }
-  function themeFromCell(raw){
-    const key = normalizeThemeKey(raw);
-    if(key) return { key, label: THEME_CANON[key].label, color: THEME_CANON[key].color };
-    const label = String(raw||'').trim() || 'Sans thématique';
-    return { key: 'other', label, color: label==='Sans thématique' ? '#94a3b8' : hashColor(label) };
-  }
+        card.appendChild(chips);
 
-  /* ======== Proactivité & IA ======== */
-  function normalizeProactivity(raw, hay){
-    const n = norm(raw||'');
-    if(n.includes('proact')) return 'proactive';
-    if(n.includes('react') || n.includes('réact')) return 'reactive';
-    const h = norm(hay||'');
-    const reactiveHints = /(fact[-\s]?check|debunk|vrai\/?faux|desinfo|désinfo|verification|vérification|hoax|intox)/i;
-    const proactiveHints = /(enqu(ete|ête)|investig|osint|cartograph|geolocal|géolocal|chronolog|analyse|reconstruction)/i;
-    if(reactiveHints.test(h)) return 'reactive';
-    if(proactiveHints.test(h)) return 'proactive';
-    return '';
-  }
-  const IA_PAT = /(intelligence\s+artificielle|(?:\b|_)i\.?a\.?(?:\b|_)|\ballm\b|deepfake|apprentissage\s+automatique|deep\s*learning|reseau\s*neuronal|réseau\s*neuronal|modeles?\s+de\s+langue|generatif|génératif|chatgpt|openai|midjourney|stable\s+diffusion|llama|elevenlabs|suno)\b/i;
-  const detectIA = (...fields)=> IA_PAT.test(deburr(fields.filter(Boolean).join(' ')));
+        // Meta (date + auteurs)
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = `Date : ${date}` + (authors ? ` • Auteurs : ${authors}` : '');
+        card.appendChild(meta);
 
-  /* ======== Auteurs & mapping ======== */
-  function splitAuthors(v){
-    if(!v) return [];
-    const parts = String(v).split(/\s*(?:\||,|;|\/| et | & )\s*/i).map(x=>x.trim()).filter(Boolean);
-    const seen=new Set(), out=[];
-    for(const p of parts){ const k=norm(p); if(!seen.has(k)){ seen.add(k); out.push(p); } }
-    return out;
-  }
-  function pick(row, names){
-    for(const name of names){
-      for(const key of Object.keys(row)){
-        if(norm(key)===norm(name)) return row[key];
-      }
-    }
-    return undefined;
-  }
+        // Extrait / contenu
+        if (r.content) {
+          const details = document.createElement('details');
+          const sum = document.createElement('summary');
+          sum.textContent = 'Résumé';
+          const p = document.createElement('p');
+          p.style.margin = '8px 0 0';
+          p.textContent = r.content;
+          details.appendChild(sum);
+          details.appendChild(p);
+          card.appendChild(details);
+        }
 
-  /* ======== Normalisation d'une ligne ======== */
-  function normalizeRow(r){
-    const title = pick(r, ['title','titre']);
-    const content = pick(r, ['content','resume','résumé','summary','description']);
-    const begin = pick(r, ['begin','date','date de publication','publication','date publication']);
-    const mediaRaw = pick(r, ['media','média','lieu de publication','source']);
-    const links = r['meta:links'] ?? r['meta:link'] ?? r['links'] ?? r['lien'] ?? r['url'];
-    const comment = pick(r, ['commentaire','notes','note']);
-    const auteurs = pick(r, ['auteurs','authors','auteur','author']);
-    const thematique = pick(r, ['thématique','thematique','theme','thème']);
-    const proactRaw = pick(r, ['proactivité/réactivité','proactivité','proactivite','type','typologie','proact']);
+        // Actions (lien, commentaire)
+        const actions = document.createElement('div');
+        actions.className = 'actions';
 
-    const media = normalizeMedia(mediaRaw||'');
-    const url = firstURL(links);
-    const authors = splitAuthors(auteurs||''); // dans tes données, c'est parfois déjà un tableau → split gère aussi la string
+        if (r.link && typeof r.link === 'string' && r.link.trim() !== '') {
+          const a = document.createElement('a');
+          a.className = 'btn accent';
+          a.href = r.link;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = 'Ouvrir la source';
+          actions.appendChild(a);
+        }
 
-    const themeObj = themeFromCell(thematique);
-    const hay = [title,content,comment].filter(Boolean).join(' ');
-    const proact = normalizeProactivity(proactRaw, hay);
-    const hasIA = typeof r.hasIA === 'boolean' ? r.hasIA : detectIA(comment, title, content);
-    const dateISO = parseDateToISO(begin);
+        if (r.commentaire && r.commentaire.trim() !== '') {
+          const c = document.createElement('button');
+          c.type = 'button';
+          c.className = 'btn';
+          c.textContent = 'Commentaire';
+          c.addEventListener('click', () => {
+            alert(r.commentaire);
+          });
+          actions.appendChild(c);
+        }
 
-    return {
-      title: String(title||'').trim(),
-      content: String(content||'').trim(),
-      dateISO,
-      dateFR: dateFR(dateISO),
-      media,
-      link: url,
-      commentaire: String(comment||'').trim(),
-      authors,
-      themeKey: themeObj.key,
-      themeLabel: themeObj.label,
-      themeColor: themeObj.color,
-      proact,
-      hasIA
-    };
-  }
+        if (actions.children.length) card.appendChild(actions);
 
-  /* ======== Lecture des données (depuis data_osint.js) ======== */
-  if(!Array.isArray(window.RAW_ROWS)){
-    console.error('❌ Aucune donnée trouvée. data_osint.js doit définir window.RAW_ROWS = [ {...}, ... ]');
-    window.RAW_ROWS = [];
-  }
-  const ALL = window.RAW_ROWS.map(normalizeRow);
-  console.log('✔ Données chargées :', ALL.length);
-
-  /* ======== État + facettes ======== */
-  const state = { q:'', media:'', theme:'', pro:'', ia:'' };
-  const buildFacet = (list, mapFn=(x)=>x)=> uniq(list.map(mapFn).filter(Boolean)).sort((a,b)=>norm(a).localeCompare(norm(b)));
-
-  function fillSelect(id, values, mapVal){
-    const sel = document.getElementById(id);
-    sel.innerHTML = values.map(v=>`<option>${v}</option>`).join('');
-    sel.onchange = (e)=>{ state[id.split('-')[1]] = mapVal? mapVal(e.target.value): e.target.value; apply(); };
-    sel.value = values[0];
-  }
-
-  function rebuildFilterOptions(){
-    const mediaOpts  = buildFacet(ALL, r=>r.media);
-    const themeOpts  = buildFacet(ALL, r=>r.themeLabel);
-
-    fillSelect('f-media',  ['(tous)'].concat(mediaOpts), v=>v==='(tous)'?'':v);
-    fillSelect('f-theme',  ['(toutes)'].concat(themeOpts), v=>v==='(toutes)'?'':v);
-  }
-
-  /* ======== Filtrage / Tri ======== */
-  function apply(){
-    const q = norm(state.q);
-    let rows = ALL.filter(r=>{
-      const hay = norm([r.title, r.content, r.commentaire].join(' '));
-      if(q && !hay.includes(q)) return false;
-      if(state.media && r.media !== state.media) return false;
-      if(state.theme && r.themeLabel !== state.theme) return false;
-      if(state.pro && r.proact !== state.pro) return false;
-      if(state.ia==='yes' && !r.hasIA) return false;
-      if(state.ia==='no'  &&  r.hasIA) return false;
-      return true;
-    });
-
-    // tri: date desc puis titre A→Z
-    rows.sort((a,b)=>{
-      const ad=a.dateISO||'0000-00-00', bd=b.dateISO||'0000-00-00';
-      if(ad!==bd) return ad<bd?1:-1;
-      return norm(a.title).localeCompare(norm(b.title));
-    });
-
-    render(rows);
-  }
-
-  /* ======== Rendu ======== */
-  function contrastingText(hex){
-    const m = hex.replace('#',''); const r=parseInt(m.substr(0,2),16), g=parseInt(m.substr(2,2),16), b=parseInt(m.substr(4,2),16);
-    return ((r*299 + g*587 + b*114)/1000) >= 140 ? '#111827' : '#ffffff';
-  }
-  function escapeHTML(s){ return String(s).replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
-
-  function card(r){
-    const left = `style="border-left:8px solid ${r.themeColor}"`;
-    const pro = r.proact==='proactive' ? '<span class="chip chip-pro">proactive</span>' :
-               r.proact==='reactive' ? '<span class="chip chip-rea">reactive</span>' : '';
-    const ia = r.hasIA ? '<span class="chip chip-ia">IA</span>' : '';
-    const mediaChip = r.media ? `<span class="chip chip-media">${r.media}</span>` : '';
-    const themeChip = `<span class="chip" style="background:${r.themeColor};color:${contrastingText(r.themeColor)}">${r.themeLabel}</span>`;
-    const authors = (Array.isArray(r.authors)?r.authors:[]).map(a=>`<span class="chip chip-author">${escapeHTML(a)}</span>`).join(' ');
-    const link = r.link ? `<a class="ml-auto" href="${r.link}" target="_blank" rel="noopener" aria-label="Ouvrir le lien"><span class="text-xl">🔗</span></a>` : '<span class="ml-auto text-slate-400 text-xl" title="Aucun lien">∅</span>';
-    return `
-    <article class="flex flex-col gap-2 rounded-lg border border-slate-200 p-3 shadow-sm" ${left}>
-      <div class="flex items-center gap-3">
-        ${mediaLogoHTML(r.media)}
-        <h3 class="m-0 text-base font-semibold leading-snug">${escapeHTML(r.title||'Sans titre')}</h3>
-      </div>
-      <p class="m-0 text-sm text-slate-700">${escapeHTML(r.content||'')}</p>
-      <div class="flex flex-wrap items-center gap-2">
-        ${mediaChip} ${ia} ${pro} ${themeChip}
-      </div>
-      <div class="flex flex-wrap items-center gap-2">
-        ${authors}
-      </div>
-      <div class="mt-1 flex items-center text-sm text-slate-600">
-        <span>${r.dateFR}</span>
-        ${link}
-      </div>
-    </article>`;
-  }
-
-  function render(rows){
-    const grid = document.getElementById('grid');
-    grid.innerHTML = rows.map(card).join('');
-    const total = ALL.length, shown = rows.length;
-    document.getElementById('count').textContent = `${shown} résultat${shown>1?'s':''} affiché${shown>1?'s':''} / ${total}`;
-  }
-
-  /* ======== Export CSV ======== */
-  function toCSV(rows){
-    const header = ['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
-    const esc = (v)=> `"${String(v??'').replace(/"/g,'""')}"`;
-    const lines = [header.map(esc).join(',')];
-    for(const r of rows){
-      lines.push([
-        r.title, r.content, r.dateISO||'', r.media, r.link||'',
-        r.commentaire, (Array.isArray(r.authors)?r.authors:[]).join(' | '), r.themeLabel, r.proact, r.hasIA? 'yes':'no'
-      ].map(esc).join(','));
-    }
-    return lines.join('\r\n');
-  }
-  function downloadCSV(rows){
-    const csv = toCSV(rows);
-    const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'export_osint.csv';
-    document.body.appendChild(a); a.click(); a.remove();
-    URL.revokeObjectURL(url);
-  }
-
-  /* ======== UI ======== */
-  function wireSelect(id, setter){
-    const el = document.getElementById(id);
-    el.onchange = e=>{ setter(e.target.value); apply(); };
-  }
-  function attachUI(){
-    document.getElementById('f-q').addEventListener('input', (e)=>{ state.q = e.target.value; apply(); });
-    wireSelect('f-ia', v=> state.ia = v);
-    wireSelect('f-pro', v=> state.pro = v);
-    wireSelect('f-media', v=> state.media = (v==='(tous)'?'':v));
-    wireSelect('f-theme', v=> state.theme = (v==='(toutes)'?'':v));
-
-    document.getElementById('btn-reset').addEventListener('click', ()=>{
-      state.q=''; state.media=''; state.theme=''; state.pro=''; state.ia='';
-      rebuildFilterOptions();
-      document.getElementById('f-q').value='';
-      apply();
-    });
-
-    document.getElementById('btn-export').addEventListener('click', ()=>{
-      const q = norm(state.q);
-      const rows = ALL.filter(r=>{
-        const hay = norm([r.title, r.content, r.commentaire].join(' '));
-        if(q && !hay.includes(q)) return false;
-        if(state.media && r.media !== state.media) return false;
-        if(state.theme && r.themeLabel !== state.theme) return false;
-        if(state.pro && r.proact !== state.pro) return false;
-        if(state.ia==='yes' && !r.hasIA) return false;
-        if(state.ia==='no'  &&  r.hasIA) return false;
-        return true;
-      }).sort((a,b)=>{
-        const ad=a.dateISO||'0000-00-00', bd=b.dateISO||'0000-00-00';
-        if(ad!==bd) return ad<bd?1:-1;
-        return norm(a.title).localeCompare(norm(b.title));
+        frag.appendChild(card);
       });
-      downloadCSV(rows);
-    });
-  }
 
-  // boot
-  (function boot(){
-    rebuildFilterOptions();
-    attachUI();
-    apply();
-  })();
+      app.innerHTML = ''; // nettoie
+      app.appendChild(frag);
+    })();
   </script>
 </body>
 </html>
