@@ -16,7 +16,7 @@
     .chip-theme{color:#fff;}
     .card{border-left-width:8px;border-radius:1rem;border:1px solid #e5e7eb;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04);}
     .card-title{font-weight:700;font-size:1.05rem;line-height:1.35;}
-    .logo-fallback{width:40px;height:40px;border-radius:9999px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-weight:700;color:#374151;}
+    .logo-fallback{width:40px;height:40px;border-radius:9999px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-weight:800;color:#111827;}
     .grid-auto{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:1rem;}
     @media (min-width:768px){.grid-auto{grid-template-columns:repeat(2,minmax(0,1fr));}}
     @media (min-width:1280px){.grid-auto{grid-template-columns:repeat(3,minmax(0,1fr));}}
@@ -59,7 +59,7 @@
         <select id="proactFilter" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2" aria-label="Filtre proactivité">
           <option value="">(toutes)</option>
           <option value="proactive">proactive</option>
-          <option value="reactive">reactive</option>
+          <option value="reactive">réactive</option>
         </select>
       </div>
       <div>
@@ -108,6 +108,10 @@
     const lower = s => latinize(normSpaces(String(s||''))).toLowerCase();
     const isTruthy = v => !(v===null || v===undefined || (typeof v==='string' && v.trim()===''));
 
+    // --- Dictionnaires fournis par l'utilisateur (exploités pour normalisation/fallback) ---
+    const MEDIA_LOGO_DOMAIN = {"AFP": "afp.com", "Le Monde": "lemonde.fr", "Libération": "liberation.fr", "Le Figaro": "lefigaro.fr", "France 24": "france24.com", "Franceinfo": "francetvinfo.fr", "ARTE": "arte.tv", "BBC": "bbc.co.uk", "The Guardian": "theguardian.com", "The New York Times": "nytimes.com", "Washington Post": "washingtonpost.com", "Reuters": "reuters.com", "AP": "apnews.com", "Financial Times": "ft.com", "WSJ": "wsj.com", "CNN": "cnn.com", "Bloomberg": "bloomberg.com", "Mediapart": "mediapart.fr", "Les Echos": "lesechos.fr", "L'Express": "lexpress.fr", "L'Obs": "nouvelobs.com", "20 Minutes": "20minutes.fr", "Courrier international": "courrierinternational.com"};
+    const MEDIA_ABBR = {"le monde": "LM", "lemonde": "LM", "libération": "LIBÉ", "liberation": "LIBÉ", "le figaro": "LF", "france 24": "F24", "france24": "F24", "franceinfo": "FI", "france info": "FI", "arte": "ARTE", "bfmtv": "BFM", "tf1": "TF1", "lci": "LCI", "mediapart": "MP", "rfi": "RFI", "la croix": "LC", "le parisien": "LP", "les echos": "LE", "l'express": "LEX", "lobs": "OBS", "20 minutes": "20M", "courrier international": "CI", "marianne": "MAR", "the new york times": "NYT", "new york times": "NYT", "nyt": "NYT", "washington post": "WP", "wsj": "WSJ", "financial times": "FT", "the guardian": "TG", "guardian": "TG", "bbc": "BBC", "reuters": "REU", "associated press": "AP", "ap": "AP", "bloomberg": "BBG", "cnn": "CNN"};
+
     // Date parsing tolérant (priorité day-first)
     function parseToISO(input){
       if(!isTruthy(input)) return null;
@@ -155,16 +159,17 @@
       }catch(e){ return '(date manquante)'; }
     }
 
-    // Médias : normalisation "AFP factuel" -> "AFP", alias "Les Observateurs" -> regrouper sous "France 24"
+    // Médias : normalisation (AFP factuel -> AFP ; Observateurs -> France 24 ; variantes)
     function normalizeMedia(s){
       const raw = normSpaces(s||'');
       const l = lower(raw);
       if(l.includes('afp factuel')) return 'AFP';
       if(l === 'les observateurs' || l.includes('observateurs')) return 'France 24';
-      // Exemples fréquents de variantes
       if(l==='associated press' || l==='ap') return 'Associated Press';
-      if(l==='washington post' || l==='the washington post') return 'Washington Post';
-      if(l==='the new york times' || l==='nytimes' || l==='new york times') return 'The New York Times';
+      if(l==='washington post' || l==='the washington post') return 'The Washington Post';
+      if(l==='the new york times' || l==='nytimes' || l==='new york times' || l==='nyt') return 'The New York Times';
+      if(l==='franceinfo' || l==='france info') return 'Franceinfo';
+      if(l==='arte') return 'ARTE';
       return raw || '(sans média)';
     }
 
@@ -172,26 +177,36 @@
     const MEDIA_LOGOS = {
       'AFP':'https://upload.wikimedia.org/wikipedia/commons/6/66/Agence_France-Presse_logo.svg',
       'France 24':'https://upload.wikimedia.org/wikipedia/commons/5/50/France_24_Logo.svg',
+      'Franceinfo':'https://upload.wikimedia.org/wikipedia/commons/8/86/Franceinfo_logo_2016.svg',
       'Le Monde':'https://upload.wikimedia.org/wikipedia/commons/2/2e/Le_Monde_logo_2010.svg',
       'Libération':'https://upload.wikimedia.org/wikipedia/commons/1/1a/Liberation_logo.svg',
       'Le Figaro':'https://upload.wikimedia.org/wikipedia/commons/b/bb/Le_Figaro_logo.svg',
       'Mediapart':'https://upload.wikimedia.org/wikipedia/commons/5/5a/Mediapart_logo.svg',
+      'ARTE':'https://upload.wikimedia.org/wikipedia/commons/2/2a/Arte_Logo_2017.svg',
       'Arte':'https://upload.wikimedia.org/wikipedia/commons/2/2a/Arte_Logo_2017.svg',
       'The New York Times':'https://upload.wikimedia.org/wikipedia/commons/5/58/NewYorkTimes.svg',
       'The Washington Post':'https://upload.wikimedia.org/wikipedia/commons/0/0e/Washington_Post_logo_2014.svg',
-      'Washington Post':'https://upload.wikimedia.org/wikipedia/commons/0/0e/Washington_Post_logo_2014.svg',
       'Reuters':'https://upload.wikimedia.org/wikipedia/commons/4/48/Reuters_Logo.svg',
       'BBC':'https://upload.wikimedia.org/wikipedia/commons/1/1a/BBC_Logo_2021.svg',
       'The Guardian':'https://upload.wikimedia.org/wikipedia/commons/8/8c/The_Guardian_2018.svg',
       'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/6/6b/Associated_Press_logo_2012.svg',
       'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/0/04/Bellingcat-logo.svg',
+      'Financial Times':'https://upload.wikimedia.org/wikipedia/commons/5/5a/Financial_Times_corporate_logo_%282020%29.svg',
+      'The Wall Street Journal':'https://upload.wikimedia.org/wikipedia/commons/4/40/The_Wall_Street_Journal_Logo.svg',
+      'WSJ':'https://upload.wikimedia.org/wikipedia/commons/4/40/The_Wall_Street_Journal_Logo.svg',
+      'CNN':'https://upload.wikimedia.org/wikipedia/commons/b/b1/CNN.svg',
+      'Bloomberg':'https://upload.wikimedia.org/wikipedia/commons/7/76/Bloomberg_logo.svg',
+      'Les Echos':'https://upload.wikimedia.org/wikipedia/commons/2/24/Les_Echos_logo.svg',
+      "L'Express":'https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_L%27Express_2015.svg',
+      "L'Obs":'https://upload.wikimedia.org/wikipedia/commons/3/3a/L%27Obs_logo_2014.svg',
+      '20 Minutes':'https://upload.wikimedia.org/wikipedia/commons/3/32/Logo_20_Minutes.svg',
+      'Courrier international':'https://upload.wikimedia.org/wikipedia/commons/2/2e/Courrier_international_Logo.svg',
       'France Télévisions':'https://upload.wikimedia.org/wikipedia/commons/1/1c/Logo_France_Televisions_2018.svg'
     };
 
     // Thématiques -> couleurs imposées
     function canonicalThemeKey(s){
-      const l = lower(s||'');
-      return l;
+      return lower(s||'');
     }
     const THEME_COLORS = new Map([
       ['humanitaire', '#8b5cf6'],
@@ -234,11 +249,11 @@
       return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
     }
 
-    // Proactivité : normalisation + heuristique
+    // Proactivité : normalisation + heuristique (accent/casse-insensibles)
     const REACTIVE_HINTS = /(fact[\s-]?check|factcheck|vrai\s*\/\s*faux|vrai\s*-\s*faux|desinfo|désinfo|désinformation|debunk|intox)/i;
     const PROACTIVE_HINTS = /(enqu(ê|e)te|investigation|osint|cartographi|geolocali|g(é|e)olocali)/i;
     function normalizeProact(v, textForHeuristic){
-      const l = lower(v||'');
+      const l = lower(v||''); // ex: "réactive" => "reactive"
       if(l==='proactive') return 'proactive';
       if(l==='reactive') return 'reactive';
       if(!isTruthy(v)){
@@ -246,7 +261,10 @@
         if(REACTIVE_HINTS.test(t)) return 'reactive';
         if(PROACTIVE_HINTS.test(t)) return 'proactive';
       }
-      return l ? (l.includes('pro')?'proactive':(l.includes('rea')?'reactive':'')) : '';
+      // tolérance : contient "proac" ou "réac"
+      if(l.includes('proac')) return 'proactive';
+      if(l.includes('reac')) return 'reactive';
+      return '';
     }
 
     // IA : booléen, sinon détection mots-clés (accent/casse-insensible)
@@ -341,7 +359,9 @@
     function fallbackLogo(media){
       const d = document.createElement('div');
       d.className='logo-fallback'; d.setAttribute('aria-label', media);
-      d.textContent = (media||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,3).toUpperCase();
+      const key = lower(media);
+      const abbr = MEDIA_ABBR[key];
+      d.textContent = abbr || (media||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,3).toUpperCase();
       return d;
     }
 
@@ -398,7 +418,7 @@
       if(r.hasIA){ const c=document.createElement('span'); c.className='chip chip-ia'; c.textContent='IA'; chips.appendChild(c); }
       if(r.proact){
         const c=document.createElement('span'); c.className='chip ' + (r.proact==='proactive'?'chip-proactive':'chip-reactive');
-        c.textContent = r.proact;
+        c.textContent = (r.proact==='reactive' ? 'réactive' : 'proactive');
         chips.appendChild(c);
       }
       chips.appendChild(chipTheme(r.theme && r.theme.trim()? r.theme : 'Sans thématique'));
@@ -440,7 +460,7 @@
       const q = lower(searchInput.value||'');
       const m = mediaSel.value||'';
       const th = themeSel.value||'';
-      const pro = proSel.value||'';
+      const pro = proSel.value||'';  // values normalized: 'proactive' or 'reactive'
       const ia = iaSel.value||'';
 
       current = rows.filter(r=>{
@@ -518,20 +538,11 @@
     // --------- Auto-tests simples (console) ---------
     (function selfTests(){
       try{
-        const before = rows.length;
-        // Proactivité filtre
-        const anyPro = rows.some(r=>r.proact==='proactive') || rows.some(r=>r.proact==='reactive');
-        console.log('[TEST] Proactivité présente ?', anyPro);
-        // IA yes => uniquement hasIA true
+        const hasReactive = rows.some(r=>r.proact==='reactive');
+        const hasProactive = rows.some(r=>r.proact==='proactive');
+        console.log('[TEST] Proactivité (réactive/proactive) détectée ? ', {hasReactive, hasProactive});
         const iaYesAllTrue = rows.filter(r=>r.hasIA===true).every(Boolean);
         console.log('[TEST] IA marquage booléen présent ?', iaYesAllTrue);
-        // Thématique duplication
-        const themes = rows.map(r=>canonicalThemeKey(r.theme));
-        const dup = new Set(themes).size !== themes.length;
-        console.log('[TEST] Doublons thématiques possibles (normalisé clé) ?', dup);
-        // Lien icône présent si URL
-        console.log('[TEST] Exemple lien normalisé', rows.find(r=>r.link)?.link);
-        // AFP factuel
         const medias = new Set(rows.map(r=>r.media));
         console.log('[TEST] \"AFP factuel\" fusionné sous AFP ?', medias.has('AFP') && ![...medias].some(m=>lower(m).includes('afp factuel')));
       }catch(e){ console.warn('Self-tests error', e); }
