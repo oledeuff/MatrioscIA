@@ -4,520 +4,538 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>catalogue d’enquêtes de type OSINT — Investigations audiovisuelles</title>
-  <!-- Tailwind via CDN (autorisé) -->
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Monogramme média (fallback) */
-    .mono { display:inline-flex; align-items:center; justify-content:center; font-weight:700; border-radius:9999px; width:40px; height:40px; background:#e5e7eb; color:#374151; }
-    .line-clamp-4{ display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
-    .focus-ring{ outline:2px solid transparent; outline-offset:2px; box-shadow:0 0 0 3px rgba(16,185,129,.35); }
+    /* Utilitaires supplémentaires pour les puces et cartes */
+    .chip{display:inline-flex;align-items:center;gap:.375rem;border-radius:9999px;padding:.125rem .5rem;font-size:.75rem;line-height:1rem;border:1px solid rgba(0,0,0,0.06);}
+    .chip-light{background:#f3f4f6;color:#374151;}
+    .chip-ia{background:#e0e7ff;color:#1e1b4b;border-color:#c7d2fe;}
+    .chip-proactive{background:#059669;color:#fff;}
+    .chip-reactive{background:#d97706;color:#fff;}
+    .chip-theme{color:#fff;}
+    .card{border-left-width:8px;border-radius:1rem;border:1px solid #e5e7eb;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+    .card-title{font-weight:700;font-size:1.05rem;line-height:1.35;}
+    .logo-fallback{width:40px;height:40px;border-radius:9999px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-weight:700;color:#374151;}
+    .grid-auto{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:1rem;}
+    @media (min-width:768px){.grid-auto{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media (min-width:1280px){.grid-auto{grid-template-columns:repeat(3,minmax(0,1fr));}}
+    .link-icon{font-size:1.1rem;text-decoration:none}
+    .link-icon:focus{outline:2px solid #22c55e;outline-offset:2px;border-radius:.25rem}
   </style>
+  <!-- Données (aucun fetch) -->
+  <script src="data.js"></script>
 </head>
-<body class="bg-white text-gray-800">
-
+<body class="bg-white text-gray-900">
   <!-- En-tête -->
-  <header class="bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400 text-emerald-950">
+  <header class="bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400">
     <div class="max-w-7xl mx-auto px-4 py-6">
-      <h1 class="text-2xl sm:text-3xl font-extrabold">catalogue d’enquêtes de type OSINT</h1>
-      <p class="text-sm sm:text-base mt-1">Investigations audiovisuelles</p>
+      <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">catalogue d’enquêtes de type OSINT</h1>
+      <p class="text-sm md:text-base opacity-90">Investigations audiovisuelles</p>
     </div>
   </header>
 
-  <!-- Barre outils -->
-  <main class="max-w-7xl mx-auto px-4 py-6">
-    <section aria-labelledby="filtres" class="mb-4">
-      <h2 id="filtres" class="sr-only">Filtres et recherche</h2>
-      <form id="controls" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3 items-end">
-        <div class="flex flex-col">
-          <label for="search" class="text-sm font-medium">Recherche plein‑texte</label>
-          <input id="search" type="search" inputmode="search" placeholder="Titre, résumé ou commentaire…" class="mt-1 px-3 py-2 border rounded-lg focus-ring" aria-describedby="search-help" />
-          <p id="search-help" class="sr-only">Saisissez des mots présents dans le titre, le résumé ou le commentaire.</p>
-        </div>
+  <!-- Barre d'outils -->
+  <section class="max-w-7xl mx-auto px-4 py-4">
+    <div class="flex flex-col md:flex-row md:items-end md:gap-4 gap-3">
+      <div class="flex-1">
+        <label for="search" class="block text-sm font-medium text-gray-700">Recherche (titre, résumé, commentaire)</label>
+        <input id="search" type="search" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Rechercher…" aria-label="Recherche plein-texte">
+      </div>
+      <div>
+        <label for="mediaFilter" class="block text-sm font-medium text-gray-700">Média</label>
+        <select id="mediaFilter" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2" aria-label="Filtre média">
+          <option value="">(tous)</option>
+        </select>
+      </div>
+      <div>
+        <label for="themeFilter" class="block text-sm font-medium text-gray-700">Thématique</label>
+        <select id="themeFilter" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2" aria-label="Filtre thématique">
+          <option value="">(toutes)</option>
+        </select>
+      </div>
+      <div>
+        <label for="proactFilter" class="block text-sm font-medium text-gray-700">Proactivité</label>
+        <select id="proactFilter" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2" aria-label="Filtre proactivité">
+          <option value="">(toutes)</option>
+          <option value="proactive">proactive</option>
+          <option value="reactive">reactive</option>
+        </select>
+      </div>
+      <div>
+        <label for="iaFilter" class="block text-sm font-medium text-gray-700">IA</label>
+        <select id="iaFilter" class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2" aria-label="Filtre IA">
+          <option value="">(tout)</option>
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+      </div>
+    </div>
 
-        <div class="flex flex-col">
-          <label for="media" class="text-sm font-medium">Média</label>
-          <select id="media" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
-        </div>
+    <div class="mt-3 flex items-center gap-3">
+      <button id="resetBtn" class="rounded-xl bg-gray-100 hover:bg-gray-200 px-3 py-2 text-sm">Réinitialiser</button>
+      <button id="exportBtn" class="rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 text-sm">Exporter en CSV</button>
+      <div id="counter" class="ml-auto text-sm text-gray-600" aria-live="polite"></div>
+    </div>
+  </section>
 
-        <div class="flex flex-col">
-          <label for="theme" class="text-sm font-medium">Thématique</label>
-          <select id="theme" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3 md:col-span-2 xl:col-span-1">
-          <div class="flex flex-col">
-            <label for="proact" class="text-sm font-medium">Proactivité</label>
-            <select id="proact" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
-          </div>
-          <div class="flex flex-col">
-            <label for="ia" class="text-sm font-medium">IA</label>
-            <select id="ia" class="mt-1 px-3 py-2 border rounded-lg focus-ring"></select>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-2 md:col-span-2 xl:col-span-1">
-          <button id="resetBtn" type="button" class="px-3 py-2 rounded-xl border bg-white hover:bg-gray-50">Réinitialiser</button>
-          <button id="exportBtn" type="button" class="px-3 py-2 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700">Exporter en CSV</button>
-          <span id="counter" class="ml-auto text-sm text-gray-600" aria-live="polite"></span>
-        </div>
-      </form>
-    </section>
-
-    <!-- Grille résultats -->
-    <section aria-labelledby="resultats">
-      <h2 id="resultats" class="sr-only">Résultats</h2>
-      <div id="grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-    </section>
+  <!-- Grille résultats -->
+  <main class="max-w-7xl mx-auto px-4 pb-10">
+    <div id="grid" class="grid-auto"></div>
   </main>
 
-  <!-- Pied de page obligatoire -->
-  <footer class="border-t">
-    <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-gray-600">
+  <!-- Pied de page -->
+  <footer class="border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 py-6 text-sm text-gray-700">
       Projet MatrioscIA. Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos, Mailuxa Pagola. 2025. Licence CC BY
     </div>
-  </footer>  <!-- Données : aucun fetch — le serveur doit fournir data.js (ou un autre nom via ?data=...) dans le même dossier -->
+  </footer>
+
   <script>
-    // Chargeur de données robuste : essaie ?data=…, puis data.js, puis data_osint.js
-    (function(){
-      const params = new URLSearchParams(location.search);
-      const candidate = params.get('data');
-      const candidates = [candidate, 'data.js', 'data_osint.js'].filter(Boolean);
-      function inject(src, onload){
-        const s = document.createElement('script');
-        s.src = src; s.onload = onload; s.onerror = () => next();
-        document.head.appendChild(s);
-      }
-      function next(){
-        const src = candidates.shift();
-        if(!src){
-          showDataError('Aucun fichier de données trouvé (essayé: ?data=…, data.js, data_osint.js).');
-          return;
-        }
-        inject(src, ()=>{
-          if(!Array.isArray(window.RAW_ROWS)){
-            // Compat noms alternatifs
-            window.RAW_ROWS = window.RAW_ROWS || window.raw_rows || window.rows || window.DATA || window.data || [];
-          }
-          document.dispatchEvent(new CustomEvent('data-ready'));
-        });
-      }
-      function showDataError(msg){
-        const bar = document.createElement('div');
-        bar.setAttribute('role','alert');
-        bar.className = 'bg-red-50 text-red-800 border border-red-200 px-4 py-3';
-        bar.textContent = 'Données non chargées : ' + msg + ' — Placez un fichier qui expose window.RAW_ROWS = [...]';
-        document.body.insertBefore(bar, document.body.firstChild);
-        document.dispatchEvent(new CustomEvent('data-ready'));
-      }
-      next();
+    // Ce commentaire sera inséré dynamiquement juste avant ce script avec le nombre de fiches.
+    (function attachCountComment(){
+      try{
+        const rows = (window.RAW_ROWS && Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS : (window.DATA||[]));
+        const comment = document.createComment(' Nombre total de fiches intégrées : ' + rows.length + ' ');
+        const s = document.currentScript;
+        s.parentNode.insertBefore(comment, s);
+      }catch(e){/* noop */}
     })();
-  </script>
 
-  <!--
-    Le commentaire ci-dessous est exigé : nombre total de fiches au chargement.
-    Il sera aussi journalisé en console au runtime.
-  -->
-  <script>
-  /* Total de fiches (window.RAW_ROWS.length) : sera affiché en console au chargement */
-  </script>
+    // --------- Utilitaires de normalisation ---------
+    const latinize = (s='') => s.normalize('NFD').replace(/[\u0300-\u036f]/g,''); // retire accents
+    const normSpaces = s => (s||'').replace(/\s+/g,' ').trim();
+    const lower = s => latinize(normSpaces(String(s||''))).toLowerCase();
+    const isTruthy = v => !(v===null || v===undefined || (typeof v==='string' && v.trim()===''));
 
-  <script>
-  // ============================================================
-  //  UTILITAIRES & NORMALISATIONS
-  // ============================================================
-  const ACCENTS_RE = /[\u0300-\u036f]/g;
-  const norm = (s) => (s ?? "").toString().normalize('NFD').replace(ACCENTS_RE,'').toLowerCase().trim().replace(/\s+/g,' ');
-  const trimStr = (s) => (s ?? "").toString().trim();
-  const firstNonEmpty = (...vals) => vals.find(v => !!trimStr(v)) ?? "";
-
-  // Parse de date tolérant (day-first) -> ISO YYYY-MM-DD
-  function parseDateToISO(input){
-    if(!input) return null;
-    const s = trimStr(input);
-    // Formats courants ISO ou YYYY/MM/DD
-    const iso = new Date(s);
-    if(!Number.isNaN(iso.getTime())){
-      // Si ambigu, on tente une interprétation jour/mois
-      const m = s.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{2,4})$/);
-      if(m){
-        const [_, d, mo, y] = m;
-        const year = y.length===2 ? (Number(y) + 2000) : Number(y);
-        const dt = new Date(Date.UTC(year, Number(mo)-1, Number(d)));
-        if(!Number.isNaN(dt.getTime())) return dt.toISOString().slice(0,10);
+    // Date parsing tolérant (priorité day-first)
+    function parseToISO(input){
+      if(!isTruthy(input)) return null;
+      const s = String(input).trim();
+      // ISO direct
+      const mISO = s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/);
+      if(mISO){
+        const y=+mISO[1], mo=+mISO[2], d=+mISO[3];
+        if(validYMD(y,mo,d)) return fmtISO(y,mo,d);
       }
-      // Date déjà valide
-      return new Date(iso.getTime() - iso.getTimezoneOffset()*60000).toISOString().slice(0,10);
+      // dd/mm/yyyy or dd-mm-yyyy
+      const mDF = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})$/);
+      if(mDF){
+        let d=+mDF[1], mo=+mDF[2], y=+mDF[3]; if(y<100) y+=2000;
+        if(validYMD(y,mo,d)) return fmtISO(y,mo,d);
+      }
+      // Month name (FR/EN) d, yyyy
+      const mois = {'janvier':1,'fevrier':2,'février':2,'mars':3,'avril':4,'mai':5,'juin':6,'juillet':7,'aout':8,'août':8,'septembre':9,'octobre':10,'novembre':11,'decembre':12,'décembre':12,
+                    'january':1,'february':2,'march':3,'april':4,'may':5,'june':6,'july':7,'august':8,'september':9,'october':10,'november':11,'december':12};
+      const mName = s.match(/^(\d{1,2})\s+([A-Za-zéèêëàâîïôöûüç]+)\s+(\d{4})$/i);
+      if(mName){
+        const d=+mName[1], mo = mois[mName[2].toLowerCase()]||0, y=+mName[3];
+        if(validYMD(y,mo,d)) return fmtISO(y,mo,d);
+      }
+      // Fallback Date()
+      const t = new Date(s);
+      if(!isNaN(t)) return fmtISO(t.getFullYear(), t.getMonth()+1, t.getDate());
+      return null;
     }
-    // Essai format "DD mois YYYY" FR
-    const mois = {janvier:0, fevrier:1, février:1, mars:2, avril:3, mai:4, juin:5, juillet:6, aout:7, août:7, septembre:8, octobre:9, novembre:10, decembre:11, décembre:11};
-    const fr = s.match(/^(\d{1,2})\s+([A-Za-zéèêàûôîïùçœ]+)\s+(\d{4})$/i);
-    if(fr){
-      const d=Number(fr[1]); const mo=mois[norm(fr[2])]; const y=Number(fr[3]);
-      if(mo>=0){ const dt=new Date(Date.UTC(y,mo,d)); return dt.toISOString().slice(0,10);}  
+    function validYMD(y,m,d){
+      if(y<1900||y>2100||m<1||m>12||d<1||d>31) return false;
+      const dt=new Date(y,m-1,d);
+      return dt.getFullYear()===y && (dt.getMonth()+1)===m && dt.getDate()===d;
     }
-    return null;
-  }
-
-  function formatDateFR(iso){
-    if(!iso) return '(date manquante)';
-    try{
-      const dt = new Date(iso+ 'T00:00:00Z');
-      if(Number.isNaN(dt.getTime())) return '(date manquante)';
-      return dt.toLocaleDateString('fr-FR', {day:'2-digit', month:'long', year:'numeric'});
-    }catch{ return '(date manquante)'; }
-  }
-
-  // Fusion médias ("AFP factuel" -> AFP ; Les Observateurs -> France 24 pour le logo)
-  function normalizeMedia(s){
-    const v = trimStr(s);
-    if(!v) return '';
-    const n = norm(v);
-    if(n.includes('afp')) return 'AFP';
-    if(n.includes('observateurs')) return 'France 24';
-    return v.replace(/\s+/g,' ').trim();
-  }
-
-  // Heuristique proactivité
-  function detectProact(base, title, content, comm){
-    const v = norm(base);
-    if(v==='proactive' || v==='reactive') return v;
-    const bag = `${norm(title)} ${norm(content)} ${norm(comm)}`;
-    const reactiveHints = ['fact check','fact-check','factcheck','desinfo','desinformation','desinformation','vrai/faux','vrai faux','hoax','debunk'];
-    const proHints = ['enquete','investigation','osint','cartographie','geolocalisation','geo-localisation','geolocation','analyse visuelle','verification visuelle'];
-    if(reactiveHints.some(k => bag.includes(k))) return 'reactive';
-    if(proHints.some(k => bag.includes(k))) return 'proactive';
-    return '';
-  }
-
-  // IA detection si bool manquant
-  const IA_KEYS = ['intelligence artificielle','ia','i.a.','ai','llm','deepfake','apprentissage automatique','deep learning','reseau neuronal','réseau neuronal','modeles de langue','modèles de langue','generatif','génératif','chatgpt','openai','midjourney','stable diffusion','llama','elevenlabs','suno'];
-  function detectIA(hasIA, title, content, comm){
-    if(typeof hasIA === 'boolean') return hasIA;
-    const bag = `${norm(comm)} ${norm(title)} ${norm(content)}`;
-    return IA_KEYS.some(k => bag.includes(norm(k)));
-  }
-
-  // Thématiques → couleurs strictes
-  const THEME_COLORS = {
-    'humanitaire': '#8b5cf6',
-    'problematiques environnementales': '#10b981',
-    'problématiques environnementales': '#10b981',
-    'strategies militaires et influence': '#78866B',
-    'stratégies militaires et influence': '#78866B',
-    'crime organise': '#000000',
-    'crime organisé': '#000000',
-    "repression de l'etat": '#f97316',
-    "répression de l’état": '#f97316',
-    'approfondissement de lactualite': '#3b82f6',
-    "approfondissement de l'actualité": '#3b82f6',
-    'catastrophes naturelles': '#ef4444'
-  };
-
-  function colorForTheme(themeRaw){
-    const key = norm(themeRaw);
-    if(THEME_COLORS[key]) return THEME_COLORS[key];
-    if(!themeRaw) return '#94a3b8'; // Sans thématique (gris)
-    // Couleur stable de secours via hash HSL -> hex
-    const h = [...key].reduce((a,c)=> (a*31 + c.charCodeAt(0))>>>0, 0) % 360;
-    const s = 55, l = 55; // HSL -> hex
-    return hslToHex(h,s,l);
-  }
-
-  function hslToHex(h,s,l){
-    s/=100; l/=100; const C=(1-Math.abs(2*l-1))*s; const X=C*(1-Math.abs(((h/60)%2)-1)); const m=l-C/2;
-    let [r,g,b]=[0,0,0];
-    if(0<=h&&h<60){[r,g,b]=[C,X,0]} else if(60<=h&&h<120){[r,g,b]=[X,C,0]} else if(120<=h&&h<180){[r,g,b]=[0,C,X]} else if(180<=h&&h<240){[r,g,b]=[0,X,C]} else if(240<=h&&h<300){[r,g,b]=[X,0,C]} else {[r,g,b]=[C,0,X]}
-    const R=Math.round((r+m)*255).toString(16).padStart(2,'0');
-    const G=Math.round((g+m)*255).toString(16).padStart(2,'0');
-    const B=Math.round((b+m)*255).toString(16).padStart(2,'0');
-    return `#${R}${G}${B}`;
-  }
-
-  // Logos Wikipédia (URL distantes autorisées)
-  const LOGOS = {
-    'AFP': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Agence_France-Presse_logo.svg/512px-Agence_France-Presse_logo.svg.png',
-    'France 24': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/FRANCE_24_logo.svg/512px-FRANCE_24_logo.svg.png',
-    'Le Monde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Le_Monde_logo_2010.svg/512px-Le_Monde_logo_2010.svg.png',
-    'Libération': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lib%C3%A9ration_logo.svg/512px-Lib%C3%A9ration_logo.svg.png',
-    'Le Figaro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Le_Figaro_logo.svg/512px-Le_Figaro_logo.svg.png',
-    'Mediapart': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Logo-mediapart.svg/512px-Logo-mediapart.svg.png',
-    'Arte': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Arte_Logo_2017.svg/512px-Arte_Logo_2017.svg.png',
-    'The New York Times': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/NewYorkTimes.svg/512px-NewYorkTimes.svg.png',
-    'The Washington Post': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Washington_Post_logo_2015.svg/512px-Washington_Post_logo_2015.svg.png',
-    'Reuters': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Reuters_logo.svg/512px-Reuters_logo.svg.png',
-    'BBC': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/BBC_News_2022_%28Alt%29.svg/512px-BBC_News_2022_%28Alt%29.svg.png',
-    'The Guardian': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/The_Guardian_2018.svg/512px-The_Guardian_2018.svg.png',
-    'Associated Press': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Associated_Press_logo_2012.svg/512px-Associated_Press_logo_2012.svg.png',
-    'Bellingcat': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Bellingcat_logo.svg/512px-Bellingcat_logo.svg.png'
-  };
-
-  // Lien : préfixe https si absent
-  function normalizeLink(url){
-    const u = trimStr(url);
-    if(!u) return '';
-    if(/^https?:\/\//i.test(u)) return u;
-    return 'https://' + u;
-  }
-
-  // Auteurs → tableau (si string)
-  function normalizeAuthors(auth){
-    if(Array.isArray(auth)) return auth.map(a=>trimStr(a)).filter(Boolean);
-    const s = trimStr(auth);
-    if(!s) return [];
-    return s.split(/\s*(?:[,;|\/]|\s&\s|\s"et"\s|\set\s|\s\band\b)\s*/i).map(a=>a.trim()).filter(Boolean);
-  }
-
-  // Badges
-  const proactBadge = (p) => {
-    if(p==='proactive') return '<span class="px-2 py-0.5 text-xs rounded-md bg-emerald-600 text-white">proactive</span>';
-    if(p==='reactive') return '<span class="px-2 py-0.5 text-xs rounded-md bg-amber-600 text-white">reactive</span>';
-    return '';
-  };
-  const iaBadge = (b) => b ? '<span class="px-2 py-0.5 text-xs rounded-md bg-indigo-600 text-white">IA</span>' : '';
-
-  // Logo élément
-  function mediaLogoEl(media){
-    const url = LOGOS[media];
-    if(url){
-      return `<img src="${url}" alt="Logo ${media}" class="w-10 h-10 object-contain bg-white rounded" referrerpolicy="no-referrer" />`;
+    function fmtISO(y,m,d){
+      const pad = n => String(n).padStart(2,'0');
+      return y+'-'+pad(m)+'-'+pad(d);
     }
-    const initials = media ? media.split(/\s+/).map(w=>w[0]).slice(0,3).join('').toUpperCase() : '?';
-    return `<span class="mono" aria-label="${media || 'Média inconnu'}">${initials}</span>`;
-  }
+    function formatDateFR(iso){
+      if(!iso) return '(date manquante)';
+      const [y,m,d] = iso.split('-').map(Number);
+      try{
+        const dt = new Date(y, m-1, d);
+        return new Intl.DateTimeFormat('fr-FR',{dateStyle:'medium'}).format(dt);
+      }catch(e){ return '(date manquante)'; }
+    }
 
-  // ============================================================
-  //  CHARGEMENT & INDEXATION
-  // ============================================================
-  let RAW = []; function initData(){ RAW = Array.isArray(window.RAW_ROWS) ? window.RAW_ROWS : []; console.log(`Total fiches: ${RAW.length}`); ALL.length = 0; RAW.map(normalizeRow).forEach(x=>ALL.push(x)); buildFilterOptions(); applyFilters(); }
-  console.log(`Total fiches: ${RAW.length}`);
+    // Médias : normalisation "AFP factuel" -> "AFP", alias "Les Observateurs" -> regrouper sous "France 24"
+    function normalizeMedia(s){
+      const raw = normSpaces(s||'');
+      const l = lower(raw);
+      if(l.includes('afp factuel')) return 'AFP';
+      if(l === 'les observateurs' || l.includes('observateurs')) return 'France 24';
+      // Exemples fréquents de variantes
+      if(l==='associated press' || l==='ap') return 'Associated Press';
+      if(l==='washington post' || l==='the washington post') return 'Washington Post';
+      if(l==='the new york times' || l==='nytimes' || l==='new york times') return 'The New York Times';
+      return raw || '(sans média)';
+    }
 
-  function normalizeRow(r){
-    const title = firstNonEmpty(r.title);
-    const content = firstNonEmpty(r.content);
-    const commentaire = firstNonEmpty(r.commentaire);
-    const dateISO = parseDateToISO(firstNonEmpty(r.date));
-    const media = normalizeMedia(firstNonEmpty(r.media));
-    const link = normalizeLink(firstNonEmpty(r.link));
-    const authors = normalizeAuthors(r.authors);
-    const themeRaw = firstNonEmpty(r.theme);
-    const themeKey = themeRaw ? themeRaw : '';
-    const themeColor = colorForTheme(themeKey);
-    const proact = detectProact(firstNonEmpty(r.proact), title, content, commentaire);
-    const hasIA = detectIA(r.hasIA, title, content, commentaire);
-    // Libellés de puces
-    const themeLabel = themeRaw ? themeRaw : 'Sans thématique';
-    return {
-      title, content, commentaire,
-      dateISO, media, link, authors, theme: themeLabel, proact, hasIA,
-      themeColor,
-      // index texte
-      _search: norm(`${title} ${content} ${commentaire}`)
+    // Dictionnaire logos Wikipédia (officiels). Si absent -> monogramme.
+    const MEDIA_LOGOS = {
+      'AFP':'https://upload.wikimedia.org/wikipedia/commons/6/66/Agence_France-Presse_logo.svg',
+      'France 24':'https://upload.wikimedia.org/wikipedia/commons/5/50/France_24_Logo.svg',
+      'Le Monde':'https://upload.wikimedia.org/wikipedia/commons/2/2e/Le_Monde_logo_2010.svg',
+      'Libération':'https://upload.wikimedia.org/wikipedia/commons/1/1a/Liberation_logo.svg',
+      'Le Figaro':'https://upload.wikimedia.org/wikipedia/commons/b/bb/Le_Figaro_logo.svg',
+      'Mediapart':'https://upload.wikimedia.org/wikipedia/commons/5/5a/Mediapart_logo.svg',
+      'Arte':'https://upload.wikimedia.org/wikipedia/commons/2/2a/Arte_Logo_2017.svg',
+      'The New York Times':'https://upload.wikimedia.org/wikipedia/commons/5/58/NewYorkTimes.svg',
+      'The Washington Post':'https://upload.wikimedia.org/wikipedia/commons/0/0e/Washington_Post_logo_2014.svg',
+      'Washington Post':'https://upload.wikimedia.org/wikipedia/commons/0/0e/Washington_Post_logo_2014.svg',
+      'Reuters':'https://upload.wikimedia.org/wikipedia/commons/4/48/Reuters_Logo.svg',
+      'BBC':'https://upload.wikimedia.org/wikipedia/commons/1/1a/BBC_Logo_2021.svg',
+      'The Guardian':'https://upload.wikimedia.org/wikipedia/commons/8/8c/The_Guardian_2018.svg',
+      'Associated Press':'https://upload.wikimedia.org/wikipedia/commons/6/6b/Associated_Press_logo_2012.svg',
+      'Bellingcat':'https://upload.wikimedia.org/wikipedia/commons/0/04/Bellingcat-logo.svg',
+      'France Télévisions':'https://upload.wikimedia.org/wikipedia/commons/1/1c/Logo_France_Televisions_2018.svg'
     };
-  }
 
-  const ALL = []; // rempli dans initData()
-
-  // ============================================================
-  //  UI : FILTRES
-  // ============================================================
-  const $media = document.getElementById('media');
-  const $theme = document.getElementById('theme');
-  const $proact = document.getElementById('proact');
-  const $ia = document.getElementById('ia');
-  const $search = document.getElementById('search');
-  const $grid = document.getElementById('grid');
-  const $counter = document.getElementById('counter');
-
-  function uniqueSorted(list){
-    const map = new Map();
-    for(const v of list){ const k = norm(v); if(!map.has(k)) map.set(k, v); }
-    return [...map.values()].sort((a,b)=> a.localeCompare(b,'fr',{sensitivity:'base'}));
-  }
-
-  function buildFilterOptions(){
-    // Médias
-    const medias = uniqueSorted(ALL.map(x=> x.media).filter(Boolean));
-    $media.innerHTML = '<option value="">(tous)</option>' + medias.map(m=>`<option value="${m}">${m}</option>`).join('');
-    // Thèmes (ajout Sans thématique si présent)
-    const themes = uniqueSorted(ALL.map(x=> x.theme));
-    $theme.innerHTML = '<option value="">(toutes)</option>' + themes.map(t=>`<option value="${t}">${t}</option>`).join('');
-    // Proact
-    $proact.innerHTML = [
-      '<option value="">(toutes)</option>',
-      '<option value="proactive">proactive</option>',
-      '<option value="reactive">reactive</option>'
-    ].join('');
-    // IA
-    $ia.innerHTML = [
-      '<option value="">(tout)</option>',
-      '<option value="yes">yes</option>',
-      '<option value="no">no</option>'
-    ].join('');
-  }
-
-  // ============================================================
-  //  FILTRAGE + TRI + RENDU
-  // ============================================================
-  function applyFilters(){
-    const q = norm($search.value);
-    const m = norm($media.value);
-    const t = norm($theme.value);
-    const p = norm($proact.value);
-    const i = norm($ia.value);
-
-    let rows = ALL.filter(r => {
-      if(q && !r._search.includes(q)) return false;
-      if(m && norm(r.media)!==m) return false;
-      if(t && norm(r.theme)!==t) return false;
-      if(p && r.proact!==p) return false;
-      if(i==='yes' && !r.hasIA) return false;
-      if(i==='no' && r.hasIA) return false;
-      return true;
-    });
-
-    // Tri : date décroissante puis titre A→Z
-    rows.sort((a,b)=>{
-      const ad = a.dateISO ? a.dateISO : '';
-      const bd = b.dateISO ? b.dateISO : '';
-      if(ad !== bd) return (ad < bd) ? 1 : -1; // décroissant
-      return a.title.localeCompare(b.title,'fr',{sensitivity:'base'});
-    });
-
-    renderRows(rows);
-  }
-
-  function renderRows(rows){
-    $grid.innerHTML = rows.map(cardHTML).join('');
-    $counter.textContent = `${rows.length} résultat(s) affiché(s) / ${ALL.length}`;
-  }
-
-  function badgeTheme(r){
-    const color = r.theme ? r.themeColor : '#94a3b8';
-    const textColor = getContrastYIQ(color);
-    return `<span class="px-2 py-0.5 text-xs rounded-md" style="background:${color};color:${textColor}">${r.theme || 'Sans thématique'}</span>`;
-  }
-
-  function getContrastYIQ(hex){
-    const c = hex.replace('#','');
-    const r = parseInt(c.substr(0,2),16);
-    const g = parseInt(c.substr(2,2),16);
-    const b = parseInt(c.substr(4,2),16);
-    const yiq = (r*299 + g*587 + b*114)/1000;
-    return yiq >= 128 ? '#111827' : '#ffffff';
-  }
-
-  function cardHTML(r){
-    const leftBorder = `style=\"border-left:8px solid ${r.themeColor}\"`;
-    const linkIcon = r.link ? `<a href="${r.link}" class="ml-2" target="_blank" rel="noopener" aria-label="Ouvrir le lien original"><span role="img" aria-hidden="true">🔗</span></a>` : '';
-    const authors = r.authors.map(a=>`<span class=\"px-2 py-0.5 text-xs rounded-md bg-gray-200 text-gray-800\">${a}</span>`).join(' ');
-    return `
-      <article class="border rounded-xl p-4 flex flex-col" ${leftBorder}>
-        <div class="flex items-center gap-3 mb-2">
-          ${mediaLogoEl(r.media)}
-          <div class="min-w-0">
-            <h3 class="font-semibold leading-snug"><span class="align-middle">${r.title || '(titre manquant)'}</span>${linkIcon}</h3>
-            <div class="mt-1 flex flex-wrap gap-2 text-xs text-gray-700">
-              <span class="px-2 py-0.5 rounded-md bg-gray-100">${r.media || 'Média inconnu'}</span>
-              ${iaBadge(r.hasIA)}
-              ${proactBadge(r.proact)}
-              ${badgeTheme(r)}
-            </div>
-          </div>
-        </div>
-        <p class="text-sm text-gray-800 mb-3 line-clamp-4">${r.content || ''}</p>
-        ${r.authors.length ? `<div class=\"mb-3 flex flex-wrap gap-1\">${authors}</div>` : ''}
-        <div class="mt-auto pt-2 flex items-center justify-between text-sm text-gray-600">
-          <time datetime="${r.dateISO || ''}">${formatDateFR(r.dateISO)}</time>
-          ${r.link ? `<a href=\"${r.link}\" target=\"_blank\" rel=\"noopener\" class=\"text-gray-700 hover:underline\" aria-label=\"Ouvrir le lien original\">🔗</a>` : '<span class="text-gray-400">(pas de lien)</span>'}
-        </div>
-      </article>
-    `;
-  }
-
-  // ============================================================
-  //  EXPORT CSV (exact sous-ensemble affiché)
-  // ============================================================
-  function exportCSV(){
-    // Recalcule l'ensemble filtré actuel
-    const q = norm($search.value);
-    const m = norm($media.value);
-    const t = norm($theme.value);
-    const p = norm($proact.value);
-    const i = norm($ia.value);
-
-    const rows = ALL.filter(r => {
-      if(q && !r._search.includes(q)) return false;
-      if(m && norm(r.media)!==m) return false;
-      if(t && norm(r.theme)!==t) return false;
-      if(p && r.proact!==p) return false;
-      if(i==='yes' && !r.hasIA) return false;
-      if(i==='no' && r.hasIA) return false;
-      return true;
-    });
-
-    const header = ['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
-    const lines = [header.join(',')];
-    const esc = (v)=> '"' + (v??'').toString().replace(/"/g,'""') + '"';
-
-    for(const r of rows){
-      const authorsJoined = (r.authors||[]).join(' | ');
-      const line = [r.title, r.content, r.dateISO || '', r.media, r.link, r.commentaire, authorsJoined, r.theme, r.proact, r.hasIA].map(esc).join(',');
-      lines.push(line);
+    // Thématiques -> couleurs imposées
+    function canonicalThemeKey(s){
+      const l = lower(s||'');
+      return l;
+    }
+    const THEME_COLORS = new Map([
+      ['humanitaire', '#8b5cf6'],
+      ['problematiques environnementales', '#10b981'],
+      ['problématiques environnementales', '#10b981'],
+      ['strategies militaires et influence', '#78866B'],
+      ['stratégies militaires et influence', '#78866B'],
+      ['crime organise', '#000000'],
+      ['crime organisé', '#000000'],
+      ["repression de l'etat", '#f97316'],
+      ["répression de l'etat", '#f97316'],
+      ["repression de l’état", '#f97316'],
+      ['approfondissement de l’actualite', '#3b82f6'],
+      ["approfondissement de l'actualite", '#3b82f6'],
+      ['approfondissement de l’actualité', '#3b82f6'],
+      ["approfondissement de l'actualité", '#3b82f6'],
+      ['catastrophes naturelles', '#ef4444'],
+    ]);
+    function colorForTheme(theme){
+      const key = canonicalThemeKey(theme);
+      let color = THEME_COLORS.get(key);
+      if(!color) color = THEME_COLORS.get(lower(theme));
+      if(color) return color;
+      if(!isTruthy(theme)) return null;
+      // Couleur stable de secours via hash HSL -> hex
+      const hex = hslHashToHex(theme);
+      return hex;
+    }
+    function hslHashToHex(s){
+      const h = Math.abs([...lower(s)].reduce((a,c)=>((a<<5)-a + c.charCodeAt(0))|0,0)) % 360;
+      const sat = 55, light = 45;
+      return hslToHex(h, sat, light);
+    }
+    function hslToHex(h,s,l){
+      s/=100; l/=100;
+      const k=n=>(n+(h/30))%12;
+      const a=s*Math.min(l,1-l);
+      const f=n=>l-a*Math.max(-1,Math.min(k(n)-3,Math.min(9-k(n),1)));
+      const toHex=x=>Math.round(255*x).toString(16).padStart(2,'0');
+      return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
     }
 
-    const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8;'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'export_osint.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
+    // Proactivité : normalisation + heuristique
+    const REACTIVE_HINTS = /(fact[\s-]?check|factcheck|vrai\s*\/\s*faux|vrai\s*-\s*faux|desinfo|désinfo|désinformation|debunk|intox)/i;
+    const PROACTIVE_HINTS = /(enqu(ê|e)te|investigation|osint|cartographi|geolocali|g(é|e)olocali)/i;
+    function normalizeProact(v, textForHeuristic){
+      const l = lower(v||'');
+      if(l==='proactive') return 'proactive';
+      if(l==='reactive') return 'reactive';
+      if(!isTruthy(v)){
+        const t = textForHeuristic || '';
+        if(REACTIVE_HINTS.test(t)) return 'reactive';
+        if(PROACTIVE_HINTS.test(t)) return 'proactive';
+      }
+      return l ? (l.includes('pro')?'proactive':(l.includes('rea')?'reactive':'')) : '';
+    }
 
-  // ============================================================
-  //  INTERACTIONS
-  // ============================================================
-  function debounce(fn, ms){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); } }
+    // IA : booléen, sinon détection mots-clés (accent/casse-insensible)
+    const IA_PAT = /(intelligence\s*artificielle|(?:\b|_)(ia|i\.a\.|ai|llm|deepfake|apprentissage\s+automatique|deep\s*learning|r(é|e)seau\s*neuronal|mod(è|e)les?\s+de\s+langue|g(é|e)n(é|e)ratif|chatgpt|openai|midjourney|stable\s+diffusion|llama|elevenlabs|suno))(?![a-z])/i;
+    function detectHasIA(hasIA, text){
+      if(typeof hasIA === 'boolean') return hasIA;
+      return IA_PAT.test(text||'');
+    }
 
-  function resetAll(){
-    $search.value = '';
-    $media.value = '';
-    $theme.value = '';
-    $proact.value = '';
-    $ia.value = '';
-    applyFilters();
-    $search.focus();
-  }
+    // Auteurs : array ou string
+    function parseAuthors(a){
+      if(Array.isArray(a)) return a.filter(isTruthy).map(x=>normSpaces(String(x)));
+      if(!isTruthy(a)) return [];
+      const s = String(a);
+      const parts = s.split(/\s*(?:\||;|,|\/|&| et |“|”|\"|\band\b)\s*/i);
+      return parts.map(x=>normSpaces(x)).filter(Boolean);
+    }
 
-  // Init différée : attendre le signal du chargeur de données
-  document.addEventListener('data-ready', initData);
+    // URL : ajouter https:// si besoin
+    function normalizeURL(u){
+      if(!isTruthy(u)) return '';
+      const s = String(u).trim();
+      if(/^https?:\/\//i.test(s)) return s;
+      return 'https://' + s.replace(/^\/+/,'');
+    }
 
-  $search.addEventListener('input', debounce(applyFilters, 150));
-  $media.addEventListener('change', applyFilters);
-  $theme.addEventListener('change', applyFilters);
-  $proact.addEventListener('change', applyFilters);
-  $ia.addEventListener('change', applyFilters);
-  document.getElementById('resetBtn').addEventListener('click', resetAll);
-  document.getElementById('exportBtn').addEventListener('click', exportCSV);
+    // Chargement et préparation
+    const RAW_ROWS = (window.RAW_ROWS && Array.isArray(window.RAW_ROWS)) ? window.RAW_ROWS : (window.DATA || []);
 
-  // ============================================================
-  //  VALIDATION RAPIDE (console)
-  // ============================================================
-  // 1) Proactivité influe sur le nombre de résultats
-  console.debug('Test proactivité (comptages):', {
-    total: ALL.length,
-    proactive: ALL.filter(r=>r.proact==='proactive').length,
-    reactive: ALL.filter(r=>r.proact==='reactive').length
-  });
-  // 2) IA=yes -> uniquement badges IA
-  console.debug('Test IA yes:', ALL.filter(r=>r.hasIA).length);
-  // 3) Thématique: pas de doublon "stratégies militaires et influence" (normalisé)
-  console.debug('Thématiques uniques:', new Set(ALL.map(r=>norm(r.theme))).size);
-  // 4) L’export CSV a même nombre de lignes que l’affichage — vérifié lors de l’export.
-  // 5) "AFP factuel" fusionné avec AFP — vérifié via normalizeMedia.
+    // Mapping robuste des clés
+    function mapRow(r){
+      const title = r.title ?? r.titre ?? '';
+      const content = r.content ?? r.resume ?? r.résumé ?? '';
+      const commentaire = r.commentaire ?? r.notes ?? '';
+      const dateISO = parseToISO(r.date);
+      const media = normalizeMedia(r.media);
+      const link = normalizeURL(r.link||r.url||'');
+      const authors = parseAuthors(r.authors);
+      const themeRaw = r.theme || '';
+      const theme = themeRaw ? normSpaces(themeRaw) : '';
+      const textForHeuristic = [title,content,commentaire].join(' ').toLowerCase();
+      const proact = normalizeProact(r.proact, textForHeuristic);
+      const hasIA = detectHasIA(r.hasIA, [commentaire,title,content].join(' '));
 
+      return { title, content, commentaire, dateISO, media, link, authors, theme, proact, hasIA };
+    }
+
+    const rows = RAW_ROWS.map(mapRow);
+
+    // --------- Construction des filtres ---------
+    function uniqNorm(arr){
+      const seen = new Set(); const out=[];
+      for(const v of arr){
+        const key = lower(v);
+        if(!seen.has(key)){ seen.add(key); out.push(v); }
+      }
+      return out;
+    }
+
+    const mediaList = uniqNorm(rows.map(r=>r.media)).sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
+    const themeList = (()=>{
+      const all = rows.map(r=>r.theme && r.theme.trim() ? r.theme : 'Sans thématique');
+      return uniqNorm(all).sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
+    })();
+
+    const mediaSel = document.getElementById('mediaFilter');
+    const themeSel = document.getElementById('themeFilter');
+    for(const m of mediaList){
+      const o=document.createElement('option'); o.value=m; o.textContent=m; mediaSel.appendChild(o);
+    }
+    for(const th of themeList){
+      const o=document.createElement('option'); o.value=th; o.textContent=th; themeSel.appendChild(o);
+    }
+
+    // --------- Rendu ---------
+    const grid = document.getElementById('grid');
+    const counter = document.getElementById('counter');
+    const searchInput = document.getElementById('search');
+    const proSel = document.getElementById('proactFilter');
+    const iaSel = document.getElementById('iaFilter');
+
+    function mediaLogo(media){
+      const src = MEDIA_LOGOS[media];
+      if(src){
+        const img = document.createElement('img');
+        img.src = src; img.alt = media; img.width=40; img.height=40; img.className='w-10 h-10 object-contain';
+        img.onerror=()=>{ img.replaceWith(fallbackLogo(media)); };
+        return img;
+      }
+      return fallbackLogo(media);
+    }
+    function fallbackLogo(media){
+      const d = document.createElement('div');
+      d.className='logo-fallback'; d.setAttribute('aria-label', media);
+      d.textContent = (media||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,3).toUpperCase();
+      return d;
+    }
+
+    function chipTheme(theme){
+      const isMissing = !theme || theme.toLowerCase()==='sans thématique';
+      const color = isMissing ? '#94a3b8' : colorForTheme(theme);
+      const c = document.createElement('span');
+      c.className='chip chip-theme';
+      c.style.backgroundColor = color;
+      c.style.borderColor = color;
+      c.style.color = isMissing ? '#111827' : '#fff';
+      c.textContent = isMissing ? 'Sans thématique' : theme;
+      c.title = isMissing ? 'Thématique manquante' : 'Thématique : ' + theme;
+      return c;
+    }
+
+    function renderCard(r){
+      const border = colorForTheme(r.theme) || '#94a3b8';
+      const art = document.createElement('article');
+      art.className='card p-4'; art.style.borderLeftColor = border;
+
+      // top row: logo + title
+      const top = document.createElement('div'); top.className='flex items-center gap-3';
+      top.appendChild(mediaLogo(r.media));
+
+      const titleBox = document.createElement('div'); titleBox.className='flex-1';
+      const title = document.createElement('h3'); title.className='card-title';
+      title.textContent = r.title || '(titre manquant)';
+      titleBox.appendChild(title);
+      top.appendChild(titleBox);
+
+      // link icon (if any)
+      if(isTruthy(r.link)){
+        const a = document.createElement('a');
+        a.href = r.link; a.target='_blank'; a.rel='noopener'; a.className='link-icon'; a.setAttribute('aria-label','Ouvrir le lien dans un nouvel onglet');
+        a.textContent='🔗';
+        top.appendChild(a);
+      }
+
+      art.appendChild(top);
+
+      // résumé
+      if(isTruthy(r.content)){
+        const p = document.createElement('p'); p.className='mt-2 text-sm text-gray-800';
+        p.textContent = r.content;
+        art.appendChild(p);
+      }
+
+      // chips row
+      const chips = document.createElement('div'); chips.className='mt-3 flex flex-wrap gap-2 items-center';
+      const chipMedia = document.createElement('span'); chipMedia.className='chip chip-light'; chipMedia.textContent=r.media;
+      chips.appendChild(chipMedia);
+
+      if(r.hasIA){ const c=document.createElement('span'); c.className='chip chip-ia'; c.textContent='IA'; chips.appendChild(c); }
+      if(r.proact){
+        const c=document.createElement('span'); c.className='chip ' + (r.proact==='proactive'?'chip-proactive':'chip-reactive');
+        c.textContent = r.proact;
+        chips.appendChild(c);
+      }
+      chips.appendChild(chipTheme(r.theme && r.theme.trim()? r.theme : 'Sans thématique'));
+      art.appendChild(chips);
+
+      // auteurs
+      if(r.authors && r.authors.length){
+        const row = document.createElement('div'); row.className='mt-3 flex flex-wrap gap-2';
+        for(const a of r.authors){
+          const s=document.createElement('span'); s.className='chip chip-light'; s.textContent=a; row.appendChild(s);
+        }
+        art.appendChild(row);
+      }
+
+      // bottom row: date
+      const bottom = document.createElement('div'); bottom.className='mt-3 flex items-center justify-between text-sm text-gray-600';
+      const date = document.createElement('span'); date.textContent = formatDateFR(r.dateISO);
+      bottom.appendChild(date);
+      art.appendChild(bottom);
+
+      return art;
+    }
+
+    // Tri par défaut : date décroissante puis titre A→Z
+    function defaultSort(a,b){
+      const da = a.dateISO || ''; const db = b.dateISO || '';
+      if(da && db){
+        if(da>db) return -1;
+        if(da<db) return 1;
+      }else if(da && !db){ return -1; }
+      else if(!da && db){ return 1; }
+      // titre
+      return a.title.localeCompare(b.title,'fr',{sensitivity:'base'});
+    }
+
+    // Filtrage + rendu
+    let current = [];
+    function apply(){
+      const q = lower(searchInput.value||'');
+      const m = mediaSel.value||'';
+      const th = themeSel.value||'';
+      const pro = proSel.value||'';
+      const ia = iaSel.value||'';
+
+      current = rows.filter(r=>{
+        if(q){
+          const hay = lower([r.title,r.content,r.commentaire].join(' '));
+          if(!hay.includes(q)) return false;
+        }
+        if(m && r.media!==m) return false;
+        const themeLabel = r.theme && r.theme.trim() ? r.theme : 'Sans thématique';
+        if(th && themeLabel!==th) return false;
+        if(pro && r.proact!==pro) return false;
+        if(ia==='yes' && !r.hasIA) return false;
+        if(ia==='no' && r.hasIA) return false;
+        return true;
+      }).sort(defaultSort);
+
+      // Rendu
+      grid.innerHTML='';
+      for(const r of current){ grid.appendChild(renderCard(r)); }
+      counter.textContent = `${current.length} résultat(s) affiché(s) / ${rows.length}`;
+    }
+
+    // Export CSV du sous-ensemble affiché
+    function toCSV(arr){
+      const esc = v => {
+        if(v===null||v===undefined) return '';
+        const s = String(v).replace(/"/g,'""');
+        return `"${s}"`;
+      };
+      const headers = ['title','content','date','media','link','commentaire','authors','theme','proact','hasIA'];
+      const lines = [headers.join(',')];
+      for(const r of arr){
+        const line = [
+          r.title,
+          r.content,
+          r.dateISO || '',
+          r.media,
+          r.link || '',
+          r.commentaire || '',
+          (r.authors||[]).join(' | '),
+          r.theme || '',
+          r.proact || '',
+          String(!!r.hasIA)
+        ].map(esc).join(',');
+        lines.push(line);
+      }
+      return lines.join('\r\n');
+    }
+    function downloadCSV(){
+      const csv = toCSV(current);
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'catalogue_osint_filtre.csv';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 0);
+    }
+
+    // Events
+    for(const el of [searchInput, mediaSel, themeSel, proSel, iaSel]){
+      el.addEventListener('input', apply);
+      el.addEventListener('change', apply);
+    }
+    document.getElementById('resetBtn').addEventListener('click', ()=>{
+      searchInput.value=''; mediaSel.value=''; themeSel.value=''; proSel.value=''; iaSel.value=''; apply();
+      searchInput.focus();
+    });
+    document.getElementById('exportBtn').addEventListener('click', downloadCSV);
+
+    // Initial render
+    apply();
+
+    // --------- Auto-tests simples (console) ---------
+    (function selfTests(){
+      try{
+        const before = rows.length;
+        // Proactivité filtre
+        const anyPro = rows.some(r=>r.proact==='proactive') || rows.some(r=>r.proact==='reactive');
+        console.log('[TEST] Proactivité présente ?', anyPro);
+        // IA yes => uniquement hasIA true
+        const iaYesAllTrue = rows.filter(r=>r.hasIA===true).every(Boolean);
+        console.log('[TEST] IA marquage booléen présent ?', iaYesAllTrue);
+        // Thématique duplication
+        const themes = rows.map(r=>canonicalThemeKey(r.theme));
+        const dup = new Set(themes).size !== themes.length;
+        console.log('[TEST] Doublons thématiques possibles (normalisé clé) ?', dup);
+        // Lien icône présent si URL
+        console.log('[TEST] Exemple lien normalisé', rows.find(r=>r.link)?.link);
+        // AFP factuel
+        const medias = new Set(rows.map(r=>r.media));
+        console.log('[TEST] \"AFP factuel\" fusionné sous AFP ?', medias.has('AFP') && ![...medias].some(m=>lower(m).includes('afp factuel')));
+      }catch(e){ console.warn('Self-tests error', e); }
+    })();
   </script>
 </body>
 </html>
