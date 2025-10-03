@@ -266,6 +266,7 @@
       const k = lower(label||'');
       if(k.includes('strategies militaires')) return 'stratégies militaires et influence';
       if(k.includes('approfondissement') && (k.includes('actualite') || k.includes('actualité'))) return 'approfondissement de l’actualité';
+      if(k.includes('environ')) return 'problématiques environnementales';
       if(!label || !label.trim()) return 'Sans thématique';
       return normSpaces(label);
     }
@@ -280,6 +281,9 @@
       }
       if(k.includes('approfondissement') && (k.includes('actualite') || k.includes('actualité'))){
         theme = 'approfondissement de l’actualité';
+      }
+      if(k.includes('environ')){
+        theme = 'problématiques environnementales';
       }
       return theme;
     }
@@ -347,8 +351,8 @@
     }
 
     function mediaLogo(media){
-      if(media === 'AFP'){ return fallbackLogo('AFP'); }      // AFP => initials
-      if(media === 'ARTE' || media === 'Arte'){ return tinyTextLogo('Arte'); } // Arte => tiny text
+      if(media === 'AFP'){ return fallbackLogo('AFP'); }
+      if(media === 'ARTE' || media === 'Arte'){ return tinyTextLogo('Arte'); }
       const wiki = MEDIA_LOGOS[media];
       if(wiki){
         const img = document.createElement('img');
