@@ -4948,7 +4948,7 @@ window.RAW_ROWS =  [
     "authors": [
       "Benoît Collombat"
     ],
-    "theme": "Environnement",
+    "theme": "problématiques environnementales",
     "proact": "proactive",
     "hasIA": false
   },
