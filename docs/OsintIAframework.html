@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="fr" data-theme="light" data-lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OSINT & IA Literacy — Référentiel FR/EN (v1.4)</title>
+<meta name="color-scheme" content="light dark"/>
+<style>
+:root{
+  --bg:#f7fafc;--fg:#111827;--muted:#6b7280;--line:#e5e7eb;--card:#fff;--bd:#d1d5db;--shadow:0 2px 6px rgba(0,0,0,.06);--brand:#1A73E8;
+  /* Pastel domain backgrounds */
+  --d1:#FFF7ED; /* orange-50 */
+  --d2:#ECFEFF; /* cyan-50 */
+  --d3:#F5F3FF; /* violet-50 */
+  --d4:#ECFDF5; /* emerald-50 */
+  --d5:#FEF2F2; /* rose-50 */
+  --d6:#EFF6FF; /* blue-50 */
+  --d7:#FDF4FF; /* fuchsia-50 */
+  /* Level borders (more contrast L2/L3) */
+  --L1:#F59E0B; /* amber-500 */
+  --L2:#14B8A6; /* teal-500 */
+  --L3:#8B5CF6; /* violet-500 */
+}
+[data-theme="dark"]{
+  --bg:#0f1420;--fg:#e6edf3;--muted:#93a1b2;--line:#273247;--card:#101826;--bd:#273247;--shadow:0 2px 10px rgba(0,0,0,.5);--brand:#59A5FF;
+  --d1:#432E1B;--d2:#0B3941;--d3:#241A3B;--d4:#0C2C21;--d5:#3A1E2A;--d6:#0D223D;--d7:#2C1236;
+}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:1rem .8rem 2rem}
+header{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.5rem}
+h1{font-size:1.35rem;margin:0}
+.toolbar{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn{background:var(--card);border:1px solid var(--bd);padding:.45rem .7rem;border-radius:8px;box-shadow:var(--shadow);cursor:pointer;font-weight:700}
+.btn-primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.langswitch{display:flex;gap:.25rem;border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+.langswitch button{padding:.35rem .55rem;border:0;background:transparent;font-weight:800;cursor:pointer}
+.langswitch button.active{background:var(--brand);color:#fff}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;box-shadow:var(--shadow);padding:.8rem}
+.domain{margin-bottom:.8rem}
+#d1{background:var(--d1)}#d2{background:var(--d2)}#d3{background:var(--d3)}#d4{background:var(--d4)}#d5{background:var(--d5)}#d6{background:var(--d6)}#d7{background:var(--d7)}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.levels>div{border-left:5px solid var(--line)}
+.levels .L1{border-color:var(--L1)}
+.levels .L2{border-color:var(--L2)}
+.levels .L3{border-color:var(--L3)}
+.h2{font-size:1.1rem;font-weight:800;margin:.1rem 0 .4rem}
+.meta{color:var(--muted);font-size:.9rem}
+summary{cursor:pointer;font-weight:700}
+footer{margin-top:1.2rem;padding-top:1rem;border-top:2px solid var(--line)}
+footer a{color:var(--brand)}
+.fr{display:inline}
+.en{display:none}
+[data-lang="en"] .fr{display:none}
+[data-lang="en"] .en{display:inline}
+.tip{border-bottom:2px dotted currentColor;cursor:help;position:relative;padding-right:.3rem}
+.tip::after{content:" ⓘ";font-size:.8em;opacity:.8}
+/* tooltip panel */
+.tip::before{display:none}
+.tip.open::before,.tip[data-tip]:hover::before{content:attr(data-tip);position:absolute;left:0;top:120%;background:var(--card);color:var(--fg);border:1px solid var(--bd);padding:.55rem .7rem;border-radius:10px;box-shadow:var(--shadow);white-space:normal;min-width:240px;max-width:560px;z-index:20}
+.tip.open,.tip[data-tip]:hover{filter:brightness(1.05)}
+/* clickable question mark */
+.qmark{display:inline-flex;align-items:center;justify-content:center;width:1.1rem;height:1.1rem;border-radius:999px;border:1px solid var(--bd);background:var(--card);box-shadow:var(--shadow);font-size:.8rem;font-weight:800;margin-left:.25rem;cursor:pointer}
+.qmark:focus{outline:2px solid var(--brand)}
+/* focus overlay */
+.focus-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(1px);z-index:15;display:none}
+.focus-overlay.show{display:block}
+
+.tip[data-tip]:hover::after{content:attr(data-tip);position:absolute;transform:translateY(-.2rem);background:var(--card);color:var(--fg);border:1px solid var(--bd);padding:.4rem .55rem;border-radius:8px;box-shadow:var(--shadow);white-space:nowrap;margin-left:.35rem;z-index:2}
+@media (max-width:980px){.levels{grid-template-columns:1fr}}
+@media print{.toolbar{display:none} .card{box-shadow:none} @page{size:A3;margin:1cm}}
+small.wp{font-size:.8em}
+/* UX upgrades */
+nav.card{position:sticky;top:.6rem;z-index:5}
+html{scroll-behavior:smooth}
+.badge{display:inline-block;padding:.15rem .45rem;border-radius:999px;font-weight:800;font-size:.75rem;border:1px solid var(--bd);background:rgba(255,255,255,.6)}
+.levels .h2 .badge{margin-left:.4rem}
+.section-icon{font-size:1.1rem;margin-right:.35rem}
+#filterBox{width:100%;padding:.6rem;border:1px solid var(--bd);border-radius:10px;margin:.5rem 0}
+#toTop{position:fixed;right:1rem;bottom:1rem;background:var(--brand);color:#fff;border:0;border-radius:999px;padding:.6rem .8rem;box-shadow:var(--shadow);cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><span class="fr">OSINT & IA Literacy — Référentiel (3 niveaux)</span><span class="en">OSINT & AI Literacy — Framework (3 levels)</span></h1>
+    <div class="toolbar">
+      <div class="langswitch" role="tablist" aria-label="Language">
+        <button id="btnFR" class="active" role="tab" aria-selected="true">FR</button>
+        <button id="btnEN" role="tab" aria-selected="false">EN</button>
+      </div>
+      <button class="btn" id="expand"><span class="fr">Tout ouvrir</span><span class="en">Expand all</span></button>
+      <button class="btn" id="collapse"><span class="fr">Tout fermer</span><span class="en">Collapse all</span></button>
+      <button class="btn btn-primary" id="print">PDF</button>
+      <button class="btn" id="theme">🌗</button>
+    </div>
+  </header>
+  <p class="meta"><span class="fr">Structure inspirée d’OSINT Literacy (7 domaines). Niveaux : <b>N1 Awareness</b> → <b>N2 Usage pragmatique / Management</b> → <b>N3 Knowledge / Création & adaptation d’outils</b>.</span><span class="en">Structure inspired by OSINT Literacy (7 domains). Levels: <b>L1 Awareness</b> → <b>L2 Pragmatic use / Management</b> → <b>L3 Knowledge / Tool creation & adaptation</b>.</span></p>
+
+  <nav class="card" style="margin-bottom:.8rem">
+    <b><span class="fr">Sommaire</span><span class="en">Contents</span></b>
+    <input id="filterBox" placeholder="🔎 Filtrer le contenu / Filter content…"/>
+    <ol>
+      <li><a href="#d1">1. <span class="fr">Collecte & Recherche</span><span class="en">Gathering & Search</span></a></li>
+      <li><a href="#d2">2. <span class="fr">Vérification & Authentification</span><span class="en">Verification & Authentication</span></a></li>
+      <li><a href="#d3">3. <span class="fr">Analyse & Synthèse</span><span class="en">Analysis & Synthesis</span></a></li>
+      <li><a href="#d4">4. <span class="fr">IA Literacy & Médias synthétiques</span><span class="en">AI Literacy & Synthetic Media</span></a></li>
+      <li><a href="#d5">5. <span class="fr">Éthique, Légalité & OPSEC</span><span class="en">Ethics, Legality & OPSEC</span></a></li>
+      <li><a href="#d6">6. <span class="fr">Gouvernance & Management</span><span class="en">Governance & Management</span></a></li>
+      <li><a href="#d7">7. <span class="fr">Publication & Collaboration</span><span class="en">Publication & Collaboration</span></a></li>
+      <li><a href="#lexique"><span class="fr">Lexique</span><span class="en">Glossary</span></a></li>
+      <li><a href="#biblio"><span class="fr">Bibliographie</span><span class="en">Bibliography</span></a></li>
+    </ol>
+  </nav>
+
+  
+
+  <!-- DOMAIN 1 -->
+  <section id="d1" class="domain card">
+    <div class="h2"><span class="section-icon">🔎</span>1) <span class="fr">Collecte & Recherche</span><span class="en">Gathering & Search</span></div>
+    <div class="levels">
+      <div class="card L1">
+        <div class="h2">N1 / L1 — <span class="badge">Awareness</span> <span class="fr">Awareness</span><span class="en">Awareness</span></div>
+        <ul>
+          <li><b><span class="fr">Requêtes avancées</span><span class="en">Advanced queries</span></b> — <span class="fr">Opérateurs (</span><span class="en">Operators (</span> <code>site:</code>, <code>filetype:</code>, <code>"phrase"</code>, <code>OR</code>, <code>-term</code>) · <span class="tip" data-tip="Filtrage par date, bornes, ou fenêtres temporelles."><span class="fr">filtres temporels</span><span class="en">time filters</span></span>. <a class="wp" href="https://fr.wikipedia.org/wiki/OSINT" target="_blank">OSINT↗</a></li>
+          <li><b><span class="fr">Cartographie des sources</span><span class="en">Source mapping</span></b> — <span class="fr">Registres publics, archives</span><span class="en">Public registers, archives</span>, social/web. <a class="wp" href="https://fr.wikipedia.org/wiki/Wayback_Machine" target="_blank">Wayback↗</a></li>
+        </ul>
+        <details><summary><span class="fr">Exemples</span><span class="en">Examples</span></summary>
+          <ul><li><span class="fr">Cibler un PDF réglementaire :</span><span class="en">Target a regulatory PDF:</span> <code>site:.gouv.fr filetype:pdf</code></li></ul>
+        </details>
+      </div>
+      <div class="card L2">
+        <div class="h2">N2 / L2 — <span class="fr">Usage pragmatique</span><span class="en">Pragmatic use</span></div>
+        <ul>
+          <li><b>RSS/API + <span class="fr">archivage</span><span class="en">archiving</span></b> — Wayback, archive.today (URL, date, hash). <a class="wp" href="https://fr.wikipedia.org/wiki/RSS" target="_blank">RSS↗</a></li>
+          <li><b>Compliance‑by‑design</b> — RGPD/TOS/robots.txt.</li>
+        </ul>
+      </div>
+      <div class="card L3">
+        <div class="h2">N3 / L3 — <span class="fr">Knowledge</span><span class="en">Knowledge</span></div>
+        <ul>
+          <li><b><span class="fr">Scraping robuste</span><span class="en">Robust scraping</span></b> — backoff, rotation IP, CAPTCHA; logs. <a class="wp" href="https://fr.wikipedia.org/wiki/Extraction_de_donn%C3%A9es_du_Web" target="_blank">Scraping↗</a></li>
+          <li><b>Datasets</b> — datasheets, provenance, anonymisation.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>Recherche réglementaire ciblée</b> — <span class="fr">opérateurs avancés pour trouver un PDF administratif et versionner l’archive (Wayback/Archive.today).</span><span class="en">advanced operators to find a gov PDF and version the capture (Wayback/Archive.today).</span></li>
+      <li><b>Veille multi‑sources</b> — <span class="fr">flux RSS sur comptes officiels + chaînes YouTube d’institutions; archivage quotidien avec horodatage et hash.</span><span class="en">RSS from official accounts + institutional YouTube; daily archiving with timestamps and hashes.</span></li>
+      <li><b>Scraping respectueux</b> — <span class="fr">annuaire public paginé avec délais, rotation d’IP et journal d’exécution.</span><span class="en">public registry with polite delays, IP rotation and run logs.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- DOMAIN 2 -->
+  <section id="d2" class="domain card">
+    <div class="h2"><span class="section-icon">🧪</span>2) <span class="fr">Vérification & Authentification</span><span class="en">Verification & Authentication</span></div>
+    <div class="levels">
+      <div class="card L1">
+        <div class="h2">N1 / L1 — <span class="badge">Awareness</span> Awareness</div>
+        <ul>
+          <li><b><span class="fr">Vérifs manuelles</span><span class="en">Manual checks</span></b> — reverse image, EXIF <a class="wp" href="https://fr.wikipedia.org/wiki/Exchangeable_image_file_format" target="_blank">EXIF↗</a>, météo/ombres, géoloc.</li>
+          <li><b>Indices vs preuves</b> — journal des incertitudes.</li>
+        </ul>
+      </div>
+      <div class="card L2">
+        <div class="h2">N2 / L2 — <span class="badge">Pragmatic use</span></div>
+        <ul>
+          <li><b>Protocoles anti‑erreur</b> — peer‑review, reproduction, avis contradictoire.</li>
+          <li><b>Tests détecteurs IA</b> — compression/recadrage/bruit (FP/FN).</li>
+        </ul>
+      </div>
+      <div class="card L3">
+        <div class="h2">N3 / L3 — <span class="badge">Knowledge</span></div>
+        <ul>
+          <li><b>Provenance & phash/dhash</b> — seuils, collisions.</li>
+          <li><b>Banque de cas</b> — cas réels/synthétiques.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>Vérif vidéo locale</b> — <span class="fr">InVID pour extraire miniatures, météo historique pour vérifier l’ombre; comparaison avec Street View.</span><span class="en">InVID to extract thumbnails, historical weather for shadow checks; cross‑check with Street View.</span></li>
+      <li><b>Détecteur d’images IA</b> — <span class="fr">tests compression/recadrage suivant la méthodologie Bellingcat; FP/FN consignés.</span><span class="en">compression/cropping tests per Bellingcat methodology; FP/FN logged.</span></li>
+      <li><b>pHash/dHash</b> — <span class="fr">suivi de variantes réutilisées d’une même image sur différentes plateformes.</span><span class="en">tracking re‑used variants of the same image across platforms.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- DOMAIN 3 -->
+  <section id="d3" class="domain card">
+    <div class="h2"><span class="section-icon">📊</span>3) <span class="fr">Analyse & Synthèse</span><span class="en">Analysis & Synthesis</span></div>
+    <div class="levels">
+      <div class="card L1"><div class="h2">N1 / L1 — <span class="badge">Awareness</span> Awareness</div>
+        <ul>
+          <li><b>Chronologies & cartes</b> — timelines; cartes simples.</li>
+          <li><b>Biais & hypothèses</b> — limites explicites.</li>
+        </ul>
+      </div>
+      <div class="card L2"><div class="h2">N2 / L2 — <span class="badge">Pragmatic use</span></div>
+        <ul>
+          <li><b>Cartographie relationnelle</b> — graph sourcé.</li>
+          <li><b>LLM comme aide</b> — résumés avec vérif humaine.</li>
+        </ul>
+      </div>
+      <div class="card L3"><div class="h2">N3 / L3 — <span class="badge">Knowledge</span></div>
+        <ul>
+          <li><b>Notebooks reproductibles</b> — hash, env. figé.</li>
+          <li><b>Vision & 3D</b> — photogrammétrie <a class="wp" href="https://fr.wikipedia.org/wiki/Photogramm%C3%A9trie" target="_blank">↗</a>.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>Timeline d’événements</b> — <span class="fr">reconstitution d’une journée à partir de posts publics (horodatage, fuseaux, sources citables).</span><span class="en">rebuild a day from public posts (timestamps, time zones, citable sources).</span></li>
+      <li><b>Graphe de comptes</b> — <span class="fr">cartographier des interactions entre comptes X/Twitter en distinguant relation assertée/suggérée.</span><span class="en">map interactions across X/Twitter accounts; distinguish asserted vs suggested ties.</span></li>
+      <li><b>Notebook reproductible</b> — <span class="fr">mesurer l’évolution d’un hashtag; données figées, environnement épinglé.</span><span class="en">track a hashtag’s evolution; frozen data, pinned environment.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- DOMAIN 4 -->
+  <section id="d4" class="domain card">
+    <div class="h2"><span class="section-icon">🤖</span>4) IA Literacy & <span class="fr">Médias synthétiques</span><span class="en">Synthetic Media</span></div>
+    <div class="levels">
+      <div class="card L1"><div class="h2">N1 / L1 — <span class="badge">Awareness</span> Awareness</div>
+        <ul>
+          <li><b>Familles de modèles</b> — LLM, diffusion, vision, TTS; limites.</li>
+          <li><b>Indices de médias synthétiques</b> — incohérences physiques.</li>
+        </ul>
+      </div>
+      <div class="card L2"><div class="h2">N2 / L2 — <span class="badge">Pragmatic use</span></div>
+        <ul>
+          <li><b>Pipelines contrôlés</b> — humain‑dans‑la‑boucle, traçabilité.</li>
+          <li><b>Évaluer détecteurs</b> — bancs de tests.</li>
+        </ul>
+      </div>
+      <div class="card L3"><div class="h2">N3 / L3 — <span class="badge">Knowledge</span></div>
+        <ul>
+          <li><b>Adapter/entraîner</b> — NER/OCR/VLM; jeux synthétiques.</li>
+          <li><b>Provenance & filigranes</b> — chaîne de transformation.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>Pipeline résumé→revue</b> — <span class="fr">LLM propose une synthèse de 50 posts, relecture humaine avec citations et corrections.</span><span class="en">LLM drafts a summary of 50 posts, human review adds citations and fixes.</span></li>
+      <li><b>Évaluation de détecteurs</b> — <span class="fr">banc de 30 images (réelles/synthétiques), variantes compressées, rapport FP/FN.</span><span class="en">30‑image bench (real/synthetic), compressed variants, FP/FN report.</span></li>
+      <li><b>Triple Chaser (FA)</b> — <span class="fr">données synthétiques pour entraîner un détecteur d’objets; documentation de la provenance.</span><span class="en">synthetic data to train an object detector; documented provenance.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- DOMAIN 5 -->
+  <section id="d5" class="domain card">
+    <div class="h2"><span class="section-icon">🛡️</span>5) <span class="fr">Éthique, Légalité & OPSEC</span><span class="en">Ethics, Legality & OPSEC</span></div>
+    <div class="levels">
+      <div class="card L1"><div class="h2">N1 / L1 — <span class="badge">Awareness</span> Awareness</div>
+        <ul>
+          <li><b>Hygiène numérique</b> — VPN, navigateurs durcis.</li>
+          <li><b>Bases juridiques</b> — RGPD, droit d’auteur, TOS.</li>
+        </ul>
+      </div>
+      <div class="card L2"><div class="h2">N2 / L2 — <span class="badge">Pragmatic use</span></div>
+        <ul>
+          <li><b>Évaluation des risques</b> — matrice + mesures.</li>
+          <li><b>Anonymisation & minimisation</b> — rétention limitée.</li>
+        </ul>
+      </div>
+      <div class="card L3"><div class="h2">N3 / L3 — <span class="badge">Knowledge</span></div>
+        <ul>
+          <li><b>Politiques internes</b> — IA/données/publication responsable.</li>
+          <li><b>OPSEC avancée</b> — threat modeling, exercices.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>DPIA simplifiée</b> — <span class="fr">évaluation d’un petit scraping (base légale, minimisation, rétention, TOS/robots).</span><span class="en">lightweight DPIA for small scraping (legal basis, minimization, retention, TOS/robots).</span></li>
+      <li><b>OPSEC enquête</b> — <span class="fr">profils navigateurs séparés, VPN, compartimentation d’identités.</span><span class="en">separate browser profiles, VPN, identity compartments.</span></li>
+      <li><b>Politique IA interne</b> — <span class="fr">règles de prompts, données sensibles, journal de transformation.</span><span class="en">prompt rules, sensitive‑data handling, transformation logs.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- DOMAIN 6 -->
+  <section id="d6" class="domain card">
+    <div class="h2"><span class="section-icon">🗂️</span>6) <span class="fr">Gouvernance & Management</span><span class="en">Governance & Management</span></div>
+    <div class="levels">
+      <div class="card L1"><div class="h2">N1 / L1 — <span class="badge">Awareness</span> Awareness</div>
+        <ul>
+          <li><b>Cycle d’enquête</b> — étapes, rôles, jalons.</li>
+          <li><b>Boîte à outils</b> — panorama, coûts, limites.</li>
+        </ul>
+      </div>
+      <div class="card L2"><div class="h2">N2 / L2 — <span class="badge">Pragmatic use</span></div>
+        <ul>
+          <li><b>Playbooks & SOP</b> — nommage, hash, timestamps.</li>
+          <li><b>Pilotage qualité</b> — précision/rappel, FP/FN.</li>
+        </ul>
+      </div>
+      <div class="card L3"><div class="h2">N3 / L3 — <span class="badge">Knowledge</span></div>
+        <ul>
+          <li><b>Veille & benchmark</b> — critères publics.</li>
+          <li><b>Formation & diffusion</b> — plan de montée en compétences.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>SOP vidéo</b> — <span class="fr">schéma de nommage, capture d’écran + hash + EXIF, log d’acquisition.</span><span class="en">file‑naming, screenshot + hash + EXIF, acquisition log.</span></li>
+      <li><b>Tableau de bord qualité</b> — <span class="fr">métriques pour un module (précision/rappel), seuils et revue trimestrielle.</span><span class="en">metrics for a module (precision/recall), thresholds and quarterly review.</span></li>
+      <li><b>Benchmark outils</b> — <span class="fr">comparatif trimestriel avec critères publics et décisions tracées.</span><span class="en">quarterly tool comparison with public criteria and tracked decisions.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- DOMAIN 7 -->
+  <section id="d7" class="domain card">
+    <div class="h2"><span class="section-icon">📝</span>7) <span class="fr">Publication & Collaboration</span><span class="en">Publication & Collaboration</span></div>
+    <div class="levels">
+      <div class="card L1"><div class="h2">N1 / L1 — <span class="badge">Awareness</span> Awareness</div>
+        <ul>
+          <li><b>Rédaction sourcée</b> — limites explicites; archives.</li>
+          <li><b>Collaboration</b> — versions; peer‑review.</li>
+        </ul>
+      </div>
+      <div class="card L2"><div class="h2">N2 / L2 — <span class="badge">Pragmatic use</span></div>
+        <ul>
+          <li><b>Gabarits & annexes probatoires</b> — EXIF, hash, journaux.</li>
+          <li><b>Publication web accessible</b> — HTML statique; a11y.</li>
+        </ul>
+      </div>
+      <div class="card L3"><div class="h2">N3 / L3 — <span class="badge">Knowledge</span></div>
+        <ul>
+          <li><b>Visualisations avancées</b> — timelines interactives, 3D.</li>
+          <li><b>Pérennisation & open archives</b> — packs de diffusion.</li>
+        </ul>
+      </div>
+    </div>
+  
+  <details class="card" style="margin-top:.6rem"><summary><span class="fr">Cas d’école / Exemples</span><span class="en">Case studies / Examples</span></summary>
+    <ul>
+      <li><b>Rapport 1 page + annexes</b> — <span class="fr">liens d’archives, captures, hash; section limites et degré de confiance.</span><span class="en">archive links, captures, hashes; limits and confidence statement.</span></li>
+      <li><b>Mini‑site d’enquête</b> — <span class="fr">HTML statique imprimable, accessibilité de base; version PDF jointe.</span><span class="en">print‑friendly static HTML with basic a11y; attached PDF version.</span></li>
+      <li><b>Pack de diffusion</b> — <span class="fr">ZIP avec sources, READMEs, checksum; dépôt ouvert/DOI.</span><span class="en">ZIP with sources, READMEs, checksums; open repo/DOI.</span></li>
+    </ul>
+  </details>
+</section>
+
+  <!-- Bibliography -->
+  <section id="lexique" class="card">
+    <div class="h2"><span class="fr">Lexique</span><span class="en">Glossary</span></div>
+    <p class="meta"><span class="fr">Survolez les termes ⓘ (infobulles). Recherchez ci‑dessous.</span><span class="en">Hover ⓘ terms (tooltips). Use the search below.</span></p>
+    <input id="lex-search" class="card" placeholder="🔎 Filtrer / Filter…" style="width:100%;padding:.6rem;border-radius:10px;border:1px solid var(--bd);margin:.4rem 0"/>
+    <div id="lex-list">
+      <dl>
+        <dt>Accessibilité (a11y)</dt><dd>Pratiques d’accessibilité web de base. / Basic web accessibility practices.</dd>
+        <dt>Annexes probatoires</dt><dd>Captures/EXIF/hash/journaux qui étayent. / Attachments substantiating findings.</dd>
+        <dt>Anonymisation / Minimisation</dt><dd>Réduire les données personnelles au nécessaire. / Reduce personal data to the minimum.</dd>
+        <dt>Archive web</dt><dd>Captures datées de pages (permalink). / Timestamped web snapshots.</dd>
+        <dt>Biais de confirmation</dt><dd>Privilégier les infos qui confirment. / Favoring confirming evidence.</dd>
+        <dt>Cartographie relationnelle</dt><dd>Graphe d’entités et de liens sourcés. / Sourced entity–relationship graph.</dd>
+        <dt>Chaîne de provenance</dt><dd>Trace des transformations. / Transformation trace.</dd>
+        <dt>Checklist / SOP</dt><dd>Procédure standard réplicable. / Repeatable procedure.</dd>
+        <dt>Confidence score</dt><dd>Niveau d’assurance d’une conclusion. / Certainty level.</dd>
+        <dt>Datasheet</dt><dd>Fiche de dataset (provenance, licence, limites). / Dataset documentation.</dd>
+        <dt>Données synthétiques</dt><dd>Données artificielles pour entraîner/tester. / Artificial training/testing data.</dd>
+        <dt>DPIA</dt><dd>Analyse d’impact vie privée. / Privacy impact assessment.</dd>
+        <dt>EXIF</dt><dd>Métadonnées image (appareil/date/GPS). / Image metadata.</dd>
+        <dt>FP / FN</dt><dd>Faux positif / Faux négatif. / False positive / False negative.</dd>
+        <dt>Filigrane</dt><dd>Marque d’origine/modif. / Origin/edit signal.</dd>
+        <dt>Géolocalisation</dt><dd>Déduire un lieu par indices. / Infer location by clues.</dd>
+        <dt>Hash</dt><dd>Empreinte d’intégrité cryptographique. / Cryptographic checksum.</dd>
+        <dt>Horodatage</dt><dd>Enregistrement fiable de date/heure. / Reliable timestamp.</dd>
+        <dt>Human‑in‑the‑loop</dt><dd>Revue humaine dans le pipeline. / Human review step.</dd>
+        <dt>Hypothèse / Journal</dt><dd>Pistes et alternatives suivies. / Tracked hypotheses.</dd>
+        <dt>LLM</dt><dd>Modèle de langage génératif. / Large language model.</dd>
+        <dt>Modèle de diffusion</dt><dd>Génération par débruitage. / Denoising generation.</dd>
+        <dt>NER / OCR / VLM</dt><dd>Entités nommées / Reconnaissance texte / Vision‑langage. / Named entities / OCR / Vision‑language.</dd>
+        <dt>OPSEC</dt><dd>Sécurité opérationnelle. / Operational security.</dd>
+        <dt>Orthophoto</dt><dd>Image aérienne métrique redressée. / Geometrically corrected aerial.</dd>
+        <dt>Pareidolie</dt><dd>Voir des motifs inexistants. / Seeing nonexistent patterns.</dd>
+        <dt>Photogrammétrie</dt><dd>Reconstruction 3D depuis 2D. / 3D from multiple 2D images.</dd>
+        <dt>pHash / dHash</dt><dd>Hachage perceptuel d’images. / Perceptual image hashing.</dd>
+        <dt>Pipeline</dt><dd>Enchaînement d’étapes outillées. / Tool‑chained steps.</dd>
+        <dt>Précision / Rappel</dt><dd>Métriques de qualité. / Precision / Recall.</dd>
+        <dt>Provenance (médias)</dt><dd>Historique de source/outils/transformations. / Media history.</dd>
+        <dt>Re‑identification</dt><dd>Réassocier des données « anonymisées ». / Link back to individuals.</dd>
+        <dt>Recherche inversée</dt><dd>Retrouver ancêtres/occurrences d’image. / Find prior image uses.</dd>
+        <dt>Red team</dt><dd>Simulation d’adversaire. / Adversarial simulation.</dd>
+        <dt>RGPD / GDPR</dt><dd>Règlement européen sur les données. / EU data protection.</dd>
+        <dt>Robots.txt / TOS</dt><dd>Accès automatisé / conditions d’usage. / Automated access / terms.</dd>
+        <dt>Seed</dt><dd>Valeur de reproductibilité. / Random seed.</dd>
+        <dt>Street View</dt><dd>Indices visuels de lieu. / Visual location cues.</dd>
+        <dt>WAI‑ARIA</dt><dd>Attributs d’accessibilité web. / Web accessibility.</dd>
+        <dt>Watermarking d’IA</dt><dd>Marquage de contenu généré. / AI‑generated marks.</dd>
+      </dl>
+    </div>
+  </section>
+  <section id="biblio" class="card">
+    <div class="h2"><span class="fr">Bibliographie (avec liens)</span><span class="en">Bibliography (with links)</span></div>
+    <ul>
+      <li><a href="https://www.sgdsn.gouv.fr/files/files/Publications/20250207_NP_SGDSN_VIGINUM_Rapport%20menace%20informationnelle%20IA_VF.pdf" target="_blank">VIGINUM (2025) — Rapport menace informationnelle & IA (FR)</a> | <a href="https://www.sgdsn.gouv.fr/files/files/Publications/20250207_NP_SGDSN_VIGINUM_Rapport%20menace%20informationnelle%20IA_EN_0.pdf" target="_blank">EN</a></li>
+      <li><a href="https://www.bellingcat.com/resources/2023/09/11/testing-ai-or-not-how-well-does-an-ai-image-detector-do-its-job/" target="_blank">Bellingcat (2023) — Testing AI Image Detectors</a></li>
+      <li><a href="https://forensic-architecture.org/investigation/triple-chaser" target="_blank">Forensic Architecture (2019) — Triple Chaser</a></li>
+      <li><a href="https://gijn.org/resource/guide-detecting-ai-generated-content/" target="_blank">GIJN (2025) — Detecting AI‑Generated Content</a> • <a href="https://gijn.org/resource/fact-checking-verification/" target="_blank">Verification hub</a></li>
+      <li><a href="https://edoc.coe.int/en/media/7495-information-disorder-toward-an-interdisciplinary-framework-for-research-and-policy-making.html" target="_blank">Wardle & Derakhshan (2017) — Information Disorder (CoE)</a></li>
+      <li><a href="https://ecil2025.ilconf.org/wp-content/uploads/sites/11/2025/09/ECIL2025_Book-of-Abstracts-final_v2.pdf#page=64" target="_blank">Le Deuff, O.; Roumanos, R.; Barbosa de Almeida, T. (2025) — OSINT and Literacies (ECIL 2025, p.64)</a></li>
+      <li><a href="https://dataliteracy.hypotheses.org/projets-scientifiques" target="_blank">Projet MatrioscIA – IHEMI (aperçu)</a></li>
+      <li><a href="https://www.eeas.europa.eu/sites/default/files/documents/2025/EEAS-3nd-ThreatReport-March-2025-05-Digital-HD.pdf" target="_blank">EEAS (2025) — FIMI Report</a></li>
+    </ul>
+    <p class="meta"><b>Mention :</b> Projet MatrioscIA – IHEMI. <i>Olivier Le Deuff, Thais Barbosa de Almeida, Rayya Roumanos</i>. 2025. <b>Licence CC BY</b>.</p>
+  </section>
+
+  <footer class="meta">
+    <span class="fr">Exporter en PDF via le bouton en haut à droite. Version v1.1.</span>
+    <span class="en">Export to PDF using the top‑right button. Version v1.1.</span>
+  </footer>
+</div>
+<div id="focusOverlay" class="focus-overlay" aria-hidden="true"></div>
+<script>
+const root=document.documentElement;
+const btnT=document.getElementById('theme');
+const btnP=document.getElementById('print');
+const btnE=document.getElementById('expand');
+const btnC=document.getElementById('collapse');
+const btnFR=document.getElementById('btnFR');
+const btnEN=document.getElementById('btnEN');
+const filterBox=document.getElementById('filterBox');
+const toTop=document.getElementById('toTop');
+const overlay=document.getElementById('focusOverlay');
+
+btnT&&(btnT.onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark'});
+btnP&&(btnP.onclick=()=>window.print());
+function allDetails(open){document.querySelectorAll('details').forEach(d=>{d.open=open})}
+btnE&&(btnE.onclick=()=>allDetails(true));
+btnC&&(btnC.onclick=()=>allDetails(false));
+function setLang(lang){root.setAttribute('data-lang',lang); if(lang==='fr'){btnFR&&btnFR.classList.add('active');btnEN&&btnEN.classList.remove('active');btnFR&&btnFR.setAttribute('aria-selected','true');btnEN&&btnEN.setAttribute('aria-selected','false')}else{btnEN&&btnEN.classList.add('active');btnFR&&btnFR.classList.remove('active');btnEN&&btnEN.setAttribute('aria-selected','true');btnFR&&btnFR.setAttribute('aria-selected','false')}}
+btnFR&&(btnFR.onclick=()=>setLang('fr'));
+btnEN&&(btnEN.onclick=()=>setLang('en'));
+
+// Content filter
+if(filterBox){
+  filterBox.addEventListener('input',e=>{
+    const q=e.target.value.toLowerCase();
+    document.querySelectorAll('.domain').forEach(sec=>{
+      const show=sec.textContent.toLowerCase().includes(q);
+      sec.style.display=show?'':'none';
+    });
+  });
+}
+// Back to top
+toTop&&(toTop.onclick=()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// Remove links in domain sections (keep bibliography clickable)
+function stripLinksInDomains(){
+  document.querySelectorAll('.domain a').forEach(a=>{a.replaceWith(document.createTextNode(a.textContent))});
+}
+
+// Tooltip dictionary
+const GLOSS={
+  'OSINT':'Renseignement d’origine sources ouvertes / Open‑source intelligence',
+  'EXIF':'Métadonnées image (date/appareil/GPS)',
+  'RSS':'Flux de veille (syndication)',
+  'Wayback':'Archive web à date donnée',
+  'Photogrammétrie':'Reconstruction 3D depuis images 2D',
+  'DPIA':'Analyse d’impact vie privée',
+  'pHash':'Hachage perceptuel d’image',
+  'dHash':'Hachage perceptuel (diff) d’image',
+  'Watermark':'Filigrane indiquant origine/modification',
+  'OPSEC':'Sécurité opérationnelle',
+  'OCR':'Reconnaissance optique de caractères',
+  'NER':'Reconnaissance d’entités nommées',
+  'VLM':'Modèle vision‑langage',
+  'Precision':'Part des résultats corrects',
+  'Recall':'Part des vrais cas trouvés',
+  'Timeline':'Chronologie structurée',
+  'Graph':'Carte relationnelle (graphe)',
+  'Hash':'Empreinte cryptographique',
+  'Checksum':'Empreinte d’intégrité',
+  'Archive':'Capture web persistante',
+  'Seed':'Valeur pour reproductibilité',
+  'Provenance':'Historique des transformations',
+  'Anonymisation':'Réduction des données personnelles',
+  'Minimisation':'Collecte au strict nécessaire',
+  'InVID':'Outil d’extraction/fragmentation vidéo pour vérification',
+  'Street View':'Vues au niveau de la rue pour géolocalisation',
+  'OCR/NER':'Extraction de texte et d’entités depuis documents/images'
+};
+
+// Annotate tooltips and add clickable ? marks
+def annotateTooltips(){
+  const container=document.querySelectorAll('.domain');
+  const terms=Object.keys(GLOSS).sort((a,b)=>b.length-a.length);
+  container.forEach(sec=>{
+    let html=sec.innerHTML;
+    terms.forEach(t=>{
+      const re=new RegExp('(?<![\/\-])\b'+t.replace(/[.*+?^${}()|[\]\]/g,'\$&')+'\b','g');
+      html=html.replace(re,`<span class=\"tip\" data-tip=\"${GLOSS[t]}\" tabindex=\"0\" aria-label=\"info\">$&<button class=\"qmark\" title=\"Info\" aria-label=\"Afficher info\">?</button></span>`);
+    });
+    sec.innerHTML=html;
+  });
+}
+
+// Focus mode: open/close handlers
+function closeAllTips(){
+  document.querySelectorAll('.tip.open').forEach(el=>el.classList.remove('open'));
+  overlay&&overlay.classList.remove('show');
+}
+
+document.addEventListener('click',e=>{
+  const qm=e.target.closest('.qmark');
+  if(qm){
+    const tip=qm.closest('.tip');
+    const isOpen=tip.classList.contains('open');
+    closeAllTips();
+    if(!isOpen){tip.classList.add('open'); overlay&&overlay.classList.add('show');}
+    e.stopPropagation();
+    return;
+  }
+  // click outside closes
+  if(!e.target.closest('.tip')) closeAllTips();
+});
+
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeAllTips(); }});
+overlay&&overlay.addEventListener('click',closeAllTips);
+
+// Init
+stripLinksInDomains();
+annotateTooltips();
+</script>
+</body>
+</html>
+</html>
+</html>
