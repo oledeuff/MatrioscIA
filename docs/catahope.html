@@ -7,7 +7,6 @@
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Utilitaires supplémentaires pour les puces et cartes */
     .chip{display:inline-flex;align-items:center;gap:.375rem;border-radius:9999px;padding:.125rem .5rem;font-size:.75rem;line-height:1rem;border:1px solid rgba(0,0,0,0.06);}
     .chip-light{background:#f3f4f6;color:#374151;}
     .chip-ia{background:#e0e7ff;color:#1e1b4b;border-color:#c7d2fe;}
@@ -21,14 +20,14 @@
     @media (min-width:768px){.grid-auto{grid-template-columns:repeat(2,minmax(0,1fr));}}
     @media (min-width:1280px){.grid-auto{grid-template-columns:repeat(3,minmax(0,1fr));}}
     .link-icon{font-size:1.1rem;text-decoration:none}
-    .link-icon:focus{outline:2px solid #22c55e;outline-offset:2px;border-radius:.25rem}
+    .link-icon:focus{outline:2px solid #7c3aed;outline-offset:2px;border-radius:.25rem}
   </style>
   <!-- Données (aucun fetch) -->
   <script src="data_osint.js"></script>
 </head>
 <body class="bg-white text-gray-900">
-  <!-- En-tête -->
-  <header class="bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400">
+  <!-- En-tête gris→violet -->
+  <header class="bg-gradient-to-r from-slate-300 via-gray-400 to-violet-500">
     <div class="max-w-7xl mx-auto px-4 py-6">
       <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">catalogue d’enquêtes de type OSINT</h1>
       <p class="text-sm md:text-base opacity-90">Investigations audiovisuelles</p>
@@ -74,7 +73,7 @@
 
     <div class="mt-3 flex items-center gap-3">
       <button id="resetBtn" class="rounded-xl bg-gray-100 hover:bg-gray-200 px-3 py-2 text-sm">Réinitialiser</button>
-      <button id="exportBtn" class="rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 text-sm">Exporter en CSV</button>
+      <button id="exportBtn" class="rounded-xl bg-violet-600 hover:bg-violet-700 text-white px-3 py-2 text-sm">Exporter en CSV</button>
       <div id="counter" class="ml-auto text-sm text-gray-600" aria-live="polite"></div>
     </div>
   </section>
@@ -108,35 +107,22 @@
     const lower = s => latinize(normSpaces(String(s||''))).toLowerCase();
     const isTruthy = v => !(v===null || v===undefined || (typeof v==='string' && v.trim()===''));
 
-    // --- Dictionnaires fournis par l'utilisateur (exploités pour normalisation/fallback) ---
+    // Dictionnaires
     const MEDIA_LOGO_DOMAIN = {"AFP": "afp.com", "Le Monde": "lemonde.fr", "Libération": "liberation.fr", "Le Figaro": "lefigaro.fr", "France 24": "france24.com", "Franceinfo": "francetvinfo.fr", "ARTE": "arte.tv", "BBC": "bbc.co.uk", "The Guardian": "theguardian.com", "The New York Times": "nytimes.com", "Washington Post": "washingtonpost.com", "Reuters": "reuters.com", "AP": "apnews.com", "Financial Times": "ft.com", "WSJ": "wsj.com", "CNN": "cnn.com", "Bloomberg": "bloomberg.com", "Mediapart": "mediapart.fr", "Les Echos": "lesechos.fr", "L'Express": "lexpress.fr", "L'Obs": "nouvelobs.com", "20 Minutes": "20minutes.fr", "Courrier international": "courrierinternational.com"};
     const MEDIA_ABBR = {"le monde": "LM", "lemonde": "LM", "libération": "LIBÉ", "liberation": "LIBÉ", "le figaro": "LF", "france 24": "F24", "france24": "F24", "franceinfo": "FI", "france info": "FI", "arte": "ARTE", "bfmtv": "BFM", "tf1": "TF1", "lci": "LCI", "mediapart": "MP", "rfi": "RFI", "la croix": "LC", "le parisien": "LP", "les echos": "LE", "l'express": "LEX", "lobs": "OBS", "20 minutes": "20M", "courrier international": "CI", "marianne": "MAR", "the new york times": "NYT", "new york times": "NYT", "nyt": "NYT", "washington post": "WP", "wsj": "WSJ", "financial times": "FT", "the guardian": "TG", "guardian": "TG", "bbc": "BBC", "reuters": "REU", "associated press": "AP", "ap": "AP", "bloomberg": "BBG", "cnn": "CNN"};
 
-    // Date parsing tolérant (priorité day-first)
+    // Dates
     function parseToISO(input){
       if(!isTruthy(input)) return null;
       const s = String(input).trim();
-      // ISO direct
       const mISO = s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/);
-      if(mISO){
-        const y=+mISO[1], mo=+mISO[2], d=+mISO[3];
-        if(validYMD(y,mo,d)) return fmtISO(y,mo,d);
-      }
-      // dd/mm/yyyy or dd-mm-yyyy
+      if(mISO){ const y=+mISO[1], mo=+mISO[2], d=+mISO[3]; if(validYMD(y,mo,d)) return fmtISO(y,mo,d); }
       const mDF = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})$/);
-      if(mDF){
-        let d=+mDF[1], mo=+mDF[2], y=+mDF[3]; if(y<100) y+=2000;
-        if(validYMD(y,mo,d)) return fmtISO(y,mo,d);
-      }
-      // Month name (FR/EN) d, yyyy
+      if(mDF){ let d=+mDF[1], mo=+mDF[2], y=+mDF[3]; if(y<100) y+=2000; if(validYMD(y,mo,d)) return fmtISO(y,mo,d); }
       const mois = {'janvier':1,'fevrier':2,'février':2,'mars':3,'avril':4,'mai':5,'juin':6,'juillet':7,'aout':8,'août':8,'septembre':9,'octobre':10,'novembre':11,'decembre':12,'décembre':12,
                     'january':1,'february':2,'march':3,'april':4,'may':5,'june':6,'july':7,'august':8,'september':9,'october':10,'november':11,'december':12};
       const mName = s.match(/^(\d{1,2})\s+([A-Za-zéèêëàâîïôöûüç]+)\s+(\d{4})$/i);
-      if(mName){
-        const d=+mName[1], mo = mois[mName[2].toLowerCase()]||0, y=+mName[3];
-        if(validYMD(y,mo,d)) return fmtISO(y,mo,d);
-      }
-      // Fallback Date()
+      if(mName){ const d=+mName[1], mo = mois[mName[2].toLowerCase()]||0, y=+mName[3]; if(validYMD(y,mo,d)) return fmtISO(y,mo,d); }
       const t = new Date(s);
       if(!isNaN(t)) return fmtISO(t.getFullYear(), t.getMonth()+1, t.getDate());
       return null;
@@ -159,7 +145,7 @@
       }catch(e){ return '(date manquante)'; }
     }
 
-    // Médias : normalisation (AFP factuel -> AFP ; Observateurs -> France 24 ; variantes)
+    // Médias : normalisation
     function normalizeMedia(s){
       const raw = normSpaces(s||'');
       const l = lower(raw);
@@ -173,7 +159,7 @@
       return raw || '(sans média)';
     }
 
-    // Dictionnaire logos Wikipédia (officiels). Si absent -> monogramme.
+    // Logos Wikipédia connus
     const MEDIA_LOGOS = {
       'AFP':'https://upload.wikimedia.org/wikipedia/commons/6/66/Agence_France-Presse_logo.svg',
       'France 24':'https://upload.wikimedia.org/wikipedia/commons/5/50/France_24_Logo.svg',
@@ -205,9 +191,7 @@
     };
 
     // Thématiques -> couleurs imposées
-    function canonicalThemeKey(s){
-      return lower(s||'');
-    }
+    function canonicalThemeKey(s){ return lower(s||''); }
     const THEME_COLORS = new Map([
       ['humanitaire', '#8b5cf6'],
       ['problematiques environnementales', '#10b981'],
@@ -231,8 +215,7 @@
       if(!color) color = THEME_COLORS.get(lower(theme));
       if(color) return color;
       if(!isTruthy(theme)) return null;
-      // Couleur stable de secours via hash HSL -> hex
-      const hex = hslHashToHex(theme);
+      const hex = hslHashToHex(theme); // secours stable
       return hex;
     }
     function hslHashToHex(s){
@@ -249,11 +232,11 @@
       return `#${toHex(f(0))}${toHex(f(8))}${toHex(f(4))}`;
     }
 
-    // Proactivité : normalisation + heuristique (accent/casse-insensibles)
+    // Proactivité
     const REACTIVE_HINTS = /(fact[\s-]?check|factcheck|vrai\s*\/\s*faux|vrai\s*-\s*faux|desinfo|désinfo|désinformation|debunk|intox)/i;
     const PROACTIVE_HINTS = /(enqu(ê|e)te|investigation|osint|cartographi|geolocali|g(é|e)olocali)/i;
     function normalizeProact(v, textForHeuristic){
-      const l = lower(v||''); // ex: "réactive" => "reactive"
+      const l = lower(v||'');
       if(l==='proactive') return 'proactive';
       if(l==='reactive') return 'reactive';
       if(!isTruthy(v)){
@@ -261,20 +244,19 @@
         if(REACTIVE_HINTS.test(t)) return 'reactive';
         if(PROACTIVE_HINTS.test(t)) return 'proactive';
       }
-      // tolérance : contient "proac" ou "réac"
       if(l.includes('proac')) return 'proactive';
       if(l.includes('reac')) return 'reactive';
       return '';
     }
 
-    // IA : booléen, sinon détection mots-clés (accent/casse-insensible)
+    // IA
     const IA_PAT = /(intelligence\s*artificielle|(?:\b|_)(ia|i\.a\.|ai|llm|deepfake|apprentissage\s+automatique|deep\s*learning|r(é|e)seau\s*neuronal|mod(è|e)les?\s+de\s+langue|g(é|e)n(é|e)ratif|chatgpt|openai|midjourney|stable\s+diffusion|llama|elevenlabs|suno))(?![a-z])/i;
     function detectHasIA(hasIA, text){
       if(typeof hasIA === 'boolean') return hasIA;
       return IA_PAT.test(text||'');
     }
 
-    // Auteurs : array ou string
+    // Auteurs
     function parseAuthors(a){
       if(Array.isArray(a)) return a.filter(isTruthy).map(x=>normSpaces(String(x)));
       if(!isTruthy(a)) return [];
@@ -283,7 +265,7 @@
       return parts.map(x=>normSpaces(x)).filter(Boolean);
     }
 
-    // URL : ajouter https:// si besoin
+    // URL
     function normalizeURL(u){
       if(!isTruthy(u)) return '';
       const s = String(u).trim();
@@ -294,7 +276,6 @@
     // Chargement et préparation
     const RAW_ROWS = (window.RAW_ROWS && Array.isArray(window.RAW_ROWS)) ? window.RAW_ROWS : (window.DATA || []);
 
-    // Mapping robuste des clés
     function mapRow(r){
       const title = r.title ?? r.titre ?? '';
       const content = r.content ?? r.resume ?? r.résumé ?? '';
@@ -308,13 +289,11 @@
       const textForHeuristic = [title,content,commentaire].join(' ').toLowerCase();
       const proact = normalizeProact(r.proact, textForHeuristic);
       const hasIA = detectHasIA(r.hasIA, [commentaire,title,content].join(' '));
-
       return { title, content, commentaire, dateISO, media, link, authors, theme, proact, hasIA };
     }
-
     const rows = RAW_ROWS.map(mapRow);
 
-    // --------- Construction des filtres ---------
+    // Filtres
     function uniqNorm(arr){
       const seen = new Set(); const out=[];
       for(const v of arr){
@@ -323,34 +302,46 @@
       }
       return out;
     }
-
     const mediaList = uniqNorm(rows.map(r=>r.media)).sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
     const themeList = (()=>{
       const all = rows.map(r=>r.theme && r.theme.trim() ? r.theme : 'Sans thématique');
       return uniqNorm(all).sort((a,b)=>a.localeCompare(b,'fr',{sensitivity:'base'}));
     })();
-
     const mediaSel = document.getElementById('mediaFilter');
     const themeSel = document.getElementById('themeFilter');
-    for(const m of mediaList){
-      const o=document.createElement('option'); o.value=m; o.textContent=m; mediaSel.appendChild(o);
-    }
-    for(const th of themeList){
-      const o=document.createElement('option'); o.value=th; o.textContent=th; themeSel.appendChild(o);
-    }
+    for(const m of mediaList){ const o=document.createElement('option'); o.value=m; o.textContent=m; mediaSel.appendChild(o); }
+    for(const th of themeList){ const o=document.createElement('option'); o.value=th; o.textContent=th; themeSel.appendChild(o); }
 
-    // --------- Rendu ---------
+    // Rendu
     const grid = document.getElementById('grid');
     const counter = document.getElementById('counter');
     const searchInput = document.getElementById('search');
     const proSel = document.getElementById('proactFilter');
     const iaSel = document.getElementById('iaFilter');
 
+    function buildFaviconURL(media){
+      const domain = MEDIA_LOGO_DOMAIN[media];
+      if(!domain) return null;
+      return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=64`;
+    }
+
     function mediaLogo(media){
-      const src = MEDIA_LOGOS[media];
-      if(src){
+      // 1) Logo Wikipédia si connu
+      const wiki = MEDIA_LOGOS[media];
+      if(wiki){
         const img = document.createElement('img');
-        img.src = src; img.alt = media; img.width=40; img.height=40; img.className='w-10 h-10 object-contain';
+        img.src = wiki; img.alt = media; img.width=40; img.height=40; img.className='w-10 h-10 object-contain';
+        img.onerror=()=>{ img.replaceWith(tryFaviconOrFallback(media)); };
+        return img;
+      }
+      // 2) Sinon tenter favicon
+      return tryFaviconOrFallback(media);
+    }
+    function tryFaviconOrFallback(media){
+      const fav = buildFaviconURL(media);
+      if(fav){
+        const img = document.createElement('img');
+        img.src = fav; img.alt = media; img.width=40; img.height=40; img.className='w-10 h-10 object-contain rounded';
         img.onerror=()=>{ img.replaceWith(fallbackLogo(media)); };
         return img;
       }
@@ -383,7 +374,6 @@
       const art = document.createElement('article');
       art.className='card p-4'; art.style.borderLeftColor = border;
 
-      // top row: logo + title
       const top = document.createElement('div'); top.className='flex items-center gap-3';
       top.appendChild(mediaLogo(r.media));
 
@@ -393,24 +383,20 @@
       titleBox.appendChild(title);
       top.appendChild(titleBox);
 
-      // link icon (if any)
       if(isTruthy(r.link)){
         const a = document.createElement('a');
         a.href = r.link; a.target='_blank'; a.rel='noopener'; a.className='link-icon'; a.setAttribute('aria-label','Ouvrir le lien dans un nouvel onglet');
         a.textContent='🔗';
         top.appendChild(a);
       }
-
       art.appendChild(top);
 
-      // résumé
       if(isTruthy(r.content)){
         const p = document.createElement('p'); p.className='mt-2 text-sm text-gray-800';
         p.textContent = r.content;
         art.appendChild(p);
       }
 
-      // chips row
       const chips = document.createElement('div'); chips.className='mt-3 flex flex-wrap gap-2 items-center';
       const chipMedia = document.createElement('span'); chipMedia.className='chip chip-light'; chipMedia.textContent=r.media;
       chips.appendChild(chipMedia);
@@ -424,7 +410,6 @@
       chips.appendChild(chipTheme(r.theme && r.theme.trim()? r.theme : 'Sans thématique'));
       art.appendChild(chips);
 
-      // auteurs
       if(r.authors && r.authors.length){
         const row = document.createElement('div'); row.className='mt-3 flex flex-wrap gap-2';
         for(const a of r.authors){
@@ -433,7 +418,6 @@
         art.appendChild(row);
       }
 
-      // bottom row: date
       const bottom = document.createElement('div'); bottom.className='mt-3 flex items-center justify-between text-sm text-gray-600';
       const date = document.createElement('span'); date.textContent = formatDateFR(r.dateISO);
       bottom.appendChild(date);
@@ -442,15 +426,12 @@
       return art;
     }
 
-    // Tri par défaut : date décroissante puis titre A→Z
+    // Tri par défaut : date ↓ puis titre
     function defaultSort(a,b){
       const da = a.dateISO || ''; const db = b.dateISO || '';
-      if(da && db){
-        if(da>db) return -1;
-        if(da<db) return 1;
-      }else if(da && !db){ return -1; }
+      if(da && db){ if(da>db) return -1; if(da<db) return 1; }
+      else if(da && !db){ return -1; }
       else if(!da && db){ return 1; }
-      // titre
       return a.title.localeCompare(b.title,'fr',{sensitivity:'base'});
     }
 
@@ -460,7 +441,7 @@
       const q = lower(searchInput.value||'');
       const m = mediaSel.value||'';
       const th = themeSel.value||'';
-      const pro = proSel.value||'';  // values normalized: 'proactive' or 'reactive'
+      const pro = document.getElementById('proactFilter').value||'';
       const ia = iaSel.value||'';
 
       current = rows.filter(r=>{
@@ -477,13 +458,12 @@
         return true;
       }).sort(defaultSort);
 
-      // Rendu
       grid.innerHTML='';
       for(const r of current){ grid.appendChild(renderCard(r)); }
       counter.textContent = `${current.length} résultat(s) affiché(s) / ${rows.length}`;
     }
 
-    // Export CSV du sous-ensemble affiché
+    // Export CSV
     function toCSV(arr){
       const esc = v => {
         if(v===null||v===undefined) return '';
@@ -522,31 +502,18 @@
     }
 
     // Events
-    for(const el of [searchInput, mediaSel, themeSel, proSel, iaSel]){
+    for(const el of [searchInput, mediaSel, themeSel, document.getElementById('proactFilter'), iaSel]){
       el.addEventListener('input', apply);
       el.addEventListener('change', apply);
     }
     document.getElementById('resetBtn').addEventListener('click', ()=>{
-      searchInput.value=''; mediaSel.value=''; themeSel.value=''; proSel.value=''; iaSel.value=''; apply();
+      searchInput.value=''; mediaSel.value=''; themeSel.value=''; document.getElementById('proactFilter').value=''; iaSel.value=''; apply();
       searchInput.focus();
     });
     document.getElementById('exportBtn').addEventListener('click', downloadCSV);
 
     // Initial render
     apply();
-
-    // --------- Auto-tests simples (console) ---------
-    (function selfTests(){
-      try{
-        const hasReactive = rows.some(r=>r.proact==='reactive');
-        const hasProactive = rows.some(r=>r.proact==='proactive');
-        console.log('[TEST] Proactivité (réactive/proactive) détectée ? ', {hasReactive, hasProactive});
-        const iaYesAllTrue = rows.filter(r=>r.hasIA===true).every(Boolean);
-        console.log('[TEST] IA marquage booléen présent ?', iaYesAllTrue);
-        const medias = new Set(rows.map(r=>r.media));
-        console.log('[TEST] \"AFP factuel\" fusionné sous AFP ?', medias.has('AFP') && ![...medias].some(m=>lower(m).includes('afp factuel')));
-      }catch(e){ console.warn('Self-tests error', e); }
-    })();
   </script>
 </body>
 </html>
