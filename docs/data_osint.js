@@ -1,741 +1,158 @@
-window.DATA = [
+window.RAW_ROWS = [
   {
-    "title": "Non, porter des lunettes de soleil n'augmente pas le risque d'avoir un cancer",
-    "content": "Les rayons UV peuvent endommager les yeux, comme c'est le cas pour la peau lors d'un coup de soleil. Pourtant, dans une vidéo partagée sur les réseaux sociaux, un naturopathe explique que porter des lunettes de soleil augmenterait les risques d'avoir un cancer, en empêchant le corps de créer de la mélanine - laquelle participe à la protection de la peau contre les rayons UV. C'est faux: porter des lunettes ne rend pas la peau plus sensible, comme l'expliquent à l'AFP des professionnels de la vue, de la peau et des cancers, rappelant les dangers de l'exposition au soleil pour les yeux. L'exposition solaire reste par ailleurs la cause principale des cancers de la peau.",
-    "date": "2024-12-12",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PZ2BK",
-    "commentaire": "",
-    "authors": [
-      "Chloé Rabs"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "reactive",
-    "hasIA": false
-  },
-  {
-    "title": "Non, les programmes de SVT n'invitent pas les élèves à choisir leur sexe",
-    "content": "Le nouveau programme d'éducation à la vie affective, relationnelle et sexuelle (Evars), en concertation depuis le mois de mars, fait l'objet de vifs débats en France. Dans ce contexte, la députée de droite Christelle D'Intorni (UDR) a affirmé que les manuels actuels de Sciences et vie de la Terre (SVT) de quatrième et de seconde invitaient \"les enfants à choisir leur sexe\". Mais s'ils abordent la distinction entre sexe et genre, ni les ouvrages scolaires auxquels se réfère l'élue, ni le programme de l'Education nationale ne contiennent d'invitation pour les élèves à faire un tel choix.",
-    "date": "2024-12-11",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PL2BQ",
-    "commentaire": "",
-    "authors": [
-      "Lucie de Perthus"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Non, cette vidéo ne montre pas un Français appelé à aller combattre en Ukraine",
-    "content": "Emmanuel Macron avait déclaré en février que l'envoi de troupes en Ukraine ne pouvait pas \"être exclu\" à l'avenir, tout en réaffirmant son souhait de \"parvenir à une paix juste et durable\" entre Kiev et Moscou. Ces propos avaient suscité un vif débat, ainsi que des affirmations erronées sur les réseaux sociaux, affirmant à tort qu'avaient débuté des recrutements de soldats français pour l'Ukraine, voire que des soldats tricolores étaient morts sur le front ukrainien. Des infox susceptibles de saper le soutien occidental à Kiev, crucial dans sa résistance à la Russie. Dans une vidéo très partagée fin 2024, un internaute assure avoir reçu une convocation l'obligeant à aller combattre sur le front ukrainien au sein de l'armée française. Mais cette affirmation est fausse, comme l'internaute lui-même l'a confirmé.",
-    "date": "2024-12-11",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PH69A",
-    "commentaire": "",
-    "authors": [
-      "Louise Dalmasso"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Non, cette image ne montre pas un détenu de la prison syrienne de Saydnaya",
-    "content": "Peu après la chute du président syrien Bachar al-Assad début décembre 2024, provoquée par une offensive éclair de groupes rebelles menés par des islamistes radicaux, ces derniers ont annoncé la prise de contrôle de la prison de Saydnaya, symbole des pires exactions du régime, et la libération de ses détenus. Dans ce contexte, des internautes partagent sur les réseaux sociaux la prétendue image d'un détenu retrouvé dans un souterrain de l'établissement pénitentiaire situé près de Damas. Mais c'est faux : il s'agit de la capture d'écran d'une vidéo réalisée par intelligence artificielle (IA), mise en ligne sur TikTok plusieurs jours avant la chute du régime syrien, et sans rapport avec la prison de Saydnaya.",
-    "date": "2024-12-11",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PX8J7",
-    "commentaire": "",
-    "authors": [
-      "Alexis Orsini"
-    ],
-    "theme": "humanitaire",
-    "proact": "reactive",
-    "hasIA": true
-  },
-  {
-    "title": "Ces images ne montrent pas des terroristes venus d’Abidjan pour attaquer le Burkina Faso",
-    "content": "Les militaires au pouvoir au Burkina Faso accusent régulièrement la Côte d’Ivoire voisine de chercher à déstabiliser leur régime, au moment où des milliers de réfugiés burkinabè fuient l’insécurité dans leur pays. Des publications cumulant plus de 100.000 vues et de 1.500 partages prétendent images à l’appui que des terroristes venant d’Abidjan ont été interceptés par les forces burkinabè, alors qu’ils voyageaient cachés sous de faux tuyaux à bord d’un camion. Mais ces images montrent en réalité un camion trafiqué qui transportait des migrants éthiopiens arrêtés en Tanzanie.",
-    "date": "2024-12-10",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PX6FH",
-    "commentaire": "",
-    "authors": [
-      "Suy Kahofi"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "reactive",
-    "hasIA": false
-  },
-  {
-    "title": "Non, l'Etat ne peut pas saisir l'épargne des Français en 72 heures pour financer l'aide à l'Ukraine",
-    "content": "La guerre en Ukraine et le soutien des Occidentaux à Kiev est un terreau fertile pour la désinformation depuis l'invasion russe en février 2022. Des publications sur les réseaux sociaux affirment ainsi début décembre 2024 qu'\"en cas de menace sur l'intégrité du territoire\", la loi de programmation militaire votée en 2023 permettrait désormais à l'Etat de \"saisir tout l'argent\" sur les comptes en banque des particuliers \"en 72 heures\". Mais c'est faux : dans un contexte de menaces nouvelles, cette loi a modernisé le code de la Défense, dont le champ d'application reste militaire, et non civil, et qui encadre notamment les réquisitions de biens matériels, pas les fonds des particuliers.",
-    "date": "2024-12-09",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PE2QJ",
-    "commentaire": "",
-    "authors": [
-      "Gaëlle Geoffroy"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "reactive",
-    "hasIA": false
-  },
-  {
-    "title": "La \"première photo\" de Bachar al-Assad à Moscou depuis la chute du régime syrien ? C'est faux",
-    "content": "L'offensive éclair de groupes rebelles menés par des islamistes radicaux en Syrie a entraîné, dans la nuit du 7 au 8 décembre, la chute du régime syrien et la fuite du président Bachar al-Assad. Dans ce contexte, des internautes partagent, sur les réseaux sociaux, une image montrant le président syrien et son épouse Asma marcher côte-à-côte, en affirmant qu'il s'agirait de la \"première photo\" du couple al-Assad prise depuis son arrivée à Moscou. Mais il s'agit en réalité d'une capture d'écran d'images filmées en février 2023 dans un hôpital d'Alep. Par ailleurs, si des agences de presse russes ont affirmé le 8 décembre que Bachar al-Assad et sa famille se trouvaient à Moscou, le Kremlin a refusé, le lendemain, de confirmer leur présence en Russie.",
-    "date": "2024-12-09",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PY6AB",
-    "commentaire": "",
-    "authors": [
-      "Alexis Orsini",
-      "Dounia Mahieddine"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "reactive",
-    "hasIA": false
-  },
-  {
-    "title": "Attention à ces comptes TikTok \"d'actualités\" qui véhiculent de la désinformation",
-    "content": "Plus de la moitié des Français disent s'informer sur les réseaux sociaux, selon des études d'opinion menées ces dernières années. Sur TikTok, des comptes se présentant comme des médias d'actualités amassent des dizaines de milliers d'abonnés. Attention : s'ils imitent parfois l'identité graphique de médias classiques, nombre d'entre eux véhiculent régulièrement de la désinformation et visent avant tout à récolter un maximum de partages. Ces comptes s'appuient sur le phénomène ancien des rumeurs qui piochent à la fois dans du vrai et du faux pour accroître leur audience grâce aux algorithmes des réseaux sociaux comme TikTok, qui permettent au brouillard informationnel de perdurer, estiment plusieurs spécialistes auprès de l'AFP.",
-    "date": "2024-12-09",
-    "media": "AFP",
-    "link": "https://factuel.afp.com/doc.afp.com.36PB39P",
-    "commentaire": "Cette enquête mentionne le pouvoir malveillant de l'IA dans la production de fausses informations. Ce reportage est associé à cette vidéo, publiée aussi par Factuel, pour alerter sur l'usage des images fabriquées par l'IA dans la fabrique de fake news : https://www.youtube.com/watch?v=w1QNw71ykOw",
-    "authors": [
-      "Claire-Line Nass"
-    ],
-    "theme": "crime organisé",
-    "proact": "reactive",
-    "hasIA": true
-  },
-  {
-    "title": "Enquête - Ukraine : la désillusion des combattants latino-américains",
-    "content": "Quelques jours après l’invasion de l’Ukraine par la Russie en février 2022, le président Volodymyr Zelensky appelle les étrangers à rejoindre son pays. Des milliers de volontaires répondent à son appel, principalement des Occidentaux. Peu à peu, le profil de ces étrangers évolue et des combattants venant d’Amérique Latine rejoignent les rangs. La rédaction des Observateurs de France 24 a enquêté sur cette facette moins connue de la guerre en Ukraine. La journaliste Chloé Lauvergnier évoque le sujet dans la chronique Derrière l'image.",
-    "date": "2024-12-04",
-    "media": "Les Observateurs",
-    "link": "https://www.france24.com/fr/vid%C3%A9o/20241126-enqu%C3%AAte-ukraine-la-d%C3%A9sillusion-des-combattants-latino-am%C3%A9ricains",
-    "commentaire": "",
-    "authors": [
-      "Chloé Lauvergnier"
-    ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "The decisions that cost some lives and saved others during Helene’s wrath",
-    "content": "Victims and survivors filmed Helene’s flooding in Tennessee, showing what went wrong as a hospital was evacuated and six people were swept away at a nearby factory.",
-    "date": "2024-11-27",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2024/11/27/hurricane-helene-erwin-tennessee-impact-plastics/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "catastrophes naturelles",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Soudan : dans l’État d’Al-Jazira, les Forces de soutien rapide massacrent des centaines de civils",
-    "content": "C’est une attaque dont le procédé est typique des exactions des Forces de soutien rapide. Le 25 octobre, les hommes de cette milice ont attaqué le village d’Al-Sariha, au centre du Soudan. Filmées par les habitants et les combattants des FSR eux-mêmes, ces violences ont fait au moins 124 morts, des civils. La rédaction des Observateurs a enquêté sur cette attaque, qui s’inscrit dans le cadre d’une vague de violences contre les civils de cette région.",
-    "date": "2024-11-18",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20241118-enquete-massacre-fsr-soudan-guerre-civile-alsariha-aljazira-gezira",
-    "commentaire": "",
-    "authors": [
-      "Djamel Belayachi"
-    ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Israel has damaged or destroyed nearly a quarter of buildings in Lebanon’s south",
-    "content": "Almost 6,000 structures have been affected in border villages, including at least nine religious sites demolished in controlled explosions, a Post analysis found.",
-    "date": "2024-10-31",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/10/31/israel-war-lebanon-south-destruction/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "What visuals reveal about the impact of Israeli strikes on Iran",
-    "content": "Satellite imagery analyzed by The Washington Post shows damage to two air defense installations and at least three sites associated with missile production.",
-    "date": "2024-10-29",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/10/29/iran-israel-strikes-missiles-air-defense/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "North Korean troops are at Russian military training site, videos show",
-    "content": "Soldiers from North Korea’s elite “Storm Corps” appear to be preparing to support Russia in its war against Ukraine, according to a Post analysis.",
-    "date": "2024-10-26",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/10/25/north-korean-troops-russia-ukraine-deployment/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Satellite images show major expansion at Russian site with secret bioweapons past",
-    "content": "New construction at a military research site near Moscow reveals a specialized laboratory complex designed to research and handle deadly pathogens, experts say.",
-    "date": "2024-10-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/national-security/interactive/2024/russia-biological-chemical-weapons-laboratory-expansion/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video shows Israeli strike on crowd of people trying to help wounded boy",
-    "content": "Seconds after people rushed to help a 13-year-old boy grievously wounded from a strike in northern Gaza, another strike hit a few feet away.",
-    "date": "2024-10-21",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/10/21/gaza-israel-strike-jabalya-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Iranian missiles hit Israeli military sites, visuals show",
-    "content": "Some Iranian missiles broke through Israeli and allied air defenses to strike or land near at least three military and intelligence installations.",
-    "date": "2024-10-04",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/10/04/iran-missile-israel-attack-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Israel likely used U.S.-made 2,000-pound bombs in Nasrallah strike, visuals show",
-    "content": "Videos shared by the IDF show fighter jets they say were involved in the Nasrallah operation carrying BLU-109s, an American-made 2,000-pound munition.",
-    "date": "2024-09-29",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/09/29/israel-bomb-beirut-nasrallah-death/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Israeli forces shove at least four men off West Bank roof, videos show",
-    "content": "The Israel Defense Forces are investigating the episode, which it said went against “IDF values.” The United States has called for an investigation.",
-    "date": "2024-09-20",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/09/20/israel-soldiers-west-bank-roof-bodies-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "New audio disputes ruling that stripped Jordan Chiles of Olympic medal",
-    "content": "A Post analysis of audio and visual evidence shows the U.S. gymnast’s coach initiated the inquiry into her score within the required one-minute timeframe.",
-    "date": "2024-09-19",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/09/19/jordan-chiles-olympics-medal-appeal/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The Midwife's Confession",
-    "content": "30 years ago, a journalist in the Indian state of Bihar filmed a series of shocking confessions: midwives admitting they routinely murdered new-born baby girls. Using this unseen archive, BBC Eye explores the disturbing story of infanticide in rural India.",
-    "date": "2024-09-11",
+    "title": "Cameroon: Anatomy of a Killing",
+    "content": "In July 2018 a horrifying video began to circulate on social media. It shows two women and two young children being led away at gunpoint by a group of Cameroonian soldiers. The captives are blindfolded, forced to the ground, and shot 22 times.The government of Cameroon initially dismissed the video as “fake news.” But BBC Africa Eye, through forensic analysis of the footage, can prove exactly where this happened, when it happened, and who is responsible for the killings.",
+    "date": "2019-02-07",
     "media": "BBC",
-    "link": "https://www.youtube.com/watch?v=uSuMOh_d9oc",
+    "link": "https://www.bbc.co.uk/programmes/p0707w39",
+    "commentaire": "",
+    "authors": [
+      "Aliaume Leroy",
+      "Ben Strick."
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sudan’s Secret Hit Squads Used to Attack Protests",
+    "content": "These are images Sudan’s government does not want you to see: teams of masked, plainclothes agents chasing down protesters, beating them, and dragging them off to secret detention centres in Khartoum.",
+    "date": "2019-02-13",
+    "media": "BBC",
+    "link": "https://www.youtube.com/watch?v=AuNDd_pteRQ",
     "commentaire": "",
     "authors": [
       "pas renseigné"
     ],
-    "theme": "crime organisé",
-    "proact": "",
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "New video, witnesses challenge Israel’s account of U.S. activist’s killing",
-    "content": "The IDF said Aysenur Eygi was shot “unintentionally” during a “violent riot.” A Post analysis shows clashes had subsided and protesters had retreated.",
-    "date": "2024-09-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/09/11/american-activist-aysenur-eygi-killed-idf-west-bank/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Après le naufrage d’un bateau avec 750 personnes à bord au large de la Grèce, les failles et la lenteur des secours",
-    "content": "Après la lenteur de l’intervention de sauvetage, l’utilisation de cordes par les gardes-côtes pour tracter le chalutier en perdition soulève des questions. « Le Monde » a reconstitué les heures qui ont précédé ce drame à l’issue duquel plus de 500 migrants auraient perdu la vie.",
-    "date": "2024-09-09",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Suicide Stories: Are Kenya's men in crisis?",
+    "content": "our series of films looking at the topic of modern masculinity in Africa, the first issue we go into is suicide amongst Kenyan men.We went to Nyandarua County located in Central Kenya where 70 people – almost all of them men – took their own lives last year.",
+    "date": "2019-04-29",
+    "media": "BBC",
+    "link": "https://www.bbc.co.uk/programmes/p07b12ql",
     "commentaire": "",
     "authors": [
-      "Julia Pascual",
-      "Marina Rafenberg",
-      "Arthur Carpentier",
-      "Cellule Enquête vidéo"
+      "Peter Murimi"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Video: How a Single Family Was Shot Dead on a Street in Gaza",
-    "content": "Last December, video emerged showing the bodies of a mother, father and their four sons strewn across a street in Gaza City. Beside them lay a stretcher, shovels and a makeshift white flag. A New York Times investigation examines how they got there and who killed them.",
-    "date": "2024-09-06",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "How China extended its repression into an American city",
-    "content": "Events in San Francisco illustrate how the Chinese Communist Party is willing to target people exercising their First Amendment rights in an American city.",
-    "date": "2024-09-03",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2024/chinese-communist-party-us-repression-xi-jinping-apec/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Ukraine has captured more than 200 Russian soldiers in Kursk offensive, videos show",
-    "content": "Visuals verified by The Post show more than 240 Russian prisoners, which analysts say appear to include conscripts with minimal fighting experience.",
-    "date": "2024-08-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/08/25/ukraine-kursk-offensive-russia-videos/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "How an Israeli hostage rescue that left scores of Palestinians dead unfolded",
-    "content": "A review of videos of the June 8 raid in Nuseirat shows the Israeli military employed heavy airstrikes on a dense residential area for nearly four hours",
-    "date": "2024-08-13",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/08/13/israel-hostage-rescue-palestinian-deaths-analysis/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Local police complained about Secret Service after Trump rally shooting, videos show",
-    "content": "Body-cam footage released Thursday shows local police searching for Thomas Matthew Crooks in the moments before he opened fire.",
-    "date": "2024-08-09",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2024/08/08/trump-rally-shooting-police-body-cam-footage-released/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "‘We lost sight of him’: Radio traffic shows failed search for Trump rally shooter",
-    "content": "A disjointed communications system on the day of the rally hampered the Secret Service’s ability to grasp the threat in real time, a Post examination found.",
-    "date": "2024-08-03",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/08/03/trump-rally-police-radio-transmissions/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Trump rally gunman stopped firing after local officer shot at him",
-    "content": "Thomas Matthew Crooks temporarily recoiled from his rooftop perch and did not shoot again before he was killed by a Secret Service countersniper.",
-    "date": "2024-07-30",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/07/30/trump-rally-local-officer-shot/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Va. health staff failed Irvo Otieno as he suffocated, experts say",
-    "content": "A new analysis of surveillance footage identified apparent lapses in the response by Central State clinical staff.",
-    "date": "2024-07-26",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/07/26/irvo-otieno-medical-response/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "La vie secrète de l’agent Griaznov, l’espion russe du FSB soupçonné d’avoir voulu « déstabiliser les JO »",
-    "content": "Grâce à de nombreux documents et sources exclusives, « Le Monde » a pu retracer le parcours de Kirill Griaznov, ancienne vedette de télé-réalité, devenu espion russe du FSB, qui se vantait d’offrir aux Français « une cérémonie d’ouverture comme il n’y en a jamais eu ».",
-    "date": "2024-07-25",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Sudan’s livestream massacre",
+    "content": "BBC Africa Eye has analysed more than 300 videos shot in Khartoum that day. Using them, we bring you a shocking, street-level view of the violence - as well as testimony from men who say they took part in the attack and that it was planned from the top.",
+    "date": "2019-07-12",
+    "media": "BBC",
+    "link": "https://www.bbc.co.uk/programmes/p07grf73",
     "commentaire": "",
     "authors": [
-      "Lucas Minisini",
-      "Thomas Eydoux",
-      "Charles-Henry Groult",
-      "Der Spiegel",
-      "The Insider"
+      "pas renseigné"
     ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Obstructed view may have delayed sniper response at Trump rally",
-    "content": "A 3D analysis by The Washington Post found two countersniper teams likely had difficulty seeing the gunman before he fired.",
-    "date": "2024-07-17",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2024/trump-rally-shooting-maps-secret-service-analysis/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Assassination Attempt on Trump Unfolded",
-    "content": "Footage from the scene of the shooting at a rally in Pennsylvania on Saturday shows the suspected gunman had a clear line of sight toward the former president, despite being outside the rally’s secure perimeter.",
-    "date": "2024-07-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "La Brigade Bear, nouvel outil paramilitaire de la Russie en Afrique",
-    "content": "Depuis la mort d’Evgueni Prigojine le 23 août 2023, le ministère russe de la défense a repris en main les activités du Groupe Wagner en Afrique. Parmi les différentes unités paramilitaires qu’il encadre, la Brigade Bear, dont les hommes ont fait une arrivée remarquée au Burkina Faso.",
-    "date": "2024-07-06",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Gamblers Like Me: The Dark Side of Sports Betting",
+    "content": "Sports betting has exploded across Africa. But are the betting companies playing it straight? Do the punters really understand the odds they’re up against? And who is getting rich from the thrill of the beautiful game?",
+    "date": "2019-09-24",
+    "media": "BBC",
+    "link": "https://www.bbc.co.uk/programmes/p07p578x",
     "commentaire": "",
     "authors": [
-      "Thomas Eydoux",
-      "Benjamin Roger",
-      "Cellule Enquête vidéo"
+      "pas renseigné"
     ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Comment Europe 1 a caviardé les dérapages politiques de l’émission « On marche sur la tête » de Cyril Hanouna",
-    "content": "« Le Monde » a chiffré la surreprésentation de l’extrême droite et identifié plusieurs dizaines de minutes de direct discrètement supprimées des replays de la radio.",
-    "date": "2024-06-29",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Libya's 'Game of Drones'",
+    "content": "Libya, January 2020. 26 unarmed cadets are killed by an explosion for which no one has ever claimed responsibility.What hit them? Where did it come from?Which foreign powers are secretly fuelling Libya’s war?",
+    "date": "2021-04-30",
+    "media": "BBC",
+    "link": "https://www.bbc.co.uk/programmes/p09g8ssj",
     "commentaire": "",
     "authors": [
-      "Charles-Henry Groult",
-      "Antoine Apelbaum",
-      "Antoine Schirer",
-      "Cellule Enquête vidéo"
+      "pas renseigné"
     ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Guerre Israël-Hamas : ce que montre l’analyse détaillée des images du bombardement israélien d’un camp de déplacés à Rafah",
-    "content": "L’armée israélienne dit que sa frappe n’est pas directement responsable de l’incendie qui a tué au moins 45 personnes, dans la nuit du 26 au 27 mai, et laisse entendre que des armes ou munitions palestiniennes ont pu le déclencher. Les images analysées par « Le Monde » éclairent d’autres hypothèses, comme la présence de bouteilles de gaz de cuisson.",
-    "date": "2024-05-30",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Three Killings in Kampala",
+    "content": "In November 2020, more than 50 people were shot and killed during a government crackdown on the streets of Uganda’s capital, Kampala. Officials defended the use of live fire, saying the police were responding to rioters. But a new investigation by #BBCAfricaEye documents a killing spree on Kampala Road, and shows damning evidence that Ugandan security forces, firing from the back of a police truck, shot at least seven unarmed people.",
+    "date": "2021-05-31",
+    "media": "BBC",
+    "link": "https://www.bbc.com/news/av/world-africa-57286419",
     "commentaire": "",
     "authors": [
-      "Liselotte Mas",
-      "Asia Balluffier",
-      "Rüzgar Mehmet Akgün",
-      "Cellule Enquête vidéo"
+      "pas renseigné"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Comment des milliers de migrants ont été abandonnés en plein désert avec le soutien de l’Europe",
-    "content": "Une enquête de plusieurs mois menée par « Le Monde », le collectif de journalistes « Lighthouse Reports » et sept médias internationaux révèle comment des dizaines de milliers de migrants en route vers l’Europe ont été arrêtés et abandonnés en plein désert, au Maroc, en Tunisie et en Mauritanie.",
-    "date": "2024-05-21",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Boris Nemtsov: Asassins 'murdered Russian politician'",
+    "content": "An investigation from Bellingcat, The Insider, and BBC Eye Investigations reveals evidence that in the year running up to his murder, Russian opposition leader Boris Nemtsov was being shadowed by a government agent linked to a secret assassination squad. In February 2015, Nemtsov—a fierce critic of Vladimir Putin—was shot dead on a bridge in the shadow of the Kremlin. \nFive men were convicted for his murder, but questions remained about who ordered the killing.",
+    "date": "2022-04-05",
+    "media": "BBC",
+    "link": "https://www.bbc.com/reel/video/p0bxw12s/boris-nemtsov-asassins-murdered-russian-politician-",
     "commentaire": "",
     "authors": [
-      "Liselotte Mas",
-      "Asia Balluffier",
-      "Rüzgar Mehmet Akgün",
-      "Cellule Enquête vidéo"
+      "pas renseigné"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "With Europe’s support, North African nations push migrants to the desert",
-    "content": "Europe backs aggressive operations by governments in North Africa that lead to migrants being dumped in barren deserts, a joint investigation shows.",
-    "date": "2024-05-20",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2024/eu-migrant-north-africa-mediterranean/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Despite warnings of violence at UCLA, police didn’t step in for over 3 hours",
-    "content": "Faculty had raised alarms in the days before the attack on pro-Palestinian protesters. That night, one witness called emergency services 11 times before police intervened.",
-    "date": "2024-05-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/05/11/ucla-protests-police-inaction-fights/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Israel’s offensive is destroying Gaza’s ability to grow its own food",
-    "content": "Israeli airstrikes and bulldozers have destroyed key parts of Gaza’s food infrastructure, including agricultural land, olive and fruit trees, and greenhouses.",
-    "date": "2024-05-03",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2024/gaza-israel-agriculture-food-fisheries/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: ‘We’re Aware of the Location’: Aid Groups in Gaza Coordinated With I.D.F. but Still Came Under Fire",
-    "content": "Visual evidence and internal communications obtained by The Times show six aid groups based in Western countries, including Israel’s strongest allies, had humanitarian sites hit by Israeli strikes, even after the locations were shared with the I.D.F.",
-    "date": "2024-04-25",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Iran expands public crackdown on women and girls, sparking public anger",
-    "content": "The new wave of repression appears to be one of the most significant efforts to roll back perceived social gains in the aftermath of the 2022 protest movement.",
-    "date": "2024-04-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/04/25/iran-women-crackdown-morality-police/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Palestinian paramedics said Israel gave them safe passage to save a 6-year-old girl in Gaza. They were all killed.",
-    "content": "A Washington Post examination raises questions about Israel’s assertion that its forces were “not present near the vehicle or within the firing range” of 6-year-old Hind Rajab.",
-    "date": "2024-04-16",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2024/hind-rajab-israel-gaza-killing-timeline/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Baltimore Key Bridge collapsed in under 40 seconds, video shows",
-    "content": "See how the bridge collapsed in early morning on March 26 after being hit by a cargo ship.",
-    "date": "2024-03-26",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/dc-md-va/2024/03/26/video-audio-baltimore-bridge-collapse/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Drone footage raises questions about Israeli justification for deadly strike on Gaza journalists",
-    "content": "Footage recovered from the drone of an Al Jazeera team killed by the IDF in a targeted Jan. 7 missile strike raises critical questions about the Israeli justification for the attack.",
-    "date": "2024-03-19",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2024/03/19/gaza-journalists-killed-israel-al-jazeera-footage/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: I.D.F. Videos Add to Confusion Over Gazans Killed at Aid Site",
-    "content": "The Israeli military released a heavily edited video to deflect blame, but the footage did little to clear up what led to mass casualties as people crowded around food aid trucks in northern Gaza.",
-    "date": "2024-03-01",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video is said to show U.N. relief worker taking body of Israeli shot on Oct. 7",
-    "content": "The footage of the person Israel identified would be the first to surface publicly of any of the individuals Israel accused of participating in the Oct. 7 attack.",
-    "date": "2024-02-17",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/02/16/unrwa-video-oct-7-israel/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Abandonnés en mer (1/2) : un équipage syrien bloqué depuis deux ans dans un port en Libye",
-    "content": "L’équipage de l’East Express est bloqué depuis plus de deux ans dans le port de Misrata, en Libye. Ils affirment que le propriétaire du navire les a abandonnés et leur doit des milliers de dollars d’arriérés de salaire. Regardez le 1er volet de l'enquête des Observateurs de France en deux parties avec la cellule d'investigation syrienne indépendante SIRAJ. Nous y révélons un dispositif complexe de sociétés-écrans utilisées par un groupe d’armateurs syro-roumains afin d'échapper aux sanctions occidentales.",
-    "date": "2024-02-14",
-    "media": "Les Observateurs",
-    "link": "https://www.youtube.com/watch?v=sJucRNoRDk8&list=PL6MttmbrzTMST-yUmSVNXSD7apFbiKPpb&index=3",
+    "title": "Racism for Sale",
+    "content": "In February 2020 a shocking video began to circulate on Chinese social media. A group of African children are being instructed, by a voice off-camera, to chant phrases in Chinese. The kids repeat the words with smiles and enthusiasm — but they don't understand that what they're being told to say is \" I am a black monster and my IQ is low.\"",
+    "date": "2022-06-13",
+    "media": "BBC",
+    "link": "https://www.youtube.com/watch?v=I0DJlSqlmEw",
     "commentaire": "",
     "authors": [
-      "Mahmoud Naffakh"
+      "Runako Celina",
+      "Henry Mhango"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Settlers killed a Palestinian teen. Israeli forces didn’t stop it.",
-    "content": "A review of videos from the deadliest settler attack in the West Bank since the war began shows how increasingly violent tactics have gone unpunished.",
-    "date": "2024-01-09",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2024/01/09/israel-settler-violence-qusra-west-bank/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Israel has waged one of this century’s most destructive wars in Gaza",
-    "content": "The damage in Gaza has outpaced other recent conflicts, evidence shows. Israel has dropped some of the largest bombs commonly used today near hospitals.",
-    "date": "2023-12-23",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2023/israel-war-destruction-gaza-record-pace/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Visual Evidence Shows Israel Dropped 2,000-Pound Bombs Where It Ordered Gaza’s Civilians to Move for Safety",
-    "content": "A Times investigation used aerial imagery and artificial intelligence to detect bomb craters that showed that one of Israel’s biggest bombs was used routinely in south Gaza.",
-    "date": "2023-12-22",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Watch ‘Failure at the Fence’",
-    "content": "“Frontline” and The Washington Post partnered on a detailed examination of how Hamas breached Israel’s vaunted “Iron Wall” on Oct. 7 to carry out its attack.",
-    "date": "2023-12-20",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/12/19/failure-at-the-fence-documentary/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "L’espion chinois, le député belge et les institutions européennes",
-    "content": "Les journalistes du « Spiegel », du « Financial Times » et du « Monde » ont eu accès à des centaines de messages échangés entre un agent du renseignement chinois, Daniel Woo, et l’un de ses contacts en Europe, l’ancien député belge d’extrême droite Frank Creyelman.",
-    "date": "2023-12-15",
-    "media": "Le Monde",
-    "link": "",
+    "title": "The Bandit Warlords of Zamfara",
+    "content": "On north western Nigeria ultra-violent bandit gangs raid villages, attack drivers, abduct schoolchildren, and kill anyone who resists. But who are these men, and what do they want? A new documentary from BBC Africa Eye talks us into the heart of Nigeria’s worst security crisis, and brings us face to face with some of the most feared bandit leaders in Zamfara state.",
+    "date": "2022-07-25",
+    "media": "BBC",
+    "link": "https://www.bbc.co.uk/programmes/p0cnl8fb",
     "commentaire": "",
     "authors": [
-      "Lucas Minisini",
-      "Thomas Eydoux"
+      "pas renseigné"
     ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Israel used U.S.-supplied white phosphorus in Lebanon attack",
-    "content": "An analysis of shell fragments shows Israel used U.S.-made white phosphorus munitions in an attack that a rights group says should be investigated as a war crime.",
-    "date": "2023-12-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/12/11/israel-us-white-phosphorus-lebanon/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "« Dubaï connexion, comment blanchir cinquante millions de dollars » : découvrez le troisième épisode de notre série vidéo « Narco Business »",
-    "content": "Pendant deux ans, Bertrand Monnet, professeur à l’Edhec et spécialiste de l’économie du crime, a filmé pour « Le Monde » toutes les étapes du « business model » du cartel de Sinaloa, au Mexique. Dans ce troisième épisode, rendez-vous à Dubaï avec les « narcos » et leurs conseillers financiers, pour savoir comment blanchir des millions de dollars.",
-    "date": "2023-12-01",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Finding My Torturer",
+    "content": "On March 6th, huge anti-war demonstrations across Russia saw more than 5,000 protesters arrested. 29 were taken to Moscow's Brateyevo Police Station for questioning. There, an unnamed officer wearing black subjected at least 11 young women to verbal and physical abuse, often amounting to torture. This included suffocation.",
+    "date": "2023-01-30",
+    "media": "BBC",
+    "link": "https://www.bbc.co.uk/programmes/p0dzxj9t",
     "commentaire": "",
     "authors": [
-      "Bertrand Monnet (enquête",
-      "images)",
-      "Pablo Teyssier-Verger (montage)",
-      "Adrien Vande Casteele (motion design)",
-      "Marceau Bretonnier (direction artistique)",
-      "Asia Balluffier",
-      "Charles-Henry Groult",
-      "Stéphane Oiry (dessins)"
+      "pas renseigné"
     ],
-    "theme": "crime organisé",
-    "proact": "",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
@@ -750,213 +167,1416 @@ window.DATA = [
       "Richard Irvine-Brown",
       "Benedict Garman and Sean Seddon"
     ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "How Hamas exploited Israel’s reliance on tech to breach barrier on Oct. 7",
-    "content": "This Post video shows how Hamas fighters neutralized long-range cameras, sophisticated sensors and remote-control weapons.",
-    "date": "2023-11-17",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/11/17/how-hamas-breached-israel-iron-wall/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Du cartel mexicain de Sinaloa aux rues de New York : au cœur du business du fentanyl",
-    "content": "Pendant deux ans, Bertrand Monnet, professeur à l’Edhec et spécialiste de l’économie du crime, a filmé pour « Le Monde » toutes les étapes du « business model » du cartel de Sinaloa, au Mexique. Dans ce deuxième épisode, zoom sur l’organisation bien huilée du cartel pour vendre le fentanyl, des clans du Culiacan aux dealeurs de New York.",
-    "date": "2023-11-17",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Bertrand Monnet (enquête",
-      "images)",
-      "Charles-Henry Groult",
-      "Pablo Teyssier-Verger (montage)",
-      "Marceau Bretonnier (motion design)"
-    ],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Tir d’obus à l’hôpital Al-Shifa à Gaza : les images pointent la responsabilité des Israéliens",
-    "content": "Dans la soirée du 9 novembre, un projectile plonge au dessus du plus grand hôpital de Gaza. Quelques instants plus tard, deux hommes sont blessés, dont un très gravement. Un reste d’obus est retrouvé à leurs pieds. « Le Monde » est en mesure d’affirmer qu’il s’agit d’un obus éclairant israélien.",
-    "date": "2023-11-15",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Liselotte Mas",
-      "Cellule Enquête vidéo",
-      "Adrien Vande Casteele"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "« Narco Business », immersion vidéo inédite au cœur des cartels de la drogue",
-    "content": "Pendant deux ans, Bertrand Monnet, professeur à l’Edhec et spécialiste de l’économie du crime, a filmé pour « Le Monde » toutes les étapes du « business model » du cartel de Sinaloa, au Mexique. Dans ce premier volet, plongée inédite dans les laboratoires de M30, la pilule de fentanyl qui ravage les Etats-Unis.",
-    "date": "2023-11-07",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Bertrand Monnet (enquête",
-      "images)",
-      "Charles-Henry Groult",
-      "Pablo Teyssier-Verger (montage)",
-      "Marceau Bretonnier (motion-design)"
-    ],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Explosion à l’hôpital Al-Ahli à Gaza : les nouveaux éléments de notre enquête",
-    "content": "Deux semaines après les faits, une nouvelle analyse du « Monde » montre que la trajectoire et la vitesse d’une salve de roquettes palestiniennes sont compatibles avec l’explosion à l’hôpital. Elle éclaire une nuit d’affrontements, entre échanges de tirs et survols par des avions, vraisemblablement israéliens.",
-    "date": "2023-11-03",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Thomas Eydoux",
-      "Cellule Enquête vidéo",
-      "Félix Pommier (motion design)"
-    ],
-    "theme": "humanitaire",
+    "theme": "Stratégies militaires et d'influence",
     "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Mapping Israel’s ground assault into Gaza",
-    "content": "The Washington Post geolocated videos, photos and satellite images to understand where Israeli’s ground assault has reached within Gaza.",
-    "date": "2023-10-31",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/10/30/israel-ground-assault-gaza-map/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "A barrage and a midair explosion: What visual evidence shows about the Gaza hospital blast",
-    "content": "Videos analyzed by The Washington Post reveal that rockets were launched from Gaza in the direction of al-Ahli Hospital 44 seconds before an explosion there.",
-    "date": "2023-10-26",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/10/26/gaza-hospital-blast-evidence-israel-hamas/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête visuelle - \"Ils ont sonné chez moi\" : les Soudanais pris au piège de la guerre",
-    "content": "Le 15 avril 2023, l’armée soudanaise et la milice des Forces de soutien rapide entraient dans un affrontement armé à Khartoum. Six mois plus tard, le bilan de la guerre civile est déjà lourd. Viols, torture, violences ethniques, expropriations : dans notre nouvelle enquête visuelle, trois de nos Observateurs racontent comment le pays a plongé dans l’horreur.",
-    "date": "2023-10-20",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20231020-soudan-darfour-civils-guerre-arm%C3%A9e-forces-soutien-rapide-viol-exactions-genocide",
+    "title": "The Midwife's Confession",
+    "content": "30 years ago, a journalist in the Indian state of Bihar filmed a series of shocking confessions: midwives admitting they routinely murdered new-born baby girls. Using this unseen archive, BBC Eye explores the disturbing story of infanticide in rural India.",
+    "date": "2024-09-11",
+    "media": "BBC",
+    "link": "https://www.youtube.com/watch?v=uSuMOh_d9oc",
     "commentaire": "",
     "authors": [
-      "Fatma Ben Hamad"
+      "pas renseigné"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Explosion à l’hôpital Al-Ahli à Gaza : ce que montre l’analyse détaillée des images",
-    "content": "Deux jours après les faits, Hamas et armée israélienne continuent de se renvoyer la responsabilité du drame. Les images authentifiées et analysées par « Le Monde » permettent de mieux comprendre ce qu’il s’est passé.",
-    "date": "2023-10-19",
-    "media": "Le Monde",
+    "title": "Video: Syria Chemical Attack: Here’s What Happened",
+    "content": "One of the worst chemical attacks in the Syrian civil war occurred on Tuesday in opposition-held Idlib Province. Dozens of people died, including children. Then the blaming began.",
+    "date": "2017-04-06",
+    "media": "The New York Times",
     "link": "",
     "commentaire": "",
     "authors": [
-      "Liselotte Mas",
-      "Thomas Eydoux",
-      "Cellule Enquête vidéo",
-      "Elisa Bellanger (Motion design)",
-      "Marceau Bretonnier (Motion design)"
+      "Yara Bishara",
+      "Megan Specia",
+      "Natalie Reneau"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "North Korea may be sending arms to Russia for Ukraine war, images suggest",
-    "content": "Russian ships with military links have repeatedly visited a North Korean port in recent months, with the cargo apparently destined for a munitions base on the Ukrainian border.",
-    "date": "2023-10-16",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/10/16/north-korea-russia-weapons-ukraine-war/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête - Haïti : des fidèles sous les balles",
-    "content": "Le 26 août dernier, un pasteur évangélique et ses fidèles ont tenté d’attaquer un gang dans le nord de Port-au-Prince, la capitale haïtienne, munis de bâtons et de machettes. Le gang a répliqué avec des armes à feu, faisant au moins 21 morts. Que s’est-il passé exactement ce jour-là ? Pourquoi de simples fidèles sont-ils allés affronter un gang surarmé ? La rédaction des Observateurs de France 24 a enquêté sur cet événement dans une émission spéciale : \"Haïti : des fidèles sous les balles\".",
-    "date": "2023-10-16",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20231016-enqu%C3%AAte-ha%C3%AFti-des-fid%C3%A8les-sous-les-balles",
-    "commentaire": "",
-    "authors": [
-      "Chloé Lauvergnier"
-    ],
-    "theme": "crime organisé",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Israel appears to use white phosphorus in Gaza, video shows",
-    "content": "The controversial munition, which is commonly used to create smoke to mark targets, can cause severe harm when used against civilians.",
-    "date": "2023-10-13",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/10/12/white-phosphorus-israel-gaza-strike-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Guerre Israël-Hamas : ce que les images révèlent du mode opératoire du mouvement islamiste",
-    "content": "De nombreuses images, de la vidéosurveillance à la propagande du Hamas, permettent de documenter l’attaque subie par Israël, samedi 7 octobre. A partir de ces éléments, vérifiés et analysés, « Le Monde » a reconstitué le mode opératoire des miliciens palestiniens lors de l’opération terroriste « Déluge d’Al-Aqsa ».",
-    "date": "2023-10-13",
-    "media": "Le Monde",
+    "title": "Video: How Syria Spun a Chemical Strike",
+    "content": "A New York Times investigation shows how Syria and its main partner, Russia, have distorted the facts surrounding the chemical weapons attack on Khan Sheikhoun.",
+    "date": "2017-04-26",
+    "media": "The New York Times",
     "link": "",
     "commentaire": "",
     "authors": [
-      "Liselotte Mas",
-      "Thomas Eydoux",
-      "Marceau Bretonnier (Motion design)",
-      "Cellule Enquête vidéo"
+      "Malachy Browne",
+      "Natalie Reneau and Mark Scheffler"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Hamas took at least 64 captives into Gaza, visual evidence suggests",
-    "content": "The hostages include nine children, according to an examination of hundreds of videos and images posted on social media since the fighting began.",
-    "date": "2023-10-12",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/10/12/israel-hostage-count-videos/",
+    "title": "Video: Swastikas, Shields and Flags: Branding Hate in Charlottesville",
+    "content": "We decode the symbols of hate that white supremacists, Nazis and alt-right groups display at their marches, including the violent gathering in Charlottesville, Va.",
+    "date": "2017-08-15",
+    "media": "The New York Times",
+    "link": "",
     "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
+    "authors": [
+      "Ainara Tiefenthäler and Natalie Reneau"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: 10 Minutes. 12 Gunfire Bursts. 30 Videos. Mapping the Las Vegas Massacre.",
+    "content": "The shots began at 10:05. Twelve bursts of gunfire later, the police broke down Stephen Paddock’s door at the Mandalay Bay. The Times mapped 30 videos to draw perhaps the most complete picture to date of what happened.",
+    "date": "2017-10-21",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Drew Jordan",
+      "Anjali Singhvi",
+      "Chris Cirillo and Nicole Fineman"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Scenes From a D.E.A. Drug Raid Gone Wrong",
+    "content": "Surveillance footage from 2012, published for the first time, shows four civilians being killed during a drug operation. Mattathias Schwartz, a journalist working with ProPublica, narrates as boats collide and gunfire erupts.",
+    "date": "2017-10-23",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Natalie Reneau and Mattathias Schwartz"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How Did Bombs Made in Italy Kill a Family In Yemen?",
+    "content": "We followed shipments of bombs from a holiday island in Italy to Saudi Arabia, then found those bombs at the scene of civilian deaths in Yemen. Is Italy capitalizing on a brutal conflict or just doing business?",
+    "date": "2017-12-29",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Barbara Marcolini and Ainara Tiefenthäler"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The Anti-Protest Gear That Despots Love",
+    "content": "China-based Norinco is a state-owned defense company that markets a military-grade crowd-control system complete with water cannons and tear gas launchers. Experts say it’s overkill, but at least one customer — Venezuela — disagrees.",
+    "date": "2017-12-23",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Barbara Marcolini",
+      "Christoph Koettl and Natalie Reneau"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Saudi Blockade Is Starving Yemen",
+    "content": "Yemen is on the brink of famine. One of the poorest countries in the Middle East and riven by conflict, it is now practically sealed off from the world by a sea and air blockade imposed by Saudi Arabia.",
+    "date": "2017-12-19",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Yousur Al-Hlou",
+      "Christoph Koettl and Malachy Browne"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Escape From North Korea: What the Video Shows",
+    "content": "Footage of a dramatic escape by a North Korean soldier into South Korea shows that a pursuing soldier from the North may have violated an international treaty.",
+    "date": "2017-11-23",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Natalie Reneau"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How Strava’s Heat Map Uncovers Military Bases",
+    "content": "Strava's online exercise-tracking map unwittingly reveals remote military outposts — and even the identities of soldiers based there. The situation shows how data collection can lead to unintended consequences.",
+    "date": "2018-01-30",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christiaan Triebert",
+      "Christoph Koettl and Ainara Tiefenthäler"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: For 8 Days, Syria Felt More Like World War III",
+    "content": "Over the course of just eight days in February, the conflict in Syria intensified, with the U.S., Russia, Turkey, Israel and Iran all playing a part. Here’s how one of the most chaotic weeks in the seven-year war unfolded.",
+    "date": "2018-02-16",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini",
+      "Christiaan Triebert",
+      "Natalie Reneau and Drew Jordan"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How a Drone Hunted Three Kurdish Fighters in Syria",
+    "content": "In January, Turkey launched an offensive into Syria’s northwest. We analyzed drone footage released by the military to show how two sides fight on a modern battlefield.",
+    "date": "2018-03-03",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "David Botti",
+      "Barbara Marcolini and Malachy Browne"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Militias Are Burning Villages in Congo. We Tracked the Toll.",
+    "content": "We obtained satellite images that show how lakeshore villages in the Democratic Republic of Congo have been destroyed in recent attacks, forcing 140,000 people to flee their homes.",
+    "date": "2018-03-08",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Malachy Browne and Ben Laffin"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Ambush of U.S. Soldiers in Niger Unfolded",
+    "content": "One of the American soldiers ambushed by militants in Niger was wearing a helmet camera – we analyzed the footage to understand what happened.",
+    "date": "2018-03-20",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "David Botti",
+      "Christoph Koettl",
+      "Thomas Gibbons-Neff and Malachy Browne"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Las Vegas Gunman Planned a Massacre, in 7 Days of Video",
+    "content": "Using exclusive surveillance footage obtained from MGM Resorts, we pieced together the last days of Stephen Paddock, the Las Vegas gunman. He plays video poker, laughs with hotel staff and hauls bag after bag of weapons into his suite.",
+    "date": "2018-03-22",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Natalie Reneau",
+      "Adam Goldman",
+      "Drew Jordan and Anjali Singhvi"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How Stephon Clark Was Killed by Police in His Backyard",
+    "content": "Stephon Clark, a 22-year-old unarmed man, was shot by the police in his grandmother’s backyard in Sacramento on March 18. Police body camera and helicopter footage shows details of what happened.",
+    "date": "2018-03-23",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini",
+      "Chris Cirillo and Christoph Koettl"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Satellite Images Reveal the Birth of a Drone Base",
+    "content": "Dust storms, scorching temperatures and lengthy delivery times have put the Pentagon’s new drone base in the Sahara in Niger more than a year behind schedule and $22 million over its original budget. Here is what images from space revealed about the construction process that started in 2016.",
+    "date": "2018-04-22",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Ainara Tiefenthäler and Eric Schmitt"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Did Police Kill These Protesters in Ukraine? What the Videos Show",
+    "content": "Lawyers in Ukraine hope a forensic analysis of videos can provide critical evidence against a paramilitary force accused of killing 48 protesters in 2014.",
+    "date": "2018-05-30",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne and Natalie Reneau"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: 23 Seconds, 5 Critical Moments: How Stephon Clark Was Killed by the Police",
+    "content": "At 9:26 on a Sunday evening, Stephon Clark encountered two police officers. Twenty-three seconds later, they shot and killed him. We analyzed the extensive body camera and helicopter footage frame-by-frame and reviewed the autopsy report to explain what happened.",
+    "date": "2018-06-07",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl and Ben Laffin"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The Militia Threatening American Troops in Syria",
+    "content": "There are roughly 2,000 U.S. troops in Syria. Recently, a statement went out calling for direct attacks against them. Who sent it, and why?",
+    "date": "2018-06-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "David Botti and Christiaan Triebert"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Tracking North Korea’s New Tourism Plans",
+    "content": "Construction is underway in North Korea to build a sprawling resort complex near an area the military has used for testing missiles. The government said it hopes to attract a million tourists a year. From where remains unclear.",
+    "date": "2018-06-15",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christiaan Triebert and Ainara Tiefenthäler"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How a Remote Patch of Land Turned Into a Child Migrant Shelter",
+    "content": "The tent camp in Texas was built this month to house unaccompanied migrant children between the ages of 13 and 17. Satellite imagery reveals how it sprouted up and what’s inside.",
+    "date": "2018-06-22",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl and Ainara Tiefenthäler"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: One Building; Dozens Killed in Syria: How Bashar al-Assad Gassed His Own People",
+    "content": "Syrian officials say there wasn’t a chemical attack. But what really took place in the town of Douma in April? We analyzed 67 videos to reconstruct how at least 34 people died in one apartment building.",
+    "date": "2018-06-25",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Christoph Koettl",
+      "Natalie Reneau",
+      "Anjali Singhvi",
+      "Barbara Marcolini",
+      "Yousur Al-Hlou and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Drone Attack on Maduro Unfolded in Venezuela",
+    "content": "It started with a nervous look to the sky. Two minutes later, two drones exploded. We analyzed videos and photos to show how a speech by President Nicolás Maduro ended in an apparent assassination attempt.",
+    "date": "2018-08-10",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini and Christoph Koettl"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Watch Police Enter the Las Vegas Gunman’s Room",
+    "content": "Newly released video shows the moment the Las Vegas police breached the hotel room of Stephen Paddock. He killed 58 people and wounded hundreds more in a shooting rampage on Oct. 1.",
+    "date": "2018-05-02",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Natalie Reneau and Malachy Browne"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How Surveillance Cameras Tracked Two Russian Hit Men",
+    "content": "British investigators used security footage and flight records to track two Russian men who now stand accused of attempted murder in the March attack featuring the nerve agent Novichok.",
+    "date": "2018-09-06",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne and Drew Jordan"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How a C.I.A. Drone Base Grew in the Desert",
+    "content": "Officials from the U.S. and Niger have confirmed the location of a new C.I.A. drone base to The New York Times. We’ve analyzed its construction and location.",
+    "date": "2018-09-09",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "David Botti and Eric Schmitt"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How a Gang Hunted and Killed a 15-Year-Old in the Bronx",
+    "content": "The murder of Lesandro Guzman-Feliz, known as Junior, drew outrage across New York City. Our investigation retraces his last steps — and reveals how a recent wave of violence took his life just two blocks from home.",
+    "date": "2018-09-10",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Luis Ferré-Sadurní",
+      "James C. McKinley Jr.",
+      "Barbara Marcolini",
+      "Ainara Tiefenthäler",
+      "Malachy Browne and Drew Jordan"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The Bomb Suspect’s Van Is Covered With Stickers. Here’s What They Show.",
+    "content": "Federal law enforcement officials seized the van of Cesar Sayoc Jr., who was arrested in connection with the wave of bombs sent to prominent Democrats and critics of President Trump. Here’s why the van could be key to the investigation.",
+    "date": "2018-10-26",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "David Botti",
+      "Drew Jordan and Christoph Koettl"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Killing Khashoggi: How a Brutal Saudi Hit Job Unfolded",
+    "content": "An autopsy expert. A lookalike. A black van. Our video investigation follows the movements of the 15-man Saudi hit team that killed and dismembered the journalist Jamal Khashoggi.",
+    "date": "2018-11-16",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "David Botti",
+      "Malachy Browne",
+      "Drew Jordan",
+      "Anjali Singhvi",
+      "David D. Kirkpatrick",
+      "Carlotta Gall and Ben Hubbard"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: A Black Driver, a Marijuana Bust and a Body Camera That Turned Off",
+    "content": "A traffic stop in New York led to a young black man being arrested for possession of marijuana. What happened? The New York Times obtained videos that offer a rare window into how far police may be willing to go to make an arrest.",
+    "date": "2018-11-19",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini",
+      "Joseph Goldstein and Malachy Browne"
+    ],
+    "theme": "répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How an Elite Nigerian Unit Killed Dozens of Protesters",
+    "content": "Nigeria’s military said it acted in self-defense. Our visual investigation shows that this claim doesn’t hold up, and reveals how an elite military unit used machine guns on unarmed marchers in October, killing dozens.",
+    "date": "2018-12-17",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Emmanuel Akinwotu",
+      "Malachy Browne",
+      "Natalie Reneau",
+      "Ainara Tiefenthäler",
+      "David Botti and Whitney Hurst"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: An Israeli Soldier Killed a Medic in Gaza. We Investigated the Fatal Shot.",
+    "content": "On June 1, an Israeli soldier shot into a crowd, killing a volunteer medic named Rouzan al-Najjar. Israeli officials say soldiers only use live fire as a last resort. Our investigation shows otherwise. We analyzed over 1,000 photos and videos, froze the fatal moment in a 3-D model of the protest, and interviewed more than 30 witnesses and I.D.F. commanders to reveal how Rouzan was killed.",
+    "date": "2018-12-30",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Yousur Al-Hlou",
+      "Malachy Browne",
+      "John Woo and David M. Halbfinger"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The U.S. Blamed Maduro for Burning Aid to Venezuela. New Video Casts Doubt.",
+    "content": "Top U.S. officials have said Nicolás Maduro’s regime burned an aid convoy last month. But TV footage contradicts that claim and shows how this unverified information spread across Twitter and television.",
+    "date": "2019-03-10",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Deborah Acosta",
+      "Drew Jordan and Anjali Singhvi"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Why U.S. Weapons Sold to the Saudis Are Hitting Hospitals in Yemen",
+    "content": "In our video, a former State Department official sent to advise the Saudi-led coalition says he saw firsthand how it failed to avoid civilian casualties in Yemen — and how the U.S. chose to look the other way.",
+    "date": "2019-05-23",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Robin Stein",
+      "Caroline Kim",
+      "Malachy Browne and Whitney Hurst"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: One Bomb. 11 Children Killed. And the Evidence That Implicates the U.S.",
+    "content": "A woman and 11 children were killed in an airstrike on a home in Afghanistan last fall. We spoke to the father who was left to search for answers. The United States initially said it was not involved, but after our visual investigation, it changed its story.",
+    "date": "2019-06-03",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christiaan Triebert",
+      "David Botti",
+      "Fahim Abed",
+      "Jessica Purkiss and Malachy Browne"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The U.S. Says Iran Attacked Tankers. Does the Evidence Add Up?",
+    "content": "A Times analysis of a video and images publicly released by the U.S. Defense Department indicates that an Iranian patrol boat removed an object from a tanker in the Gulf of Oman on June 13 that may have been a limpet mine.",
+    "date": "2019-06-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "David Botti",
+      "Natalie Reneau",
+      "Christiaan Triebert",
+      "Nilo Tabrizy and Malachy Browne"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Europe Shut These Migrants Out, Libyan Rebels Bombed Them",
+    "content": "A Times investigation shows that the African migrants killed by a July 2 airstrike in Libya were being detained near a weapons depot — a prime target in the country’s civil war. Before the attack, the E.U. ignored calls to move the migrants.",
+    "date": "2019-07-11",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Dmitriy Khavin",
+      "Christiaan Triebert",
+      "Haley Willis",
+      "Malachy Browne and David Botti"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Did Hong Kong Police Use Violence Against Protesters? What the Videos Show",
+    "content": "In a Visual Investigation, The New York Times shows how the Hong Kong police used excessive force by tear-gassing, beating and dragging protesters on June 12.",
+    "date": "2019-07-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini",
+      "Haley Willis",
+      "Javier C. Hernández",
+      "Tiffany May",
+      "Elsie Chen",
+      "Drew Jordan and Shane O’Neill"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How Kim Jong-un Smuggled Luxury Mercedes to North Korea",
+    "content": "Kim Jong-un frequently shows off the Mercedes he has obtained in open defiance of U.N. sanctions intended to ban luxury goods from North Korea. Using shipping data, corporate records, satellite imagery and interviews, our investigation tracks the circuitous routes used to import illicit goods.",
+    "date": "2019-07-16",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Drew Jordan and Caroline Kim"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: ‘Please Stop Beating Us’: Where Were Hong Kong’s Police?",
+    "content": "After a violent mob attack in Hong Kong, protesters accused the police of ignoring their calls for help. We reconstruct what happened that night.",
+    "date": "2019-07-30",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini",
+      "Haley Willis",
+      "K.K. Rebecca Lai",
+      "Caroline Kim",
+      "Drew Jordan and Tiffany May"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Laser Pointers and Traffic Cones: Creative Ways Hong Kong Protesters Are Organizing",
+    "content": "Hong Kong’s protesters have employed innovative tactics to stay safe and evade the police. Our visual investigation gives an up-close look at those strategies.",
+    "date": "2019-08-10",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis",
+      "Dmitriy Khavin",
+      "Dave Horn and K.K. Rebecca Lai"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Trump Is Having Tent Courthouses Built Along the Border. Here’s What They Look Like.",
+    "content": "Tent courthouses are the administration’s latest move in its “Remain in Mexico” policy, forcing asylum seekers to wait in one of Mexico’s most dangerous states until their hearings. We track the tents’ expansion through satellite imagery — and explain how they could make the asylum process even harder.",
+    "date": "2019-08-29",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis",
+      "Christoph Koettl",
+      "Caroline Kim and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Hong Kong Police Shot a Protester at Point-Blank Range. We Break Down What Happened.",
+    "content": "In a major escalation of violence since protests began four months ago, the Hong Kong police fired a live round at a protester from point-blank range. We analyzed the footage to create a comprehensive picture of what exactly happened.",
+    "date": "2019-10-01",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis and Ainara Tiefenthäler"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Russia Bombed Four Syrian Hospitals. We Have Proof.",
+    "content": "The Times obtained thousands of air force recordings, which reveal for the first time that Russia repeatedly bombed hospitals in Syria.",
+    "date": "2019-10-13",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Christiaan Triebert",
+      "Malachy Browne",
+      "Dmitriy Khavin",
+      "Drew Jordan and Whitney Hurst"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: We Proved Russian Pilots Bombed a Hospital. Then They Did It Again.",
+    "content": "Four weeks ago, The Times provided visual evidence showing that the Russian Air Force bombed a Syrian hospital. Last Wednesday, Russia did it again.",
+    "date": "2019-11-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christiaan Triebert",
+      "Evan Hill",
+      "Malachy Browne",
+      "Dmitriy Khavin and Aaron Byrd"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: ‘Sent Candy’: Cockpit Tapes Show Russian Pilots Bombing Syrian Civilians",
+    "content": "A Times investigation used cockpit recordings to show for the first time how Russian pilots attacked civilians in Syria this summer, killing dozens.",
+    "date": "2019-12-01",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Christiaan Triebert",
+      "Dmitriy Khavin",
+      "Malachy Browne and David Botti"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: India’s Police Response to Protests Was Swift and Violent, Videos Show",
+    "content": "When students at a university in India’s capital protested a controversial citizenship bill, the police responded with violence. We analyzed the footage to show the tactics officers are using.",
+    "date": "2019-12-17",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis and Caroline Kim"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Secret Video Offers Rare Look Inside Chinese Labor Program",
+    "content": "China is relocating Uighurs and other Muslim minorities to urban areas as part of a contentious labor program. The Times obtained rare footage taken inside one.",
+    "date": "2019-12-30",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Muyi Xiao",
+      "Christoph Koettl",
+      "Natalie Reneau and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Satellite Images Reveal Impact of European Floods",
+    "content": "Towns in multiple countries have been devastated. We used radar technology to look through the clouds at the damage below.",
+    "date": "2021-07-17",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Ainara Tiefenthäler",
+      "Christoph Koettl and Drew Jordan"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Video Shows Ukrainian Airliner Being Hit Over Iran",
+    "content": "The New York Times has obtained and verified video showing the moment a Ukrainian airliner was hit in Iran.",
+    "date": "2020-01-09",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "not mentioned"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Ukrainian Flight 752: How a Plane Came Down in 7 Minutes",
+    "content": "Video verified by The New York Times shows that the Iranian military fired two missiles at the passenger jet. Here’s everything we know about what happened in that seven-minute flight.",
+    "date": "2020-01-12",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christiaan Triebert",
+      "Drew Jordan",
+      "Ainara Tiefenthäler",
+      "Malachy Browne and Whitney Hurst"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Ukraine Flight 752: New Video Shows First Missile Hit Plane",
+    "content": "A new video, verified by The New York Times, shows that the Iranian military launched two missiles at the passenger jet in around 30 seconds. The plane, ablaze, continued flying for several minutes before crashing and killing all 176 people on board.",
+    "date": "2020-01-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Malachy Browne",
+      "Drew Jordan and Ainara Tiefenthäler"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How Did Iran’s Qassim Suleimani Wield Power? We Tracked the Quds Force Playbook",
+    "content": "Before his killing, Maj. Gen. Qassim Suleimani of Iran was everywhere. His persona is a clue into how the elite Quds Force he commanded operates.",
+    "date": "2020-02-02",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis",
+      "Christiaan Triebert",
+      "Nilo Tabrizy",
+      "Christoph Koettl",
+      "Natalie Reneau and Drew Jordan"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Ahmaud Arbery’s Final Minutes: What Videos and 911 Calls Show",
+    "content": "Using security footage, cellphone video, 911 calls and police reports, The Times has reconstructed the 12 minutes before Ahmaud Arbery was shot dead in Georgia on Feb. 23, 2020.",
+    "date": "2020-05-17",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Drew Jordan",
+      "Dmitriy Khavin and Ainara Tiefenthäler"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How George Floyd Was Killed in Police Custody",
+    "content": "The Times has reconstructed the death of George Floyd on May 25, 2020. Security footage, witness videos and official documents show how a series of actions by officers turned fatal. (This video contains scenes of graphic violence.)",
+    "date": "2020-06-01",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Ainara Tiefenthäler",
+      "Christiaan Triebert",
+      "Drew Jordan",
+      "Haley Willis and Robin Stein"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The David McAtee Shooting: Did Aggressive Policing Lead to a Fatal Outcome?",
+    "content": "The Times analyzed videos of the shooting by the police and National Guardsmen of David McAtee in Louisville, Ky., on June 1 to show how the episode unfolded — and how questionable policing tactics played a role.",
+    "date": "2020-06-05",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Shane O’Neill",
+      "Drew Jordan and Cora Engelbrecht"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The Killing of Rayshard Brooks: How a 41-Minute Police Encounter Suddenly Turned Fatal",
+    "content": "The Times analyzed witness videos, police footage and official documents to identify the critical moments — and missteps — that led to the killing of Rayshard Brooks in Atlanta on June 12, 2020.",
+    "date": "2020-06-22",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Caroline Kim",
+      "Muyi Xiao and Barbara Marcolini"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Philadelphia Police Tear-Gassed a Group of Trapped Protesters",
+    "content": "On June 1, SWAT teams turned a protest march in Philadelphia into chaos. We went to the site, interviewed witnesses and analyzed dozens of videos to reconstruct what happened.",
+    "date": "2020-06-25",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Nilo Tabrizy",
+      "Muyi Xiao",
+      "Natalie Reneau and Drew Jordan"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Philadelphia Police Temporarily Ban Tear Gas for Crowd Control",
+    "content": "The announcement came hours after The New York Times published its visual investigation into a protest against police brutality in Philadelphia on June 1.",
+    "date": "2020-06-25",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "not mentioned"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How ICE Helped Spread the Coronavirus",
+    "content": "The New York Times, in collaboration with The Marshall Project, investigated how Immigration and Customs Enforcement became a domestic and global spreader of the virus.",
+    "date": "2020-07-10",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Barbara Marcolini",
+      "Emily Kassie",
+      "Dmitriy Khavin and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Wearing a Mask? It May Come From China’s Controversial Labor Program",
+    "content": "Our visual investigation reveals that several Chinese companies are using Uighur labor from a contentious government program to produce P.P.E. during the pandemic. We track some of that equipment to the U.S. and around the world.",
+    "date": "2020-07-19",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Muyi Xiao",
+      "Haley Willis",
+      "Christoph Koettl",
+      "Natalie Reneau and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Videos Show How Federal Officers Escalated Violence in Portland",
+    "content": "Peaceful protests were already happening for weeks when federal officers arrived on July 4. Our video shows how President Trump’s deployment ignited chaos.",
+    "date": "2020-07-24",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Ainara Tiefenthäler",
+      "Evan Hill",
+      "Drew Jordan",
+      "Malachy Browne and David Botti"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How an Oregon Wildfire Became One of the Most Destructive",
+    "content": "The Almeda fire left a path of destruction as it tore through the Rogue Valley in southern Oregon. About 24 hours after it started, an estimated 2,350 homes had been left in ashes. We used satellite images, videos and social media posts to track what happened.",
+    "date": "2020-09-20",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Caroline Kim",
+      "Drew Jordan and Arielle Ray"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: A Sudden Spray of Bullets: Reconstructing a U.S. Task Force’s Killing of an Antifa Activist",
+    "content": "President Trump praised the killing of Michael Reinoehl, suspected of fatally shooting a far-right protester, as “retribution.” Our investigation found that officers may have shot without warning or seeing a gun.",
+    "date": "2020-10-13",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Derek Knowles",
+      "Stella Cooper",
+      "Drew Jordan",
+      "Dmitriy Khavin and Arielle Ray"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: ‘I Am On Your Side’: How the Police Gave Armed Groups a Pass in 2020",
+    "content": "Armed groups showed up to scores of racial justice protests since May. Our video shows how police officers at times let them operate freely.",
+    "date": "2020-11-02",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Stella Cooper",
+      "Evan Hill",
+      "Dmitriy Khavin",
+      "Arielle Ray and Drew Jordan"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Police Killed Breonna Taylor",
+    "content": "None of the police officers who raided Breonna Taylor’s home used body cameras, impeding the public from a full understanding of what happened. The Times’s visual investigation team built a 3-D model of the scene and pieced together critical sequences of events to show how poor planning and shoddy police work led to a fatal outcome.",
+    "date": "2020-12-28",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Malachy Browne",
+      "Anjali Singhvi",
+      "Natalie Reneau and Drew Jordan"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: ‘We Took Over the Capitol’: Tracking the Oath Keepers Charged With Conspiracy",
+    "content": "Videos show members of the right-wing paramilitary movement entering the Capitol during the Jan. 6 attack. The Times tracked three of them amid the mob.",
+    "date": "2021-01-20",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Stella Cooper",
+      "Christiaan Triebert",
+      "Evan Hill",
+      "Ben Decker",
+      "Dmitriy Khavin and Drew Jordan"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: ‘We’ve Lost the Line!’: Radio Traffic Reveals Police Under Siege at Capitol",
+    "content": "The Times obtained District of Columbia police radio communications and synchronized them with footage from the scene to show in real time how officers tried and failed to stop the attack on the U.S. Capitol.",
+    "date": "2021-03-21",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Robin Stein",
+      "Haley Willis",
+      "Danielle Miller and Michael S. Schmidt"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: A Tanker and a Maze of Companies: One Way Illicit Oil Reaches North Korea",
+    "content": "We spent months reviewing ship-tracking data, corporate records and satellite imagery to uncover one way North Korea evades strict international sanctions.",
+    "date": "2021-03-22",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Muyi Xiao",
+      "Stella Cooper",
+      "Aaron Byrd",
+      "Natalie Reneau and Amy Chang Chien"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Militants Attacked a Key Town in Mozambique. Where Was the Government?",
+    "content": "Insurgents who have pledged allegiance to the Islamic State attacked the strategic town of Palma in March. We interviewed survivors and used videos, satellite imagery and ship-tracking data to show how Mozambique’s government failed to protect its civilians — leaving thousands to fend for themselves.",
+    "date": "2021-05-26",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis",
+      "Christiaan Triebert",
+      "Stella Cooper",
+      "Danielle Miller",
+      "Aaron Byrd and Christina Goldbaum"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Gaza’s Deadly Night: How Israeli Airstrikes Killed 44 People",
+    "content": "On May 16, Israeli airstrikes destroyed three apartment buildings, decimating several families. We visited the scene, interviewed survivors and analyzed videos, photos and satellite images to find out what happened.",
+    "date": "2021-06-24",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Evan Hill",
+      "Christiaan Triebert",
+      "Ainara Tiefenthäler",
+      "John Ismay",
+      "Soliman Hijjy",
+      "Phil Robibero",
+      "Drew Jordan",
+      "Yousur Al-Hlou",
+      "Christoph Koettl and Patrick Kingsley"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Day of Rage: How Trump Supporters Took the U.S. Capitol",
+    "content": "A six-month Times investigation has synchronized and mapped out thousands of videos and police radio communications from the Jan. 6 Capitol riot, providing the most complete picture to date of what happened — and why.",
+    "date": "2021-06-30",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Muyi Xiao",
+      "Brenna Smith",
+      "Evan Hill",
+      "Robin Stein",
+      "Ainara Tiefenthäler and Dieu Nalio Chery"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Alleged Assassins in Haiti Claimed to Be D.E.A.",
+    "content": "In videos filmed from nearby buildings and synchronized by the The New York Times, the group of commandos who appeared to be arriving to assassinate President Jovenel Moïse shouted that they were part of a U.S. Drug Enforcement Agency operation.",
+    "date": "2021-07-08",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Muyi Xiao",
+      "Brenna Smith",
+      "Evan Hill",
+      "Robin Stein",
+      "Ainara Tiefenthäler and Dieu Nalio Chery"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How a U.S. Drone Strike Killed the Wrong Person",
+    "content": "A week after a New York Times visual investigation, the U.S. military admitted to a tragic mistake in an Aug. 29 drone strike in Kabul that killed 10 civilians, including an aid worker and seven children.",
+    "date": "2021-09-10",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Evan Hill",
+      "Matthieu Aikins",
+      "Eric Schmitt",
+      "Ainara Tiefenthäler and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: The U.S. Military Said It Was an ISIS Safe House. We Found an Afghan Family Home.",
+    "content": "Even as the military apologized for killing 10 civilians by mistake in a drone strike in Kabul, it insisted its target had stopped by an ISIS “safe house.” The New York Times found that the building was actually home to an NGO worker and his family.",
+    "date": "2021-09-28",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Evan Hill",
+      "Matthieu Aikins",
+      "Jim Huylebroek",
+      "Ainara Tiefenthäler",
+      "Dmitriy Khavin and Eric Schmitt"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Reconstructing the Rittenhouse Shootings: How Kenosha Echoed America’s Polarization",
+    "content": "In the months leading up to Kyle Rittenhouse’s trial for killing two people, we analyzed hours of footage and interviewed key witnesses from that fatal night in Kenosha, Wis., to understand how the country’s polarization set the scene for violence.",
+    "date": "2021-10-28",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Ainara Tiefenthäler",
+      "Haley Willis",
+      "Yousur Al-Hlou and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: New Video Shows Botched Kabul Drone Strike",
+    "content": "The New York Times obtained newly declassified military drone footage showing for the first time the U.S. strike on a car at a family home in Kabul on Aug. 29, 2021, that killed 10 Afghan civilians.",
+    "date": "2022-01-19",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Ainara Tiefenthäler",
+      "Christoph Koettl",
+      "Evan Hill and Drew Jordan"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: High-Resolution Drone Video Shows Closer Angle of Kabul Strike",
+    "content": "A second drone captured high-resolution footage of the strike on Aug. 29, 2021 from another angle. The U.S. military mistakenly killed the Afghan aid worker Zemari Ahmadi and nine of his family members with a Hellfire missile.",
+    "date": "2022-01-19",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "not mentioned"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Raw Footage of Lethal Aug. 29 Kabul Drone Strike",
+    "content": "The New York Times is publishing the full, unedited 25 minutes of drone footage released as three video clips by the Defense Department in response to a Freedom of Information Act lawsuit.",
+    "date": "2022-01-19",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "not mentioned"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Tracking Russia’s Latest Military Movements Around Ukraine",
+    "content": "Videos, satellite images and social media posts reveal the scale and intensity of Russia’s military deployments near Ukraine’s border.",
+    "date": "2022-02-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Christoph Koettl",
+      "Brenna Smith",
+      "Alexander Cardia and Ainara Tiefenthäler"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Under Fire, Out of Fuel: What Intercepted Russian Radio Chatter Reveals",
+    "content": "The Times’s Visual Investigations team analyzed dozens of battlefield radio transmissions between Russian forces during an initial invasion of the town of Makariv, outside Kyiv. They reveal an army struggling with logistical problems and communication failures.",
+    "date": "2022-03-23",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Robin Stein",
+      "Christiaan Triebert",
+      "Natalie Reneau",
+      "Aleksandra Koroleva and Drew Jordan"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Proud Boys Breached the Capitol on Jan. 6: Rile Up the Normies",
+    "content": "A Times investigation of court documents, text messages and hundreds of videos shows how the Proud Boys coordinated to instigate multiple breaches of the Capitol on Jan. 6.",
+    "date": "2022-06-17",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Natalie Reneau",
+      "Stella Cooper",
+      "Alan Feuer and Aaron Byrd"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: China’s Surveillance State Is Growing. These Documents Reveal How.",
+    "content": "A New York Times analysis of over 100,000 government bidding documents found that China’s ambition to collect digital and biological data from its citizens is more expansive and invasive than previously known.",
+    "date": "2022-06-21",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Muyi Xiao",
+      "Paul Mozur",
+      "Isabelle Qian and Alexander Cardia"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Inside the Final Days of the Doctor China Tried to Silence",
+    "content": "A New York Times video investigation reveals new details about Dr. Li Wenliang’s illness and death from Covid-19 based on medical records and an exclusive interview with a key witness.",
+    "date": "2022-10-06",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Muyi Xiao",
+      "Isabelle Qian",
+      "Tracy Wen Liu",
+      "Drew Jordan and Jeff Bernier"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: Caught on Camera, Traced by Phone: The Russian Military Unit That Killed Dozens in Bucha",
+    "content": "Exclusive phone records, documents, interviews and thousands of hours of video reveal how a Russian paratrooper unit killed dozens of people on one street in March.",
+    "date": "2022-12-22",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Yousur Al-Hlou",
+      "Masha Froliak",
+      "Dmitriy Khavin",
+      "Christoph Koettl",
+      "Haley Willis",
+      "Alexander Cardia",
+      "Natalie Reneau and Malachy Browne"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
     "hasIA": false
   },
   {
@@ -966,285 +1586,1032 @@ window.DATA = [
     "media": "The New York Times",
     "link": "",
     "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video shows apparent death of Israeli hostages in Hamas custody",
-    "content": "At least four Israelis taken hostage by Hamas on Saturday were killed soon after being taken captive, according to videos reviewed by The Washington Post.",
-    "date": "2023-10-09",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/10/09/israel-hamas-hostage-death/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Guerre Israël-Hamas : comment la rave-party près de Gaza a basculé dans l’horreur",
-    "content": "En quelques heures, les combattants du Hamas ont tué plus de 200 personnes dans une soirée techno en Israël, samedi 7 octobre. Les images géolocalisées et vérifiées par « Le Monde » racontent une attaque éclair ultra violente.",
-    "date": "2023-10-09",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
     "authors": [
-      "Arthur Carpentier",
-      "Thomas Eydoux",
-      "Cellule Enquête vidéo",
-      "Marceau Bretonnier"
+      "Alexander Cardia",
+      "Dmitriy Khavin and David Blumenfeld"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "How a night of dancing and revelry in Israel turned into a massacre",
-    "content": "At least 260 bodies have been recovered from the site of a trance music festival in Israel, one of the first targets for Hamas militants as they launched their surprise attack Saturday.",
-    "date": "2023-10-08",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/10/08/israel-festival-attack-gaza-militants/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Videos show captives in Gaza and Israel",
-    "content": "The Washington Post has independently verified three videos appearing to show captives held in Gaza and surrounding areas in Israel.",
-    "date": "2023-10-07",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/10/07/videos-show-captives-gaza-israel/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Derrière le crash d’un avion de l’air malien, la présence probable de Wagner",
-    "content": "Le 23 septembre, un avion de transport Il-76 s’écrase en bout de piste à l’aéroport de Gao, au Mali. « Le Monde » a suivi la piste de l’origine de cet appareil, qui conduit à l’armée malienne et au groupe de mercenaires Wagner.",
-    "date": "2023-10-07",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Marceau Bretonnier (motion design)",
-      "Elisa Bellanger (motion design)",
-      "Cellule Enquête vidéo",
-      "Mahé Richard-Schmidt (montage)"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The final 11 seconds of a fatal Tesla Autopilot crash",
-    "content": "A lawsuit over the crash could determine whether the maker of the technology bears some responsibility when things go wrong in a vehicle guided by Autopilot.",
-    "date": "2023-10-06",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/technology/interactive/2023/tesla-autopilot-crash-analysis/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Maui’s neglected grasslands caused Lahaina fire to grow with deadly speed",
-    "content": "A Washington Post investigation retraced the fire’s path, revealing that nonnative invasive grasses were key to creating the fast-moving, uncontrollable blaze.",
-    "date": "2023-09-02",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2023/lahaina-wildfires-invasive-grass-destruction/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "catastrophes naturelles",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Rural areas sacrificed for Xi Jinping’s new city, satellite imagery shows",
-    "content": "Satellite imagery and firsthand accounts show the damage wrought when Chinese authorities opened floodgates and dams this month, sacrificing whole villages to spare politically important cities.",
-    "date": "2023-08-31",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/08/31/china-floods-beijing-rain/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "catastrophes naturelles",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Mort présumée de Prigojine : ce que révèlent les profils des autres passagers de l’avion qui s’est écrasé",
-    "content": "Grâce à des documents internes du Groupe Wagner, « Le Monde » recense le profil des victimes probables du crash : des hauts responsables du groupe de mercenaires et des proches du clan Prigojine, son fondateur, également enregistré sur le vol.",
-    "date": "2023-08-24",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Cellule Enquête vidéo",
-      "Thomas Eydoux",
-      "Liselotte Mas"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video shows 5 officers tackling mentally ill man. Experts question why.",
-    "content": "The Arlington police officers took down Delgardo Franklin II after he refused to surrender. It defied their training, a Post investigation found.",
-    "date": "2023-07-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/dc-md-va/2023/07/25/video-officers-tackle-mentally-ill-man/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Satellite imagery shows evidence of new graves after Tigray massacres",
-    "content": "An analysis of satellite imagery reveals the growth of established graveyards in the days after hundreds were killed in massacres that The Post reported in March.",
-    "date": "2023-07-07",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/07/07/ethiopia-massacre-graves/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Satellite imagery shows what could be Wagner’s future camp in Belarus",
-    "content": "Hundreds of tents were rapidly built to house thousands at an abandoned military base. Whether it’s the mercenary group’s new home is an open question.",
-    "date": "2023-06-30",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/06/30/satellite-imagery-shows-what-could-be-wagners-future-camp-belarus/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Scenes from Wagner’s mutiny: Coffee in camo, street sweeping between tanks",
-    "content": "As armed Wagner mercenaries took over the military headquarters in Rostov-on-Don, in a shocking rebellion, some Russians appeared unfazed.",
-    "date": "2023-06-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/06/25/wagner-rebellion-rostov-scenes/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête : en Inde, le \"jihad de l’amour\", cette théorie du complot aux inquiétantes répercussions",
-    "content": "En Inde, des groupes nationalistes hindous propagent depuis des années la théorie du complot du \"jihad de l’amour\". Elle postule que les hommes musulmans chercheraient à séduire des femmes hindoues pour les convertir à l'islam dans le but de prendre le pouvoir. Avec des témoignages de victimes et des analyses, la rédaction des Observateurs de France 24 a enquêté sur le réseau de désinformation et de propagande associé à ce discours qui divise musulmans et hindous.",
-    "date": "2023-06-23",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20230623-love-jihad-india-conspiracy-theory-investigation-hindu-muslim",
-    "commentaire": "",
-    "authors": [
-      "Pariesa Brody"
-    ],
-    "theme": "crime organisé",
+    "theme": "Humanitaire",
     "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Syrie : des cueilleurs de truffes victimes des attaques de l’organisation État islamique",
-    "content": "Les attaques armées se multiplient contre les bédouins qui vivent dans le désert syrien, surtout lors de la saison de récolte de la truffe, entre les mois de février et avril. Depuis sa défaite territoriale en 2019, l’organisation État islamique s’est réfugiée dans ce vaste territoire, et y mène régulièrement des attaques éclair brutales contre les civils. Enquête.",
-    "date": "2023-05-26",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20230526-etat-islamique-daech-desert-syrie-truffes-moutons-badia",
-    "commentaire": "",
-    "authors": [
-      "Djamel Belayachi"
-    ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Israeli agents conducted raid against militants in civilian area, killing a child",
-    "content": "A 3D reconstruction by The Washington Post of a March 16 raid captures the increasingly deadly tactics used by Israeli forces in the occupied West Bank.",
-    "date": "2023-05-26",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2023/israel-palestinians-raids-west-bank/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "A year after Uvalde, officers who botched response face few consequences",
-    "content": "Many officers who responded to the Uvalde, Tex., shooting at Robb Elementary School remain on the job. Some who were fired still work in law enforcement.",
-    "date": "2023-05-24",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2023/05/24/uvalde-school-shooting-police-response/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "U.S. officials walk back claim drone strike killed senior al-Qaeda leader",
-    "content": "Terrorism experts and the dead man’s family have cast doubt on a Pentagon statement indicating the operation targeted an influential member of the terrorist organization.",
-    "date": "2023-05-18",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/05/18/pentagon-drone-strike-syria-civilian-al-qaeda/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête : en Haïti, des habitants traquent et tuent ceux suspectés d’appartenir aux gangs",
-    "content": "Excédés par la violence des gangs, des habitants d’Haïti pourchassent les personnes qu’ils soupçonnent d’être liées à ces groupes armés, pour les tuer. Ce mouvement de ras-le-bol, appelé Bwa Kale, a démarré le 24 avril à Port-au-Prince, avant de s'étendre à d’autres villes. Des dizaines de personnes ont été assassinées, souvent à la suite d’interrogatoires sommaires. Notre rédaction a mené l’enquête sur ces violences, dans une émission spéciale.",
-    "date": "2023-05-16",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20230516-haiti-port-au-prince-bwa-kale-gangs-violence-colere",
-    "commentaire": "",
-    "authors": [
-      "Chloé Lauvergnier"
-    ],
-    "theme": "crime organisé",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Alleged leaker fixated on guns and envisioned ‘race war’",
-    "content": "Previously unpublished videos and documents reviewed by The Washington Post reveal Jack Teixeira’s preparations for a violent social conflict, his racist thinking and a deep suspicion of the government he served.",
-    "date": "2023-05-13",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/national-security/2023/05/13/jack-teixeira-discord-leaked-documents/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Pour discréditer l’Ukraine, la Russie organise de faux rassemblements en Europe",
-    "content": "A Paris, Bruxelles ou La Haye, des publications sur les réseaux sociaux prétendent montrer des rassemblements contre l’Ukraine ou l’OTAN. Des documents, que « Le Monde » et ses partenaires ont obtenus, montrent qu’ils ont été planifiés par la Russie.",
-    "date": "2023-05-07",
-    "media": "Le Monde",
+    "title": "Video: Visual Evidence Shows Israel Dropped 2,000-Pound Bombs Where It Ordered Gaza’s Civilians to Move for Safety",
+    "content": "A Times investigation used aerial imagery and artificial intelligence to detect bomb craters that showed that one of Israel’s biggest bombs was used routinely in south Gaza.",
+    "date": "2023-12-22",
+    "media": "The New York Times",
     "link": "",
     "commentaire": "",
     "authors": [
-      "Thomas Eydoux",
-      "Margaux Farran",
-      "Cellule Enquête vidéo"
+      "Robin Stein",
+      "Haley Willis",
+      "Ishaan Jhaveri",
+      "Danielle Miller",
+      "Aaron Byrd and Natalie Reneau"
     ],
-    "theme": "stratégies militaires et influence",
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: I.D.F. Videos Add to Confusion Over Gazans Killed at Aid Site",
+    "content": "The Israeli military released a heavily edited video to deflect blame, but the footage did little to clear up what led to mass casualties as people crowded around food aid trucks in northern Gaza.",
+    "date": "2024-03-01",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Aric Toler",
+      "Robin Stein",
+      "Haley Willis and Ainara Tiefenthäler"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: ‘We’re Aware of the Location’: Aid Groups in Gaza Coordinated With I.D.F. but Still Came Under Fire",
+    "content": "Visual evidence and internal communications obtained by The Times show six aid groups based in Western countries, including Israel’s strongest allies, had humanitarian sites hit by Israeli strikes, even after the locations were shared with the I.D.F.",
+    "date": "2024-04-25",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Haley Willis",
+      "Robin Stein",
+      "Ainara Tiefenthäler",
+      "Natalie Reneau",
+      "Aaron Byrd and Anushka Patil"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How the Assassination Attempt on Trump Unfolded",
+    "content": "Footage from the scene of the shooting at a rally in Pennsylvania on Saturday shows the suspected gunman had a clear line of sight toward the former president, despite being outside the rally’s secure perimeter.",
+    "date": "2024-07-14",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Dmitriy Khavin",
+      "Alexander Cardia",
+      "Aric Toler",
+      "Devon Lum and Christiaan Triebert"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video: How a Single Family Was Shot Dead on a Street in Gaza",
+    "content": "Last December, video emerged showing the bodies of a mother, father and their four sons strewn across a street in Gaza City. Beside them lay a stretcher, shovels and a makeshift white flag. A New York Times investigation examines how they got there and who killed them.",
+    "date": "2024-09-06",
+    "media": "The New York Times",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Riley Mellen",
+      "Neil Collier",
+      "Natalie Reneau and Alexander Cardia"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How ‘Trophy’ Videos Link Paramilitary Commanders to War Crimes in Sudan",
+    "content": "Visual evidence collected and analyzed over months by The New York Times identifies the commanders leading an opaque paramilitary group, the Rapid Support Forces, as fighters under their watch commit atrocities across Sudan.",
+    "date": "2024-12-31",
+    "media": "",
+    "link": "",
+    "commentaire": "",
+    "authors": [
+      "Sanjana Varghese",
+      "Natalie Reneau",
+      "Christoph Koettl",
+      "Aaron Byrd and Declan Walsh"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The pandemic at sea: How cruise ships exposed thousands on board and helped spread the virus around the world",
+    "content": "The coronavirus was first detected on a cruise ship in early February. The decision by the industry to keep sailing for weeks contributed to the mounting toll, health experts and passengers say.",
+    "date": "2020-04-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/graphics/2020/politics/cruise-ships-coronavirus/",
+    "commentaire": "",
+    "authors": [
+      "Rosalind S. Helderman",
+      "Hannah Sampson",
+      "Dalton Bennett and Andrew Ba Tran"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The death of George Floyd: What video and other records show about his final minutes",
+    "content": "The Washington Post reconstructed the events immediately preceding the death of George Floyd in Minneapolis using security footage, emergency services recordings and cellphone videos.",
+    "date": "2020-05-30",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2020/05/30/video-timeline-george-floyd-death/",
+    "commentaire": "",
+    "authors": [
+      "Dalton Bennett",
+      "Joyce Sohyun Lee and Sarah Cahlan"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The crackdown before Trump’s photo op: How law enforcement cleared protesters outside the White House",
+    "content": "The Washington Post reconstructed who did what to clear protestors from the streets outside the White House on June 1. Watch how it unfolded.",
+    "date": "2020-06-08",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2020/06/08/timeline-trump-church-photo-op/",
+    "commentaire": "",
+    "authors": [
+      "Dalton Bennett",
+      "Sarah Cahlan",
+      "Aaron C. Davis and Joyce Sohyun Lee"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Military helicopters descended on protesters in Washington, D.C. as a 'show of force.' Here's how close they got.",
+    "content": "Two military helicopters roared over demonstrators in Washington protesting after the death of George Floyd, producing winds equivalent to a tropical storm",
+    "date": "2020-06-01",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/graphics/2020/investigations/helicopter-protests-washington-dc-national-guard/",
+    "commentaire": "",
+    "authors": [
+      "Alex Horton",
+      "Andrew Ba Tran",
+      "Aaron Steckelberg and John Muyskens"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video and photos show Brazil’s Bolsonaro defied health guidelines before testing positive for the coronavirus — and after",
+    "content": "The Washington Post analyzed hundreds of videos and photos of the Brazilian president to retrace his steps in the two weeks before he first reported symptoms of the novel coronavirus.",
+    "date": "2020-07-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2020/07/11/bolsonaro-coronavirus-video-timeline/",
+    "commentaire": "",
+    "authors": [
+      "Sarah Cahlan",
+      "Terrence McCoy",
+      "Elyse Samuels and Heloísa Traiano"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Partially blinded by police: Video evidence undermines official accounts of injuries at George Floyd protests",
+    "content": "Eight people suffered severe eye injuries at protests across the country on May 30. In three instances, video evidence undermines official accounts of what happened.",
+    "date": "2020-07-14",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2020/07/14/george-floyd-protests-police-blinding/",
+    "commentaire": "",
+    "authors": [
+      "Meg Kelly",
+      "Joyce Sohyun Lee and Jon Swaine"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video analysis of Beirut explosion reveals its power, even at great distances",
+    "content": "Lebanon continues to sift through the wreckage from a massive explosion that leveled Beirut on Tuesday. At least 150 people were killed, more than 5,000 injured and an estimated 300,000 people have lost their homes.",
+    "date": "2020-08-07",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2020/08/07/video-analysis-beirut-explosion-reveals-its-power-even-great-distances/",
+    "commentaire": "",
+    "authors": [
+      "Dalton Bennett",
+      "Adrián Blanco",
+      "Meg Kelly",
+      "Joyce Sohyun Lee and\nAtthar Mirza"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Body camera footage shows struggle leading to George Floyd’s fatal police encounter",
+    "content": "Newly released video of George Floyd’s fatal interaction with Minneapolis police shows that medical personnel waited nearly three minutes to perform chest compressions in an attempt to revive the handcuffed man who had been pinned down on a Minneapolis street until he lost consciousness in May.",
+    "date": "2020-08-10",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/graphics/2020/national/floyd-bodycam-video/",
+    "commentaire": "",
+    "authors": [
+      "Holly Bailey",
+      "Dalton Benett",
+      "Sarah Cahlan and Elyse Samuels"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Tracking Alexei Navalny’s last movements before he was allegedly poisoned",
+    "content": "The Washington Post analysed videos ans photos to retrace prominent Pussian opposition leader Alexei Navalny's steps in the days before he was poisoned",
+    "date": "2020-08-28",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2020/08/28/alexei-navalny-poisoning-video-timeline/",
+    "commentaire": "",
+    "authors": [
+      "Sarah Cahlan",
+      "Elyse Samuels",
+      "Isabelle Khurshudyan",
+      "Jason Aldag"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "What video analysis of the Aug. 29 Portland shooting tells us",
+    "content": "After three months of nightly protests in the city, Aaron J. Danielson was shot dead in a confrontation on Aug. 29 that police were investigating as a homicide.",
+    "date": "2020-09-04",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2020/09/04/portland-protest-shooting-video/",
+    "commentaire": "",
+    "authors": [
+      "By Dalton Bennett",
+      "Sarah Cahlan and Joyce Sohyun Lee"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Swept up in the federal response to Portland protests: ‘I didn’t know if I was going to be seen again’",
+    "content": "Videos obtained by The Washington Post show agents' tactics during President Trump's operation.",
+    "date": "2020-09-10",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/graphics/2020/investigations/portland-protesters-federal-response-trump/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Photos and video: Tracking Trump's movements before his positive coronavirus test",
+    "content": "Videos and photos show president frequently flouted guidelines",
+    "date": "2020-10-06",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/graphics/2020/politics/trump-contacts-movements-covid/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Alleged Michigan plotters attended multiple anti-lockdown protests, photos and videos show",
+    "content": "The men protested Michigan’s lockdown and increasingly wore clothing associated with the \"boogaloo\" movement in the months before they were charged in cases related to a plot to kidnap the governor.",
+    "date": "2020-11-01",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2020/11/01/michigan-kidnapping-plot-coronavirus-lockdown-whitmer/",
+    "commentaire": "",
+    "authors": [
+      "Aaron C. Davis",
+      "Dalton Bennett",
+      "Sarah Cahlan",
+      "Meg Kelly"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Kenosha: How two men’s paths crossed in an encounter that has divided the nation",
+    "content": "In an exclusive interview, Kyle Rittenhouse said he bought a gun with stimulus money. The first man he shot had just left a psychiatric hospital.",
+    "date": "2020-11-19",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2020/11/19/kenosha-shooting-kyle-rittenhouse-interview/",
+    "commentaire": "",
+    "authors": [
+      "Joyce Sohyun Lee",
+      "Robert O'Harrow Jr.",
+      "Elyse Samuels"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Military-grade camera shows risks of airborne coronavirus spread",
+    "content": "To visually illustrate the risk of airborne transmission, The Washington Post used an infrared camera capable of detecting exhaled breath.",
+    "date": "2020-12-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2020/12/11/coronavirus-airborne-video-infrared-spread/",
+    "commentaire": "",
+    "authors": [
+      "Dalton Bennett",
+      "Sarah Cahlan",
+      "Daron Taylor"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Gunfire, warnings, then an explosion: What videos show about the Nashville bombing",
+    "content": "Surveillance video, emergency response audio and eyewitness accounts of the Christmas morning explosion in downtown Nashville show how the incident unfolded.",
+    "date": "2020-12-27",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2020/12/27/video-timeline-nashville-bomb/",
+    "commentaire": "",
+    "authors": [
+      "Joyce Sohyun Lee and Elyse Samuels"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video shows fatal shooting of Ashli Babbitt in the Capitol",
+    "content": "The Washington Post obtained video showing the chaotic moments before 35-year-old Ashli Babbitt was fatally shot as rioters rushed toward the Speaker's Lobby.",
+    "date": "2021-01-08",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2021/01/08/ashli-babbitt-shooting-video-capitol/",
+    "commentaire": "",
+    "authors": [
+      "Jon Swaine",
+      "Dalton Bennett",
+      "Joyce Sohyun Lee and Meg Kelly"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "41 minutes of fear: A video timeline from inside the Capitol siege",
+    "content": "An examination of video, texts and other evidence shows how perilously close lawmakers came to the enraged mob",
+    "date": "2021-01-16",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2021/01/16/video-timeline-capitol-siege/",
+    "commentaire": "",
+    "authors": [
+      "Dalton Bennett",
+      "Emma Brown",
+      "Atthar Mirza",
+      "Sarah Cahlan",
+      "Joyce Sohyun Lee",
+      "Meg Kelly",
+      "Elyse Samuels",
+      "Jon Swaine"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Pipe bombs found near Capitol on Jan. 6 are believed to have been placed the night before",
+    "content": "Exclusive video obtained by The Washington Post shows the suspect shortly before they allegedly placed an explosive device near the headquarters of the Republican National Committee.",
+    "date": "2021-01-29",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2021/01/29/pipe-bomb-suspect-video/",
+    "commentaire": "",
+    "authors": [
+      "Dalton Bennett",
+      "Emma Brown",
+      "Sarah Cahlan",
+      "Josh Dawsey and Joyce Sohyun Lee"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Previously unpublished video shows Pence, Romney, Schumer and others rushing to evacuate the Capitol",
+    "content": "The Post analyzed previously unseen security camera videos aired during the second day of Trump’s impeachment trial, which shed new light on how close lawmakers came to danger.",
+    "date": "2021-02-10",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2021/02/10/video-played-trump-impeachment-trial/",
+    "commentaire": "",
+    "authors": [
+      "Elyse Samuels",
+      "Joyce Sohyun Lee",
+      "Sarah Cahlan and Meg Kelly"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Surveillance video shows Atlanta suspect entered first spa more than an hour before shooting",
+    "content": "Surveillance video obtained by The Washington Post shows the suspect, Robert Aaron Long, enter Young’s Asian Massage — the first destination in a shooting spree that left eight people dead, most of them Asian women — more than an hour before shooting was reported.",
+    "date": "2021-03-19",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2021/03/19/surveillance-video-atlanta-shooting/",
+    "commentaire": "",
+    "authors": [
+      "Elyse Samuels",
+      "Tim Craig and Timothy Bella"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "D.C. Police requested backup at least 17 times in 78 minutes during Capitol riot",
+    "content": "A reconstruction shows how failures of planning and preparation left police at the Capitol severely disadvantaged on Jan. 6.",
+    "date": "2021-04-15",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2021/dc-police-records-capitol-riot/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Killed by police in Colombia",
+    "content": "An analysis of video evidence in four cases of protester deaths shows the extent to which police appear to have overstepped their rules of engagement.",
+    "date": "2021-05-20",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2021/colombia-protests-deaths-police/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video timeline: How the Miami-Dade condo collapsed",
+    "content": "Surveillance video, audio and photos of the Thursday morning building collapse in Miami-Dade County show how the incident unfolded.",
+    "date": "2021-06-24",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2021/06/24/video-timeline-miami-building-collapse/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How baseball’s war on sticky stuff is already changing the game",
+    "content": "The Post analyzed game footage and data for millions of pitches to measure the impact of MLB's crackdown on ball-doctoring.",
+    "date": "2021-07-02",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/sports/2021/07/02/sticky-stuff-baseball-data/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video, images and interviews deepen questions about role of pool deck in condo collapse",
+    "content": "The Post interviewed more than a dozen experts and modeled the building to better understand the potential points of structural failure.",
+    "date": "2021-07-08",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2021/building-experts-miami-condo-collapse/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Visual timeline: The assassination of Haitian President Jovenel Moïse",
+    "content": "Photos and videos show how the brazen attack unfolded.",
+    "date": "2021-07-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2021/07/11/haiti-assassination-video-suspects/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How a collapsed pool deck could have caused a Florida condo building to fall",
+    "content": "A simulation based on a digital model that factors in witness accounts, visual evidence and construction plans shows that an initial collapse in the pool deck area of Champlain Towers South could have triggered a series of events that brought down much of the building.",
+    "date": "2021-08-12",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2021/pool-deck-condo-collapse/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "With the Taliban now in control, here’s what Afghans are seeing in Kabul",
+    "content": "Amid the swift and definitive Taliban takeover of Kabul, Afghans took out their cellphones, filming the chaos of the group’s arrival, the changes that marked their presence and the eerie calm that came next.",
+    "date": "2021-08-18",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2021/videos-afghanistan-kabul-taliban-arrival/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How Ethiopia used a Turkish drone in a strike that killed nearly 60 civilians",
+    "content": "Aid workers at the displacement camp in Tigray hit by the drone strike were adamant that the people killed and wounded were civilians fleeing the war rather than combatants in it.",
+    "date": "2022-02-07",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2022/ethiopia-tigray-dedebit-drone-strike/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The TikTok buildup: Videos reveal Russian forces closing in on Ukraine",
+    "content": "Russian President Vladimir Putin and top Russian officials for months have been denying that Moscow is preparing to mount an invasion of neighboring Ukraine. But military analysts say videos posted to TikTok and other social media platforms tell another story.",
+    "date": "2022-02-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/02/11/russia-ukraine-military-videos-tiktok/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video shows Russian aircrew parachuting from fighter jet that Ukraine says was shot down",
+    "content": "The Ukraine State Emergency Service shared photos of the smoking remnants of the jet found in Chernihiv.",
+    "date": "2022-03-06",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/03/06/russian-jet-chernihiv-ukraine-aircrew-parachute/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Russian attacks hit at least 9 Ukrainian medical facilities, visual evidence shows",
+    "content": "A Washington Post analysis verified nine incidents where hospitals faced direct damage as a result of a reported Russian attack. Three of the facilities specifically served women or children.",
+    "date": "2022-03-12",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/03/12/ukraine-hospital-attacks-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Devastation of Mariupol captured in drone video of burned buildings, blown-out windows",
+    "content": "Russia is turning to air, artillery, and rocket and missile bombardments of Ukrainian cities to offset the lack of momentum by troops on the ground.",
+    "date": "2022-03-24",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/03/24/mariupol-drone-destruction-ukraine-war-russia/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "New satellite imagery shows bombed-out Mariupol theater",
+    "content": "New satellite imagery, alongside video and photos verified by The Post, shows destruction in Mariupol's city center, including severe damage to the Mariupol Drama Theater.",
+    "date": "2022-03-19",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/03/19/mariupol-theater-satellite-images/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "In fiery video, Ukraine says it destroyed Russian warship",
+    "content": "Russia's logistical difficulties, flagging morale and insufficient manpower were possibly exacerbated by the loss of a warship. But the setback is likely minimal for Russian logistical efforts, an expert said.",
+    "date": "2022-03-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/03/24/russian-ship-fire/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Satellite images show Russian ‘tent city’ built for Ukrainians",
+    "content": "Leaders of a breakaway area in the Donetsk region announced that together with Russian authorities, they had set up a “city of 30 tents” for Mariupol residents.",
+    "date": "2022-03-28",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/03/27/russian-camps-outside-mariupol/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Kyiv will investigate video that appears to show Ukrainian forces shooting Russian prisoners of war",
+    "content": "Some Ukrainian officials dismissed the video that appears to show soldiers shooting Russian prisoners of war as Kremlin propaganda, without citing evidence.",
+    "date": "2022-03-28",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/03/28/ukraine-russia-pow-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "New images show burned bodies at ruined nursing home in Luhansk region",
+    "content": "Several burned bodies are visible in the first detailed videos and photographs of the rubble of a nursing home in eastern Ukraine that was partly destroyed amid fighting in the area last month.",
+    "date": "2022-04-13",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/04/13/ukraine-nursing-home-bodies-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Russian armored vehicles seen on Bucha street strewn with bodies, video shows",
+    "content": "Drone videos captured in late March show military vehicles used by Russian airborne units near at least eight bodies in a suburb near Kyiv.",
+    "date": "2022-04-14",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/04/14/video-puts-russian-armored-units-bucha-street-strewn-with-bodies/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How Shireen Abu Akleh was killed",
+    "content": "A Washington Post review of available visuals, audio and witness statements shows an Israeli soldier likely shot and killed Al Jazeera correspondent Shireen Abu Akleh on May 11 in the West Bank.",
+    "date": "2022-06-12",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2022/shireen-abu-akleh-death/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "New videos show bodies of civilians on Mariupol streets",
+    "content": "New videos, verified by The Washington Post, from the besieged Ukrainian city of Mariupol show the lifeless bodies of more than a dozen civilians lying on streets.",
+    "date": "2022-04-20",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/04/20/mariupol-ukraine-bodies/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Civilian killings soar as Russian mercenaries join fight in West Africa",
+    "content": "Documents, imagery and witness accounts point to a heightened Russian presence in Mali, where the military government is locked in a bloody war with extremists. Profits from the Wagner Group flow back to Moscow, helping prop up Vladimir Putin’s government at at time of growing economic isolation over its war in Ukraine.",
+    "date": "2022-05-23",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/05/23/mali-russia-west-africa-wagner/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "New video released in Jan. 6 hearing shows mob gathering, violence",
+    "content": "Previously unaired security camera videos, exclusive documentary footage and police audio communications were presented at the committee's first prime-time hearing.",
+    "date": "2022-06-10",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/06/10/jan6-new-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Uvalde video shows officers entered classroom 77 minutes after shooting",
+    "content": "The Texas House Committee investigating the mass shooting in Uvalde, Tex., released an 82-minute-long video on Sunday showing the response of law enforcement.",
+    "date": "2022-07-17",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/07/17/new-uvalde-hallway-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "What we know about the blast that killed Ukrainian POWs in Olenivka",
+    "content": "A Washington Post review of satellite imagery, videos, and interviews with former detainees and experts raises questions about the Russian claim that a Ukrainian HIMARS-launched attack killed at least 50 people at a prison on the outskirts of Olenivka on July 29.",
+    "date": "2022-08-06",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/08/06/olenivka-prison-explosion-ukraine-russia/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "At least six explosions hit Crimea air base in nearly an hour",
+    "content": "The Post analyzed videos, spoke to witnesses and consulted experts, confirming that at least six explosions rocked the air base in the span of almost an hour.",
+    "date": "2022-08-14",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/08/14/crimea-airbase-attack/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Inside the investigation of an officer who killed a teen threatening suicide",
+    "content": "In a rare opportunity, the entire investigative file of an officer-involved shooting was released, giving insight into how police investigated another officer.",
+    "date": "2022-08-23",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/08/23/overland-park-police-shooting-investigation/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Here’s what Russian soldiers left behind when they withdrew from Izyum",
+    "content": "Videos verified by The Washington Post show the equipment Russian troops left behind as they retreated from Izyum, a strategic city southeast of Kharkiv.",
+    "date": "2022-09-13",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/09/13/russia-retreat-abandoned-weapons-izyum/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Anger against Iran’s ‘morality police’ erupts after death of Mahsa Amini",
+    "content": "The death of a 22-year-old woman, Mahsa Amini, in the custody of Iran’s \"morality police\" has sparked demonstrations from the Kurdish west to the holy city of Qom.",
+    "date": "2022-09-21",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/09/21/iran-protests-mahsa-amini-hijab/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Videos show Iran’s violent crackdown as protests intensify",
+    "content": "Videos verified by The Post show security forces opening fire on protesters as unrest continues one week since Mahsa Amini died.",
+    "date": "2022-09-23",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/09/23/iran-hijab-protest-violent-crackdown/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The scale of Russian attacks on Ukraine’s energy infrastructure, visualized",
+    "content": "The Post identified eight energy facilities, in six regions, that were damaged or destroyed by missiles and kamikaze drones, cutting electricity, heat and hot water in many cities.",
+    "date": "2022-10-14",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/10/14/ukraine-infrastructure-damage/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Russia’s airstrikes, intended to show force, reveal another weakness",
+    "content": "Experts say the missile barrage Russia unleashed Monday can't be repeated often because of high costs and low stocks of weapons",
+    "date": "2022-10-14",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/10/14/russia-missiles-infrastructure-war-ukraine/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How police action in Indonesia led to a deadly crush in the soccer stadium",
+    "content": "Videos provided exclusively to The Post show that police fired at least 40 nonlethal munitions at soccer fans in Kanjuruhan stadium, leading to panic.",
+    "date": "2022-10-06",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/10/06/indonesia-kanjuruhan-stadium-stampede-police/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Crucial lapses led to tragically delayed rescue in a Seoul alley",
+    "content": "An analysis of more than 350 videos and photos of the deadly disaster found that a critical delay in emergency response likely led to more deaths.",
+    "date": "2022-11-17",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/11/16/seoul-crowd-crush-itaewon-victims/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Iranian forces open fire on protesters as government buildings burn",
+    "content": "Violence erupted Thursday in the city of Mahabad in Iran's Kurdish region. At least two people were killed and dozens wounded, according to activists.",
+    "date": "2022-10-27",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/10/27/iran-protest-mahabad-mahsa-amini/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Here’s how the Seoul Halloween crush happened",
+    "content": "The crush in Seoul happened in the Itaewon neighborhood. Videos reveal a timeline of how the tragedy unfolded.",
+    "date": "2022-10-29",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/10/29/where-how-seoul-itaewon-stampede/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Extreme floods expose the flaws in FEMA’s risk maps",
+    "content": "A review of extreme flooding events this summer showed FEMA's flood maps are failing to fully inform Americans of flood risk in rural and urban areas.",
+    "date": "2022-12-06",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/climate-environment/interactive/2022/fema-flood-risk-maps-failures/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Evin on fire: What really happened inside Iran’s most notorious prison",
+    "content": "A Post investigation into the disaster at Iran's Evin prison finds at least one fire was a result of arson and guards used live ammunition against prisoners.",
+    "date": "2022-10-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/10/25/iran-evin-prison-fire-protests/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "After years with little covid, videos show China is now getting hit hard",
+    "content": "Alarming videos of Chinese medical facilities offer a glimpse of the toll a huge coronavirus wave is wreaking — and undercut Beijing’s claim that the government is in control.",
+    "date": "2022-12-27",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/12/27/videos-severe-china-covid/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "From Jared Kushner to Salt Bae: Here’s who Elon Musk was seen with at the World Cup",
+    "content": "Photos taken of Musk during the World Cup show him amid a group that included Jared Kushner, Qatari leaders and an Indian steelmaking magnate.",
+    "date": "2022-12-21",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2022/12/20/elon-musk-spotted-world-cup-final/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Russians rebel as Putin drafts more people in battle for Ukraine",
+    "content": "From Dagestan to Moscow to Siberia, dissent has been documented in videos from across Russia since Putin's mobilization announcement on Sept. 21.",
+    "date": "2022-09-29",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2022/09/29/russia-putin-mobilization-protests-fury/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Videos of Brazil attack show striking similarities to Jan. 6",
+    "content": "Two years after a pro-Trump mob stormed the U.S. Capitol, a group of Bolsonaro supporters attacked Brazil’s government buildings in similar ways.",
+    "date": "2023-01-09",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/01/09/brazil-attack-january6-capitol/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Satellite images show crowds at China’s crematoriums as covid surges",
+    "content": "An analysis of satellite images and videos finds a dramatic increase in activity at funeral homes, undermining Chinese claims that outbreaks are under control.",
+    "date": "2023-01-09",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/01/09/china-crematorium-covid-deaths/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Brazil’s military police initially stood by as Bolsonaro supporters rioted",
+    "content": "A review of over 150 videos and images reveals that rank-and-file officers tasked with securing the streets around government buildings did little at first to stop the assault.",
+    "date": "2023-01-28",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/01/28/brazil-police-capitol-riot/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Timeline: It took 22 minutes for ambulance to arrive after Tyre Nichols was beaten by police",
+    "content": "Footage released by the city of Memphis showed the kicks and baton strikes police delivered against 29-year-old.",
+    "date": "2023-01-28",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2023/01/28/timeline-tyre-nichols-police-beating-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Videos show evidence of escalating crackdown on Iranian protests",
+    "content": "A Post analysis reveals with new clarity how security forces are operating in a protest epicenter — carrying out arrests, beatings and, in some cases, opening fire on civilians.",
+    "date": "2023-02-02",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/02/02/iran-protests-government/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Atlanta police release body-camera video from raid after fatal shooting of activist",
+    "content": "Footage from the aftermath of a fatal police shooting of a protester in January captures audio of gunshots and confusion among responding officers.",
+    "date": "2023-02-09",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2023/02/09/atlanta-police-body-cam-footage-shooting/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Database of 305 videos exposes the horrors of war in Ukraine",
+    "content": "The Washington Post has catalogued and verified more than 200 videos from the war in Ukraine into a searchable visual database.",
+    "date": "2023-02-24",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2022/ukraine-russia-war-videos-verified/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "3D analysis shows how Israeli troops fired into group of civilians",
+    "content": "In an incident last month that left two Palestinians dead, troops shot at least 14 times in four seconds while civilians would have been visible.",
+    "date": "2023-03-10",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2023/palestine-shooting-nablus-videos/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1256,111 +2623,1366 @@ window.DATA = [
     "link": "https://www.washingtonpost.com/investigations/interactive/2023/trump-j6-prison-choir/",
     "commentaire": "",
     "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Un espion russe à Paris : Boulat Ianborissov, patron de course automobile et agent au service du Kremlin",
-    "content": "Boulat Ianborissov n’est pas juste le patron de la course automobile Silk Way Rally. Des documents obtenus par l’hebdomadaire allemand « Der Spiegel », le site d’investigation russe « Insider » et « Le Monde » permettent d’établir que ce Russe, qui vit à Paris, est en réalité un agent de haut vol au service du Kremlin.",
-    "date": "2023-04-21",
+    "title": "U.S. officials walk back claim drone strike killed senior al-Qaeda leader",
+    "content": "Terrorism experts and the dead man’s family have cast doubt on a Pentagon statement indicating the operation targeted an influential member of the terrorist organization.",
+    "date": "2023-05-18",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/05/18/pentagon-drone-strike-syria-civilian-al-qaeda/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "A year after Uvalde, officers who botched response face few consequences",
+    "content": "Many officers who responded to the Uvalde, Tex., shooting at Robb Elementary School remain on the job. Some who were fired still work in law enforcement.",
+    "date": "2023-05-24",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2023/05/24/uvalde-school-shooting-police-response/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Alleged leaker fixated on guns and envisioned ‘race war’",
+    "content": "Previously unpublished videos and documents reviewed by The Washington Post reveal Jack Teixeira’s preparations for a violent social conflict, his racist thinking and a deep suspicion of the government he served.",
+    "date": "2023-05-13",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/national-security/2023/05/13/jack-teixeira-discord-leaked-documents/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israeli agents conducted raid against militants in civilian area, killing a child",
+    "content": "A 3D reconstruction by The Washington Post of a March 16 raid captures the increasingly deadly tactics used by Israeli forces in the occupied West Bank.",
+    "date": "2023-05-26",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2023/israel-palestinians-raids-west-bank/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Scenes from Wagner’s mutiny: Coffee in camo, street sweeping between tanks",
+    "content": "As armed Wagner mercenaries took over the military headquarters in Rostov-on-Don, in a shocking rebellion, some Russians appeared unfazed.",
+    "date": "2023-06-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/06/25/wagner-rebellion-rostov-scenes/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Tracing a tragedy: How hundreds of migrants drowned on Greece’s watch",
+    "content": "A Washington Post investigation retraced the route of the Adriana and how Greek coast guard decisions contributed to a preventable tragedy.",
+    "date": "2023-07-05",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2023/greece-migrant-boat-coast-guard/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Satellite imagery shows what could be Wagner’s future camp in Belarus",
+    "content": "Hundreds of tents were rapidly built to house thousands at an abandoned military base. Whether it’s the mercenary group’s new home is an open question.",
+    "date": "2023-06-30",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/06/30/satellite-imagery-shows-what-could-be-wagners-future-camp-belarus/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video shows 5 officers tackling mentally ill man. Experts question why.",
+    "content": "The Arlington police officers took down Delgardo Franklin II after he refused to surrender. It defied their training, a Post investigation found.",
+    "date": "2023-07-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/dc-md-va/2023/07/25/video-officers-tackle-mentally-ill-man/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Maui’s neglected grasslands caused Lahaina fire to grow with deadly speed",
+    "content": "A Washington Post investigation retraced the fire’s path, revealing that nonnative invasive grasses were key to creating the fast-moving, uncontrollable blaze.",
+    "date": "2023-09-02",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2023/lahaina-wildfires-invasive-grass-destruction/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Rural areas sacrificed for Xi Jinping’s new city, satellite imagery shows",
+    "content": "Satellite imagery and firsthand accounts show the damage wrought when Chinese authorities opened floodgates and dams this month, sacrificing whole villages to spare politically important cities.",
+    "date": "2023-08-31",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/08/31/china-floods-beijing-rain/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Satellite imagery shows evidence of new graves after Tigray massacres",
+    "content": "An analysis of satellite imagery reveals the growth of established graveyards in the days after hundreds were killed in massacres that The Post reported in March.",
+    "date": "2023-07-07",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/07/07/ethiopia-massacre-graves/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The final 11 seconds of a fatal Tesla Autopilot crash",
+    "content": "A lawsuit over the crash could determine whether the maker of the technology bears some responsibility when things go wrong in a vehicle guided by Autopilot.",
+    "date": "2023-10-06",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/technology/interactive/2023/tesla-autopilot-crash-analysis/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Videos show captives in Gaza and Israel",
+    "content": "The Washington Post has independently verified three videos appearing to show captives held in Gaza and surrounding areas in Israel.",
+    "date": "2023-10-07",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/10/07/videos-show-captives-gaza-israel/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Hamas took at least 64 captives into Gaza, visual evidence suggests",
+    "content": "The hostages include nine children, according to an examination of hundreds of videos and images posted on social media since the fighting began.",
+    "date": "2023-10-12",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/10/12/israel-hostage-count-videos/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel appears to use white phosphorus in Gaza, video shows",
+    "content": "The controversial munition, which is commonly used to create smoke to mark targets, can cause severe harm when used against civilians.",
+    "date": "2023-10-13",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/10/12/white-phosphorus-israel-gaza-strike-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video shows apparent death of Israeli hostages in Hamas custody",
+    "content": "At least four Israelis taken hostage by Hamas on Saturday were killed soon after being taken captive, according to videos reviewed by The Washington Post.",
+    "date": "2023-10-09",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/10/09/israel-hamas-hostage-death/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "A barrage and a midair explosion: What visual evidence shows about the Gaza hospital blast",
+    "content": "Videos analyzed by The Washington Post reveal that rockets were launched from Gaza in the direction of al-Ahli Hospital 44 seconds before an explosion there.",
+    "date": "2023-10-26",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/10/26/gaza-hospital-blast-evidence-israel-hamas/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Watch ‘Failure at the Fence’",
+    "content": "“Frontline” and The Washington Post partnered on a detailed examination of how Hamas breached Israel’s vaunted “Iron Wall” on Oct. 7 to carry out its attack.",
+    "date": "2023-12-20",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/12/19/failure-at-the-fence-documentary/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Mapping Israel’s ground assault into Gaza",
+    "content": "The Washington Post geolocated videos, photos and satellite images to understand where Israeli’s ground assault has reached within Gaza.",
+    "date": "2023-10-31",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/10/30/israel-ground-assault-gaza-map/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel has waged one of this century’s most destructive wars in Gaza",
+    "content": "The damage in Gaza has outpaced other recent conflicts, evidence shows. Israel has dropped some of the largest bombs commonly used today near hospitals.",
+    "date": "2023-12-23",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2023/israel-war-destruction-gaza-record-pace/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How a night of dancing and revelry in Israel turned into a massacre",
+    "content": "At least 260 bodies have been recovered from the site of a trance music festival in Israel, one of the first targets for Hamas militants as they launched their surprise attack Saturday.",
+    "date": "2023-10-08",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/10/08/israel-festival-attack-gaza-militants/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "North Korea may be sending arms to Russia for Ukraine war, images suggest",
+    "content": "Russian ships with military links have repeatedly visited a North Korean port in recent months, with the cargo apparently destined for a munitions base on the Ukrainian border.",
+    "date": "2023-10-16",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2023/10/16/north-korea-russia-weapons-ukraine-war/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel used U.S.-supplied white phosphorus in Lebanon attack",
+    "content": "An analysis of shell fragments shows Israel used U.S.-made white phosphorus munitions in an attack that a rights group says should be investigated as a war crime.",
+    "date": "2023-12-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/12/11/israel-us-white-phosphorus-lebanon/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How Hamas exploited Israel’s reliance on tech to breach barrier on Oct. 7",
+    "content": "This Post video shows how Hamas fighters neutralized long-range cameras, sophisticated sensors and remote-control weapons.",
+    "date": "2023-11-17",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2023/11/17/how-hamas-breached-israel-iron-wall/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Settlers killed a Palestinian teen. Israeli forces didn’t stop it.",
+    "content": "A review of videos from the deadliest settler attack in the West Bank since the war began shows how increasingly violent tactics have gone unpunished.",
+    "date": "2024-01-09",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/01/09/israel-settler-violence-qusra-west-bank/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video is said to show U.N. relief worker taking body of Israeli shot on Oct. 7",
+    "content": "The footage of the person Israel identified would be the first to surface publicly of any of the individuals Israel accused of participating in the Oct. 7 attack.",
+    "date": "2024-02-17",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/02/16/unrwa-video-oct-7-israel/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Drone footage raises questions about Israeli justification for deadly strike on Gaza journalists",
+    "content": "Footage recovered from the drone of an Al Jazeera team killed by the IDF in a targeted Jan. 7 missile strike raises critical questions about the Israeli justification for the attack.",
+    "date": "2024-03-19",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/03/19/gaza-journalists-killed-israel-al-jazeera-footage/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Baltimore Key Bridge collapsed in under 40 seconds, video shows",
+    "content": "See how the bridge collapsed in early morning on March 26 after being hit by a cargo ship.",
+    "date": "2024-03-26",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/dc-md-va/2024/03/26/video-audio-baltimore-bridge-collapse/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Palestinian paramedics said Israel gave them safe passage to save a 6-year-old girl in Gaza. They were all killed.",
+    "content": "A Washington Post examination raises questions about Israel’s assertion that its forces were “not present near the vehicle or within the firing range” of 6-year-old Hind Rajab.",
+    "date": "2024-04-16",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2024/hind-rajab-israel-gaza-killing-timeline/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Iran expands public crackdown on women and girls, sparking public anger",
+    "content": "The new wave of repression appears to be one of the most significant efforts to roll back perceived social gains in the aftermath of the 2022 protest movement.",
+    "date": "2024-04-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/04/25/iran-women-crackdown-morality-police/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel’s offensive is destroying Gaza’s ability to grow its own food",
+    "content": "Israeli airstrikes and bulldozers have destroyed key parts of Gaza’s food infrastructure, including agricultural land, olive and fruit trees, and greenhouses.",
+    "date": "2024-05-03",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2024/gaza-israel-agriculture-food-fisheries/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Despite warnings of violence at UCLA, police didn’t step in for over 3 hours",
+    "content": "Faculty had raised alarms in the days before the attack on pro-Palestinian protesters. That night, one witness called emergency services 11 times before police intervened.",
+    "date": "2024-05-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/05/11/ucla-protests-police-inaction-fights/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "With Europe’s support, North African nations push migrants to the desert",
+    "content": "Europe backs aggressive operations by governments in North Africa that lead to migrants being dumped in barren deserts, a joint investigation shows.",
+    "date": "2024-05-20",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2024/eu-migrant-north-africa-mediterranean/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Obstructed view may have delayed sniper response at Trump rally",
+    "content": "A 3D analysis by The Washington Post found two countersniper teams likely had difficulty seeing the gunman before he fired.",
+    "date": "2024-07-17",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2024/trump-rally-shooting-maps-secret-service-analysis/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Trump rally gunman stopped firing after local officer shot at him",
+    "content": "Thomas Matthew Crooks temporarily recoiled from his rooftop perch and did not shoot again before he was killed by a Secret Service countersniper.",
+    "date": "2024-07-30",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/07/30/trump-rally-local-officer-shot/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Va. health staff failed Irvo Otieno as he suffocated, experts say",
+    "content": "A new analysis of surveillance footage identified apparent lapses in the response by Central State clinical staff.",
+    "date": "2024-07-26",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/07/26/irvo-otieno-medical-response/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "‘We lost sight of him’: Radio traffic shows failed search for Trump rally shooter",
+    "content": "A disjointed communications system on the day of the rally hampered the Secret Service’s ability to grasp the threat in real time, a Post examination found.",
+    "date": "2024-08-03",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/08/03/trump-rally-police-radio-transmissions/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Local police complained about Secret Service after Trump rally shooting, videos show",
+    "content": "Body-cam footage released Thursday shows local police searching for Thomas Matthew Crooks in the moments before he opened fire.",
+    "date": "2024-08-09",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2024/08/08/trump-rally-shooting-police-body-cam-footage-released/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How an Israeli hostage rescue that left scores of Palestinians dead unfolded",
+    "content": "A review of videos of the June 8 raid in Nuseirat shows the Israeli military employed heavy airstrikes on a dense residential area for nearly four hours",
+    "date": "2024-08-13",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/08/13/israel-hostage-rescue-palestinian-deaths-analysis/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Ukraine has captured more than 200 Russian soldiers in Kursk offensive, videos show",
+    "content": "Visuals verified by The Post show more than 240 Russian prisoners, which analysts say appear to include conscripts with minimal fighting experience.",
+    "date": "2024-08-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/08/25/ukraine-kursk-offensive-russia-videos/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Republicans flood TV with misleading ads about immigration, border",
+    "content": "The Washington Post analyzed more than 700 campaign ads that mention immigration to see how the issue is being presented to voters.",
+    "date": "(sans date)",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/elections/interactive/2024/republican-campaign-ads-immigration-border-security/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How China extended its repression into an American city",
+    "content": "Events in San Francisco illustrate how the Chinese Communist Party is willing to target people exercising their First Amendment rights in an American city.",
+    "date": "2024-09-03",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/interactive/2024/chinese-communist-party-us-repression-xi-jinping-apec/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "New video, witnesses challenge Israel’s account of U.S. activist’s killing",
+    "content": "The IDF said Aysenur Eygi was shot “unintentionally” during a “violent riot.” A Post analysis shows clashes had subsided and protesters had retreated.",
+    "date": "2024-09-11",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/09/11/american-activist-aysenur-eygi-killed-idf-west-bank/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "New audio disputes ruling that stripped Jordan Chiles of Olympic medal",
+    "content": "A Post analysis of audio and visual evidence shows the U.S. gymnast’s coach initiated the inquiry into her score within the required one-minute timeframe.",
+    "date": "2024-09-19",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/investigations/2024/09/19/jordan-chiles-olympics-medal-appeal/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Video shows Israeli strike on crowd of people trying to help wounded boy",
+    "content": "Seconds after people rushed to help a 13-year-old boy grievously wounded from a strike in northern Gaza, another strike hit a few feet away.",
+    "date": "2024-10-21",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/10/21/gaza-israel-strike-jabalya-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Iranian missiles hit Israeli military sites, visuals show",
+    "content": "Some Iranian missiles broke through Israeli and allied air defenses to strike or land near at least three military and intelligence installations.",
+    "date": "2024-10-04",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/10/04/iran-missile-israel-attack-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel likely used U.S.-made 2,000-pound bombs in Nasrallah strike, visuals show",
+    "content": "Videos shared by the IDF show fighter jets they say were involved in the Nasrallah operation carrying BLU-109s, an American-made 2,000-pound munition.",
+    "date": "2024-09-29",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/09/29/israel-bomb-beirut-nasrallah-death/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israeli forces shove at least four men off West Bank roof, videos show",
+    "content": "The Israel Defense Forces are investigating the episode, which it said went against “IDF values.” The United States has called for an investigation.",
+    "date": "2024-09-20",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/09/20/israel-soldiers-west-bank-roof-bodies-video/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Satellite images show major expansion at Russian site with secret bioweapons past",
+    "content": "New construction at a military research site near Moscow reveals a specialized laboratory complex designed to research and handle deadly pathogens, experts say.",
+    "date": "2024-10-25",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/national-security/interactive/2024/russia-biological-chemical-weapons-laboratory-expansion/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "The decisions that cost some lives and saved others during Helene’s wrath",
+    "content": "Victims and survivors filmed Helene’s flooding in Tennessee, showing what went wrong as a hospital was evacuated and six people were swept away at a nearby factory.",
+    "date": "2024-11-27",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/nation/2024/11/27/hurricane-helene-erwin-tennessee-impact-plastics/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel has damaged or destroyed nearly a quarter of buildings in Lebanon’s south",
+    "content": "Almost 6,000 structures have been affected in border villages, including at least nine religious sites demolished in controlled explosions, a Post analysis found.",
+    "date": "2024-10-31",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/10/31/israel-war-lebanon-south-destruction/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "North Korean troops are at Russian military training site, videos show",
+    "content": "Soldiers from North Korea’s elite “Storm Corps” appear to be preparing to support Russia in its war against Ukraine, according to a Post analysis.",
+    "date": "2024-10-26",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/10/25/north-korean-troops-russia-ukraine-deployment/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "What visuals reveal about the impact of Israeli strikes on Iran",
+    "content": "Satellite imagery analyzed by The Washington Post shows damage to two air defense installations and at least three sites associated with missile production.",
+    "date": "2024-10-29",
+    "media": "Washington Post",
+    "link": "https://www.washingtonpost.com/world/2024/10/29/iran-israel-strikes-missiles-air-defense/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Revenge, fire and destruction: A year of Israeli soldiers’ videos from Gaza",
+    "content": "The Post verified more than 120 photos and videos of the war in Gaza - providing an uncensored view of one of the most deadly and destructive wars in this century.",
+    "date": "2024-12-03",
+    "media": "",
+    "link": "https://www.washingtonpost.com/investigations/interactive/2024/israel-videos-war-idf-gaza/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Images show suspect making stops in NYC before and after shooting of health insurance CEO",
+    "content": "Images appear to show a person suspected in the fatal shooting of UnitedHealthcare CEO Brian Thompson making various stops in Manhattan.",
+    "date": "2024-12-05",
+    "media": "",
+    "link": "https://www.washingtonpost.com/investigations/2024/12/05/unitedhealthcare-ceo-shooting-timeline/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Assad lived in quiet luxury while Syrians went hungry",
+    "content": "Syria’s ousted leader cultivated a modest image. Footage revealing hidden opulence tells a different story.",
+    "date": "2024-12-13",
+    "media": "",
+    "link": "https://www.washingtonpost.com/world/2024/12/13/bashar-al-assad-wealth/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "How antisemitism, Israeli nationalism and anger over Gaza clashed in Amsterdam",
+    "content": "To reconstruct the events, The Post reviewed more than 100 videos, interviewed more than 30 witnesses and examined WhatsApp and Telegram messages.",
+    "date": "2024-12-18",
+    "media": "",
+    "link": "https://www.washingtonpost.com/investigations/2024/12/18/amsterdam-attacks-israeli-football-fans/",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israel is demolishing northern Gaza and fortifying military positions, imagery shows",
+    "content": "Visual analysis and interviews show how Palestinians have been forced from their homes in the north as the Israeli military cuts a new corridor through Gaza.",
+    "date": "2024-12-23",
+    "media": "",
+    "link": "https://www.washingtonpost.com/world/2024/12/23/gaza-north-israel-jabalya-palestinians/?itid=sf_investigations_article_list",
+    "commentaire": "",
+    "authors": [],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "La \"première photo\" de Bachar al-Assad à Moscou depuis la chute du régime syrien ? C'est faux",
+    "content": "L'offensive éclair de groupes rebelles menés par des islamistes radicaux en Syrie a entraîné, dans la nuit du 7 au 8 décembre, la chute du régime syrien et la fuite du président Bachar al-Assad. Dans ce contexte, des internautes partagent, sur les réseaux sociaux, une image montrant le président syrien et son épouse Asma marcher côte-à-côte, en affirmant qu'il s'agirait de la \"première photo\" du couple al-Assad prise depuis son arrivée à Moscou. Mais il s'agit en réalité d'une capture d'écran d'images filmées en février 2023 dans un hôpital d'Alep. Par ailleurs, si des agences de presse russes ont affirmé le 8 décembre que Bachar al-Assad et sa famille se trouvaient à Moscou, le Kremlin a refusé, le lendemain, de confirmer leur présence en Russie.",
+    "date": "2024-12-09",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PY6AB",
+    "commentaire": "",
+    "authors": [
+      "Alexis Orsini",
+      "Dounia Mahieddine"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Non, l'Etat ne peut pas saisir l'épargne des Français en 72 heures pour financer l'aide à l'Ukraine",
+    "content": "La guerre en Ukraine et le soutien des Occidentaux à Kiev est un terreau fertile pour la désinformation depuis l'invasion russe en février 2022. Des publications sur les réseaux sociaux affirment ainsi début décembre 2024 qu'\"en cas de menace sur l'intégrité du territoire\", la loi de programmation militaire votée en 2023 permettrait désormais à l'Etat de \"saisir tout l'argent\" sur les comptes en banque des particuliers \"en 72 heures\". Mais c'est faux : dans un contexte de menaces nouvelles, cette loi a modernisé le code de la Défense, dont le champ d'application reste militaire, et non civil, et qui encadre notamment les réquisitions de biens matériels, pas les fonds des particuliers.",
+    "date": "2024-12-09",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PE2QJ",
+    "commentaire": "",
+    "authors": [
+      "Gaëlle Geoffroy"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Attention à ces comptes TikTok \"d'actualités\" qui véhiculent de la désinformation",
+    "content": "Plus de la moitié des Français disent s'informer sur les réseaux sociaux, selon des études d'opinion menées ces dernières années. Sur TikTok, des comptes se présentant comme des médias d'actualités amassent des dizaines de milliers d'abonnés. Attention : s'ils imitent parfois l'identité graphique de médias classiques, nombre d'entre eux véhiculent régulièrement de la désinformation et visent avant tout à récolter un maximum de partages. Ces comptes s'appuient sur le phénomène ancien des rumeurs qui piochent à la fois dans du vrai et du faux pour accroître leur audience grâce aux algorithmes des réseaux sociaux comme TikTok, qui permettent au brouillard informationnel de perdurer, estiment plusieurs spécialistes auprès de l'AFP.",
+    "date": "2024-12-09",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PB39P",
+    "commentaire": "",
+    "authors": [
+      "Claire-Line Nass"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Non, porter des lunettes de soleil n'augmente pas le risque d'avoir un cancer",
+    "content": "Les rayons UV peuvent endommager les yeux, comme c'est le cas pour la peau lors d'un coup de soleil. Pourtant, dans une vidéo partagée sur les réseaux sociaux, un naturopathe explique que porter des lunettes de soleil augmenterait les risques d'avoir un cancer, en empêchant le corps de créer de la mélanine - laquelle participe à la protection de la peau contre les rayons UV. C'est faux: porter des lunettes ne rend pas la peau plus sensible, comme l'expliquent à l'AFP des professionnels de la vue, de la peau et des cancers, rappelant les dangers de l'exposition au soleil pour les yeux. L'exposition solaire reste par ailleurs la cause principale des cancers de la peau.",
+    "date": "2024-12-12",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PZ2BK",
+    "commentaire": "",
+    "authors": [
+      "Chloé Rabs"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Non, cette vidéo ne montre pas un Français appelé à aller combattre en Ukraine",
+    "content": "Emmanuel Macron avait déclaré en février que l'envoi de troupes en Ukraine ne pouvait pas \"être exclu\" à l'avenir, tout en réaffirmant son souhait de \"parvenir à une paix juste et durable\" entre Kiev et Moscou. Ces propos avaient suscité un vif débat, ainsi que des affirmations erronées sur les réseaux sociaux, affirmant à tort qu'avaient débuté des recrutements de soldats français pour l'Ukraine, voire que des soldats tricolores étaient morts sur le front ukrainien. Des infox susceptibles de saper le soutien occidental à Kiev, crucial dans sa résistance à la Russie. Dans une vidéo très partagée fin 2024, un internaute assure avoir reçu une convocation l'obligeant à aller combattre sur le front ukrainien au sein de l'armée française. Mais cette affirmation est fausse, comme l'internaute lui-même l'a confirmé.",
+    "date": "2024-12-11",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PH69A",
+    "commentaire": "",
+    "authors": [
+      "Louise Dalmasso"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Non, cette image ne montre pas un détenu de la prison syrienne de Saydnaya",
+    "content": "Peu après la chute du président syrien Bachar al-Assad début décembre 2024, provoquée par une offensive éclair de groupes rebelles menés par des islamistes radicaux, ces derniers ont annoncé la prise de contrôle de la prison de Saydnaya, symbole des pires exactions du régime, et la libération de ses détenus. Dans ce contexte, des internautes partagent sur les réseaux sociaux la prétendue image d'un détenu retrouvé dans un souterrain de l'établissement pénitentiaire situé près de Damas. Mais c'est faux : il s'agit de la capture d'écran d'une vidéo réalisée par intelligence artificielle (IA), mise en ligne sur TikTok plusieurs jours avant la chute du régime syrien, et sans rapport avec la prison de Saydnaya.",
+    "date": "2024-12-11",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PX8J7",
+    "commentaire": "",
+    "authors": [
+      "Alexis Orsini"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Non, les programmes de SVT n'invitent pas les élèves à choisir leur sexe",
+    "content": "Le nouveau programme d'éducation à la vie affective, relationnelle et sexuelle (Evars), en concertation depuis le mois de mars, fait l'objet de vifs débats en France. Dans ce contexte, la députée de droite Christelle D'Intorni (UDR) a affirmé que les manuels actuels de Sciences et vie de la Terre (SVT) de quatrième et de seconde invitaient \"les enfants à choisir leur sexe\". Mais s'ils abordent la distinction entre sexe et genre, ni les ouvrages scolaires auxquels se réfère l'élue, ni le programme de l'Education nationale ne contiennent d'invitation pour les élèves à faire un tel choix.",
+    "date": "2024-12-11",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PL2BQ",
+    "commentaire": "",
+    "authors": [
+      "Lucie de Perthus"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Ces images ne montrent pas des terroristes venus d’Abidjan pour attaquer le Burkina Faso",
+    "content": "Les militaires au pouvoir au Burkina Faso accusent régulièrement la Côte d’Ivoire voisine de chercher à déstabiliser leur régime, au moment où des milliers de réfugiés burkinabè fuient l’insécurité dans leur pays. Des publications cumulant plus de 100.000 vues et de 1.500 partages prétendent images à l’appui que des terroristes venant d’Abidjan ont été interceptés par les forces burkinabè, alors qu’ils voyageaient cachés sous de faux tuyaux à bord d’un camion. Mais ces images montrent en réalité un camion trafiqué qui transportait des migrants éthiopiens arrêtés en Tanzanie.",
+    "date": "2024-12-10",
+    "media": "AFP",
+    "link": "https://factuel.afp.com/doc.afp.com.36PX6FH",
+    "commentaire": "",
+    "authors": [
+      "Suy Kahofi"
+    ],
+    "theme": "Stratégies militaires et d’influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment la police a grièvement blessé un « gilet jaune » le 16 novembre sur la place d’Italie à Paris",
+    "content": "Grâce à l’analyse de plusieurs heures de vidéos, la modélisation 3D des lieux et l’identification du projectile, « Le Monde » a reconstitué la séquence au terme de laquelle un manifestant, Manuel Coisne, a été éborgné.",
+    "date": "2019-12-11",
     "media": "Le Monde",
-    "link": "",
+    "link": "https://www.lemonde.fr/police-justice/video/2019/12/11/notre-enquete-video-comment-la-police-a-grievement-blesse-un-gilet-jaune-le-16-novembre-sur-la-place-d-italie-a-paris_6022448_1653578.html",
     "commentaire": "",
     "authors": [
-      "Lucas Minisini",
-      "Cellule Enquête vidéo",
-      "Der Spiegel",
-      "The Insider"
+      "Arthur Carpentier",
+      "Cellule Enquête vidéo"
     ],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "3D analysis shows how Israeli troops fired into group of civilians",
-    "content": "In an incident last month that left two Palestinians dead, troops shot at least 14 times in four seconds while civilians would have been visible.",
-    "date": "2023-03-10",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2023/palestine-shooting-nablus-videos/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Database of 305 videos exposes the horrors of war in Ukraine",
-    "content": "The Washington Post has catalogued and verified more than 200 videos from the war in Ukraine into a searchable visual database.",
-    "date": "2023-02-24",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2022/ukraine-russia-war-videos-verified/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Atlanta police release body-camera video from raid after fatal shooting of activist",
-    "content": "Footage from the aftermath of a fatal police shooting of a protester in January captures audio of gunshots and confusion among responding officers.",
-    "date": "2023-02-09",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2023/02/09/atlanta-police-body-cam-footage-shooting/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Videos show evidence of escalating crackdown on Iranian protests",
-    "content": "A Post analysis reveals with new clarity how security forces are operating in a protest epicenter — carrying out arrests, beatings and, in some cases, opening fire on civilians.",
-    "date": "2023-02-02",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/02/02/iran-protests-government/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Finding My Torturer",
-    "content": "On March 6th, huge anti-war demonstrations across Russia saw more than 5,000 protesters arrested. 29 were taken to Moscow's Brateyevo Police Station for questioning. There, an unnamed officer wearing black subjected at least 11 young women to verbal and physical abuse, often amounting to torture. This included suffocation.",
-    "date": "2023-01-30",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p0dzxj9t",
+    "title": "Tir de LBD à bout portant par un policier : ce qu’il s’est passé le 9 janvier à Paris, en images",
+    "content": "« Le Monde » a pu vérifier les données et la géolocalisation d’une vidéo montrant un policier faisant feu à moins de deux mètres d’un manifestant jeudi 9 janvier. Le parquet a ouvert une enquête pour « violences volontaires ».",
+    "date": "2020-01-10",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/police-justice/video/2020/01/10/video-le-tir-de-lbd-a-bout-portant-d-un-policier-pendant-la-manifestation-du-9-janvier-a-paris_6025477_1653578.html",
     "commentaire": "",
     "authors": [
-      "pas renseigné"
+      "Service vidéo du Monde",
+      "Arthur Carpentier",
+      "Asia Balluffier"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Timeline: It took 22 minutes for ambulance to arrive after Tyre Nichols was beaten by police",
-    "content": "Footage released by the city of Memphis showed the kicks and baton strikes police delivered against 29-year-old.",
-    "date": "2023-01-28",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2023/01/28/timeline-tyre-nichols-police-beating-video/",
+    "title": "Hôpitaux débordés, arrestations, mises en quarantaine forcées… Les images du coronavirus en Chine analysées",
+    "content": "Depuis le début de l’épidémie de coronavirus, de nombreuses vidéos illustrant la situation en Chine ont été publiées sur les réseaux sociaux. « Le Monde » a étudié et vérifié la fiabilité de plusieurs de ces documents.",
+    "date": "2020-02-26",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/les-decodeurs/video/2020/02/26/hopitaux-debordes-arrestations-et-mises-en-quarantaine-forcees-les-images-du-coronavirus-en-chine-analysees_6030942_4355770.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
+    "authors": [
+      "non renseigné"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Brazil’s military police initially stood by as Bolsonaro supporters rioted",
-    "content": "A review of over 150 videos and images reveals that rank-and-file officers tasked with securing the streets around government buildings did little at first to stop the assault.",
-    "date": "2023-01-28",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/01/28/brazil-police-capitol-riot/",
+    "title": "Violences en Inde : le rôle trouble de la police décrypté",
+    "content": "En février 2020, une vague de violences a embrasé les quartiers musulmans de New Delhi, la capitale indienne. L’action des forces de police indiennes a alors posé question.",
+    "date": "2020-06-12",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2020/06/12/violences-en-inde-le-role-trouble-de-la-police-decrypte_6042673_3210.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Marc Bettinelli",
+      "Olivier Escher"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : le déroulé des événements qui ont conduit à la mort d’Adama Traoré",
+    "content": "L’analyse de la vidéosurveillance, des échanges radio des forces de l’ordre et des témoignages-clés ont permis au « Monde » de reconstituer en images et en 3D les dernières heures d’Adama Traoré, mort le 19 juillet 2016.",
+    "date": "2020-07-17",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/videos/video/2020/07/17/enquete-video-le-deroule-des-evenements-qui-ont-conduit-a-la-mort-d-adama-traore_6046510_1669088.html",
+    "commentaire": "",
+    "authors": [
+      "Service vidéo du Monde",
+      "Asia Balluffier",
+      "Forensic Architecture (Collectif d'experts)"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Explosions à Beyrouth : ce que les vidéos révèlent de l’onde de choc",
+    "content": "Des vidéos collectées et géolocalisées par « Le Monde » offrent des indications sur la violence de la détonation et l’étendue des dégâts de la double explosion qui a touché Beyrouth, le 4 août.",
+    "date": "2020-08-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2020/08/07/explosions-a-beyrouth-ce-que-les-video-revelent-de-l-onde-de-choc_6048425_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Karim El Hadj",
+      "Elisa Bellanger",
+      "Marceau Bretonnier",
+      "Charles-Henry Groult"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Puy du Fou : ce que des vidéos d’amateurs révèlent des règles anti-Covid dans le parc",
+    "content": "Des images filmées par des amateurs offrent des indications sur le difficile respect des règles anti-Covid au sein du parc vendéen et pendant sa Cinéscénie, autorisée à accueillir plus de 5 000 spectateurs le 15 août",
+    "date": "2020-08-20",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/societe/video/2020/08/20/puy-du-fou-ce-que-des-videos-d-amateurs-revelent-des-regles-anti-covid-dans-le-parc_6049472_3224.html",
+    "commentaire": "",
+    "authors": [
+      "Marc Bettinelli",
+      "Charles-Henry Groult",
+      "Olivier Escher (Motion design)"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : les preuves de bombardements sur des civils dans le conflit du Haut-Karabakh",
+    "content": "Des vidéos analysées par « Le Monde » mettent en lumière l’usage d’armes à sous-munitions au Haut-Karabakh et le bombardement d’un centre commercial à Gandja, deuxième ville d’Azerbaïdjan.",
+    "date": "2020-10-23",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2020/10/23/armenie-azerbaidjan-les-preuves-en-images-de-bombardements-sur-des-populations-civiles_6057165_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Asia Balluffier",
+      "Robin Gasser",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Vidéos et données satellites des inondations dans les Alpes-Maritimes dévoilent une catastrophe inédite",
+    "content": "Des modélisations réalisées par « Le Monde » montrent que les crues du 2 octobre dans les Alpes-Maritime ont plusieurs fois dépassé les plans de gestion des risques.",
+    "date": "2020-11-16",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/police-justice/video/2020/11/16/attentat-de-conflans-le-parcours-d-une-rumeur-l-itineraire-du-tueur_6059947_1653578.html",
+    "commentaire": "",
+    "authors": [
+      "Pierre Trouvé",
+      "Charles-Henry Groult",
+      "Elsa Longueville",
+      "Robin Gasser",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Attentat contre Samuel Paty : enquête sur le parcours de la rumeur et l’itinéraire du tueur",
+    "content": "Enquête vidéo. De Conflans à Idlib, de Facebook à Twitter, « Le Monde » a remonté le fil de l’attentat perpétré contre le professeur d’histoire-géographie Samuel Paty, le 16 octobre 2020.",
+    "date": "2020-11-16",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/police-justice/video/2020/11/16/attentat-de-conflans-le-parcours-d-une-rumeur-l-itineraire-du-tueur_6059947_1653578.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Charles-Henry Groult",
+      "Nicolas Chapuis"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : ce que les réseaux sociaux chinois révèlent des camps d’internement et du travail forcé des Ouïgours",
+    "content": "Malgré la censure et les dénégations de Pékin, l’analyse des réseaux sociaux chinois par « Le Monde » expose la politique de répression menée contre les musulmans ouïgours, au Xinjiang.",
+    "date": "2021-01-06",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/01/06/enquete-video-ce-que-les-reseaux-sociaux-chinois-revelent-des-camps-d-internement-et-du-travail-force-des-ouigours_6065324_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Service vidéo du Monde"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment un commissaire de police a blessé plusieurs journalistes lors d’une Marche des libertés",
+    "content": "L’analyse de dizaines d’heures d’images a permis au « Monde » d’identifier un commissaire responsable de plusieurs coups portés à des journalistes le 28 novembre 2020, dont l’un a sévèrement blessé au visage le reporter syrien Ameer Al-Halbi.",
+    "date": "2021-03-11",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/police-justice/video/2021/03/11/enquete-video-sur-le-commissaire-de-police-qui-a-blesse-plusieurs-journalistes-lors-de-la-marche-des-libertes-du-28-novembre-2020_6072675_1653578.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Elsa Longueville",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment des milices d’extrême droite américaines ont préparé l’invasion du Capitole",
+    "content": "Des vidéos et des échanges entre membres de deux groupes paramilitaires, collectés par « Le Monde » et des médias américains, exposent la planification de l’assaut du 6 janvier à Washington.",
+    "date": "2021-03-21",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/videos/video/2021/03/21/enquete-video-comment-des-milices-d-extreme-droite-americaines-ont-prepare-l-invasion-du-capitole_6073914_1669088.html",
+    "commentaire": "",
+    "authors": [
+      "Asia Balluffier",
+      "Elisa Bellanger"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Mercenaires russes Wagner : enquête vidéo sur l’« armée fantôme » de Vladimir Poutine",
+    "content": "Des vidéos collectées par « Le Monde » mettent en lumière l’action des mercenaires russes du Groupe Wagner en Ukraine, Libye et Centrafrique, pays où la Russie n’a officiellement pas de soldat combattant.",
+    "date": "2021-04-04",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/04/04/mercenaires-russes-wagner-enquete-video-sur-l-armee-fantome-de-vladimir-poutine_6075520_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Service vidéo du Monde",
+      "Marceau Bretonnier",
+      "Thomas Eydoux"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Journalistes matraqués : une nouvelle vidéo confirme la responsabilité du commissaire P.",
+    "content": "De nouvelles images obtenues par « Le Monde » éclairent la violente charge menée par ce commissaire de police, le 28 novembre 2020 à Paris, au cours de laquelle le journaliste syrien Ameer Al-Halbi a été blessé au visage.",
+    "date": "2021-04-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/police-justice/article/2021/04/07/journalistes-matraques-une-nouvelle-video-confirme-la-responsabilite-du-commissaire-p_6075859_1653578.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Soudan : des vidéos vérifiées par « Le Monde » prouvent des crimes ethniques commis au Darfour",
+    "content": "Malgré les dénégations des Forces de soutiens rapides (FSR), des images vérifiées par « Le Monde », le collectif Lighthouse Reports et ses partenaires révèlent les crimes ethniques réalisés par des milices qui leur sont affiliées.",
+    "date": "2021-04-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2024/09/09/soudan-des-videos-verifiees-par-le-monde-prouvent-des-crimes-ethniques-commis-au-darfour_6308265_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "En Birmanie, comment l’armée réprime la mobilisation populaire",
+    "content": "Des vidéos filmées en février et mars à Rangoun, rassemblées et analysées par « Le Monde », dévoilent le face-à-face tragique entre les lance-pierres des opposants à la junte et les armes de guerre déployées par les forces de l’ordre.",
+    "date": "2021-04-18",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/04/18/en-birmanie-la-jeunesse-meurt-sur-des-barricades-de-fortune_6077166_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Service vidéo du Monde",
+      "Asia Balluffier",
+      "Arthur Carpentier"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Israël-Palestine : ce que les vidéos révèlent de l’arsenal militaire des deux camps",
+    "content": "L’armée israélienne et des groupes palestiniens communiquent abondamment sur leur puissance de feu. Qu’en est-il vraiment ? « Le Monde » a identifié une partie des missiles et roquettes utilisés de part et d’autre, grâce aux vidéos tournées sur place.",
+    "date": "2021-05-23",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/05/23/israel-palestine-ce-que-les-videos-revelent-de-l-arsenal-militaire-des-deux-camps_6081183_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Asia Balluffier",
+      "Service vidéo du Monde",
+      "Olivier Escher (Motion-design)",
+      "Élodie Maillard (Motion-design)"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment une opération de police a viré au chaos en Seine-Saint-Denis",
+    "content": "Le 25 juin 2013, à Villemomble, un engrenage de violences fait plusieurs blessés, dont une femme qui perd l’usage d’un œil. Alors que tous les policiers ont été acquittés, « Le Monde » retrace, avec des images inédites, cette opération.",
+    "date": "2021-06-02",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/police-justice/video/2021/06/02/enquete-video-en-seine-saint-denis-comment-une-operation-de-police-a-vire-au-chaos_6082504_1653578.html",
+    "commentaire": "",
+    "authors": [
+      "Antoine Schirer",
+      "Emile Costard",
+      "Amanda Jacquel",
+      "Lucas Roxo",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment Pékin impose sa présence militaire en mer de Chine méridionale",
+    "content": "Des vidéos et des images satellites analysées par « Le Monde » montrent l’ampleur de la colonisation chinoise sur des archipels très éloignés de son territoire, où surgissent drones, pistes d’atterrissage et systèmes antiaériens.",
+    "date": "2021-07-18",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/07/18/enquete-video-comment-pekin-impose-sa-presence-militaire-en-mer-de-chine-meridionale_6088616_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Elsa Longueville (Motion-design)",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Afghanistan : ce que les vidéos montrent de la reconquête des talibans",
+    "content": "Depuis plusieurs mois, les talibans intensifient leur offensive contre le régime de Kaboul. A quoi ressemble cette reconquête ? « Le Monde » a analysé et authentifié des vidéos tournées en Afghanistan et diffusées sur Internet.",
+    "date": "2021-07-31",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/07/31/afghanistan-ce-que-les-videos-montrent-de-la-reconquete-des-talibans_6090165_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Marceau Bretonnier",
+      "Elisa Bellanger",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Les « mégafeux » sont-ils en augmentation ? Ce que montrent les données et images satellites",
+    "content": "Méditerranée, Australie, Etats-Unis, Sibérie : depuis quelques années, des incendies de plus en plus importants ravagent la planète. Sont-ils inédits ?",
+    "date": "2021-09-05",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/planete/video/2021/09/05/les-megafeux-sont-ils-en-augmentation-ce-que-montrent-les-donnees-et-images-satellites_6093459_3244.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Élodie Maillard",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Migrants : enquête sur le rôle de l’Europe dans le piège libyen",
+    "content": "Des données de vol obtenues par « Le Monde » révèlent comment l’agence européenne Frontex encourage les rapatriements de migrants vers la Libye, malgré les exactions qui y sont régulièrement dénoncées par l’ONU.",
+    "date": "2021-10-31",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/video/2021/10/31/migrants-enquete-sur-le-role-de-l-europe-dans-le-piege-libyen_6100475_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Marceau Bretonnier",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sahel : ce que les vidéos de djihadistes révèlent de leurs armes et de leurs méthodes",
+    "content": "Des vidéos de propagande analysées par « Le Monde » exposent les méthodes des groupes djihadistes au Sahel pour affronter les armées locales et s’emparer de leur matériel. Elles soulignent aussi comment certaines branches terroristes se déchirent.",
+    "date": "2021-11-14",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/afrique/video/2021/11/14/sahel-ce-que-les-videos-de-djihadistes-revelent-de-leurs-armes-et-de-leurs-methodes_6101993_3212.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Elsa Longueville (Motion design)",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Stratégies miltaires",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Pologne : comment le piège biélorusse s’est refermé sur des milliers de migrants",
+    "content": "Des vidéos tournées à la frontière entre la Pologne et la Biélorussie, authentifiées par « Le Monde », permettent de retracer les huit jours qui ont vu des milliers de migrants tomber dans le piège tendu pour faire pression sur l’UE.",
+    "date": "2021-11-19",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2021/11/19/pologne-comment-le-piege-bielorusse-s-est-referme-sur-des-milliers-de-migrants_6102884_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Sébastien Bourdon",
+      "Robin Gasser (Motion design)",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Au Kazakhstan, ce que les images montrent des émeutes et de leur répression",
+    "content": "Des vidéos amateur, vérifiées par « Le Monde », témoignent de la soudaine montée de violence qui a balayé plusieurs villes du Kazakhstan et fait des dizaines de victimes parmi les forces de l’ordre et les manifestants.",
+    "date": "2022-01-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/01/07/au-kazakhstan-ce-que-les-images-montrent-des-emeutes-et-de-leur-repression_6108620_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Charles-Henry Groult",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Répression des manifestations",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Guerre en Ukraine : ce que les images montrent de l’ampleur de l’attaque et de son impact sur les civils",
+    "content": "Des images satellites et des vidéos géolocalisées permettent de retracer les premières heures de l’offensive militaire menée par la Russie en Ukraine.",
+    "date": "2022-02-24",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/02/24/guerre-en-ukraine-ce-que-les-images-montrent-de-l-ampleur-de-l-attaque-et-de-son-impact-sur-les-civils_6115136_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Asia Balluffier",
+      "Marceau Bretonnier",
+      "Donald Walther",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Stratégies miltaires",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Jean-Luc Mélenchon, Valérie Pécresse et Eric Zemmour grands vainqueurs du temps de parole sur YouTube et Twitch",
+    "content": "Comptabilisés par « Le Monde », le temps de parole et l’exposition des candidats à l’élection présidentielle sur ces sites révèlent de fortes disparités.",
+    "date": "2022-03-08",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/politique/article/2022/03/08/enquete-melenchon-pecresse-et-zemmour-grands-vainqueurs-du-temps-de-parole-sur-internet_6116644_823448.html",
+    "commentaire": "",
+    "authors": [
+      "Asia Balluffier",
+      "Clément Legros",
+      "Manon Romain",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Guerre en Ukraine : des vidéos analysées par « Le Monde » attestent de l’usage d’armes à sous-munitions en zones civiles",
+    "content": "Des vidéos analysées par des ONG et médias documentent le recours à des bombes à sous-munitions, interdites par des traités internationaux. Si l’origine des tirs est parfois difficile à prouver, certaines images montrent une probable responsabilité de l’armée russe.",
+    "date": "2022-03-09",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/03/09/guerre-en-ukraine-des-videos-analysees-par-le-monde-attestent-de-l-usage-d-armes-a-sous-munitions-en-zones-civiles_6116805_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Adrien Vande Casteele (Motion design)",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Jean-Luc Mélenchon et Eric Zemmour parlent plus que les autres sur Youtube et Twitch",
+    "content": "Comptabilisés par « Le Monde », le temps de parole et l’exposition des candidats à l’élection présidentielle sur ces deux plates-formes vidéo révèlent de fortes disparités.",
+    "date": "2022-03-29",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/les-decodeurs/article/2022/03/29/sur-youtube-et-twitch-jean-luc-melenchon-et-eric-zemmour-parlent-plus-que-les-autres_6119618_4355770.html",
+    "commentaire": "",
+    "authors": [
+      "Asia Balluffier",
+      "Clément Legros",
+      "Manon Romain",
+      "Service vidéo du Monde"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Afghanistan : des vidéos prouvent que des talibans ont mené des exécutions sommaires dans la vallée du Panchir",
+    "content": "Des vidéos vérifiées par « Le Monde » et son partenaire, le Centre for Information Resilience, prouvent que des talibans se sont rendus coupables d’exécutions sommaires de résistants, en septembre, dans la province afghane du Panchir.",
+    "date": "2022-10-18",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/10/18/afghanistan-des-videos-prouvent-que-des-talibans-ont-mene-des-executions-sommaires-dans-la-vallee-du-panchir_6146253_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Centre for Information Resilience",
+      "Arthur Weil-Rabaud",
+      "Adrien Vande Casteele (motion-design)",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Des appareils de surveillance de Frontex sont utilisés par les gardes-côtes libyens pour intercepter illégalement des migrants",
+    "content": "« Le Monde » a identifié l’origine de sept images aériennes publiées par les gardes-côtes libyens sur leurs pages Facebook. Elles ont été réalisées par des appareils de surveillance de Frontex, et démontrent comment les activités de l’agence européenne facilitent des interceptions illicites par les Libyens en Méditerranée. Frontex a toujours soutenu ne pas collaborer avec les garde-côtes libyens.",
+    "date": "2022-11-23",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/11/23/enquete-comment-des-appareils-de-surveillance-de-frontex-sont-utilises-par-les-gardes-cotes-libyens-pour-intercepter-illegalement-des-migrants_6151323_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Marceau Bretonnier (Motion design)",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Des vidéos attestent d’un tir à balle réelle sur un réfugié, à la frontière entre la Bulgarie et la Turquie",
+    "content": "Des vidéos collectées par « Le Monde », le collectif Lighthouse Reports et plusieurs médias européens montrent un jeune réfugié syrien qui reçoit une balle dans la poitrine, à la frontière turco-bulgare. Selon notre analyse, le coup a été tiré depuis une zone où étaient alors postées des forces de sécurité bulgares.",
+    "date": "2022-12-05",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/12/05/des-videos-attestent-d-un-tir-a-balle-reelle-sur-un-refugie-a-la-frontiere-entre-la-bulgarie-et-la-turquie_6153048_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Lighthouse Reports",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "En Europe, des réfugiés mis en cage sous le regard des agents de Frontex",
+    "content": "Des vidéos filmées et analysées par « Le Monde », le collectif de journalistes Lighthouse Reports et plusieurs médias européens montrent qu’une cage est utilisée par des gardes-frontières bulgares pour détenir illégalement des réfugiés, sous l’œil de l’agence européenne Frontex.",
+    "date": "2022-12-08",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2022/12/08/en-europe-des-refugies-mis-en-cage-sous-le-regard-des-agents-de-frontex_6153465_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Liselotte Mas",
+      "Lighthouse Reports",
+      "Marceau Bretonnier (Visuels)",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
@@ -1368,7 +3990,7 @@ window.DATA = [
     "content": "Les forces de l’ordre brésiliennes sont-elles complices de l’insurrection bolsonariste du 8 janvier à Brasilia ? « Le Monde » a analysé plus d’une centaine de vidéos filmées pendant les événements.",
     "date": "2023-01-13",
     "media": "Le Monde",
-    "link": "",
+    "link": "https://www.lemonde.fr/international/article/2023/01/13/insurrection-au-bresil-ce-que-les-images-revelent-de-l-impreparation-de-la-police_6157785_3210.html",
     "commentaire": "",
     "authors": [
       "Cellule Enquête vidéo",
@@ -1379,155 +4001,577 @@ window.DATA = [
       "Bruno Meyerfeld (Rio de Janeiro",
       "correspondant)"
     ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Videos of Brazil attack show striking similarities to Jan. 6",
-    "content": "Two years after a pro-Trump mob stormed the U.S. Capitol, a group of Bolsonaro supporters attacked Brazil’s government buildings in similar ways.",
-    "date": "2023-01-09",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2023/01/09/brazil-attack-january6-capitol/",
+    "title": "Un espion russe à Paris : Boulat Ianborissov, patron de course automobile et agent au service du Kremlin",
+    "content": "Boulat Ianborissov n’est pas juste le patron de la course automobile Silk Way Rally. Des documents obtenus par l’hebdomadaire allemand « Der Spiegel », le site d’investigation russe « Insider » et « Le Monde » permettent d’établir que ce Russe, qui vit à Paris, est en réalité un agent de haut vol au service du Kremlin.",
+    "date": "2023-04-21",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/m-le-mag/article/2023/04/21/un-espion-russe-a-paris-boulat-ianborissov-patron-de-course-automobile-et-agent-au-service-du-kremlin_6170489_4500055.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Lucas Minisini",
+      "Cellule Enquête vidéo",
+      "Der Spiegel",
+      "The Insider"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Satellite images show crowds at China’s crematoriums as covid surges",
-    "content": "An analysis of satellite images and videos finds a dramatic increase in activity at funeral homes, undermining Chinese claims that outbreaks are under control.",
-    "date": "2023-01-09",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2023/01/09/china-crematorium-covid-deaths/",
+    "title": "Pour discréditer l’Ukraine, la Russie organise de faux rassemblements en Europe",
+    "content": "A Paris, Bruxelles ou La Haye, des publications sur les réseaux sociaux prétendent montrer des rassemblements contre l’Ukraine ou l’OTAN. Des documents, que « Le Monde » et ses partenaires ont obtenus, montrent qu’ils ont été planifiés par la Russie.",
+    "date": "2023-05-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/05/07/pour-discrediter-l-ukraine-la-russie-organise-de-faux-rassemblements-en-europe_6172447_3210.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Margaux Farran",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "After years with little covid, videos show China is now getting hit hard",
-    "content": "Alarming videos of Chinese medical facilities offer a glimpse of the toll a huge coronavirus wave is wreaking — and undercut Beijing’s claim that the government is in control.",
-    "date": "2022-12-27",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/12/27/videos-severe-china-covid/",
+    "title": "Mort présumée de Prigojine : ce que révèlent les profils des autres passagers de l’avion qui s’est écrasé",
+    "content": "Grâce à des documents internes du Groupe Wagner, « Le Monde » recense le profil des victimes probables du crash : des hauts responsables du groupe de mercenaires et des proches du clan Prigojine, son fondateur, également enregistré sur le vol.",
+    "date": "2023-08-24",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/08/24/groupe-wagner-d-evgueni-prigojine-a-son-garde-du-corps-ce-que-revele-la-liste-des-passagers-du-crash_6186431_3210.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Cellule Enquête vidéo",
+      "Thomas Eydoux",
+      "Liselotte Mas"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Video: Caught on Camera, Traced by Phone: The Russian Military Unit That Killed Dozens in Bucha",
-    "content": "Exclusive phone records, documents, interviews and thousands of hours of video reveal how a Russian paratrooper unit killed dozens of people on one street in March.",
-    "date": "2022-12-22",
-    "media": "The New York Times",
-    "link": "",
+    "title": "Derrière le crash d’un avion de l’air malien, la présence probable de Wagner",
+    "content": "Le 23 septembre, un avion de transport Il-76 s’écrase en bout de piste à l’aéroport de Gao, au Mali. « Le Monde » a suivi la piste de l’origine de cet appareil, qui conduit à l’armée malienne et au groupe de mercenaires Wagner.",
+    "date": "2023-10-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/10/07/derriere-le-crash-d-un-avion-de-l-air-malien-la-presence-probable-de-wagner_6192989_3210.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Marceau Bretonnier (motion design)",
+      "Elisa Bellanger (motion design)",
+      "Cellule Enquête vidéo",
+      "Mahé Richard-Schmidt (montage)"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "From Jared Kushner to Salt Bae: Here’s who Elon Musk was seen with at the World Cup",
-    "content": "Photos taken of Musk during the World Cup show him amid a group that included Jared Kushner, Qatari leaders and an Indian steelmaking magnate.",
-    "date": "2022-12-21",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/12/20/elon-musk-spotted-world-cup-final/",
+    "title": "Guerre Israël-Hamas : comment la rave-party près de Gaza a basculé dans l’horreur",
+    "content": "En quelques heures, les combattants du Hamas ont tué plus de 200 personnes dans une soirée techno en Israël, samedi 7 octobre. Les images géolocalisées et vérifiées par « Le Monde » racontent une attaque éclair ultra violente.",
+    "date": "2023-10-09",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/10/09/guerre-israel-hamas-comment-la-rave-party-pres-de-gaza-a-bascule-dans-l-horreur_6193383_3210.html",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Thomas Eydoux",
+      "Cellule Enquête vidéo",
+      "Marceau Bretonnier"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Enquête : les munitions du fabricant franco-italien Cheddite tirées contre les manifestants en Iran",
-    "content": "La rédaction des Observateurs de France 24 a obtenu les photos de 13 cartouches de fusil de chasse portant les logos de Cheddite, un fabricant de munitions franco-italien. Elles ont été récupérées dans huit villes iraniennes après des manifestations. C’est une violation manifeste d’un règlement européen, qui proscrit l’exportation en Iran de matériel destiné à la répression interne.",
-    "date": "2022-12-16",
+    "title": "Guerre Israël-Hamas : ce que les images révèlent du mode opératoire du mouvement islamiste",
+    "content": "De nombreuses images, de la vidéosurveillance à la propagande du Hamas, permettent de documenter l’attaque subie par Israël, samedi 7 octobre. A partir de ces éléments, vérifiés et analysés, « Le Monde » a reconstitué le mode opératoire des miliciens palestiniens lors de l’opération terroriste « Déluge d’Al-Aqsa ».",
+    "date": "2023-10-13",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/10/13/guerre-israel-hamas-ce-que-les-images-revelent-du-mode-operatoire-du-mouvement-islamiste_6194242_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Liselotte Mas",
+      "Thomas Eydoux",
+      "Marceau Bretonnier (Motion design)",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Explosion à l’hôpital Al-Ahli à Gaza : ce que montre l’analyse détaillée des images",
+    "content": "Deux jours après les faits, Hamas et armée israélienne continuent de se renvoyer la responsabilité du drame. Les images authentifiées et analysées par « Le Monde » permettent de mieux comprendre ce qu’il s’est passé.",
+    "date": "2023-10-19",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/10/19/explosion-a-l-hopital-al-ahli-a-gaza-ce-que-montre-l-analyse-detaillee-des-images_6195448_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Liselotte Mas",
+      "Thomas Eydoux",
+      "Cellule Enquête vidéo",
+      "Elisa Bellanger (Motion design)",
+      "Marceau Bretonnier (Motion design)"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Explosion à l’hôpital Al-Ahli à Gaza : les nouveaux éléments de notre enquête",
+    "content": "Deux semaines après les faits, une nouvelle analyse du « Monde » montre que la trajectoire et la vitesse d’une salve de roquettes palestiniennes sont compatibles avec l’explosion à l’hôpital. Elle éclaire une nuit d’affrontements, entre échanges de tirs et survols par des avions, vraisemblablement israéliens.",
+    "date": "2023-11-03",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/11/03/explosion-a-l-hopital-al-ahli-a-gaza-les-nouveaux-elements-de-notre-enquete_6198032_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Arthur Carpentier",
+      "Thomas Eydoux",
+      "Cellule Enquête vidéo",
+      "Félix Pommier (motion design)"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "« Narco Business », immersion vidéo inédite au cœur des cartels de la drogue",
+    "content": "Pendant deux ans, Bertrand Monnet, professeur à l’Edhec et spécialiste de l’économie du crime, a filmé pour « Le Monde » toutes les étapes du « business model » du cartel de Sinaloa, au Mexique. Dans ce premier volet, plongée inédite dans les laboratoires de M30, la pilule de fentanyl qui ravage les Etats-Unis.",
+    "date": "2023-11-07",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/11/07/au-c-ur-des-laboratoires-de-fentanyl-decouvrez-le-premier-episode-de-notre-serie-video-narco-business_6198674_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Bertrand Monnet (enquête",
+      "images)",
+      "Charles-Henry Groult",
+      "Pablo Teyssier-Verger (montage)",
+      "Marceau Bretonnier (motion-design)"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Tir d’obus à l’hôpital Al-Shifa à Gaza : les images pointent la responsabilité des Israéliens",
+    "content": "Dans la soirée du 9 novembre, un projectile plonge au dessus du plus grand hôpital de Gaza. Quelques instants plus tard, deux hommes sont blessés, dont un très gravement. Un reste d’obus est retrouvé à leurs pieds. « Le Monde » est en mesure d’affirmer qu’il s’agit d’un obus éclairant israélien.",
+    "date": "2023-11-15",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/11/15/tir-d-obus-a-l-hopital-al-shifa-a-gaza-les-images-pointent-la-responsabilite-des-israeliens_6200316_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Liselotte Mas",
+      "Cellule Enquête vidéo",
+      "Adrien Vande Casteele"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Du cartel mexicain de Sinaloa aux rues de New York : au cœur du business du fentanyl",
+    "content": "Pendant deux ans, Bertrand Monnet, professeur à l’Edhec et spécialiste de l’économie du crime, a filmé pour « Le Monde » toutes les étapes du « business model » du cartel de Sinaloa, au Mexique. Dans ce deuxième épisode, zoom sur l’organisation bien huilée du cartel pour vendre le fentanyl, des clans du Culiacan aux dealeurs de New York.",
+    "date": "2023-11-17",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/11/17/les-cooperatives-de-la-mort-de-sinaloa-decouvrez-le-deuxieme-volet-de-notre-serie-video-narco-business_6200634_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Bertrand Monnet (enquête",
+      "images)",
+      "Charles-Henry Groult",
+      "Pablo Teyssier-Verger (montage)",
+      "Marceau Bretonnier (motion design)"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "« Dubaï connexion, comment blanchir cinquante millions de dollars » : découvrez le troisième épisode de notre série vidéo « Narco Business »",
+    "content": "Pendant deux ans, Bertrand Monnet, professeur à l’Edhec et spécialiste de l’économie du crime, a filmé pour « Le Monde » toutes les étapes du « business model » du cartel de Sinaloa, au Mexique. Dans ce troisième épisode, rendez-vous à Dubaï avec les « narcos » et leurs conseillers financiers, pour savoir comment blanchir des millions de dollars.",
+    "date": "2023-12-01",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/societe/article/2023/12/01/dubai-connexion-comment-blanchir-cinquante-millions-de-dollars-decouvrez-le-troisieme-episode-de-notre-serie-video-narco-business_6203306_3224.html",
+    "commentaire": "",
+    "authors": [
+      "Bertrand Monnet (enquête",
+      "images)",
+      "Pablo Teyssier-Verger (montage)",
+      "Adrien Vande Casteele (motion design)",
+      "Marceau Bretonnier (direction artistique)",
+      "Asia Balluffier",
+      "Charles-Henry Groult",
+      "Stéphane Oiry (dessins)"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "L’espion chinois, le député belge et les institutions européennes",
+    "content": "Les journalistes du « Spiegel », du « Financial Times » et du « Monde » ont eu accès à des centaines de messages échangés entre un agent du renseignement chinois, Daniel Woo, et l’un de ses contacts en Europe, l’ancien député belge d’extrême droite Frank Creyelman.",
+    "date": "2023-12-15",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/m-le-mag/article/2023/12/15/l-espion-chinois-le-depute-belge-et-les-institutions-europeennes_6205948_4500055.html",
+    "commentaire": "",
+    "authors": [
+      "Lucas Minisini",
+      "Thomas Eydoux"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Comment des milliers de migrants ont été abandonnés en plein désert avec le soutien de l’Europe",
+    "content": "Une enquête de plusieurs mois menée par « Le Monde », le collectif de journalistes « Lighthouse Reports » et sept médias internationaux révèle comment des dizaines de milliers de migrants en route vers l’Europe ont été arrêtés et abandonnés en plein désert, au Maroc, en Tunisie et en Mauritanie.",
+    "date": "2024-05-21",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2024/05/21/comment-des-milliers-de-migrants-ont-ete-abandonnes-en-plein-desert-avec-le-soutien-de-l-europe_6234482_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Liselotte Mas",
+      "Asia Balluffier",
+      "Rüzgar Mehmet Akgün",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Guerre Israël-Hamas : ce que montre l’analyse détaillée des images du bombardement israélien d’un camp de déplacés à Rafah",
+    "content": "L’armée israélienne dit que sa frappe n’est pas directement responsable de l’incendie qui a tué au moins 45 personnes, dans la nuit du 26 au 27 mai, et laisse entendre que des armes ou munitions palestiniennes ont pu le déclencher. Les images analysées par « Le Monde » éclairent d’autres hypothèses, comme la présence de bouteilles de gaz de cuisson.",
+    "date": "2024-05-30",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2024/05/30/bombardement-d-un-camp-de-deplaces-a-rafah-ce-que-montre-l-analyse-detaillee-des-images_6236414_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Liselotte Mas",
+      "Asia Balluffier",
+      "Rüzgar Mehmet Akgün",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Comment Europe 1 a caviardé les dérapages politiques de l’émission « On marche sur la tête » de Cyril Hanouna",
+    "content": "« Le Monde » a chiffré la surreprésentation de l’extrême droite et identifié plusieurs dizaines de minutes de direct discrètement supprimées des replays de la radio.",
+    "date": "2024-06-29",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/actualite-medias/article/2024/06/29/comment-europe-1-a-caviarde-les-derapages-politiques-de-l-emission-on-marche-sur-la-tete-de-cyril-hanouna_6245156_3236.html",
+    "commentaire": "",
+    "authors": [
+      "Charles-Henry Groult",
+      "Antoine Apelbaum",
+      "Antoine Schirer",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "La Brigade Bear, nouvel outil paramilitaire de la Russie en Afrique",
+    "content": "Depuis la mort d’Evgueni Prigojine le 23 août 2023, le ministère russe de la défense a repris en main les activités du Groupe Wagner en Afrique. Parmi les différentes unités paramilitaires qu’il encadre, la Brigade Bear, dont les hommes ont fait une arrivée remarquée au Burkina Faso.",
+    "date": "2024-07-06",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/afrique/article/2024/07/06/la-brigade-bear-nouvel-outil-du-kremlin-en-afrique_6247284_3212.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Eydoux",
+      "Benjamin Roger",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "La vie secrète de l’agent Griaznov, l’espion russe du FSB soupçonné d’avoir voulu « déstabiliser les JO »",
+    "content": "Grâce à de nombreux documents et sources exclusives, « Le Monde » a pu retracer le parcours de Kirill Griaznov, ancienne vedette de télé-réalité, devenu espion russe du FSB, qui se vantait d’offrir aux Français « une cérémonie d’ouverture comme il n’y en a jamais eu ».",
+    "date": "2024-07-25",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/societe/article/2024/07/25/agent-k-plongee-inedite-dans-la-vie-de-l-espion-russe-du-fsb-soupconne-d-avoir-voulu-destabiliser-les-jo_6257833_3224.html",
+    "commentaire": "",
+    "authors": [
+      "Lucas Minisini",
+      "Thomas Eydoux",
+      "Charles-Henry Groult",
+      "Der Spiegel",
+      "The Insider"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Après le naufrage d’un bateau avec 750 personnes à bord au large de la Grèce, les failles et la lenteur des secours",
+    "content": "Après la lenteur de l’intervention de sauvetage, l’utilisation de cordes par les gardes-côtes pour tracter le chalutier en perdition soulève des questions. « Le Monde » a reconstitué les heures qui ont précédé ce drame à l’issue duquel plus de 500 migrants auraient perdu la vie.",
+    "date": "2024-09-09",
+    "media": "Le Monde",
+    "link": "https://www.lemonde.fr/international/article/2023/06/23/naufrage-au-large-de-la-grece-les-failles-des-secours_6178832_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Julia Pascual",
+      "Marina Rafenberg",
+      "Arthur Carpentier",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Attaque terroriste à Bamako : les images vérifiées par « Le Monde » montrent une opération préparée et meurtrière",
+    "content": "Des djihadistes affiliés à Al-Qaida ont revendiqué l’attaque du 17 septembre contre une école de gendarmerie et l’aéroport de la capitale malienne. Les images localisées par « Le Monde » montrent plusieurs corps calcinés.",
+    "date": "2024-09-18",
+    "media": "",
+    "link": "https://www.lemonde.fr/afrique/video/2024/09/18/attaque-terroriste-a-bamako-les-images-verifiees-par-le-monde-montrent-une-operation-preparee-et-meurtriere_6323140_3212.html",
+    "commentaire": "",
+    "authors": [
+      "Laureline Savoye",
+      "Thomas Eydoux",
+      "Morgane Le Cam",
+      "Benjamin Roger",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment l’attaque aux appareils explosifs contre le Hezbollah s’est déroulée",
+    "content": "Des vidéos vérifiées et géolocalisées par « Le Monde » permettent de mieux comprendre comment a été réalisée l’attaque aux appareils piégés contre des membres du Hezbollah au Liban.",
+    "date": "2024-09-20",
+    "media": "",
+    "link": "https://www.lemonde.fr/international/video/2024/09/20/enquete-video-comment-l-attaque-aux-appareils-explosifs-du-hezbollah-s-est-deroulee_6325342_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Sébastien Bourdon",
+      "Antoine Schirer",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête sur l’Institut libre de journalisme, l’école créée par la droite identitaire pour conquérir les médias",
+    "content": "« Le Monde » dévoile comment l’Institut libre de journalisme (ILDJ), une école parisienne proche des réseaux de Vincent Bolloré et du milliardaire catholique Pierre-Edouard Stérin, alimente les médias de la droite réactionnaire mais aussi au-delà.",
+    "date": "2024-09-26",
+    "media": "",
+    "link": "https://www.lemonde.fr/societe/video/2024/09/26/enquete-sur-l-ecole-creee-par-la-droite-reactionnaire-pour-conquerir-les-medias_6334270_3224.html",
+    "commentaire": "",
+    "authors": [
+      "Sébastien Bourdon",
+      "Antoine Schirer",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "La sécurité de Macron, Biden et Poutine compromise par leurs gardes du corps : le premier épisode de notre enquête « StravaLeaks »",
+    "content": "« StravaLeaks » (1/3). En cause, leur utilisation d’un réseau social sportif, révèle « Le Monde ». Dans ce premier épisode : comment suivre Emmanuel Macron à la trace grâce aux footings des agents du groupe de sécurité de la présidence de la République.",
+    "date": "2024-10-27",
+    "media": "",
+    "link": "https://www.lemonde.fr/societe/article/2024/10/27/comment-suivre-a-la-trace-emmanuel-macron-decouvrez-le-premier-episode-de-notre-enquete-stravaleaks_6361677_3224.html",
+    "commentaire": "",
+    "authors": [
+      "Sébastien Bourdon",
+      "Antoine Schirer",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Joe Biden et Donald Trump mis en danger par leurs propres gardes du corps : « StravaLeaks », épisode 2",
+    "content": "« StravaLeaks » (2/3). Trois chefs d’Etats parmi les plus importants de la planète sont mis en danger par leurs agents de sécurité. Dans ce deuxième épisode : les gardes du corps de Joe Biden et de Donald Trump, ou la vie pas si secrète des agents de l’United States Secret Service.",
+    "date": "2024-10-28",
+    "media": "",
+    "link": "https://www.lemonde.fr/international/article/2024/10/28/joe-biden-et-donald-trump-mis-en-danger-par-leurs-propres-gardes-du-corps-stravaleaks-episode-2_6363497_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Sébastien Bourdon",
+      "Antoine Schirer",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "En Russie, les gardes du corps de Vladimir Poutine courent près du palais qu’il nie posséder : « StravaLeaks », épisode 3",
+    "content": "« StravaLeaks » (3/3). Trois chefs d’Etat parmi les plus importants de la planète sont mis en danger par leurs propres agents de sécurité. Dans ce troisième volet : les gardes du corps de Vladimir Poutine et leurs étonnantes promenades près de luxueuses propriétés que le locataire du Kremlin dément",
+    "date": "2024-10-29",
+    "media": "",
+    "link": "https://www.lemonde.fr/international/article/2024/10/29/en-russie-les-gardes-du-corps-de-vladimir-poutine-courent-pres-du-palais-qu-il-nie-posseder-stravaleaks-episode-3_6365492_3210.html",
+    "commentaire": "",
+    "authors": [
+      "Sébastien Bourdon",
+      "Antoine Schirer",
+      "Cellule Enquête vidéo"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : sur la piste d’une livraison clandestine d’hydrocarbures russes",
+    "content": "Grâce à des documents inédits, « Le Monde » a retracé le montage commercial qui permet à la Russie de vendre ses hydrocarbures malgré les sanctions, et ainsi de soutenir son effort de guerre.",
+    "date": "2024-10-30",
+    "media": "",
+    "link": "https://www.lemonde.fr/videos/video/2024/10/30/enquete-video-sur-la-piste-d-une-livraison-clandestine-d-hydrocarbures-russes_6366308_1669088.html",
+    "commentaire": "",
+    "authors": [
+      "Poline Tchoubar",
+      "Cellule Enquête vidéo",
+      "Elsa Longueville"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Iran, massacre à huis clos : une enquête des Observateurs de France 24",
+    "content": "Comment les forces de l'ordre iraniennes ont-elles tué plusieurs centaines de manifestants en trois jours ? Notre équipe a analysé plus de 750 vidéos et photos amateur. En s’appuyant sur des témoignages directs et en utilisant des techniques de géolocalisation de ces images, nous avons pu reconstituer précisément des affrontements entre manifestants et forces de l'ordre dans quatre villes iraniennes.",
+    "date": "2020-01-10",
     "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20221216-iran-cheddite-manifestations-munitions-france-italie-enquete",
+    "link": "https://observers.france24.com/fr/iran-massacre-huis-clos-une-enquete-observateurs-france-24-0",
+    "commentaire": "",
+    "authors": [
+      "pas renseigné"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Émission spéciale \"Colombie : faire taire la révolte, à tout prix\"",
+    "content": "En Colombie, un important mouvement social a éclaté le 28 avril, marqué par de nombreuses violences commises par les forces de l’ordre et des civils armés, contre les protestataires. Dans l'émission spéciale \"Colombie : faire taire la révolte, à tout prix\", la rédaction des Observateurs de France 24 a enquêté sur ces violences grâce aux témoignages de nos Observateurs et l’analyse de nombreuses vidéos amateur.",
+    "date": "2021-07-12",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/ligne-directe/20210712-colombie-revolte-manifestations-violences-polcieres-civils-armes-temoignages-journalisme-citoyen-enquete",
+    "commentaire": "",
+    "authors": [
+      "Maëva Polet",
+      "Chloé Lauvergnier"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Pologne - Biélorussie : positions GPS et vidéos, les appels à l'aide des migrants bloqués dans la forêt",
+    "content": "Ils viennent du Yémen, de Syrie, d’Irak ou de République démocratique du Congo : depuis le mois d’août, des milliers de migrants tentent de traverser la frontière polonaise depuis la Biélorussie. Pour le gouvernement polonais, ces migrants sont instrumentalisés par le chef d’État biélorusse, Alexandre Loukachenko, et doivent être reconduits à la frontière. Refoulés des deux côtés, des hommes, des femmes et des enfants se retrouvent alors bloqués le long de la frontière, en pleine forêt. Certains tentent de lancer l'alerte.",
+    "date": "2021-10-25",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/ligne-directe/20211025-pologne-bielorussie-migrations-migrants-foret-ong-humanitaire-frontieres-crise-europe-union-europeenne",
+    "commentaire": "",
+    "authors": [
+      "Maëva Polet"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Biélorussie : comment les migrants se sont retrouvés pris au piège aux portes de l'Europe",
+    "content": "Alors que la crise migratoire prend de l'ampleur à la frontière entre la Pologne et la Biélorussie, l'Union européenne accuse le régime d'Alkexandre Loukachenko d'avoir sciemment organisé l'afflux de migrants vers l'Europe par le biais de circuits organisés. France 24 analyse les tenants et les aboutissants de ce nouveau bras de fer aux portes de l'UE.",
+    "date": "2021-11-10",
+    "media": "Les Observateurs",
+    "link": "https://www.france24.com/fr/europe/20211110-crise-migratoire-en-bi%C3%A9lorussie-comment-les-candidats-%C3%A0-l-exil-se-sont-retrouv%C3%A9s-pris-au-pi%C3%A8ge",
+    "commentaire": "",
+    "authors": [
+      "David Ricj",
+      "Gulliver Cragg"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête vidéo : comment les civils ont été massivement bombardés à Kharkiv en Ukraine",
+    "content": "Depuis le début de l’invasion russe le 24 février en Ukraine, Kharkiv fait partie des villes ukrainiennes les plus touchées par les bombardements. Le ministère russe de la Défense affirme depuis le 27 février ne viser que des objectifs militaires stratégiques. Pourtant, des images amateur vérifiées et analysées par les Observateurs permettent de voir l'ampleur des frappes touchant les civils, avec quelles munitions elles sont conduites, et de quelle direction proviennent les roquettes.",
+    "date": "2022-03-25",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20220325-enqu%C3%AAte-vid%C3%A9o-comment-les-civils-ont-%C3%A9t%C3%A9-massivement-bombard%C3%A9s-%C3%A0-kharkiv-en-ukraine",
+    "commentaire": "",
+    "authors": [
+      "Poline Tchoubar"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Cameroun : face aux violences, nos Observateurs au secours des personnes LGBT",
+    "content": "Agressions groupées, humiliations publiques, menaces en ligne, expulsion du domicile : les personnes LGBT+ (lesbiennes, gays, bi, trans) sont victimes d'une vague de violences au Cameroun, alimentées par des faits divers et de la désinformation. Nos Observateurs, militants associatifs, prennent des risques pour venir en aide aux victimes, mais aussi mener le difficile combat de la sensibilisation de la société.",
+    "date": "2022-04-04",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/vid%C3%A9o/20220404-cameroun-homosexuels-lgbt-transgenre-homophobie-agressions",
+    "commentaire": "",
+    "authors": [
+      "Corentin Bainier"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Émission spéciale - \"Contrebande en Iran : le salaire de la peur\"",
+    "content": "Ils transportent des produits de contrebande dans des voitures qui roulent à plus de 200 km/h, traversent les montagnes kurdes avec des lave-vaisselles et des téléviseurs sur leur dos ou risquent leur vie pour acheminer du diesel à travers le désert : ces hommes sont les contrebandiers de l’Iran d’aujourd’hui. Dans cette émission spéciale \"Contrebande en Iran : le salaire de la peur\", plusieurs d’entre eux ont accepté de témoigner.",
+    "date": "2022-07-07",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/ligne-directe/20220707-contrebande-iran-salaire-peur-emission-speciale",
     "commentaire": "",
     "authors": [
       "Alijani Ershad"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "En Europe, des réfugiés mis en cage sous le regard des agents de Frontex",
-    "content": "Des vidéos filmées et analysées par « Le Monde », le collectif de journalistes Lighthouse Reports et plusieurs médias européens montrent qu’une cage est utilisée par des gardes-frontières bulgares pour détenir illégalement des réfugiés, sous l’œil de l’agence européenne Frontex.",
-    "date": "2022-12-08",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Gabon : les ravages du pétrole low-cost",
+    "content": "Dans l’ouest du Gabon, le groupe pétrolier franco-britannique Perenco est accusé de polluer l’environnement à cause de négligences répétées dans la gestion de ses infrastructures. Des activistes ont documenté cette pollution dont les conséquences environnementales et économiques sont lourdes pour les habitants. Grâce aux images de nos Observateurs et aux témoignages d’habitants de la région de l’Etimboué, la rédaction des Observateurs de France 24 a enquêté sur les ravages du pétrole low-cost.",
+    "date": "2022-09-03",
+    "media": "Les Observateurs",
+    "link": "https://www.france24.com/fr/%C3%A9missions/les-observateurs/20220903-afrique-gabon-petrole-pollutions-ravages-environnement-lanceurs-alerte",
     "commentaire": "",
     "authors": [
-      "Liselotte Mas",
-      "Lighthouse Reports",
-      "Marceau Bretonnier (Visuels)",
-      "Cellule Enquête vidéo"
+      "pas renseigné"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Extreme floods expose the flaws in FEMA’s risk maps",
-    "content": "A review of extreme flooding events this summer showed FEMA's flood maps are failing to fully inform Americans of flood risk in rural and urban areas.",
-    "date": "2022-12-06",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/climate-environment/interactive/2022/fema-flood-risk-maps-failures/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "catastrophes naturelles",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Des vidéos attestent d’un tir à balle réelle sur un réfugié, à la frontière entre la Bulgarie et la Turquie",
-    "content": "Des vidéos collectées par « Le Monde », le collectif Lighthouse Reports et plusieurs médias européens montrent un jeune réfugié syrien qui reçoit une balle dans la poitrine, à la frontière turco-bulgare. Selon notre analyse, le coup a été tiré depuis une zone où étaient alors postées des forces de sécurité bulgares.",
-    "date": "2022-12-05",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Iran : à Zahedan, un massacre invisible",
+    "content": "C’est le massacre le plus meurtrier depuis le début des manifestations en Iran : le 30 septembre, au moins 66 manifestants ont été tués par les forces de sécurité iraniennes à Zahedan, capitale du Sistan-et-Balouchistan. Notre Observateur a tout vu, il raconte.",
+    "date": "2022-10-20",
+    "media": "Les Observateurs",
+    "link": "https://www.france24.com/fr/%C3%A9missions/les-observateurs/20221020-iran-%C3%A0-zahedan-un-massacre-invisible",
     "commentaire": "",
     "authors": [
-      "Thomas Eydoux",
-      "Lighthouse Reports",
-      "Cellule Enquête vidéo"
+      "pas renseigné"
     ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Des appareils de surveillance de Frontex sont utilisés par les gardes-côtes libyens pour intercepter illégalement des migrants",
-    "content": "« Le Monde » a identifié l’origine de sept images aériennes publiées par les gardes-côtes libyens sur leurs pages Facebook. Elles ont été réalisées par des appareils de surveillance de Frontex, et démontrent comment les activités de l’agence européenne facilitent des interceptions illicites par les Libyens en Méditerranée. Frontex a toujours soutenu ne pas collaborer avec les garde-côtes libyens.",
-    "date": "2022-11-23",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Marceau Bretonnier (Motion design)",
-      "Cellule Enquête vidéo"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Crucial lapses led to tragically delayed rescue in a Seoul alley",
-    "content": "An analysis of more than 350 videos and photos of the deadly disaster found that a critical delay in emergency response likely led to more deaths.",
-    "date": "2022-11-17",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/11/16/seoul-crowd-crush-itaewon-victims/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
@@ -1541,2696 +4585,511 @@ window.DATA = [
       "Chloé Lauvergnier",
       "Maëva Poulet"
     ],
-    "theme": "crime organisé",
-    "proact": "proactive",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Here’s how the Seoul Halloween crush happened",
-    "content": "The crush in Seoul happened in the Itaewon neighborhood. Videos reveal a timeline of how the tragedy unfolded.",
-    "date": "2022-10-29",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/10/29/where-how-seoul-itaewon-stampede/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Iranian forces open fire on protesters as government buildings burn",
-    "content": "Violence erupted Thursday in the city of Mahabad in Iran's Kurdish region. At least two people were killed and dozens wounded, according to activists.",
-    "date": "2022-10-27",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/10/27/iran-protest-mahabad-mahsa-amini/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Evin on fire: What really happened inside Iran’s most notorious prison",
-    "content": "A Post investigation into the disaster at Iran's Evin prison finds at least one fire was a result of arson and guards used live ammunition against prisoners.",
-    "date": "2022-10-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/10/25/iran-evin-prison-fire-protests/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Iran : à Zahedan, un massacre invisible",
-    "content": "C’est le massacre le plus meurtrier depuis le début des manifestations en Iran : le 30 septembre, au moins 66 manifestants ont été tués par les forces de sécurité iraniennes à Zahedan, capitale du Sistan-et-Balouchistan. Notre Observateur a tout vu, il raconte.",
-    "date": "2022-10-20",
+    "title": "Enquête : les munitions du fabricant franco-italien Cheddite tirées contre les manifestants en Iran",
+    "content": "La rédaction des Observateurs de France 24 a obtenu les photos de 13 cartouches de fusil de chasse portant les logos de Cheddite, un fabricant de munitions franco-italien. Elles ont été récupérées dans huit villes iraniennes après des manifestations. C’est une violation manifeste d’un règlement européen, qui proscrit l’exportation en Iran de matériel destiné à la répression interne.",
+    "date": "2022-12-16",
     "media": "Les Observateurs",
-    "link": "https://www.france24.com/fr/%C3%A9missions/les-observateurs/20221020-iran-%C3%A0-zahedan-un-massacre-invisible",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20221216-iran-cheddite-manifestations-munitions-france-italie-enquete",
     "commentaire": "",
     "authors": [
-      "pas renseigné"
+      "Alijani Ershad",
+      "Derek Thomson"
     ],
-    "theme": "humanitaire",
-    "proact": "",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Afghanistan : des vidéos prouvent que des talibans ont mené des exécutions sommaires dans la vallée du Panchir",
-    "content": "Des vidéos vérifiées par « Le Monde » et son partenaire, le Centre for Information Resilience, prouvent que des talibans se sont rendus coupables d’exécutions sommaires de résistants, en septembre, dans la province afghane du Panchir.",
-    "date": "2022-10-18",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Centre for Information Resilience",
-      "Arthur Weil-Rabaud",
-      "Adrien Vande Casteele (motion-design)",
-      "Cellule Enquête vidéo"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The scale of Russian attacks on Ukraine’s energy infrastructure, visualized",
-    "content": "The Post identified eight energy facilities, in six regions, that were damaged or destroyed by missiles and kamikaze drones, cutting electricity, heat and hot water in many cities.",
-    "date": "2022-10-14",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/10/14/ukraine-infrastructure-damage/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Russia’s airstrikes, intended to show force, reveal another weakness",
-    "content": "Experts say the missile barrage Russia unleashed Monday can't be repeated often because of high costs and low stocks of weapons",
-    "date": "2022-10-14",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/10/14/russia-missiles-infrastructure-war-ukraine/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Inside the Final Days of the Doctor China Tried to Silence",
-    "content": "A New York Times video investigation reveals new details about Dr. Li Wenliang’s illness and death from Covid-19 based on medical records and an exclusive interview with a key witness.",
-    "date": "2022-10-06",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "How police action in Indonesia led to a deadly crush in the soccer stadium",
-    "content": "Videos provided exclusively to The Post show that police fired at least 40 nonlethal munitions at soccer fans in Kanjuruhan stadium, leading to panic.",
-    "date": "2022-10-06",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/10/06/indonesia-kanjuruhan-stadium-stampede-police/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Russians rebel as Putin drafts more people in battle for Ukraine",
-    "content": "From Dagestan to Moscow to Siberia, dissent has been documented in videos from across Russia since Putin's mobilization announcement on Sept. 21.",
-    "date": "2022-09-29",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/09/29/russia-putin-mobilization-protests-fury/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Videos show Iran’s violent crackdown as protests intensify",
-    "content": "Videos verified by The Post show security forces opening fire on protesters as unrest continues one week since Mahsa Amini died.",
-    "date": "2022-09-23",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/09/23/iran-hijab-protest-violent-crackdown/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Anger against Iran’s ‘morality police’ erupts after death of Mahsa Amini",
-    "content": "The death of a 22-year-old woman, Mahsa Amini, in the custody of Iran’s \"morality police\" has sparked demonstrations from the Kurdish west to the holy city of Qom.",
-    "date": "2022-09-21",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/09/21/iran-protests-mahsa-amini-hijab/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Here’s what Russian soldiers left behind when they withdrew from Izyum",
-    "content": "Videos verified by The Washington Post show the equipment Russian troops left behind as they retreated from Izyum, a strategic city southeast of Kharkiv.",
-    "date": "2022-09-13",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/09/13/russia-retreat-abandoned-weapons-izyum/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Gabon : les ravages du pétrole low-cost",
-    "content": "Dans l’ouest du Gabon, le groupe pétrolier franco-britannique Perenco est accusé de polluer l’environnement à cause de négligences répétées dans la gestion de ses infrastructures. Des activistes ont documenté cette pollution dont les conséquences environnementales et économiques sont lourdes pour les habitants. Grâce aux images de nos Observateurs et aux témoignages d’habitants de la région de l’Etimboué, la rédaction des Observateurs de France 24 a enquêté sur les ravages du pétrole low-cost.",
-    "date": "2022-09-03",
+    "title": "Enquête : en Haïti, des habitants traquent et tuent ceux suspectés d’appartenir aux gangs",
+    "content": "Excédés par la violence des gangs, des habitants d’Haïti pourchassent les personnes qu’ils soupçonnent d’être liées à ces groupes armés, pour les tuer. Ce mouvement de ras-le-bol, appelé Bwa Kale, a démarré le 24 avril à Port-au-Prince, avant de s'étendre à d’autres villes. Des dizaines de personnes ont été assassinées, souvent à la suite d’interrogatoires sommaires. Notre rédaction a mené l’enquête sur ces violences, dans une émission spéciale.",
+    "date": "2023-05-16",
     "media": "Les Observateurs",
-    "link": "https://www.france24.com/fr/%C3%A9missions/les-observateurs/20220903-afrique-gabon-petrole-pollutions-ravages-environnement-lanceurs-alerte",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20230516-haiti-port-au-prince-bwa-kale-gangs-violence-colere",
     "commentaire": "",
     "authors": [
-      "pas renseigné"
+      "Chloé Lauvergnier"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Inside the investigation of an officer who killed a teen threatening suicide",
-    "content": "In a rare opportunity, the entire investigative file of an officer-involved shooting was released, giving insight into how police investigated another officer.",
-    "date": "2022-08-23",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/08/23/overland-park-police-shooting-investigation/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "At least six explosions hit Crimea air base in nearly an hour",
-    "content": "The Post analyzed videos, spoke to witnesses and consulted experts, confirming that at least six explosions rocked the air base in the span of almost an hour.",
-    "date": "2022-08-14",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/08/14/crimea-airbase-attack/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "What we know about the blast that killed Ukrainian POWs in Olenivka",
-    "content": "A Washington Post review of satellite imagery, videos, and interviews with former detainees and experts raises questions about the Russian claim that a Ukrainian HIMARS-launched attack killed at least 50 people at a prison on the outskirts of Olenivka on July 29.",
-    "date": "2022-08-06",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/08/06/olenivka-prison-explosion-ukraine-russia/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The Bandit Warlords of Zamfara",
-    "content": "On north western Nigeria ultra-violent bandit gangs raid villages, attack drivers, abduct schoolchildren, and kill anyone who resists. But who are these men, and what do they want? A new documentary from BBC Africa Eye talks us into the heart of Nigeria’s worst security crisis, and brings us face to face with some of the most feared bandit leaders in Zamfara state.",
-    "date": "2022-07-25",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p0cnl8fb",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Uvalde video shows officers entered classroom 77 minutes after shooting",
-    "content": "The Texas House Committee investigating the mass shooting in Uvalde, Tex., released an 82-minute-long video on Sunday showing the response of law enforcement.",
-    "date": "2022-07-17",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/07/17/new-uvalde-hallway-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Émission spéciale - \"Contrebande en Iran : le salaire de la peur\"",
-    "content": "Ils transportent des produits de contrebande dans des voitures qui roulent à plus de 200 km/h, traversent les montagnes kurdes avec des lave-vaisselles et des téléviseurs sur leur dos ou risquent leur vie pour acheminer du diesel à travers le désert : ces hommes sont les contrebandiers de l’Iran d’aujourd’hui. Dans cette émission spéciale \"Contrebande en Iran : le salaire de la peur\", plusieurs d’entre eux ont accepté de témoigner.",
-    "date": "2022-07-07",
+    "title": "Syrie : des cueilleurs de truffes victimes des attaques de l’organisation État islamique",
+    "content": "Les attaques armées se multiplient contre les bédouins qui vivent dans le désert syrien, surtout lors de la saison de récolte de la truffe, entre les mois de février et avril. Depuis sa défaite territoriale en 2019, l’organisation État islamique s’est réfugiée dans ce vaste territoire, et y mène régulièrement des attaques éclair brutales contre les civils. Enquête.",
+    "date": "2023-05-26",
     "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/ligne-directe/20220707-contrebande-iran-salaire-peur-emission-speciale",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20230526-etat-islamique-daech-desert-syrie-truffes-moutons-badia",
     "commentaire": "",
     "authors": [
-      "Alijani Ershad"
+      "Djamel Belayachi",
+      "Mahmoud Naffakh"
     ],
-    "theme": "crime organisé",
-    "proact": "",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Video: China’s Surveillance State Is Growing. These Documents Reveal How.",
-    "content": "A New York Times analysis of over 100,000 government bidding documents found that China’s ambition to collect digital and biological data from its citizens is more expansive and invasive than previously known.",
-    "date": "2022-06-21",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Proud Boys Breached the Capitol on Jan. 6: Rile Up the Normies",
-    "content": "A Times investigation of court documents, text messages and hundreds of videos shows how the Proud Boys coordinated to instigate multiple breaches of the Capitol on Jan. 6.",
-    "date": "2022-06-17",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Racism for Sale",
-    "content": "In February 2020 a shocking video began to circulate on Chinese social media. A group of African children are being instructed, by a voice off-camera, to chant phrases in Chinese. The kids repeat the words with smiles and enthusiasm — but they don't understand that what they're being told to say is \" I am a black monster and my IQ is low.\"",
-    "date": "2022-06-13",
-    "media": "BBC",
-    "link": "https://www.youtube.com/watch?v=I0DJlSqlmEw",
-    "commentaire": "",
-    "authors": [
-      "Runako Celina",
-      "Henry Mhango"
-    ],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "How Shireen Abu Akleh was killed",
-    "content": "A Washington Post review of available visuals, audio and witness statements shows an Israeli soldier likely shot and killed Al Jazeera correspondent Shireen Abu Akleh on May 11 in the West Bank.",
-    "date": "2022-06-12",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2022/shireen-abu-akleh-death/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "New video released in Jan. 6 hearing shows mob gathering, violence",
-    "content": "Previously unaired security camera videos, exclusive documentary footage and police audio communications were presented at the committee's first prime-time hearing.",
-    "date": "2022-06-10",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/06/10/jan6-new-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Civilian killings soar as Russian mercenaries join fight in West Africa",
-    "content": "Documents, imagery and witness accounts point to a heightened Russian presence in Mali, where the military government is locked in a bloody war with extremists. Profits from the Wagner Group flow back to Moscow, helping prop up Vladimir Putin’s government at at time of growing economic isolation over its war in Ukraine.",
-    "date": "2022-05-23",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/05/23/mali-russia-west-africa-wagner/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "New videos show bodies of civilians on Mariupol streets",
-    "content": "New videos, verified by The Washington Post, from the besieged Ukrainian city of Mariupol show the lifeless bodies of more than a dozen civilians lying on streets.",
-    "date": "2022-04-20",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/04/20/mariupol-ukraine-bodies/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Russian armored vehicles seen on Bucha street strewn with bodies, video shows",
-    "content": "Drone videos captured in late March show military vehicles used by Russian airborne units near at least eight bodies in a suburb near Kyiv.",
-    "date": "2022-04-14",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/04/14/video-puts-russian-armored-units-bucha-street-strewn-with-bodies/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "New images show burned bodies at ruined nursing home in Luhansk region",
-    "content": "Several burned bodies are visible in the first detailed videos and photographs of the rubble of a nursing home in eastern Ukraine that was partly destroyed amid fighting in the area last month.",
-    "date": "2022-04-13",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/04/13/ukraine-nursing-home-bodies-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Boris Nemtsov: Asassins 'murdered Russian politician'",
-    "content": "An investigation from Bellingcat, The Insider, and BBC Eye Investigations reveals evidence that in the year running up to his murder, Russian opposition leader Boris Nemtsov was being shadowed by a government agent linked to a secret assassination squad. In February 2015, Nemtsov—a fierce critic of Vladimir Putin—was shot dead on a bridge in the shadow of the Kremlin. \nFive men were convicted for his murder, but questions remained about who ordered the killing.",
-    "date": "2022-04-05",
-    "media": "BBC",
-    "link": "https://www.bbc.com/reel/video/p0bxw12s/boris-nemtsov-asassins-murdered-russian-politician-",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Cameroun : face aux violences, nos Observateurs au secours des personnes LGBT",
-    "content": "Agressions groupées, humiliations publiques, menaces en ligne, expulsion du domicile : les personnes LGBT+ (lesbiennes, gays, bi, trans) sont victimes d'une vague de violences au Cameroun, alimentées par des faits divers et de la désinformation. Nos Observateurs, militants associatifs, prennent des risques pour venir en aide aux victimes, mais aussi mener le difficile combat de la sensibilisation de la société.",
-    "date": "2022-04-04",
+    "title": "Enquête : en Inde, le \"jihad de l’amour\", cette théorie du complot aux inquiétantes répercussions",
+    "content": "En Inde, des groupes nationalistes hindous propagent depuis des années la théorie du complot du \"jihad de l’amour\". Elle postule que les hommes musulmans chercheraient à séduire des femmes hindoues pour les convertir à l'islam dans le but de prendre le pouvoir. Avec des témoignages de victimes et des analyses, la rédaction des Observateurs de France 24 a enquêté sur le réseau de désinformation et de propagande associé à ce discours qui divise musulmans et hindous.",
+    "date": "2023-06-23",
     "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/vid%C3%A9o/20220404-cameroun-homosexuels-lgbt-transgenre-homophobie-agressions",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20230623-love-jihad-india-conspiracy-theory-investigation-hindu-muslim",
     "commentaire": "",
     "authors": [
+      "Pariesa Brody"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête - Haïti : des fidèles sous les balles",
+    "content": "Le 26 août dernier, un pasteur évangélique et ses fidèles ont tenté d’attaquer un gang dans le nord de Port-au-Prince, la capitale haïtienne, munis de bâtons et de machettes. Le gang a répliqué avec des armes à feu, faisant au moins 21 morts. Que s’est-il passé exactement ce jour-là ? Pourquoi de simples fidèles sont-ils allés affronter un gang surarmé ? La rédaction des Observateurs de France 24 a enquêté sur cet événement dans une émission spéciale : \"Haïti : des fidèles sous les balles\".",
+    "date": "2023-10-16",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20231016-enqu%C3%AAte-ha%C3%AFti-des-fid%C3%A8les-sous-les-balles",
+    "commentaire": "",
+    "authors": [
+      "Chloé Lauvergnier"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Enquête visuelle - \"Ils ont sonné chez moi\" : les Soudanais pris au piège de la guerre",
+    "content": "Le 15 avril 2023, l’armée soudanaise et la milice des Forces de soutien rapide entraient dans un affrontement armé à Khartoum. Six mois plus tard, le bilan de la guerre civile est déjà lourd. Viols, torture, violences ethniques, expropriations : dans notre nouvelle enquête visuelle, trois de nos Observateurs racontent comment le pays a plongé dans l’horreur.",
+    "date": "2023-10-20",
+    "media": "Les Observateurs",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20231020-soudan-darfour-civils-guerre-arm%C3%A9e-forces-soutien-rapide-viol-exactions-genocide",
+    "commentaire": "",
+    "authors": [
+      "Fatma Ben Hamad",
       "Corentin Bainier"
     ],
-    "theme": "crime organisé",
+    "theme": "Humanitaire",
     "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Jean-Luc Mélenchon et Eric Zemmour parlent plus que les autres sur Youtube et Twitch",
-    "content": "Comptabilisés par « Le Monde », le temps de parole et l’exposition des candidats à l’élection présidentielle sur ces deux plates-formes vidéo révèlent de fortes disparités.",
-    "date": "2022-03-29",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Asia Balluffier",
-      "Clément Legros",
-      "Manon Romain",
-      "Service vidéo du Monde"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Satellite images show Russian ‘tent city’ built for Ukrainians",
-    "content": "Leaders of a breakaway area in the Donetsk region announced that together with Russian authorities, they had set up a “city of 30 tents” for Mariupol residents.",
-    "date": "2022-03-28",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/03/27/russian-camps-outside-mariupol/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Kyiv will investigate video that appears to show Ukrainian forces shooting Russian prisoners of war",
-    "content": "Some Ukrainian officials dismissed the video that appears to show soldiers shooting Russian prisoners of war as Kremlin propaganda, without citing evidence.",
-    "date": "2022-03-28",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/03/28/ukraine-russia-pow-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "In fiery video, Ukraine says it destroyed Russian warship",
-    "content": "Russia's logistical difficulties, flagging morale and insufficient manpower were possibly exacerbated by the loss of a warship. But the setback is likely minimal for Russian logistical efforts, an expert said.",
-    "date": "2022-03-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/03/24/russian-ship-fire/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : comment les civils ont été massivement bombardés à Kharkiv en Ukraine",
-    "content": "Depuis le début de l’invasion russe le 24 février en Ukraine, Kharkiv fait partie des villes ukrainiennes les plus touchées par les bombardements. Le ministère russe de la Défense affirme depuis le 27 février ne viser que des objectifs militaires stratégiques. Pourtant, des images amateur vérifiées et analysées par les Observateurs permettent de voir l'ampleur des frappes touchant les civils, avec quelles munitions elles sont conduites, et de quelle direction proviennent les roquettes.",
-    "date": "2022-03-25",
+    "title": "Abandonnés en mer (1/2) : un équipage syrien bloqué depuis deux ans dans un port en Libye",
+    "content": "L’équipage de l’East Express est bloqué depuis plus de deux ans dans le port de Misrata, en Libye. Ils affirment que le propriétaire du navire les a abandonnés et leur doit des milliers de dollars d’arriérés de salaire. Regardez le 1er volet de l'enquête des Observateurs de France en deux parties avec la cellule d'investigation syrienne indépendante SIRAJ. Nous y révélons un dispositif complexe de sociétés-écrans utilisées par un groupe d’armateurs syro-roumains afin d'échapper aux sanctions occidentales.",
+    "date": "2024-02-14",
     "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20220325-enqu%C3%AAte-vid%C3%A9o-comment-les-civils-ont-%C3%A9t%C3%A9-massivement-bombard%C3%A9s-%C3%A0-kharkiv-en-ukraine",
+    "link": "https://www.youtube.com/watch?v=sJucRNoRDk8&list=PL6MttmbrzTMST-yUmSVNXSD7apFbiKPpb&index=3",
     "commentaire": "",
     "authors": [
-      "Poline Tchoubar"
+      "Mahmoud Naffakh",
+      "Derek Thomson"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Devastation of Mariupol captured in drone video of burned buildings, blown-out windows",
-    "content": "Russia is turning to air, artillery, and rocket and missile bombardments of Ukrainian cities to offset the lack of momentum by troops on the ground.",
-    "date": "2022-03-24",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/03/24/mariupol-drone-destruction-ukraine-war-russia/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Under Fire, Out of Fuel: What Intercepted Russian Radio Chatter Reveals",
-    "content": "The Times’s Visual Investigations team analyzed dozens of battlefield radio transmissions between Russian forces during an initial invasion of the town of Makariv, outside Kyiv. They reveal an army struggling with logistical problems and communication failures.",
-    "date": "2022-03-23",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "New satellite imagery shows bombed-out Mariupol theater",
-    "content": "New satellite imagery, alongside video and photos verified by The Post, shows destruction in Mariupol's city center, including severe damage to the Mariupol Drama Theater.",
-    "date": "2022-03-19",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2022/03/19/mariupol-theater-satellite-images/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Russian attacks hit at least 9 Ukrainian medical facilities, visual evidence shows",
-    "content": "A Washington Post analysis verified nine incidents where hospitals faced direct damage as a result of a reported Russian attack. Three of the facilities specifically served women or children.",
-    "date": "2022-03-12",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/03/12/ukraine-hospital-attacks-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Guerre en Ukraine : des vidéos analysées par « Le Monde » attestent de l’usage d’armes à sous-munitions en zones civiles",
-    "content": "Des vidéos analysées par des ONG et médias documentent le recours à des bombes à sous-munitions, interdites par des traités internationaux. Si l’origine des tirs est parfois difficile à prouver, certaines images montrent une probable responsabilité de l’armée russe.",
-    "date": "2022-03-09",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Adrien Vande Casteele (Motion design)",
-      "Service vidéo du Monde"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Jean-Luc Mélenchon, Valérie Pécresse et Eric Zemmour grands vainqueurs du temps de parole sur YouTube et Twitch",
-    "content": "Comptabilisés par « Le Monde », le temps de parole et l’exposition des candidats à l’élection présidentielle sur ces sites révèlent de fortes disparités.",
-    "date": "2022-03-08",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Asia Balluffier",
-      "Clément Legros",
-      "Manon Romain",
-      "Service vidéo du Monde"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video shows Russian aircrew parachuting from fighter jet that Ukraine says was shot down",
-    "content": "The Ukraine State Emergency Service shared photos of the smoking remnants of the jet found in Chernihiv.",
-    "date": "2022-03-06",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/03/06/russian-jet-chernihiv-ukraine-aircrew-parachute/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Guerre en Ukraine : ce que les images montrent de l’ampleur de l’attaque et de son impact sur les civils",
-    "content": "Des images satellites et des vidéos géolocalisées permettent de retracer les premières heures de l’offensive militaire menée par la Russie en Ukraine.",
-    "date": "2022-02-24",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Asia Balluffier",
-      "Marceau Bretonnier",
-      "Donald Walther",
-      "Service vidéo du Monde"
-    ],
-    "theme": "strategies miltaires",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Tracking Russia’s Latest Military Movements Around Ukraine",
-    "content": "Videos, satellite images and social media posts reveal the scale and intensity of Russia’s military deployments near Ukraine’s border.",
-    "date": "2022-02-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The TikTok buildup: Videos reveal Russian forces closing in on Ukraine",
-    "content": "Russian President Vladimir Putin and top Russian officials for months have been denying that Moscow is preparing to mount an invasion of neighboring Ukraine. But military analysts say videos posted to TikTok and other social media platforms tell another story.",
-    "date": "2022-02-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2022/02/11/russia-ukraine-military-videos-tiktok/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "How Ethiopia used a Turkish drone in a strike that killed nearly 60 civilians",
-    "content": "Aid workers at the displacement camp in Tigray hit by the drone strike were adamant that the people killed and wounded were civilians fleeing the war rather than combatants in it.",
-    "date": "2022-02-07",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2022/ethiopia-tigray-dedebit-drone-strike/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Raw Footage of Lethal Aug. 29 Kabul Drone Strike",
-    "content": "The New York Times is publishing the full, unedited 25 minutes of drone footage released as three video clips by the Defense Department in response to a Freedom of Information Act lawsuit.",
-    "date": "2022-01-19",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: New Video Shows Botched Kabul Drone Strike",
-    "content": "The New York Times obtained newly declassified military drone footage showing for the first time the U.S. strike on a car at a family home in Kabul on Aug. 29, 2021, that killed 10 Afghan civilians.",
-    "date": "2022-01-19",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: High-Resolution Drone Video Shows Closer Angle of Kabul Strike",
-    "content": "A second drone captured high-resolution footage of the strike on Aug. 29, 2021 from another angle. The U.S. military mistakenly killed the Afghan aid worker Zemari Ahmadi and nine of his family members with a Hellfire missile.",
-    "date": "2022-01-19",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Au Kazakhstan, ce que les images montrent des émeutes et de leur répression",
-    "content": "Des vidéos amateur, vérifiées par « Le Monde », témoignent de la soudaine montée de violence qui a balayé plusieurs villes du Kazakhstan et fait des dizaines de victimes parmi les forces de l’ordre et les manifestants.",
-    "date": "2022-01-07",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Charles-Henry Groult",
-      "Service vidéo du Monde"
-    ],
-    "theme": "repression des manifestations",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Pologne : comment le piège biélorusse s’est refermé sur des milliers de migrants",
-    "content": "Des vidéos tournées à la frontière entre la Pologne et la Biélorussie, authentifiées par « Le Monde », permettent de retracer les huit jours qui ont vu des milliers de migrants tomber dans le piège tendu pour faire pression sur l’UE.",
-    "date": "2021-11-19",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Sébastien Bourdon",
-      "Robin Gasser (Motion design)",
-      "Service vidéo du Monde"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Sahel : ce que les vidéos de djihadistes révèlent de leurs armes et de leurs méthodes",
-    "content": "Des vidéos de propagande analysées par « Le Monde » exposent les méthodes des groupes djihadistes au Sahel pour affronter les armées locales et s’emparer de leur matériel. Elles soulignent aussi comment certaines branches terroristes se déchirent.",
-    "date": "2021-11-14",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Elsa Longueville (Motion design)",
-      "Service vidéo du Monde"
-    ],
-    "theme": "strategies miltaires",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Biélorussie : comment les migrants se sont retrouvés pris au piège aux portes de l'Europe",
-    "content": "Alors que la crise migratoire prend de l'ampleur à la frontière entre la Pologne et la Biélorussie, l'Union européenne accuse le régime d'Alkexandre Loukachenko d'avoir sciemment organisé l'afflux de migrants vers l'Europe par le biais de circuits organisés. France 24 analyse les tenants et les aboutissants de ce nouveau bras de fer aux portes de l'UE.",
-    "date": "2021-11-10",
-    "media": "Les Observateurs",
-    "link": "https://www.france24.com/fr/europe/20211110-crise-migratoire-en-bi%C3%A9lorussie-comment-les-candidats-%C3%A0-l-exil-se-sont-retrouv%C3%A9s-pris-au-pi%C3%A8ge",
-    "commentaire": "",
-    "authors": [
-      "David Ricj"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Migrants : enquête sur le rôle de l’Europe dans le piège libyen",
-    "content": "Des données de vol obtenues par « Le Monde » révèlent comment l’agence européenne Frontex encourage les rapatriements de migrants vers la Libye, malgré les exactions qui y sont régulièrement dénoncées par l’ONU.",
-    "date": "2021-10-31",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Marceau Bretonnier",
-      "Service vidéo du Monde"
-    ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Reconstructing the Rittenhouse Shootings: How Kenosha Echoed America’s Polarization",
-    "content": "In the months leading up to Kyle Rittenhouse’s trial for killing two people, we analyzed hours of footage and interviewed key witnesses from that fatal night in Kenosha, Wis., to understand how the country’s polarization set the scene for violence.",
-    "date": "2021-10-28",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Pologne - Biélorussie : positions GPS et vidéos, les appels à l'aide des migrants bloqués dans la forêt",
-    "content": "Ils viennent du Yémen, de Syrie, d’Irak ou de République démocratique du Congo : depuis le mois d’août, des milliers de migrants tentent de traverser la frontière polonaise depuis la Biélorussie. Pour le gouvernement polonais, ces migrants sont instrumentalisés par le chef d’État biélorusse, Alexandre Loukachenko, et doivent être reconduits à la frontière. Refoulés des deux côtés, des hommes, des femmes et des enfants se retrouvent alors bloqués le long de la frontière, en pleine forêt. Certains tentent de lancer l'alerte.",
-    "date": "2021-10-25",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/ligne-directe/20211025-pologne-bielorussie-migrations-migrants-foret-ong-humanitaire-frontieres-crise-europe-union-europeenne",
-    "commentaire": "",
-    "authors": [
-      "Maëva Polet"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The U.S. Military Said It Was an ISIS Safe House. We Found an Afghan Family Home.",
-    "content": "Even as the military apologized for killing 10 civilians by mistake in a drone strike in Kabul, it insisted its target had stopped by an ISIS “safe house.” The New York Times found that the building was actually home to an NGO worker and his family.",
-    "date": "2021-09-28",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How a U.S. Drone Strike Killed the Wrong Person",
-    "content": "A week after a New York Times visual investigation, the U.S. military admitted to a tragic mistake in an Aug. 29 drone strike in Kabul that killed 10 civilians, including an aid worker and seven children.",
-    "date": "2021-09-10",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Les « mégafeux » sont-ils en augmentation ? Ce que montrent les données et images satellites",
-    "content": "Méditerranée, Australie, Etats-Unis, Sibérie : depuis quelques années, des incendies de plus en plus importants ravagent la planète. Sont-ils inédits ?",
-    "date": "2021-09-05",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Élodie Maillard",
-      "Service vidéo du Monde"
-    ],
-    "theme": "problématiques environnementales",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "With the Taliban now in control, here’s what Afghans are seeing in Kabul",
-    "content": "Amid the swift and definitive Taliban takeover of Kabul, Afghans took out their cellphones, filming the chaos of the group’s arrival, the changes that marked their presence and the eerie calm that came next.",
-    "date": "2021-08-18",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2021/videos-afghanistan-kabul-taliban-arrival/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "How a collapsed pool deck could have caused a Florida condo building to fall",
-    "content": "A simulation based on a digital model that factors in witness accounts, visual evidence and construction plans shows that an initial collapse in the pool deck area of Champlain Towers South could have triggered a series of events that brought down much of the building.",
-    "date": "2021-08-12",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2021/pool-deck-condo-collapse/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Afghanistan : ce que les vidéos montrent de la reconquête des talibans",
-    "content": "Depuis plusieurs mois, les talibans intensifient leur offensive contre le régime de Kaboul. A quoi ressemble cette reconquête ? « Le Monde » a analysé et authentifié des vidéos tournées en Afghanistan et diffusées sur Internet.",
-    "date": "2021-07-31",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Marceau Bretonnier",
-      "Elisa Bellanger",
-      "Service vidéo du Monde"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : comment Pékin impose sa présence militaire en mer de Chine méridionale",
-    "content": "Des vidéos et des images satellites analysées par « Le Monde » montrent l’ampleur de la colonisation chinoise sur des archipels très éloignés de son territoire, où surgissent drones, pistes d’atterrissage et systèmes antiaériens.",
-    "date": "2021-07-18",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Elsa Longueville (Motion-design)",
-      "Service vidéo du Monde"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Satellite Images Reveal Impact of European Floods",
-    "content": "Towns in multiple countries have been devastated. We used radar technology to look through the clouds at the damage below.",
-    "date": "2021-07-17",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Émission spéciale \"Colombie : faire taire la révolte, à tout prix\"",
-    "content": "En Colombie, un important mouvement social a éclaté le 28 avril, marqué par de nombreuses violences commises par les forces de l’ordre et des civils armés, contre les protestataires. Dans l'émission spéciale \"Colombie : faire taire la révolte, à tout prix\", la rédaction des Observateurs de France 24 a enquêté sur ces violences grâce aux témoignages de nos Observateurs et l’analyse de nombreuses vidéos amateur.",
-    "date": "2021-07-12",
-    "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/%C3%A9missions/ligne-directe/20210712-colombie-revolte-manifestations-violences-polcieres-civils-armes-temoignages-journalisme-citoyen-enquete",
-    "commentaire": "",
-    "authors": [
-      "Maëva Polet"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Visual timeline: The assassination of Haitian President Jovenel Moïse",
-    "content": "Photos and videos show how the brazen attack unfolded.",
-    "date": "2021-07-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2021/07/11/haiti-assassination-video-suspects/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Alleged Assassins in Haiti Claimed to Be D.E.A.",
-    "content": "In videos filmed from nearby buildings and synchronized by the The New York Times, the group of commandos who appeared to be arriving to assassinate President Jovenel Moïse shouted that they were part of a U.S. Drug Enforcement Agency operation.",
-    "date": "2021-07-08",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video, images and interviews deepen questions about role of pool deck in condo collapse",
-    "content": "The Post interviewed more than a dozen experts and modeled the building to better understand the potential points of structural failure.",
-    "date": "2021-07-08",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2021/building-experts-miami-condo-collapse/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "How baseball’s war on sticky stuff is already changing the game",
-    "content": "The Post analyzed game footage and data for millions of pitches to measure the impact of MLB's crackdown on ball-doctoring.",
-    "date": "2021-07-02",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/sports/2021/07/02/sticky-stuff-baseball-data/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Day of Rage: How Trump Supporters Took the U.S. Capitol",
-    "content": "A six-month Times investigation has synchronized and mapped out thousands of videos and police radio communications from the Jan. 6 Capitol riot, providing the most complete picture to date of what happened — and why.",
-    "date": "2021-06-30",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Gaza’s Deadly Night: How Israeli Airstrikes Killed 44 People",
-    "content": "On May 16, Israeli airstrikes destroyed three apartment buildings, decimating several families. We visited the scene, interviewed survivors and analyzed videos, photos and satellite images to find out what happened.",
-    "date": "2021-06-24",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video timeline: How the Miami-Dade condo collapsed",
-    "content": "Surveillance video, audio and photos of the Thursday morning building collapse in Miami-Dade County show how the incident unfolded.",
-    "date": "2021-06-24",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2021/06/24/video-timeline-miami-building-collapse/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : comment une opération de police a viré au chaos en Seine-Saint-Denis",
-    "content": "Le 25 juin 2013, à Villemomble, un engrenage de violences fait plusieurs blessés, dont une femme qui perd l’usage d’un œil. Alors que tous les policiers ont été acquittés, « Le Monde » retrace, avec des images inédites, cette opération.",
-    "date": "2021-06-02",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Antoine Schirer",
-      "Emile Costard",
-      "Amanda Jacquel",
-      "Lucas Roxo",
-      "Service vidéo du Monde"
-    ],
-    "theme": "",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Three Killings in Kampala",
-    "content": "In November 2020, more than 50 people were shot and killed during a government crackdown on the streets of Uganda’s capital, Kampala. Officials defended the use of live fire, saying the police were responding to rioters. But a new investigation by #BBCAfricaEye documents a killing spree on Kampala Road, and shows damning evidence that Ugandan security forces, firing from the back of a police truck, shot at least seven unarmed people.",
-    "date": "2021-05-31",
-    "media": "BBC",
-    "link": "https://www.bbc.com/news/av/world-africa-57286419",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Militants Attacked a Key Town in Mozambique. Where Was the Government?",
-    "content": "Insurgents who have pledged allegiance to the Islamic State attacked the strategic town of Palma in March. We interviewed survivors and used videos, satellite imagery and ship-tracking data to show how Mozambique’s government failed to protect its civilians — leaving thousands to fend for themselves.",
-    "date": "2021-05-26",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Israël-Palestine : ce que les vidéos révèlent de l’arsenal militaire des deux camps",
-    "content": "L’armée israélienne et des groupes palestiniens communiquent abondamment sur leur puissance de feu. Qu’en est-il vraiment ? « Le Monde » a identifié une partie des missiles et roquettes utilisés de part et d’autre, grâce aux vidéos tournées sur place.",
-    "date": "2021-05-23",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Thomas Eydoux",
-      "Asia Balluffier",
-      "Service vidéo du Monde",
-      "Olivier Escher (Motion-design)",
-      "Élodie Maillard (Motion-design)"
-    ],
-    "theme": "stratégies militaires et influence",
+    "theme": "Humanitaire",
     "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Killed by police in Colombia",
-    "content": "An analysis of video evidence in four cases of protester deaths shows the extent to which police appear to have overstepped their rules of engagement.",
-    "date": "2021-05-20",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2021/colombia-protests-deaths-police/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Libya's 'Game of Drones'",
-    "content": "Libya, January 2020. 26 unarmed cadets are killed by an explosion for which no one has ever claimed responsibility.What hit them? Where did it come from?Which foreign powers are secretly fuelling Libya’s war?",
-    "date": "2021-04-30",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p09g8ssj",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "En Birmanie, comment l’armée réprime la mobilisation populaire",
-    "content": "Des vidéos filmées en février et mars à Rangoun, rassemblées et analysées par « Le Monde », dévoilent le face-à-face tragique entre les lance-pierres des opposants à la junte et les armes de guerre déployées par les forces de l’ordre.",
-    "date": "2021-04-18",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Service vidéo du Monde",
-      "Asia Balluffier",
-      "Arthur Carpentier"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "D.C. Police requested backup at least 17 times in 78 minutes during Capitol riot",
-    "content": "A reconstruction shows how failures of planning and preparation left police at the Capitol severely disadvantaged on Jan. 6.",
-    "date": "2021-04-15",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2021/dc-police-records-capitol-riot/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Soudan : des vidéos vérifiées par « Le Monde » prouvent des crimes ethniques commis au Darfour",
-    "content": "Malgré les dénégations des Forces de soutiens rapides (FSR), des images vérifiées par « Le Monde », le collectif Lighthouse Reports et ses partenaires révèlent les crimes ethniques réalisés par des milices qui leur sont affiliées.",
-    "date": "2021-04-07",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Service vidéo du Monde"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Journalistes matraqués : une nouvelle vidéo confirme la responsabilité du commissaire P.",
-    "content": "De nouvelles images obtenues par « Le Monde » éclairent la violente charge menée par ce commissaire de police, le 28 novembre 2020 à Paris, au cours de laquelle le journaliste syrien Ameer Al-Halbi a été blessé au visage.",
-    "date": "2021-04-07",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Service vidéo du Monde"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Mercenaires russes Wagner : enquête vidéo sur l’« armée fantôme » de Vladimir Poutine",
-    "content": "Des vidéos collectées par « Le Monde » mettent en lumière l’action des mercenaires russes du Groupe Wagner en Ukraine, Libye et Centrafrique, pays où la Russie n’a officiellement pas de soldat combattant.",
-    "date": "2021-04-04",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Service vidéo du Monde",
-      "Marceau Bretonnier",
-      "Thomas Eydoux"
-    ],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: A Tanker and a Maze of Companies: One Way Illicit Oil Reaches North Korea",
-    "content": "We spent months reviewing ship-tracking data, corporate records and satellite imagery to uncover one way North Korea evades strict international sanctions.",
-    "date": "2021-03-22",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: ‘We’ve Lost the Line!’: Radio Traffic Reveals Police Under Siege at Capitol",
-    "content": "The Times obtained District of Columbia police radio communications and synchronized them with footage from the scene to show in real time how officers tried and failed to stop the attack on the U.S. Capitol.",
-    "date": "2021-03-21",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : comment des milices d’extrême droite américaines ont préparé l’invasion du Capitole",
-    "content": "Des vidéos et des échanges entre membres de deux groupes paramilitaires, collectés par « Le Monde » et des médias américains, exposent la planification de l’assaut du 6 janvier à Washington.",
-    "date": "2021-03-21",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Asia Balluffier",
-      "Elisa Bellanger"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Surveillance video shows Atlanta suspect entered first spa more than an hour before shooting",
-    "content": "Surveillance video obtained by The Washington Post shows the suspect, Robert Aaron Long, enter Young’s Asian Massage — the first destination in a shooting spree that left eight people dead, most of them Asian women — more than an hour before shooting was reported.",
-    "date": "2021-03-19",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2021/03/19/surveillance-video-atlanta-shooting/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : comment un commissaire de police a blessé plusieurs journalistes lors d’une Marche des libertés",
-    "content": "L’analyse de dizaines d’heures d’images a permis au « Monde » d’identifier un commissaire responsable de plusieurs coups portés à des journalistes le 28 novembre 2020, dont l’un a sévèrement blessé au visage le reporter syrien Ameer Al-Halbi.",
-    "date": "2021-03-11",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Elsa Longueville",
-      "Service vidéo du Monde"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Previously unpublished video shows Pence, Romney, Schumer and others rushing to evacuate the Capitol",
-    "content": "The Post analyzed previously unseen security camera videos aired during the second day of Trump’s impeachment trial, which shed new light on how close lawmakers came to danger.",
-    "date": "2021-02-10",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2021/02/10/video-played-trump-impeachment-trial/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Pipe bombs found near Capitol on Jan. 6 are believed to have been placed the night before",
-    "content": "Exclusive video obtained by The Washington Post shows the suspect shortly before they allegedly placed an explosive device near the headquarters of the Republican National Committee.",
-    "date": "2021-01-29",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2021/01/29/pipe-bomb-suspect-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: ‘We Took Over the Capitol’: Tracking the Oath Keepers Charged With Conspiracy",
-    "content": "Videos show members of the right-wing paramilitary movement entering the Capitol during the Jan. 6 attack. The Times tracked three of them amid the mob.",
-    "date": "2021-01-20",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "41 minutes of fear: A video timeline from inside the Capitol siege",
-    "content": "An examination of video, texts and other evidence shows how perilously close lawmakers came to the enraged mob",
-    "date": "2021-01-16",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2021/01/16/video-timeline-capitol-siege/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video shows fatal shooting of Ashli Babbitt in the Capitol",
-    "content": "The Washington Post obtained video showing the chaotic moments before 35-year-old Ashli Babbitt was fatally shot as rioters rushed toward the Speaker's Lobby.",
-    "date": "2021-01-08",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2021/01/08/ashli-babbitt-shooting-video-capitol/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : ce que les réseaux sociaux chinois révèlent des camps d’internement et du travail forcé des Ouïgours",
-    "content": "Malgré la censure et les dénégations de Pékin, l’analyse des réseaux sociaux chinois par « Le Monde » expose la politique de répression menée contre les musulmans ouïgours, au Xinjiang.",
-    "date": "2021-01-06",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Service vidéo du Monde"
-    ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Police Killed Breonna Taylor",
-    "content": "None of the police officers who raided Breonna Taylor’s home used body cameras, impeding the public from a full understanding of what happened. The Times’s visual investigation team built a 3-D model of the scene and pieced together critical sequences of events to show how poor planning and shoddy police work led to a fatal outcome.",
-    "date": "2020-12-28",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Gunfire, warnings, then an explosion: What videos show about the Nashville bombing",
-    "content": "Surveillance video, emergency response audio and eyewitness accounts of the Christmas morning explosion in downtown Nashville show how the incident unfolded.",
-    "date": "2020-12-27",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2020/12/27/video-timeline-nashville-bomb/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Military-grade camera shows risks of airborne coronavirus spread",
-    "content": "To visually illustrate the risk of airborne transmission, The Washington Post used an infrared camera capable of detecting exhaled breath.",
-    "date": "2020-12-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2020/12/11/coronavirus-airborne-video-infrared-spread/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Kenosha: How two men’s paths crossed in an encounter that has divided the nation",
-    "content": "In an exclusive interview, Kyle Rittenhouse said he bought a gun with stimulus money. The first man he shot had just left a psychiatric hospital.",
-    "date": "2020-11-19",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2020/11/19/kenosha-shooting-kyle-rittenhouse-interview/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Vidéos et données satellites des inondations dans les Alpes-Maritimes dévoilent une catastrophe inédite",
-    "content": "Des modélisations réalisées par « Le Monde » montrent que les crues du 2 octobre dans les Alpes-Maritime ont plusieurs fois dépassé les plans de gestion des risques.",
-    "date": "2020-11-16",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Pierre Trouvé",
-      "Charles-Henry Groult",
-      "Elsa Longueville",
-      "Robin Gasser",
-      "Service vidéo du Monde"
-    ],
-    "theme": "problématiques environnementales",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Attentat contre Samuel Paty : enquête sur le parcours de la rumeur et l’itinéraire du tueur",
-    "content": "Enquête vidéo. De Conflans à Idlib, de Facebook à Twitter, « Le Monde » a remonté le fil de l’attentat perpétré contre le professeur d’histoire-géographie Samuel Paty, le 16 octobre 2020.",
-    "date": "2020-11-16",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Arthur Carpentier",
-      "Charles-Henry Groult",
-      "Nicolas Chapuis"
-    ],
-    "theme": "crime organisé",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: ‘I Am On Your Side’: How the Police Gave Armed Groups a Pass in 2020",
-    "content": "Armed groups showed up to scores of racial justice protests since May. Our video shows how police officers at times let them operate freely.",
-    "date": "2020-11-02",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Alleged Michigan plotters attended multiple anti-lockdown protests, photos and videos show",
-    "content": "The men protested Michigan’s lockdown and increasingly wore clothing associated with the \"boogaloo\" movement in the months before they were charged in cases related to a plot to kidnap the governor.",
-    "date": "2020-11-01",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2020/11/01/michigan-kidnapping-plot-coronavirus-lockdown-whitmer/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : les preuves de bombardements sur des civils dans le conflit du Haut-Karabakh",
-    "content": "Des vidéos analysées par « Le Monde » mettent en lumière l’usage d’armes à sous-munitions au Haut-Karabakh et le bombardement d’un centre commercial à Gandja, deuxième ville d’Azerbaïdjan.",
-    "date": "2020-10-23",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Asia Balluffier",
-      "Robin Gasser",
-      "Service vidéo du Monde"
-    ],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: A Sudden Spray of Bullets: Reconstructing a U.S. Task Force’s Killing of an Antifa Activist",
-    "content": "President Trump praised the killing of Michael Reinoehl, suspected of fatally shooting a far-right protester, as “retribution.” Our investigation found that officers may have shot without warning or seeing a gun.",
-    "date": "2020-10-13",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Photos and video: Tracking Trump's movements before his positive coronavirus test",
-    "content": "Videos and photos show president frequently flouted guidelines",
-    "date": "2020-10-06",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/graphics/2020/politics/trump-contacts-movements-covid/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How an Oregon Wildfire Became One of the Most Destructive",
-    "content": "The Almeda fire left a path of destruction as it tore through the Rogue Valley in southern Oregon. About 24 hours after it started, an estimated 2,350 homes had been left in ashes. We used satellite images, videos and social media posts to track what happened.",
-    "date": "2020-09-20",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Swept up in the federal response to Portland protests: ‘I didn’t know if I was going to be seen again’",
-    "content": "Videos obtained by The Washington Post show agents' tactics during President Trump's operation.",
-    "date": "2020-09-10",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/graphics/2020/investigations/portland-protesters-federal-response-trump/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "What video analysis of the Aug. 29 Portland shooting tells us",
-    "content": "After three months of nightly protests in the city, Aaron J. Danielson was shot dead in a confrontation on Aug. 29 that police were investigating as a homicide.",
-    "date": "2020-09-04",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2020/09/04/portland-protest-shooting-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Tracking Alexei Navalny’s last movements before he was allegedly poisoned",
-    "content": "The Washington Post analysed videos ans photos to retrace prominent Pussian opposition leader Alexei Navalny's steps in the days before he was poisoned",
-    "date": "2020-08-28",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2020/08/28/alexei-navalny-poisoning-video-timeline/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Puy du Fou : ce que des vidéos d’amateurs révèlent des règles anti-Covid dans le parc",
-    "content": "Des images filmées par des amateurs offrent des indications sur le difficile respect des règles anti-Covid au sein du parc vendéen et pendant sa Cinéscénie, autorisée à accueillir plus de 5 000 spectateurs le 15 août",
-    "date": "2020-08-20",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Marc Bettinelli",
-      "Charles-Henry Groult",
-      "Olivier Escher (Motion design)"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Body camera footage shows struggle leading to George Floyd’s fatal police encounter",
-    "content": "Newly released video of George Floyd’s fatal interaction with Minneapolis police shows that medical personnel waited nearly three minutes to perform chest compressions in an attempt to revive the handcuffed man who had been pinned down on a Minneapolis street until he lost consciousness in May.",
-    "date": "2020-08-10",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/graphics/2020/national/floyd-bodycam-video/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video analysis of Beirut explosion reveals its power, even at great distances",
-    "content": "Lebanon continues to sift through the wreckage from a massive explosion that leveled Beirut on Tuesday. At least 150 people were killed, more than 5,000 injured and an estimated 300,000 people have lost their homes.",
-    "date": "2020-08-07",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2020/08/07/video-analysis-beirut-explosion-reveals-its-power-even-great-distances/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Explosions à Beyrouth : ce que les vidéos révèlent de l’onde de choc",
-    "content": "Des vidéos collectées et géolocalisées par « Le Monde » offrent des indications sur la violence de la détonation et l’étendue des dégâts de la double explosion qui a touché Beyrouth, le 4 août.",
-    "date": "2020-08-07",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Karim El Hadj",
-      "Elisa Bellanger",
-      "Marceau Bretonnier",
-      "Charles-Henry Groult"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Videos Show How Federal Officers Escalated Violence in Portland",
-    "content": "Peaceful protests were already happening for weeks when federal officers arrived on July 4. Our video shows how President Trump’s deployment ignited chaos.",
-    "date": "2020-07-24",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Wearing a Mask? It May Come From China’s Controversial Labor Program",
-    "content": "Our visual investigation reveals that several Chinese companies are using Uighur labor from a contentious government program to produce P.P.E. during the pandemic. We track some of that equipment to the U.S. and around the world.",
-    "date": "2020-07-19",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : le déroulé des événements qui ont conduit à la mort d’Adama Traoré",
-    "content": "L’analyse de la vidéosurveillance, des échanges radio des forces de l’ordre et des témoignages-clés ont permis au « Monde » de reconstituer en images et en 3D les dernières heures d’Adama Traoré, mort le 19 juillet 2016.",
-    "date": "2020-07-17",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Service vidéo du Monde",
-      "Asia Balluffier",
-      "Forensic Architecture (Collectif d'experts)"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Partially blinded by police: Video evidence undermines official accounts of injuries at George Floyd protests",
-    "content": "Eight people suffered severe eye injuries at protests across the country on May 30. In three instances, video evidence undermines official accounts of what happened.",
-    "date": "2020-07-14",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2020/07/14/george-floyd-protests-police-blinding/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video and photos show Brazil’s Bolsonaro defied health guidelines before testing positive for the coronavirus — and after",
-    "content": "The Washington Post analyzed hundreds of videos and photos of the Brazilian president to retrace his steps in the two weeks before he first reported symptoms of the novel coronavirus.",
-    "date": "2020-07-11",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/2020/07/11/bolsonaro-coronavirus-video-timeline/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How ICE Helped Spread the Coronavirus",
-    "content": "The New York Times, in collaboration with The Marshall Project, investigated how Immigration and Customs Enforcement became a domestic and global spreader of the virus.",
-    "date": "2020-07-10",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Philadelphia Police Temporarily Ban Tear Gas for Crowd Control",
-    "content": "The announcement came hours after The New York Times published its visual investigation into a protest against police brutality in Philadelphia on June 1.",
-    "date": "2020-06-25",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Philadelphia Police Tear-Gassed a Group of Trapped Protesters",
-    "content": "On June 1, SWAT teams turned a protest march in Philadelphia into chaos. We went to the site, interviewed witnesses and analyzed dozens of videos to reconstruct what happened.",
-    "date": "2020-06-25",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The Killing of Rayshard Brooks: How a 41-Minute Police Encounter Suddenly Turned Fatal",
-    "content": "The Times analyzed witness videos, police footage and official documents to identify the critical moments — and missteps — that led to the killing of Rayshard Brooks in Atlanta on June 12, 2020.",
-    "date": "2020-06-22",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Violences en Inde : le rôle trouble de la police décrypté",
-    "content": "En février 2020, une vague de violences a embrasé les quartiers musulmans de New Delhi, la capitale indienne. L’action des forces de police indiennes a alors posé question.",
-    "date": "2020-06-12",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Marc Bettinelli",
-      "Olivier Escher"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The crackdown before Trump’s photo op: How law enforcement cleared protesters outside the White House",
-    "content": "The Washington Post reconstructed who did what to clear protestors from the streets outside the White House on June 1. Watch how it unfolded.",
-    "date": "2020-06-08",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/2020/06/08/timeline-trump-church-photo-op/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The David McAtee Shooting: Did Aggressive Policing Lead to a Fatal Outcome?",
-    "content": "The Times analyzed videos of the shooting by the police and National Guardsmen of David McAtee in Louisville, Ky., on June 1 to show how the episode unfolded — and how questionable policing tactics played a role.",
-    "date": "2020-06-05",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How George Floyd Was Killed in Police Custody",
-    "content": "The Times has reconstructed the death of George Floyd on May 25, 2020. Security footage, witness videos and official documents show how a series of actions by officers turned fatal. (This video contains scenes of graphic violence.)",
-    "date": "2020-06-01",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Military helicopters descended on protesters in Washington, D.C. as a 'show of force.' Here's how close they got.",
-    "content": "Two military helicopters roared over demonstrators in Washington protesting after the death of George Floyd, producing winds equivalent to a tropical storm",
-    "date": "2020-06-01",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/graphics/2020/investigations/helicopter-protests-washington-dc-national-guard/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The death of George Floyd: What video and other records show about his final minutes",
-    "content": "The Washington Post reconstructed the events immediately preceding the death of George Floyd in Minneapolis using security footage, emergency services recordings and cellphone videos.",
-    "date": "2020-05-30",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/nation/2020/05/30/video-timeline-george-floyd-death/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Ahmaud Arbery’s Final Minutes: What Videos and 911 Calls Show",
-    "content": "Using security footage, cellphone video, 911 calls and police reports, The Times has reconstructed the 12 minutes before Ahmaud Arbery was shot dead in Georgia on Feb. 23, 2020.",
-    "date": "2020-05-17",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "The pandemic at sea: How cruise ships exposed thousands on board and helped spread the virus around the world",
-    "content": "The coronavirus was first detected on a cruise ship in early February. The decision by the industry to keep sailing for weeks contributed to the mounting toll, health experts and passengers say.",
-    "date": "2020-04-25",
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/graphics/2020/politics/cruise-ships-coronavirus/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Hôpitaux débordés, arrestations, mises en quarantaine forcées… Les images du coronavirus en Chine analysées",
-    "content": "Depuis le début de l’épidémie de coronavirus, de nombreuses vidéos illustrant la situation en Chine ont été publiées sur les réseaux sociaux. « Le Monde » a étudié et vérifié la fiabilité de plusieurs de ces documents.",
-    "date": "2020-02-26",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "non renseigné"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How Did Iran’s Qassim Suleimani Wield Power? We Tracked the Quds Force Playbook",
-    "content": "Before his killing, Maj. Gen. Qassim Suleimani of Iran was everywhere. His persona is a clue into how the elite Quds Force he commanded operates.",
-    "date": "2020-02-02",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Ukraine Flight 752: New Video Shows First Missile Hit Plane",
-    "content": "A new video, verified by The New York Times, shows that the Iranian military launched two missiles at the passenger jet in around 30 seconds. The plane, ablaze, continued flying for several minutes before crashing and killing all 176 people on board.",
-    "date": "2020-01-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Ukrainian Flight 752: How a Plane Came Down in 7 Minutes",
-    "content": "Video verified by The New York Times shows that the Iranian military fired two missiles at the passenger jet. Here’s everything we know about what happened in that seven-minute flight.",
-    "date": "2020-01-12",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Tir de LBD à bout portant par un policier : ce qu’il s’est passé le 9 janvier à Paris, en images",
-    "content": "« Le Monde » a pu vérifier les données et la géolocalisation d’une vidéo montrant un policier faisant feu à moins de deux mètres d’un manifestant jeudi 9 janvier. Le parquet a ouvert une enquête pour « violences volontaires ».",
-    "date": "2020-01-10",
-    "media": "Le Monde",
-    "link": "",
-    "commentaire": "",
-    "authors": [
-      "Service vidéo du Monde",
-      "Arthur Carpentier",
-      "Asia Balluffier"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Iran, massacre à huis clos : une enquête des Observateurs de France 24",
-    "content": "Comment les forces de l'ordre iraniennes ont-elles tué plusieurs centaines de manifestants en trois jours ? Notre équipe a analysé plus de 750 vidéos et photos amateur. En s’appuyant sur des témoignages directs et en utilisant des techniques de géolocalisation de ces images, nous avons pu reconstituer précisément des affrontements entre manifestants et forces de l'ordre dans quatre villes iraniennes.",
-    "date": "2020-01-10",
+    "title": "Soudan : dans l’État d’Al-Jazira, les Forces de soutien rapide massacrent des centaines de civils",
+    "content": "C’est une attaque dont le procédé est typique des exactions des Forces de soutien rapide. Le 25 octobre, les hommes de cette milice ont attaqué le village d’Al-Sariha, au centre du Soudan. Filmées par les habitants et les combattants des FSR eux-mêmes, ces violences ont fait au moins 124 morts, des civils. La rédaction des Observateurs a enquêté sur cette attaque, qui s’inscrit dans le cadre d’une vague de violences contre les civils de cette région.",
+    "date": "2024-11-18",
     "media": "Les Observateurs",
-    "link": "https://observers.france24.com/fr/iran-massacre-huis-clos-une-enquete-observateurs-france-24-0",
+    "link": "https://observers.france24.com/fr/%C3%A9missions/les-observateurs/20241118-enquete-massacre-fsr-soudan-guerre-civile-alsariha-aljazira-gezira",
     "commentaire": "",
     "authors": [
-      "pas renseigné"
+      "Djamel Belayachi",
+      "Quentin Peschard"
     ],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Video: Video Shows Ukrainian Airliner Being Hit Over Iran",
-    "content": "The New York Times has obtained and verified video showing the moment a Ukrainian airliner was hit in Iran.",
-    "date": "2020-01-09",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Secret Video Offers Rare Look Inside Chinese Labor Program",
-    "content": "China is relocating Uighurs and other Muslim minorities to urban areas as part of a contentious labor program. The Times obtained rare footage taken inside one.",
-    "date": "2019-12-30",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: India’s Police Response to Protests Was Swift and Violent, Videos Show",
-    "content": "When students at a university in India’s capital protested a controversial citizenship bill, the police responded with violence. We analyzed the footage to show the tactics officers are using.",
-    "date": "2019-12-17",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Enquête vidéo : comment la police a grièvement blessé un « gilet jaune » le 16 novembre sur la place d’Italie à Paris",
-    "content": "Grâce à l’analyse de plusieurs heures de vidéos, la modélisation 3D des lieux et l’identification du projectile, « Le Monde » a reconstitué la séquence au terme de laquelle un manifestant, Manuel Coisne, a été éborgné.",
-    "date": "2019-12-11",
-    "media": "Le Monde",
-    "link": "",
+    "title": "Enquête - Ukraine : la désillusion des combattants latino-américains",
+    "content": "Quelques jours après l’invasion de l’Ukraine par la Russie en février 2022, le président Volodymyr Zelensky appelle les étrangers à rejoindre son pays. Des milliers de volontaires répondent à son appel, principalement des Occidentaux. Peu à peu, le profil de ces étrangers évolue et des combattants venant d’Amérique Latine rejoignent les rangs. La rédaction des Observateurs de France 24 a enquêté sur cette facette moins connue de la guerre en Ukraine. La journaliste Chloé Lauvergnier évoque le sujet dans la chronique Derrière l'image.",
+    "date": "2024-12-04",
+    "media": "Les Observateurs",
+    "link": "https://www.france24.com/fr/vid%C3%A9o/20241126-enqu%C3%AAte-ukraine-la-d%C3%A9sillusion-des-combattants-latino-am%C3%A9ricains",
     "commentaire": "",
     "authors": [
-      "Arthur Carpentier",
-      "Cellule Enquête vidéo"
+      "Chloé Lauvergnier"
     ],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: ‘Sent Candy’: Cockpit Tapes Show Russian Pilots Bombing Syrian Civilians",
-    "content": "A Times investigation used cockpit recordings to show for the first time how Russian pilots attacked civilians in Syria this summer, killing dozens.",
-    "date": "2019-12-01",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: We Proved Russian Pilots Bombed a Hospital. Then They Did It Again.",
-    "content": "Four weeks ago, The Times provided visual evidence showing that the Russian Air Force bombed a Syrian hospital. Last Wednesday, Russia did it again.",
-    "date": "2019-11-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Russia Bombed Four Syrian Hospitals. We Have Proof.",
-    "content": "The Times obtained thousands of air force recordings, which reveal for the first time that Russia repeatedly bombed hospitals in Syria.",
-    "date": "2019-10-13",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Hong Kong Police Shot a Protester at Point-Blank Range. We Break Down What Happened.",
-    "content": "In a major escalation of violence since protests began four months ago, the Hong Kong police fired a live round at a protester from point-blank range. We analyzed the footage to create a comprehensive picture of what exactly happened.",
-    "date": "2019-10-01",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Gamblers Like Me: The Dark Side of Sports Betting",
-    "content": "Sports betting has exploded across Africa. But are the betting companies playing it straight? Do the punters really understand the odds they’re up against? And who is getting rich from the thrill of the beautiful game?",
-    "date": "2019-09-24",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p07p578x",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Trump Is Having Tent Courthouses Built Along the Border. Here’s What They Look Like.",
-    "content": "Tent courthouses are the administration’s latest move in its “Remain in Mexico” policy, forcing asylum seekers to wait in one of Mexico’s most dangerous states until their hearings. We track the tents’ expansion through satellite imagery — and explain how they could make the asylum process even harder.",
-    "date": "2019-08-29",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Laser Pointers and Traffic Cones: Creative Ways Hong Kong Protesters Are Organizing",
-    "content": "Hong Kong’s protesters have employed innovative tactics to stay safe and evade the police. Our visual investigation gives an up-close look at those strategies.",
-    "date": "2019-08-10",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: ‘Please Stop Beating Us’: Where Were Hong Kong’s Police?",
-    "content": "After a violent mob attack in Hong Kong, protesters accused the police of ignoring their calls for help. We reconstruct what happened that night.",
-    "date": "2019-07-30",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How Kim Jong-un Smuggled Luxury Mercedes to North Korea",
-    "content": "Kim Jong-un frequently shows off the Mercedes he has obtained in open defiance of U.N. sanctions intended to ban luxury goods from North Korea. Using shipping data, corporate records, satellite imagery and interviews, our investigation tracks the circuitous routes used to import illicit goods.",
-    "date": "2019-07-16",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Did Hong Kong Police Use Violence Against Protesters? What the Videos Show",
-    "content": "In a Visual Investigation, The New York Times shows how the Hong Kong police used excessive force by tear-gassing, beating and dragging protesters on June 12.",
-    "date": "2019-07-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Sudan’s livestream massacre",
-    "content": "BBC Africa Eye has analysed more than 300 videos shot in Khartoum that day. Using them, we bring you a shocking, street-level view of the violence - as well as testimony from men who say they took part in the attack and that it was planned from the top.",
-    "date": "2019-07-12",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p07grf73",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Europe Shut These Migrants Out, Libyan Rebels Bombed Them",
-    "content": "A Times investigation shows that the African migrants killed by a July 2 airstrike in Libya were being detained near a weapons depot — a prime target in the country’s civil war. Before the attack, the E.U. ignored calls to move the migrants.",
-    "date": "2019-07-11",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The U.S. Says Iran Attacked Tankers. Does the Evidence Add Up?",
-    "content": "A Times analysis of a video and images publicly released by the U.S. Defense Department indicates that an Iranian patrol boat removed an object from a tanker in the Gulf of Oman on June 13 that may have been a limpet mine.",
-    "date": "2019-06-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: One Bomb. 11 Children Killed. And the Evidence That Implicates the U.S.",
-    "content": "A woman and 11 children were killed in an airstrike on a home in Afghanistan last fall. We spoke to the father who was left to search for answers. The United States initially said it was not involved, but after our visual investigation, it changed its story.",
-    "date": "2019-06-03",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Why U.S. Weapons Sold to the Saudis Are Hitting Hospitals in Yemen",
-    "content": "In our video, a former State Department official sent to advise the Saudi-led coalition says he saw firsthand how it failed to avoid civilian casualties in Yemen — and how the U.S. chose to look the other way.",
-    "date": "2019-05-23",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Suicide Stories: Are Kenya's men in crisis?",
-    "content": "our series of films looking at the topic of modern masculinity in Africa, the first issue we go into is suicide amongst Kenyan men.We went to Nyandarua County located in Central Kenya where 70 people – almost all of them men – took their own lives last year.",
-    "date": "2019-04-29",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p07b12ql",
-    "commentaire": "",
-    "authors": [
-      "Peter Murimi"
-    ],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The U.S. Blamed Maduro for Burning Aid to Venezuela. New Video Casts Doubt.",
-    "content": "Top U.S. officials have said Nicolás Maduro’s regime burned an aid convoy last month. But TV footage contradicts that claim and shows how this unverified information spread across Twitter and television.",
-    "date": "2019-03-10",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Sudan’s Secret Hit Squads Used to Attack Protests",
-    "content": "These are images Sudan’s government does not want you to see: teams of masked, plainclothes agents chasing down protesters, beating them, and dragging them off to secret detention centres in Khartoum.",
-    "date": "2019-02-13",
-    "media": "BBC",
-    "link": "https://www.youtube.com/watch?v=AuNDd_pteRQ",
-    "commentaire": "",
-    "authors": [
-      "pas renseigné"
-    ],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Cameroon: Anatomy of a Killing",
-    "content": "In July 2018 a horrifying video began to circulate on social media. It shows two women and two young children being led away at gunpoint by a group of Cameroonian soldiers. The captives are blindfolded, forced to the ground, and shot 22 times.The government of Cameroon initially dismissed the video as “fake news.” But BBC Africa Eye, through forensic analysis of the footage, can prove exactly where this happened, when it happened, and who is responsible for the killings.",
-    "date": "2019-02-07",
-    "media": "BBC",
-    "link": "https://www.bbc.co.uk/programmes/p0707w39",
-    "commentaire": "",
-    "authors": [
-      "Aliaume Leroy",
-      "Ben Strick."
-    ],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: An Israeli Soldier Killed a Medic in Gaza. We Investigated the Fatal Shot.",
-    "content": "On June 1, an Israeli soldier shot into a crowd, killing a volunteer medic named Rouzan al-Najjar. Israeli officials say soldiers only use live fire as a last resort. Our investigation shows otherwise. We analyzed over 1,000 photos and videos, froze the fatal moment in a 3-D model of the protest, and interviewed more than 30 witnesses and I.D.F. commanders to reveal how Rouzan was killed.",
-    "date": "2018-12-30",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How an Elite Nigerian Unit Killed Dozens of Protesters",
-    "content": "Nigeria’s military said it acted in self-defense. Our visual investigation shows that this claim doesn’t hold up, and reveals how an elite military unit used machine guns on unarmed marchers in October, killing dozens.",
-    "date": "2018-12-17",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: A Black Driver, a Marijuana Bust and a Body Camera That Turned Off",
-    "content": "A traffic stop in New York led to a young black man being arrested for possession of marijuana. What happened? The New York Times obtained videos that offer a rare window into how far police may be willing to go to make an arrest.",
-    "date": "2018-11-19",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Killing Khashoggi: How a Brutal Saudi Hit Job Unfolded",
-    "content": "An autopsy expert. A lookalike. A black van. Our video investigation follows the movements of the 15-man Saudi hit team that killed and dismembered the journalist Jamal Khashoggi.",
-    "date": "2018-11-16",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The Bomb Suspect’s Van Is Covered With Stickers. Here’s What They Show.",
-    "content": "Federal law enforcement officials seized the van of Cesar Sayoc Jr., who was arrested in connection with the wave of bombs sent to prominent Democrats and critics of President Trump. Here’s why the van could be key to the investigation.",
-    "date": "2018-10-26",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How a Gang Hunted and Killed a 15-Year-Old in the Bronx",
-    "content": "The murder of Lesandro Guzman-Feliz, known as Junior, drew outrage across New York City. Our investigation retraces his last steps — and reveals how a recent wave of violence took his life just two blocks from home.",
-    "date": "2018-09-10",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How a C.I.A. Drone Base Grew in the Desert",
-    "content": "Officials from the U.S. and Niger have confirmed the location of a new C.I.A. drone base to The New York Times. We’ve analyzed its construction and location.",
-    "date": "2018-09-09",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": true
-  },
-  {
-    "title": "Video: How Surveillance Cameras Tracked Two Russian Hit Men",
-    "content": "British investigators used security footage and flight records to track two Russian men who now stand accused of attempted murder in the March attack featuring the nerve agent Novichok.",
-    "date": "2018-09-06",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Drone Attack on Maduro Unfolded in Venezuela",
-    "content": "It started with a nervous look to the sky. Two minutes later, two drones exploded. We analyzed videos and photos to show how a speech by President Nicolás Maduro ended in an apparent assassination attempt.",
-    "date": "2018-08-10",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: One Building; Dozens Killed in Syria: How Bashar al-Assad Gassed His Own People",
-    "content": "Syrian officials say there wasn’t a chemical attack. But what really took place in the town of Douma in April? We analyzed 67 videos to reconstruct how at least 34 people died in one apartment building.",
-    "date": "2018-06-25",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How a Remote Patch of Land Turned Into a Child Migrant Shelter",
-    "content": "The tent camp in Texas was built this month to house unaccompanied migrant children between the ages of 13 and 17. Satellite imagery reveals how it sprouted up and what’s inside.",
-    "date": "2018-06-22",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Tracking North Korea’s New Tourism Plans",
-    "content": "Construction is underway in North Korea to build a sprawling resort complex near an area the military has used for testing missiles. The government said it hopes to attract a million tourists a year. From where remains unclear.",
-    "date": "2018-06-15",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The Militia Threatening American Troops in Syria",
-    "content": "There are roughly 2,000 U.S. troops in Syria. Recently, a statement went out calling for direct attacks against them. Who sent it, and why?",
-    "date": "2018-06-14",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: 23 Seconds, 5 Critical Moments: How Stephon Clark Was Killed by the Police",
-    "content": "At 9:26 on a Sunday evening, Stephon Clark encountered two police officers. Twenty-three seconds later, they shot and killed him. We analyzed the extensive body camera and helicopter footage frame-by-frame and reviewed the autopsy report to explain what happened.",
-    "date": "2018-06-07",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Did Police Kill These Protesters in Ukraine? What the Videos Show",
-    "content": "Lawyers in Ukraine hope a forensic analysis of videos can provide critical evidence against a paramilitary force accused of killing 48 protesters in 2014.",
-    "date": "2018-05-30",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Watch Police Enter the Las Vegas Gunman’s Room",
-    "content": "Newly released video shows the moment the Las Vegas police breached the hotel room of Stephen Paddock. He killed 58 people and wounded hundreds more in a shooting rampage on Oct. 1.",
-    "date": "2018-05-02",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Satellite Images Reveal the Birth of a Drone Base",
-    "content": "Dust storms, scorching temperatures and lengthy delivery times have put the Pentagon’s new drone base in the Sahara in Niger more than a year behind schedule and $22 million over its original budget. Here is what images from space revealed about the construction process that started in 2016.",
-    "date": "2018-04-22",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How Stephon Clark Was Killed by Police in His Backyard",
-    "content": "Stephon Clark, a 22-year-old unarmed man, was shot by the police in his grandmother’s backyard in Sacramento on March 18. Police body camera and helicopter footage shows details of what happened.",
-    "date": "2018-03-23",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Las Vegas Gunman Planned a Massacre, in 7 Days of Video",
-    "content": "Using exclusive surveillance footage obtained from MGM Resorts, we pieced together the last days of Stephen Paddock, the Las Vegas gunman. He plays video poker, laughs with hotel staff and hauls bag after bag of weapons into his suite.",
-    "date": "2018-03-22",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Ambush of U.S. Soldiers in Niger Unfolded",
-    "content": "One of the American soldiers ambushed by militants in Niger was wearing a helmet camera – we analyzed the footage to understand what happened.",
-    "date": "2018-03-20",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Militias Are Burning Villages in Congo. We Tracked the Toll.",
-    "content": "We obtained satellite images that show how lakeshore villages in the Democratic Republic of Congo have been destroyed in recent attacks, forcing 140,000 people to flee their homes.",
-    "date": "2018-03-08",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How a Drone Hunted Three Kurdish Fighters in Syria",
-    "content": "In January, Turkey launched an offensive into Syria’s northwest. We analyzed drone footage released by the military to show how two sides fight on a modern battlefield.",
-    "date": "2018-03-03",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: For 8 Days, Syria Felt More Like World War III",
-    "content": "Over the course of just eight days in February, the conflict in Syria intensified, with the U.S., Russia, Turkey, Israel and Iran all playing a part. Here’s how one of the most chaotic weeks in the seven-year war unfolded.",
-    "date": "2018-02-16",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How Strava’s Heat Map Uncovers Military Bases",
-    "content": "Strava's online exercise-tracking map unwittingly reveals remote military outposts — and even the identities of soldiers based there. The situation shows how data collection can lead to unintended consequences.",
-    "date": "2018-01-30",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How Did Bombs Made in Italy Kill a Family In Yemen?",
-    "content": "We followed shipments of bombs from a holiday island in Italy to Saudi Arabia, then found those bombs at the scene of civilian deaths in Yemen. Is Italy capitalizing on a brutal conflict or just doing business?",
-    "date": "2017-12-29",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: The Anti-Protest Gear That Despots Love",
-    "content": "China-based Norinco is a state-owned defense company that markets a military-grade crowd-control system complete with water cannons and tear gas launchers. Experts say it’s overkill, but at least one customer — Venezuela — disagrees.",
-    "date": "2017-12-23",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "repression de l'etat",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How the Saudi Blockade Is Starving Yemen",
-    "content": "Yemen is on the brink of famine. One of the poorest countries in the Middle East and riven by conflict, it is now practically sealed off from the world by a sea and air blockade imposed by Saudi Arabia.",
-    "date": "2017-12-19",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Escape From North Korea: What the Video Shows",
-    "content": "Footage of a dramatic escape by a North Korean soldier into South Korea shows that a pursuing soldier from the North may have violated an international treaty.",
-    "date": "2017-11-23",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Scenes From a D.E.A. Drug Raid Gone Wrong",
-    "content": "Surveillance footage from 2012, published for the first time, shows four civilians being killed during a drug operation. Mattathias Schwartz, a journalist working with ProPublica, narrates as boats collide and gunfire erupts.",
-    "date": "2017-10-23",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: 10 Minutes. 12 Gunfire Bursts. 30 Videos. Mapping the Las Vegas Massacre.",
-    "content": "The shots began at 10:05. Twelve bursts of gunfire later, the police broke down Stephen Paddock’s door at the Mandalay Bay. The Times mapped 30 videos to draw perhaps the most complete picture to date of what happened.",
-    "date": "2017-10-21",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Swastikas, Shields and Flags: Branding Hate in Charlottesville",
-    "content": "We decode the symbols of hate that white supremacists, Nazis and alt-right groups display at their marches, including the violent gathering in Charlottesville, Va.",
-    "date": "2017-08-15",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Video: How Syria Spun a Chemical Strike",
-    "content": "A New York Times investigation shows how Syria and its main partner, Russia, have distorted the facts surrounding the chemical weapons attack on Khan Sheikhoun.",
-    "date": "2017-04-26",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Video: Syria Chemical Attack: Here’s What Happened",
-    "content": "One of the worst chemical attacks in the Syrian civil war occurred on Tuesday in opposition-held Idlib Province. Dozens of people died, including children. Then the blaming began.",
-    "date": "2017-04-06",
-    "media": "The New York Times",
-    "link": "",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Ukraine : sur la piste des enfants volés - Regarder le documentaire complet | ARTE",
-    "content": "Depuis le début de la guerre en Ukraine, près de 20.000 enfants ukrainiens auraient été déportés en Russie. Cette nouvelle enquête du magazine d’investigation \"Sources\" révèle le système mis en place par les Russes, au mépris du droit international, ces déportations constituant un crime de guerre.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/113682-003-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Ukraine : la soeur et le meurtrier - Regarder le documentaire complet | ARTE",
-    "content": "Neuf mois que Katia Kholodnikova est sans nouvelles de son frère jumeau, Andriy, jeune soldat ukrainien parti combattre l’invasion russe aux premiers jours de la guerre. Jusqu’à ce texto venu du camp ennemi : \"Avez-vous enterré votre frère ?\". Son auteur dit être un ancien soldat russe et affirme être le dernier homme à avoir vu le frère de Katia en vie, avant de le tuer.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/117240-003-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - TikTok et le business des passeurs de migrants - Regarder le documentaire complet | ARTE",
-    "content": "Cette enquête révèle comment les passeurs incitent, via les réseaux sociaux, les migrants à traverser illégalement la Manche. Dans leurs offres vidéos, les passeurs font la promotion de passages illégaux et rivalisent de promesses intenables : “traversée en seulement 3h”, “passage sûr à 1000%”. Moyennant 1700 à 4000 euros par personne, les exilés traversent depuis le nord de la France jusqu’au Royaume-Uni, en canots de fortune, avec la mort sur le chemin.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/117240-001-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Teck en stock : enquête sur un bois interdit - Regarder l’émission complète | ARTE",
-    "content": "Ce nouvel épisode du magazine \"Sources\" enquête sur les importations d’un bois pourtant interdit en Europe : le teck de Birmanie. Cette essence précieuse, prisée notamment de l’industrie nautique, est sous embargo depuis le coup d’État sanglant du 1er février 2021, afin de ne pas financer la junte birmane. Cette enquête montre comment des commerçants européens parviennent à contourner cette interdiction et à vendre ce bois illégal en Europe.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/113682-004-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Saumon : histoire d'un enfumage - Regarder le documentaire complet | ARTE",
-    "content": "On croyait que ce secteur contribuait à la préservation des océans : il est en fait le fruit du pillage des ressources halieutiques au large de la Mauritanie. Une enquête édifiante sur les dessous de l’alimentation des saumons d’élevage.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/113682-002-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Rejetés à la mer : enquête sur les refoulements en Grèce - Regarder le documentaire complet | ARTE",
-    "content": "Depuis 2020, des milliers de migrants ont été rejetés à la mer après leur arrivée en Grèce. Sources revient sur ces \"pushbacks\" contraires au droit européen et international.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/117240-006-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "proactive",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Pédocriminalité, les failles d'Instagram - Regarder le documentaire complet | ARTE",
-    "content": "Cette enquête inédite de Maëva Poulet et Valentin Petit révèle comment des prédateurs sexuels opèrent sur le réseau social du groupe Meta et comment l'algorithme de la plateforme peut même favoriser les activités pédocriminelles.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/117240-002-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "crime organisé",
-    "proact": "proactive",
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
     "title": "Sources - Les dossiers de Prigojine - Regarder le documentaire complet | ARTE",
     "content": "Une enquête exclusive sur le groupe de mercenaires russes Wagner dirigé par l'oligarque Evgueni Prigojine. Grâce à quelque 2 500 documents piratés sur les serveurs informatiques de son empire, cette investigation numérique expose les rouages du système Prigojine, montrant que celui-ci constitue un élément clé dans les guerres, virtuelles et physiques, impliquant le Kremlin.",
-    "date": "1970-01-01",
+    "date": "2022.0",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-001-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "authors": [
+      "non renseigné"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sources - Saumon : histoire d'un enfumage - Regarder le documentaire complet | ARTE",
+    "content": "On croyait que ce secteur contribuait à la préservation des océans : il est en fait le fruit du pillage des ressources halieutiques au large de la Mauritanie. Une enquête édifiante sur les dessous de l’alimentation des saumons d’élevage.",
+    "date": "2022.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/113682-002-A/sources/",
+    "commentaire": "",
+    "authors": [
+      "Linda Bendali"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sources - Ukraine : sur la piste des enfants volés - Regarder le documentaire complet | ARTE",
+    "content": "Depuis le début de la guerre en Ukraine, près de 20.000 enfants ukrainiens auraient été déportés en Russie. Cette nouvelle enquête du magazine d’investigation \"Sources\" révèle le système mis en place par les Russes, au mépris du droit international, ces déportations constituant un crime de guerre.",
+    "date": "2022.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/113682-003-A/sources/",
+    "commentaire": "",
+    "authors": [
+      "Manon Bechelot",
+      "Poline Tchoubar"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sources - Teck en stock : enquête sur un bois interdit - Regarder l’émission complète | ARTE",
+    "content": "Ce nouvel épisode du magazine \"Sources\" enquête sur les importations d’un bois pourtant interdit en Europe : le teck de Birmanie. Cette essence précieuse, prisée notamment de l’industrie nautique, est sous embargo depuis le coup d’État sanglant du 1er février 2021, afin de ne pas financer la junte birmane. Cette enquête montre comment des commerçants européens parviennent à contourner cette interdiction et à vendre ce bois illégal en Europe.",
+    "date": "2022.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/113682-004-A/sources/",
+    "commentaire": "",
+    "authors": [
+      "Valentin Petit",
+      "Maeva Poulet"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
     "hasIA": false
   },
   {
     "title": "Sources - Danone : Le fléau des mini bouteilles - Regarder le documentaire complet | ARTE",
     "content": "L’Indonésie est le deuxième pollueur plastique des océans, après la Chine. Des organisations de protection de l’environnement collectent et analysent les déchets plastiques retrouvés sur les plages, dans les mangroves ou les rivières.",
-    "date": "1970-01-01",
+    "date": "2022.0",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-005-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
-    "hasIA": false
-  },
-  {
-    "title": "Sources - Colonisation en Cisjordanie : la stratégie des collines - Regarder le documentaire complet | ARTE",
-    "content": "Comment les colons extrémistes israéliens conquièrent-ils des terres en Cisjordanie ? Enquête sur une redoutable mécanique de dépossession fondée sur la multiplication d'avant-postes, illégaux, dans le but de faire fuir les populations palestiniennes voisines avec le soutien du gouvernement israélien.",
-    "date": "1970-01-01",
-    "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/118582-001-A/sources/",
-    "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "proactive",
+    "authors": [
+      "Maeva Poulet",
+      "Valentin Petit"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
     "title": "Sources - Chine : les influenceurs de la colonisation - Regarder le documentaire complet | ARTE",
     "content": "En Chine, la région du Xinjiang est le berceau historique des Ouïghours, minorité musulmane persécutée par le pouvoir central. SOURCES révèle comment des influenceurs Chinois incitent des habitants de tout le pays à venir coloniser cette province.",
-    "date": "1970-01-01",
+    "date": "2023.0",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-006-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "stratégies militaires et influence",
-    "proact": "",
+    "authors": [
+      "Manon Bachelot",
+      "Poline Tchoubar"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Sources - Cachemire de Mongolie : Enquête sur la face cachée de nos vêtements - Regarder le documentaire complet | ARTE",
-    "content": "C’est la reine des laines. Le cachemire. Mais l’afflux sur le marché mondial de pulls plus abordables a des conséquences sur tout un pays… Que font les marques pour limiter leur impact ?",
-    "date": "1970-01-01",
+    "title": "Sources - Pédocriminalité, les failles d'Instagram - Regarder le documentaire complet | ARTE",
+    "content": "Cette enquête inédite de Maëva Poulet et Valentin Petit révèle comment des prédateurs sexuels opèrent sur le réseau social du groupe Meta et comment l'algorithme de la plateforme peut même favoriser les activités pédocriminelles.",
+    "date": "2024.0",
     "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/118582-002-A/sources/",
+    "link": "https://www.arte.tv/fr/videos/117240-002-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "proactive",
+    "authors": [
+      "Valentin Petit",
+      "Maeva Poulet"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Sources - Bébés gorilles à vendre : enquête sur un trafic international - Regarder le documentaire complet | ARTE",
-    "content": "Chaque année, plus de quatre cents bébés gorilles disparaissent des forêts d'Afrique centrale. Par quelles filières ce braconnage est-il organisé, et au profit de quels clients ? Sources dévoile les dessous d'un trafic aussi lucratif que dévastateur pour la planète.",
-    "date": "1970-01-01",
+    "title": "Sources - TikTok et le business des passeurs de migrants - Regarder le documentaire complet | ARTE",
+    "content": "Cette enquête révèle comment les passeurs incitent, via les réseaux sociaux, les migrants à traverser illégalement la Manche. Dans leurs offres vidéos, les passeurs font la promotion de passages illégaux et rivalisent de promesses intenables : “traversée en seulement 3h”, “passage sûr à 1000%”. Moyennant 1700 à 4000 euros par personne, les exilés traversent depuis le nord de la France jusqu’au Royaume-Uni, en canots de fortune, avec la mort sur le chemin.",
+    "date": "2024.0",
     "media": "Arte",
-    "link": "https://www.arte.tv/fr/videos/117240-005-A/sources/",
+    "link": "https://www.arte.tv/fr/videos/117240-001-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "problématiques environnementales",
-    "proact": "proactive",
+    "authors": [
+      "Manon Bachelot"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sources - Ukraine : la soeur et le meurtrier - Regarder le documentaire complet | ARTE",
+    "content": "Neuf mois que Katia Kholodnikova est sans nouvelles de son frère jumeau, Andriy, jeune soldat ukrainien parti combattre l’invasion russe aux premiers jours de la guerre. Jusqu’à ce texto venu du camp ennemi : \"Avez-vous enterré votre frère ?\". Son auteur dit être un ancien soldat russe et affirme être le dernier homme à avoir vu le frère de Katia en vie, avant de le tuer.",
+    "date": "2024.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/117240-003-A/sources/",
+    "commentaire": "",
+    "authors": [
+      "Poline Tchoubar",
+      "Ksénia Bolchakova"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
     "title": "Sources - Arabie saoudite : les damnés de Neom, la ville du futur - Regarder le documentaire complet | ARTE",
     "content": "Le projet de ville du futur du prince héritier d’Arabie Saoudite se veut moderne et progressiste mais il viole les droits humains. Des citoyens saoudiens opposés à l’expropriation de leurs terres au profit de la construction de Neom croupissent en prison, voire risquent la peine de mort. Les entreprises européennes impliquées dans ce chantier occultent toutes violations.",
-    "date": "1970-01-01",
+    "date": "2024.0",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-004-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "",
+    "authors": [
+      "Poline Tchoubar"
+    ],
+    "theme": "Humanitaire",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Uvalde records reveal chaotic medical response as victims lost blood",
-    "content": "Previously unreleased video, audio and interviews for the first time show helicopter and ambulance delays after police finally confronted the Robb Elementary shooter.",
-    "date": null,
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/investigations/interactive/2022/uvalde-shooting-victims-delayed-response/",
+    "title": "Sources - Bébés gorilles à vendre : enquête sur un trafic international - Regarder le documentaire complet | ARTE",
+    "content": "Chaque année, plus de quatre cents bébés gorilles disparaissent des forêts d'Afrique centrale. Par quelles filières ce braconnage est-il organisé, et au profit de quels clients ? Sources dévoile les dessous d'un trafic aussi lucratif que dévastateur pour la planète.",
+    "date": "2024.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/117240-005-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Manon Bachelot"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Tracing a tragedy: How hundreds of migrants drowned on Greece’s watch",
-    "content": "A Washington Post investigation retraced the route of the Adriana and how Greek coast guard decisions contributed to a preventable tragedy.",
-    "date": null,
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/world/interactive/2023/greece-migrant-boat-coast-guard/",
+    "title": "Sources - Rejetés à la mer : enquête sur les refoulements en Grèce - Regarder le documentaire complet | ARTE",
+    "content": "Depuis 2020, des milliers de migrants ont été rejetés à la mer après leur arrivée en Grèce. Sources revient sur ces \"pushbacks\" contraires au droit européen et international.",
+    "date": "2024.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/117240-006-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "humanitaire",
-    "proact": "proactive",
+    "authors": [
+      "Maeva Poulet"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
     "hasIA": false
   },
   {
-    "title": "Republicans flood TV with misleading ads about immigration, border",
-    "content": "The Washington Post analyzed more than 700 campaign ads that mention immigration to see how the issue is being presented to voters.",
-    "date": null,
-    "media": "Washington Post",
-    "link": "https://www.washingtonpost.com/elections/interactive/2024/republican-campaign-ads-immigration-border-security/",
+    "title": "Sources - Colonisation en Cisjordanie : la stratégie des collines - Regarder le documentaire complet | ARTE",
+    "content": "Comment les colons extrémistes israéliens conquièrent-ils des terres en Cisjordanie ? Enquête sur une redoutable mécanique de dépossession fondée sur la multiplication d'avant-postes, illégaux, dans le but de faire fuir les populations palestiniennes voisines avec le soutien du gouvernement israélien.",
+    "date": "2024.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/118582-001-A/sources/",
     "commentaire": "",
-    "authors": [],
-    "theme": "approfondissement de l'actualité",
-    "proact": "",
+    "authors": [
+      "Valentin Petit",
+      "Poline Tchoubar"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Sources - Cachemire de Mongolie : Enquête sur la face cachée de nos vêtements - Regarder le documentaire complet | ARTE",
+    "content": "C’est la reine des laines. Le cachemire. Mais l’afflux sur le marché mondial de pulls plus abordables a des conséquences sur tout un pays… Que font les marques pour limiter leur impact ?",
+    "date": "2024.0",
+    "media": "Arte",
+    "link": "https://www.arte.tv/fr/videos/118582-002-A/sources/",
+    "commentaire": "",
+    "authors": [
+      "Valentin Petit",
+      "Poline Tchoubar"
+    ],
+    "theme": "Problématiques environnementales",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Dans les coulisses des réseaux français pro-Trump",
+    "content": "La présidentielle américaine agite aussi les réseaux pro-Trump en France. Des différentes branches du parti républicain américain jusqu’au parti Reconquête d’Éric Zemmour, l’Amérique trumpiste est devenue un modèle pour tenter de gagner la bataille des idées.",
+    "date": "12 oct 2024",
+    "media": "France Inter",
+    "link": "https://www.radiofrance.fr/franceinter/podcasts/secrets-d-info/secrets-d-info-du-samedi-12-octobre-2024-2056726",
+    "commentaire": "",
+    "authors": [
+      "Benoît Collombat"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Polluants éternels : nous avons testé votre eau du robinet",
+    "content": "La cellule investigation de Radio France (en collaboration avec le réseau France Bleu) a détecté des PFAS dans 43% des 89 échantillons prélevés en France métropolitaine. Ces polluants éternels peuvent avoir des effets néfastes sur la santé. Une dizaine de résultats sont préoccupants.",
+    "date": "21 sept 2024",
+    "media": "France Inter",
+    "link": "https://www.radiofrance.fr/franceinter/podcasts/secrets-d-info/secrets-d-info-du-samedi-21-septembre-2024-7316797",
+    "commentaire": "",
+    "authors": [
+      "Benoît Collombat"
+    ],
+    "theme": "Environnement",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Armes autonomes : enquête sur la guerre du futur",
+    "content": "L’Intelligence artificielle est de plus en plus utilisée par les militaires et intégrée aux systèmes d’armements. Le développement des armes autonomes, capables de tuer sans le feu vert humain, pose de lourdes questions éthiques et morales.",
+    "date": "2024-11-02",
+    "media": "France Inter",
+    "link": "https://www.radiofrance.fr/franceinter/podcasts/secrets-d-info/secrets-d-info-du-samedi-02-novembre-2024-5065105",
+    "commentaire": "",
+    "authors": [
+      "Benoît Collombat"
+    ],
+    "theme": "Stratégies militaires et d'influence",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Rwanda Classified : enquête au cœur du régime répressif de Paul Kagamé",
+    "content": "Coordonné par Forbidden Stories, le projet Rwanda Classified a débuté par la mort mystérieuse, en janvier 2023 à Kigali, du journaliste rwandais John Williams Ntwali. Poursuivant son travail, 50 journalistes de 11 pays révèlent la répression transnationale déployée par le régime de Paul Kagame.",
+    "date": "1 juin 2024",
+    "media": "France Inter",
+    "link": "https://www.radiofrance.fr/franceinter/podcasts/secrets-d-info/secrets-d-info-du-samedi-01-juin-2024-1310233",
+    "commentaire": "",
+    "authors": [
+      "Jacques Monin"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Jacques et Rodolphe Saadé, dans les eaux profondes du pouvoir",
+    "content": "Troisième armateur mondial, la CMA CGM fondée par Jacques Saadé est désormais propriétaire de BFM-TV. Son fils et successeur Rodolphe continue de soigner ses liens avec l’État qui le lui rend bien.",
+    "date": "7 sept 2024",
+    "media": "France Inter",
+    "link": "https://www.radiofrance.fr/franceinter/podcasts/secrets-d-info/secrets-d-info-du-samedi-07-septembre-2024-1867767",
+    "commentaire": "",
+    "authors": [
+      "Benoît Collombat"
+    ],
+    "theme": "Approfondissement de l'actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Algérie : le marché noir des \"rendez-vous visas\" pour la France, un business lucratif sur fond de détresse",
+    "content": "Obtenir un visa pour la France en Algérie est devenu un véritable parcours du combattant. Les citoyens dénoncent une première étape quasi inaccessible : la prise de rendez-vous sur les plateformes officielles. Pourtant, ces mêmes créneaux sont revendus à prix d'or via un système parallèle. Grâce aux réseaux sociaux et aux sites de petites annonces, les Révélateurs ont enquêté sur cette pénurie.",
+    "date": "2025-03-27",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/monde/afrique/algerie/enquete-francetv-algerie-le-marche-noir-des-rendez-vous-visas-pour-la-france-un-business-lucratif-sur-fond-de-detresse_7155219.html",
+    "commentaire": "",
+    "authors": [
+      "les Révélateurs"
+    ],
+    "theme": "Approfondissement actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Guerre en Ukraine : comment la Russie maintient ses exportations de pétrole au-delà du prix plafond fixé par l'Union européenne",
+    "content": "Deux ans après l'instauration d'un embargo sur le pétrole russe par l'Union européenne et les pays du G7, l'analyse des images amateur, des images satellites et des registres financiers révèlent que le précieux combustible fossile continue de quitter les ports russes, en toute impunité.",
+    "date": "2025-03-19",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/monde/russie/vladimir-poutine/petrole-russe-la-flotte-fantome-de-vladimir-poutine_7139682.html",
+    "commentaire": "",
+    "authors": [
+      "les Révélateurs"
+    ],
+    "theme": "Approfondissement actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Guerre en Ukraine : comment Vladimir Poutine \"russifie\" de façon systématique les territoires occupés",
+    "content": "Trois ans après l'offensive russe, \"Les Révélateurs\" retracent les manœuvres de Moscou pour effacer la présence ukrainienne des territoires occupés temporairement. Expropriations, réécriture de l’histoire et flux de nouveaux arrivants : le piège se referme peu à peu sur les régions désormais contrôlées par la Russie.",
+    "date": "2025-02-18",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/monde/europe/manifestations-en-ukraine/guerre-en-ukraine-comment-vladimir-poutine-russifie-de-facon-systematique-les-territoires-occupes_7082097.html",
+    "commentaire": "",
+    "authors": [
+      "les Révélateurs"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Derrière l'essor du tourisme, comment l'Afghanistan est devenu un nouvel eldorado pour la Chine",
+    "content": "Malgré le retour des talibans au pouvoir, de plus en plus de touristes chinois partagent sur les réseaux sociaux des images de leur voyage dans cette destination inattendue. Une opportunité pour la Chine de coopérer économiquement avec un pays dont les sols regorgent de richesses.",
+    "date": "2025-01-10",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/monde/afghanistan/enquete-francetv-derriere-l-essor-du-tourisme-comment-l-afghanistan-est-devenu-un-nouvel-eldorado-pour-la-chine_7005941.html",
+    "commentaire": "",
+    "authors": [
+      "les Révélateurs"
+    ],
+    "theme": "Approfondissement actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Les \"prisonniers 2.0\", ou comment des détenus utilisent les téléphones portables pour monétiser leur vie derrière les barreaux",
+    "content": "Interdits en prison, les téléphones portables sont pourtant devenus monnaie courante, offrant aux détenus un accès direct aux réseaux sociaux. \"Les Révélateurs\" ont enquêté sur ce phénomène.",
+    "date": "2024-11-12",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/societe/prisons/enquete-les-prisonniers-2-0-ou-comment-des-detenus-utilisent-les-telephones-portables-pour-monetiser-leurs-vies-derriere-les-barreaux_6885491.html",
+    "commentaire": "",
+    "authors": [
+      "les Révélateurs"
+    ],
+    "theme": "Approfondissement actualité",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Comment l'Azerbaidjan mène une campagne de repeuplement dans le Haut-Karabakh",
+    "content": "Un an après l'offensive dans cette enclave disputée, Les Révélateurs retracent les manœuvres azerbaïdjanaises pour effacer la présence arménienne et repeupler cette l'enclave désertée depuis 2023.",
+    "date": "2024-09-19",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/monde/conflit-dans-le-haut-karabakh/haut-karabakh-un-an-apres-avoir-repris-le-territoire-l-azerbaidjan-efface-toute-trace-des-armeniens_6790612.html",
+    "commentaire": "",
+    "authors": [
+      "les Révélateurs"
+    ],
+    "theme": "Répression de l'Etat",
+    "proact": "reactive",
+    "hasIA": false
+  },
+  {
+    "title": "Marseille's deadly war between DZ Mafia and Yoda",
+    "content": "France's second-largest city is in the grip of a bloody war between two rival gangs. Since the beginning of 2023, 42 people have been killed in the city of Marseille. Former allies are now turning on each other for control of drug-dealing points. Who are they? Using social media and encrypted messaging, the 20 Heures teams investigated.",
+    "date": "2024-03-25",
+    "media": "France info",
+    "link": "https://www.francetvinfo.fr/faits-divers/criminalite-a-marseille/marseille-s-deadly-war-between-dz-mafia-and-yoda_6440551.html",
+    "commentaire": "",
+    "authors": [
+      "Thomas Cuny"
+    ],
+    "theme": "Crime organisé",
+    "proact": "reactive",
     "hasIA": false
   }
 ]
