@@ -1,4 +1,4 @@
-window.RAW_ROWS = [
+window.RAW_ROWS =  [
   {
     "title": "Cameroon: Anatomy of a Killing",
     "content": "In July 2018 a horrifying video began to circulate on social media. It shows two women and two young children being led away at gunpoint by a group of Cameroonian soldiers. The captives are blindfolded, forced to the ground, and shot 22 times.The government of Cameroon initially dismissed the video as “fake news.” But BBC Africa Eye, through forensic analysis of the footage, can prove exactly where this happened, when it happened, and who is responsible for the killings.",
@@ -11,7 +11,7 @@ window.RAW_ROWS = [
       "Ben Strick."
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -25,7 +25,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -38,8 +38,8 @@ window.RAW_ROWS = [
     "authors": [
       "Peter Murimi"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -53,7 +53,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -67,7 +67,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -81,7 +81,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -95,7 +95,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -109,7 +109,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -124,7 +124,7 @@ window.RAW_ROWS = [
       "Henry Mhango"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -138,7 +138,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -152,7 +152,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -160,7 +160,7 @@ window.RAW_ROWS = [
     "content": "Analysis by the BBC has revealed that Hamas held multiple training exercises in Gaza, ahead of their deadly attack on Israel on 7th October which claimed 1,200 lives. BBC Verify and BBC Arabic have established that Hamas held military exercises over three years and posted the evidence on social media. They practised hostage-taking, raiding compounds and breaching Israel's defences during these exercises, the last of which was held just 25 days before the attack. Several armed Palestinian groups joined Hamas in the assault on Israel. The groups carried out joint drills in Gaza, including at a site less than 1km from the barrier with Israel. The Ocotober attack on Israel provoked retaliation which has led to the deaths of more than 14,000 Palestinians in Gaza, according to the authorities there.",
     "date": "2023-11-27",
     "media": "BBC",
-    "link": "https://www.youtube.com/watch?v=eVfMkKltBrk",
+    "link": "https://www.youtube.com/watch?v=eVfMkKltBrk https://www.bbc.com/news/world-middle-east-67480680",
     "commentaire": "",
     "authors": [
       "Abdelali Ragad",
@@ -168,7 +168,7 @@ window.RAW_ROWS = [
       "Benedict Garman and Sean Seddon"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -198,7 +198,7 @@ window.RAW_ROWS = [
       "Natalie Reneau"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -213,7 +213,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Mark Scheffler"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -227,7 +227,7 @@ window.RAW_ROWS = [
       "Ainara Tiefenthäler and Natalie Reneau"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -243,7 +243,7 @@ window.RAW_ROWS = [
       "Anjali Singhvi",
       "Chris Cirillo and Nicole Fineman"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -258,7 +258,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Mattathias Schwartz"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -273,7 +273,7 @@ window.RAW_ROWS = [
       "Barbara Marcolini and Ainara Tiefenthäler"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -289,7 +289,7 @@ window.RAW_ROWS = [
       "Christoph Koettl and Natalie Reneau"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -304,7 +304,7 @@ window.RAW_ROWS = [
       "Christoph Koettl and Malachy Browne"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -333,7 +333,7 @@ window.RAW_ROWS = [
       "Christoph Koettl and Ainara Tiefenthäler"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -349,7 +349,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Drew Jordan"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -365,7 +365,7 @@ window.RAW_ROWS = [
       "Barbara Marcolini and Malachy Browne"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -380,7 +380,7 @@ window.RAW_ROWS = [
       "Malachy Browne and Ben Laffin"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -412,8 +412,8 @@ window.RAW_ROWS = [
       "Adam Goldman",
       "Drew Jordan and Anjali Singhvi"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -443,7 +443,7 @@ window.RAW_ROWS = [
       "Ainara Tiefenthäler and Eric Schmitt"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -457,7 +457,7 @@ window.RAW_ROWS = [
       "Malachy Browne and Natalie Reneau"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -470,7 +470,7 @@ window.RAW_ROWS = [
     "authors": [
       "Christoph Koettl and Ben Laffin"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -485,7 +485,7 @@ window.RAW_ROWS = [
       "David Botti and Christiaan Triebert"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -499,7 +499,7 @@ window.RAW_ROWS = [
       "Christiaan Triebert and Ainara Tiefenthäler"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -513,7 +513,7 @@ window.RAW_ROWS = [
       "Christoph Koettl and Ainara Tiefenthäler"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -559,7 +559,7 @@ window.RAW_ROWS = [
     "authors": [
       "Natalie Reneau and Malachy Browne"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -573,7 +573,7 @@ window.RAW_ROWS = [
     "authors": [
       "Malachy Browne and Drew Jordan"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -589,7 +589,7 @@ window.RAW_ROWS = [
       "David Botti and Eric Schmitt"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -621,8 +621,8 @@ window.RAW_ROWS = [
       "David Botti",
       "Drew Jordan and Christoph Koettl"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -641,7 +641,7 @@ window.RAW_ROWS = [
       "Carlotta Gall and Ben Hubbard"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -691,7 +691,7 @@ window.RAW_ROWS = [
       "John Woo and David M. Halbfinger"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -707,7 +707,7 @@ window.RAW_ROWS = [
       "Drew Jordan and Anjali Singhvi"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -723,7 +723,7 @@ window.RAW_ROWS = [
       "Malachy Browne and Whitney Hurst"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -740,7 +740,7 @@ window.RAW_ROWS = [
       "Jessica Purkiss and Malachy Browne"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -757,7 +757,7 @@ window.RAW_ROWS = [
       "Nilo Tabrizy and Malachy Browne"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -809,7 +809,7 @@ window.RAW_ROWS = [
       "Drew Jordan and Caroline Kim"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -859,7 +859,7 @@ window.RAW_ROWS = [
       "Caroline Kim and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -891,7 +891,7 @@ window.RAW_ROWS = [
       "Drew Jordan and Whitney Hurst"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -908,7 +908,7 @@ window.RAW_ROWS = [
       "Dmitriy Khavin and Aaron Byrd"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -925,7 +925,7 @@ window.RAW_ROWS = [
       "Malachy Browne and David Botti"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -955,7 +955,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -984,7 +984,7 @@ window.RAW_ROWS = [
       "not mentioned"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1148,7 +1148,7 @@ window.RAW_ROWS = [
       "Dmitriy Khavin and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1165,7 +1165,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1216,7 +1216,7 @@ window.RAW_ROWS = [
       "Dmitriy Khavin and Arielle Ray"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1233,7 +1233,7 @@ window.RAW_ROWS = [
       "Arielle Ray and Drew Jordan"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1249,7 +1249,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Drew Jordan"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1266,7 +1266,7 @@ window.RAW_ROWS = [
       "Ben Decker",
       "Dmitriy Khavin and Drew Jordan"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1282,7 +1282,7 @@ window.RAW_ROWS = [
       "Haley Willis",
       "Danielle Miller and Michael S. Schmidt"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1301,7 +1301,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Amy Chang Chien"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1358,8 +1358,8 @@ window.RAW_ROWS = [
       "Robin Stein",
       "Ainara Tiefenthäler and Dieu Nalio Chery"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1376,7 +1376,7 @@ window.RAW_ROWS = [
       "Robin Stein",
       "Ainara Tiefenthäler and Dieu Nalio Chery"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1395,7 +1395,7 @@ window.RAW_ROWS = [
       "Ainara Tiefenthäler and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1414,7 +1414,7 @@ window.RAW_ROWS = [
       "Dmitriy Khavin and Eric Schmitt"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1430,7 +1430,7 @@ window.RAW_ROWS = [
       "Yousur Al-Hlou and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1446,7 +1446,7 @@ window.RAW_ROWS = [
       "Evan Hill and Drew Jordan"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1460,7 +1460,7 @@ window.RAW_ROWS = [
       "not mentioned"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1474,7 +1474,7 @@ window.RAW_ROWS = [
       "not mentioned"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1490,7 +1490,7 @@ window.RAW_ROWS = [
       "Alexander Cardia and Ainara Tiefenthäler"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1507,7 +1507,7 @@ window.RAW_ROWS = [
       "Aleksandra Koroleva and Drew Jordan"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1522,7 +1522,7 @@ window.RAW_ROWS = [
       "Stella Cooper",
       "Alan Feuer and Aaron Byrd"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1539,7 +1539,7 @@ window.RAW_ROWS = [
       "Isabelle Qian and Alexander Cardia"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1555,8 +1555,8 @@ window.RAW_ROWS = [
       "Tracy Wen Liu",
       "Drew Jordan and Jeff Bernier"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1576,7 +1576,7 @@ window.RAW_ROWS = [
       "Natalie Reneau and Malachy Browne"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1591,7 +1591,7 @@ window.RAW_ROWS = [
       "Dmitriy Khavin and David Blumenfeld"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1609,7 +1609,7 @@ window.RAW_ROWS = [
       "Aaron Byrd and Natalie Reneau"
     ],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1625,7 +1625,7 @@ window.RAW_ROWS = [
       "Haley Willis and Ainara Tiefenthäler"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1643,7 +1643,7 @@ window.RAW_ROWS = [
       "Aaron Byrd and Anushka Patil"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1659,7 +1659,7 @@ window.RAW_ROWS = [
       "Aric Toler",
       "Devon Lum and Christiaan Triebert"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1693,8 +1693,8 @@ window.RAW_ROWS = [
       "Aaron Byrd and Declan Walsh"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
-    "hasIA": false
+    "proact": "proactive",
+    "hasIA": true
   },
   {
     "title": "The pandemic at sea: How cruise ships exposed thousands on board and helped spread the virus around the world",
@@ -1708,8 +1708,8 @@ window.RAW_ROWS = [
       "Hannah Sampson",
       "Dalton Bennett and Andrew Ba Tran"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1739,7 +1739,7 @@ window.RAW_ROWS = [
       "Sarah Cahlan",
       "Aaron C. Davis and Joyce Sohyun Lee"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1771,7 +1771,7 @@ window.RAW_ROWS = [
       "Terrence McCoy",
       "Elyse Samuels and Heloísa Traiano"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1803,7 +1803,7 @@ window.RAW_ROWS = [
       "Meg Kelly",
       "Joyce Sohyun Lee and\nAtthar Mirza"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1836,7 +1836,7 @@ window.RAW_ROWS = [
       "Isabelle Khurshudyan",
       "Jason Aldag"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1851,7 +1851,7 @@ window.RAW_ROWS = [
       "By Dalton Bennett",
       "Sarah Cahlan and Joyce Sohyun Lee"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1875,8 +1875,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/graphics/2020/politics/trump-contacts-movements-covid/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1908,8 +1908,8 @@ window.RAW_ROWS = [
       "Robert O'Harrow Jr.",
       "Elyse Samuels"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1924,8 +1924,8 @@ window.RAW_ROWS = [
       "Sarah Cahlan",
       "Daron Taylor"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -1938,7 +1938,7 @@ window.RAW_ROWS = [
     "authors": [
       "Joyce Sohyun Lee and Elyse Samuels"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1954,7 +1954,7 @@ window.RAW_ROWS = [
       "Dalton Bennett",
       "Joyce Sohyun Lee and Meg Kelly"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1975,7 +1975,7 @@ window.RAW_ROWS = [
       "Elyse Samuels",
       "Jon Swaine"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -1992,8 +1992,8 @@ window.RAW_ROWS = [
       "Sarah Cahlan",
       "Josh Dawsey and Joyce Sohyun Lee"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2008,8 +2008,8 @@ window.RAW_ROWS = [
       "Joyce Sohyun Lee",
       "Sarah Cahlan and Meg Kelly"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2023,7 +2023,7 @@ window.RAW_ROWS = [
       "Elyse Samuels",
       "Tim Craig and Timothy Bella"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2035,7 +2035,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/interactive/2021/dc-police-records-capitol-riot/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2048,7 +2048,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2059,7 +2059,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/nation/2021/06/24/video-timeline-miami-building-collapse/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2071,8 +2071,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/sports/2021/07/02/sticky-stuff-baseball-data/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2083,7 +2083,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/interactive/2021/building-experts-miami-condo-collapse/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2095,7 +2095,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2021/07/11/haiti-assassination-video-suspects/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2107,7 +2107,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/interactive/2021/pool-deck-condo-collapse/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2119,8 +2119,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/world/interactive/2021/videos-afghanistan-kabul-taliban-arrival/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2132,7 +2132,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2144,7 +2144,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2168,7 +2168,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2191,7 +2191,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2022/03/19/mariupol-theater-satellite-images/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2204,7 +2204,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2216,7 +2216,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2228,7 +2228,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2288,7 +2288,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2299,7 +2299,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2022/06/10/jan6-new-video/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2311,7 +2311,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2022/07/17/new-uvalde-hallway-video/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2336,7 +2336,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2348,7 +2348,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2360,7 +2360,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2396,7 +2396,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2408,7 +2408,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2419,7 +2419,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/world/2022/10/06/indonesia-kanjuruhan-stadium-stampede-police/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2431,7 +2431,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2022/11/16/seoul-crowd-crush-itaewon-victims/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2455,7 +2455,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/world/2022/10/29/where-how-seoul-itaewon-stampede/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2468,7 +2468,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2480,7 +2480,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2491,8 +2491,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2022/12/27/videos-severe-china-covid/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2503,8 +2503,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2022/12/20/elon-musk-spotted-world-cup-final/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2527,7 +2527,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/world/2023/01/09/brazil-attack-january6-capitol/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2539,8 +2539,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2023/01/09/china-crematorium-covid-deaths/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2551,7 +2551,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2023/01/28/brazil-police-capitol-riot/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2588,7 +2588,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2600,7 +2600,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2612,7 +2612,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2623,8 +2623,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/interactive/2023/trump-j6-prison-choir/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2636,7 +2636,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2647,8 +2647,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/nation/2023/05/24/uvalde-school-shooting-police-response/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2660,7 +2660,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2696,7 +2696,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2708,7 +2708,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2720,7 +2720,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2744,7 +2744,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2756,7 +2756,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2767,7 +2767,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/technology/interactive/2023/tesla-autopilot-crash-analysis/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2780,7 +2780,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2792,7 +2792,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2804,7 +2804,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2816,7 +2816,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2875,7 +2875,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/world/2023/10/08/israel-festival-attack-gaza-militants/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2888,7 +2888,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2900,7 +2900,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2924,7 +2924,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2936,7 +2936,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2948,7 +2948,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2959,7 +2959,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/dc-md-va/2024/03/26/video-audio-baltimore-bridge-collapse/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -2972,7 +2972,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2984,7 +2984,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -2996,7 +2996,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3008,7 +3008,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3020,7 +3020,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3031,7 +3031,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/interactive/2024/trump-rally-shooting-maps-secret-service-analysis/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3043,7 +3043,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2024/07/30/trump-rally-local-officer-shot/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3055,7 +3055,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2024/07/26/irvo-otieno-medical-response/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3067,7 +3067,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2024/08/03/trump-rally-police-radio-transmissions/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3079,7 +3079,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/nation/2024/08/08/trump-rally-shooting-police-body-cam-footage-released/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3104,7 +3104,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3115,8 +3115,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/elections/interactive/2024/republican-campaign-ads-immigration-border-security/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3128,7 +3128,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3140,7 +3140,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3151,8 +3151,8 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2024/09/19/jordan-chiles-olympics-medal-appeal/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "réative",
     "hasIA": false
   },
   {
@@ -3164,7 +3164,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "réative",
     "hasIA": false
   },
   {
@@ -3176,7 +3176,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3188,7 +3188,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3200,7 +3200,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3212,7 +3212,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3224,7 +3224,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3248,7 +3248,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3272,7 +3272,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3283,7 +3283,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2024/12/05/unitedhealthcare-ceo-shooting-timeline/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3295,7 +3295,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/world/2024/12/13/bashar-al-assad-wealth/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3307,7 +3307,7 @@ window.RAW_ROWS = [
     "link": "https://www.washingtonpost.com/investigations/2024/12/18/amsterdam-attacks-israeli-football-fans/",
     "commentaire": "",
     "authors": [],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3320,7 +3320,7 @@ window.RAW_ROWS = [
     "commentaire": "",
     "authors": [],
     "theme": "Stratégies militaires et d’influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3334,7 +3334,7 @@ window.RAW_ROWS = [
       "Alexis Orsini",
       "Dounia Mahieddine"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3348,7 +3348,7 @@ window.RAW_ROWS = [
     "authors": [
       "Gaëlle Geoffroy"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3363,8 +3363,8 @@ window.RAW_ROWS = [
       "Claire-Line Nass"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
-    "hasIA": false
+    "proact": "proactive",
+    "hasIA": true
   },
   {
     "title": "Non, porter des lunettes de soleil n'augmente pas le risque d'avoir un cancer",
@@ -3376,7 +3376,7 @@ window.RAW_ROWS = [
     "authors": [
       "Chloé Rabs"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3418,7 +3418,7 @@ window.RAW_ROWS = [
     "authors": [
       "Lucie de Perthus"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3448,7 +3448,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3477,8 +3477,8 @@ window.RAW_ROWS = [
     "authors": [
       "non renseigné"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3493,7 +3493,7 @@ window.RAW_ROWS = [
       "Olivier Escher"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3509,7 +3509,7 @@ window.RAW_ROWS = [
       "Forensic Architecture (Collectif d'experts)"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3525,7 +3525,7 @@ window.RAW_ROWS = [
       "Marceau Bretonnier",
       "Charles-Henry Groult"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3541,7 +3541,7 @@ window.RAW_ROWS = [
       "Charles-Henry Groult",
       "Olivier Escher (Motion design)"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3558,7 +3558,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3606,7 +3606,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3622,7 +3622,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3636,7 +3636,7 @@ window.RAW_ROWS = [
       "Asia Balluffier",
       "Elisa Bellanger"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -3653,7 +3653,7 @@ window.RAW_ROWS = [
       "Thomas Eydoux"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3683,7 +3683,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3717,7 +3717,7 @@ window.RAW_ROWS = [
       "Élodie Maillard (Motion-design)"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3735,7 +3735,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3751,7 +3751,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3768,7 +3768,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3784,7 +3784,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3800,7 +3800,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3816,7 +3816,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Stratégies miltaires",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3833,7 +3833,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3866,7 +3866,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Stratégies miltaires",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3882,8 +3882,8 @@ window.RAW_ROWS = [
       "Manon Romain",
       "Service vidéo du Monde"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3899,7 +3899,7 @@ window.RAW_ROWS = [
       "Service vidéo du Monde"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3915,8 +3915,8 @@ window.RAW_ROWS = [
       "Manon Romain",
       "Service vidéo du Monde"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3949,7 +3949,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3965,7 +3965,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -3982,7 +3982,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4001,7 +4001,7 @@ window.RAW_ROWS = [
       "Bruno Meyerfeld (Rio de Janeiro",
       "correspondant)"
     ],
-    "theme": "Approfondissement de l'actualité",
+    "theme": "approfondissement de l'actualité",
     "proact": "reactive",
     "hasIA": false
   },
@@ -4019,7 +4019,7 @@ window.RAW_ROWS = [
       "The Insider"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4035,7 +4035,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4051,7 +4051,7 @@ window.RAW_ROWS = [
       "Liselotte Mas"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4156,7 +4156,7 @@ window.RAW_ROWS = [
       "Marceau Bretonnier (motion-design)"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4191,7 +4191,7 @@ window.RAW_ROWS = [
       "Marceau Bretonnier (motion design)"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4212,7 +4212,7 @@ window.RAW_ROWS = [
       "Stéphane Oiry (dessins)"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4227,7 +4227,7 @@ window.RAW_ROWS = [
       "Thomas Eydoux"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4244,7 +4244,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4261,7 +4261,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4277,8 +4277,8 @@ window.RAW_ROWS = [
       "Antoine Schirer",
       "Cellule Enquête vidéo"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4294,7 +4294,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4312,7 +4312,7 @@ window.RAW_ROWS = [
       "The Insider"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4329,7 +4329,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4379,7 +4379,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4395,7 +4395,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4411,7 +4411,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4427,7 +4427,7 @@ window.RAW_ROWS = [
       "Cellule Enquête vidéo"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4443,7 +4443,7 @@ window.RAW_ROWS = [
       "Elsa Longueville"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4457,7 +4457,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4472,7 +4472,7 @@ window.RAW_ROWS = [
       "Chloé Lauvergnier"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4486,7 +4486,7 @@ window.RAW_ROWS = [
       "Maëva Polet"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4501,7 +4501,7 @@ window.RAW_ROWS = [
       "Gulliver Cragg"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4515,7 +4515,7 @@ window.RAW_ROWS = [
       "Poline Tchoubar"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4529,7 +4529,7 @@ window.RAW_ROWS = [
       "Corentin Bainier"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4543,7 +4543,7 @@ window.RAW_ROWS = [
       "Alijani Ershad"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4557,7 +4557,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4571,7 +4571,7 @@ window.RAW_ROWS = [
       "pas renseigné"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4586,7 +4586,7 @@ window.RAW_ROWS = [
       "Maëva Poulet"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4601,7 +4601,7 @@ window.RAW_ROWS = [
       "Derek Thomson"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4615,7 +4615,7 @@ window.RAW_ROWS = [
       "Chloé Lauvergnier"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4630,7 +4630,7 @@ window.RAW_ROWS = [
       "Mahmoud Naffakh"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4644,7 +4644,7 @@ window.RAW_ROWS = [
       "Pariesa Brody"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4658,7 +4658,7 @@ window.RAW_ROWS = [
       "Chloé Lauvergnier"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4673,7 +4673,7 @@ window.RAW_ROWS = [
       "Corentin Bainier"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4688,7 +4688,7 @@ window.RAW_ROWS = [
       "Derek Thomson"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4703,7 +4703,7 @@ window.RAW_ROWS = [
       "Quentin Peschard"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4717,13 +4717,13 @@ window.RAW_ROWS = [
       "Chloé Lauvergnier"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Les dossiers de Prigojine - Regarder le documentaire complet | ARTE",
     "content": "Une enquête exclusive sur le groupe de mercenaires russes Wagner dirigé par l'oligarque Evgueni Prigojine. Grâce à quelque 2 500 documents piratés sur les serveurs informatiques de son empire, cette investigation numérique expose les rouages du système Prigojine, montrant que celui-ci constitue un élément clé dans les guerres, virtuelles et physiques, impliquant le Kremlin.",
-    "date": "2022.0",
+    "date": "2022",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-001-A/sources/",
     "commentaire": "",
@@ -4731,13 +4731,13 @@ window.RAW_ROWS = [
       "non renseigné"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Saumon : histoire d'un enfumage - Regarder le documentaire complet | ARTE",
     "content": "On croyait que ce secteur contribuait à la préservation des océans : il est en fait le fruit du pillage des ressources halieutiques au large de la Mauritanie. Une enquête édifiante sur les dessous de l’alimentation des saumons d’élevage.",
-    "date": "2022.0",
+    "date": "2022",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-002-A/sources/",
     "commentaire": "",
@@ -4745,13 +4745,13 @@ window.RAW_ROWS = [
       "Linda Bendali"
     ],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Ukraine : sur la piste des enfants volés - Regarder le documentaire complet | ARTE",
     "content": "Depuis le début de la guerre en Ukraine, près de 20.000 enfants ukrainiens auraient été déportés en Russie. Cette nouvelle enquête du magazine d’investigation \"Sources\" révèle le système mis en place par les Russes, au mépris du droit international, ces déportations constituant un crime de guerre.",
-    "date": "2022.0",
+    "date": "2022",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-003-A/sources/",
     "commentaire": "",
@@ -4760,13 +4760,13 @@ window.RAW_ROWS = [
       "Poline Tchoubar"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Teck en stock : enquête sur un bois interdit - Regarder l’émission complète | ARTE",
     "content": "Ce nouvel épisode du magazine \"Sources\" enquête sur les importations d’un bois pourtant interdit en Europe : le teck de Birmanie. Cette essence précieuse, prisée notamment de l’industrie nautique, est sous embargo depuis le coup d’État sanglant du 1er février 2021, afin de ne pas financer la junte birmane. Cette enquête montre comment des commerçants européens parviennent à contourner cette interdiction et à vendre ce bois illégal en Europe.",
-    "date": "2022.0",
+    "date": "2022",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-004-A/sources/",
     "commentaire": "",
@@ -4775,13 +4775,13 @@ window.RAW_ROWS = [
       "Maeva Poulet"
     ],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Danone : Le fléau des mini bouteilles - Regarder le documentaire complet | ARTE",
     "content": "L’Indonésie est le deuxième pollueur plastique des océans, après la Chine. Des organisations de protection de l’environnement collectent et analysent les déchets plastiques retrouvés sur les plages, dans les mangroves ou les rivières.",
-    "date": "2022.0",
+    "date": "2022",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-005-A/sources/",
     "commentaire": "",
@@ -4790,13 +4790,13 @@ window.RAW_ROWS = [
       "Valentin Petit"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Chine : les influenceurs de la colonisation - Regarder le documentaire complet | ARTE",
     "content": "En Chine, la région du Xinjiang est le berceau historique des Ouïghours, minorité musulmane persécutée par le pouvoir central. SOURCES révèle comment des influenceurs Chinois incitent des habitants de tout le pays à venir coloniser cette province.",
-    "date": "2023.0",
+    "date": "2023",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/113682-006-A/sources/",
     "commentaire": "",
@@ -4805,13 +4805,13 @@ window.RAW_ROWS = [
       "Poline Tchoubar"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Pédocriminalité, les failles d'Instagram - Regarder le documentaire complet | ARTE",
     "content": "Cette enquête inédite de Maëva Poulet et Valentin Petit révèle comment des prédateurs sexuels opèrent sur le réseau social du groupe Meta et comment l'algorithme de la plateforme peut même favoriser les activités pédocriminelles.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-002-A/sources/",
     "commentaire": "",
@@ -4820,13 +4820,13 @@ window.RAW_ROWS = [
       "Maeva Poulet"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - TikTok et le business des passeurs de migrants - Regarder le documentaire complet | ARTE",
     "content": "Cette enquête révèle comment les passeurs incitent, via les réseaux sociaux, les migrants à traverser illégalement la Manche. Dans leurs offres vidéos, les passeurs font la promotion de passages illégaux et rivalisent de promesses intenables : “traversée en seulement 3h”, “passage sûr à 1000%”. Moyennant 1700 à 4000 euros par personne, les exilés traversent depuis le nord de la France jusqu’au Royaume-Uni, en canots de fortune, avec la mort sur le chemin.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-001-A/sources/",
     "commentaire": "",
@@ -4834,13 +4834,13 @@ window.RAW_ROWS = [
       "Manon Bachelot"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Ukraine : la soeur et le meurtrier - Regarder le documentaire complet | ARTE",
     "content": "Neuf mois que Katia Kholodnikova est sans nouvelles de son frère jumeau, Andriy, jeune soldat ukrainien parti combattre l’invasion russe aux premiers jours de la guerre. Jusqu’à ce texto venu du camp ennemi : \"Avez-vous enterré votre frère ?\". Son auteur dit être un ancien soldat russe et affirme être le dernier homme à avoir vu le frère de Katia en vie, avant de le tuer.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-003-A/sources/",
     "commentaire": "",
@@ -4849,13 +4849,13 @@ window.RAW_ROWS = [
       "Ksénia Bolchakova"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Arabie saoudite : les damnés de Neom, la ville du futur - Regarder le documentaire complet | ARTE",
     "content": "Le projet de ville du futur du prince héritier d’Arabie Saoudite se veut moderne et progressiste mais il viole les droits humains. Des citoyens saoudiens opposés à l’expropriation de leurs terres au profit de la construction de Neom croupissent en prison, voire risquent la peine de mort. Les entreprises européennes impliquées dans ce chantier occultent toutes violations.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-004-A/sources/",
     "commentaire": "",
@@ -4863,13 +4863,13 @@ window.RAW_ROWS = [
       "Poline Tchoubar"
     ],
     "theme": "Humanitaire",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Bébés gorilles à vendre : enquête sur un trafic international - Regarder le documentaire complet | ARTE",
     "content": "Chaque année, plus de quatre cents bébés gorilles disparaissent des forêts d'Afrique centrale. Par quelles filières ce braconnage est-il organisé, et au profit de quels clients ? Sources dévoile les dessous d'un trafic aussi lucratif que dévastateur pour la planète.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-005-A/sources/",
     "commentaire": "",
@@ -4877,13 +4877,13 @@ window.RAW_ROWS = [
       "Manon Bachelot"
     ],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Rejetés à la mer : enquête sur les refoulements en Grèce - Regarder le documentaire complet | ARTE",
     "content": "Depuis 2020, des milliers de migrants ont été rejetés à la mer après leur arrivée en Grèce. Sources revient sur ces \"pushbacks\" contraires au droit européen et international.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/117240-006-A/sources/",
     "commentaire": "",
@@ -4891,13 +4891,13 @@ window.RAW_ROWS = [
       "Maeva Poulet"
     ],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Colonisation en Cisjordanie : la stratégie des collines - Regarder le documentaire complet | ARTE",
     "content": "Comment les colons extrémistes israéliens conquièrent-ils des terres en Cisjordanie ? Enquête sur une redoutable mécanique de dépossession fondée sur la multiplication d'avant-postes, illégaux, dans le but de faire fuir les populations palestiniennes voisines avec le soutien du gouvernement israélien.",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/118582-001-A/sources/",
     "commentaire": "",
@@ -4906,13 +4906,13 @@ window.RAW_ROWS = [
       "Poline Tchoubar"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
     "title": "Sources - Cachemire de Mongolie : Enquête sur la face cachée de nos vêtements - Regarder le documentaire complet | ARTE",
     "content": "C’est la reine des laines. Le cachemire. Mais l’afflux sur le marché mondial de pulls plus abordables a des conséquences sur tout un pays… Que font les marques pour limiter leur impact ?",
-    "date": "2024.0",
+    "date": "2024",
     "media": "Arte",
     "link": "https://www.arte.tv/fr/videos/118582-002-A/sources/",
     "commentaire": "",
@@ -4921,7 +4921,7 @@ window.RAW_ROWS = [
       "Poline Tchoubar"
     ],
     "theme": "Problématiques environnementales",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4935,7 +4935,7 @@ window.RAW_ROWS = [
       "Benoît Collombat"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4949,7 +4949,7 @@ window.RAW_ROWS = [
       "Benoît Collombat"
     ],
     "theme": "Environnement",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4963,7 +4963,7 @@ window.RAW_ROWS = [
       "Benoît Collombat"
     ],
     "theme": "Stratégies militaires et d'influence",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4977,7 +4977,7 @@ window.RAW_ROWS = [
       "Jacques Monin"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -4990,8 +4990,8 @@ window.RAW_ROWS = [
     "authors": [
       "Benoît Collombat"
     ],
-    "theme": "Approfondissement de l'actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5004,8 +5004,8 @@ window.RAW_ROWS = [
     "authors": [
       "les Révélateurs"
     ],
-    "theme": "Approfondissement actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5018,8 +5018,8 @@ window.RAW_ROWS = [
     "authors": [
       "les Révélateurs"
     ],
-    "theme": "Approfondissement actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5033,7 +5033,7 @@ window.RAW_ROWS = [
       "les Révélateurs"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5046,8 +5046,8 @@ window.RAW_ROWS = [
     "authors": [
       "les Révélateurs"
     ],
-    "theme": "Approfondissement actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5060,8 +5060,8 @@ window.RAW_ROWS = [
     "authors": [
       "les Révélateurs"
     ],
-    "theme": "Approfondissement actualité",
-    "proact": "reactive",
+    "theme": "approfondissement de l'actualité",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5075,7 +5075,7 @@ window.RAW_ROWS = [
       "les Révélateurs"
     ],
     "theme": "Répression de l'Etat",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   },
   {
@@ -5089,7 +5089,7 @@ window.RAW_ROWS = [
       "Thomas Cuny"
     ],
     "theme": "Crime organisé",
-    "proact": "reactive",
+    "proact": "proactive",
     "hasIA": false
   }
 ]
