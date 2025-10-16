@@ -37,7 +37,7 @@
   <div class="wrap">
     <div class="top">
       <div><div class="title">Bibliographie — MatrioscIA</div><div class="sub">GitHub Pages, JSON externe (relatif ou ?data=URL). Catégories = collections Zotero. Sans tri.</div></div>
-      <div><button class="btn" id="themeToggle" title="Basculer clair/sombre">☀️/🌙</button></div>
+    <div><button class="btn" id="themeToggle" title="Basculer clair/sombre">☀️/🌙</button></div>
     </div>
     <div class="toolbar">
       <input id="q" type="search" placeholder="Rechercher titre, auteur·ice·s…" aria-label="Recherche" />
@@ -196,7 +196,7 @@
     readFile(f);
   };
   ['dragenter','dragover'].forEach(evt => dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.add('drag'); }));
-  ;['dragleave','drop'].forEach evt=> dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.remove('drag'); });
+  ['dragleave','drop'].forEach(evt => dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.remove('drag'); }));
   dropZone.addEventListener('drop', (e)=>{
     const f = e.dataTransfer.files && e.dataTransfer.files[0];
     if(!f) return;
@@ -277,7 +277,6 @@
   // Collections mapping — supports Zotero exports where `collections` is a dict OR an array of nodes {key,name,parent,items,collections}
   function build_collections_map(root){
     const parents = {};
-    const itemsByCollection = {};
     let nodes = null;
 
     if (Array.isArray(root.collections)) {
@@ -298,18 +297,19 @@
 
     // build parents
     Object.entries(nodes).forEach(([k, n]) => {
-      if (n.parent) parents[k] = n.parent;
-      (n.children||[]).forEach(childKey => { parents[childKey] = k; });
+      if (n.parent) {}
+      (n.children||[]).forEach(childKey => {});
     });
 
-    function full_path(k){
-      const names=[]; let cur=k;
-      while (cur){
-        const node=nodes[cur]||{};
-        names.push(node.name||cur);
-        cur = parents[cur];
-      }
-      return names.length ? names.reverse().join(' > ') : '';
+    // full path via recursion (avoid dependency on parent map)
+    function full_path(k, seen=new Set()){
+      if (seen.has(k)) return nodes[k]?.name || String(k);
+      seen.add(k);
+      const node = nodes[k] || {};
+      const name = node.name || String(k);
+      const parentKey = node.parent;
+      if (!parentKey) return name;
+      return full_path(parentKey, seen) + ' > ' + name;
     }
 
     const itemToColls = {};
@@ -406,7 +406,7 @@
   function renderAuthors(){
     const authorsList=document.getElementById('authorsList'); const authorSearch=document.getElementById('authorSearch'); const authorCount=document.getElementById('authorCount');
     const mapCount=new Map();
-    DATA.forEach(d=>{ (d.authors||'').split(/\s*(?:;|,| and | et |&|\|)\s*/i).map(s=>s.trim()).filter(Boolean).forEach(a=> mapCount.set(a,(mapCount.get(a)||0)+1) ); });
+    DATA.forEach(d=>{ (d.authors||'').split(/\s*(?:;|,| and | et |&|\\|)\\s*/i).map(s=>s.trim()).filter(Boolean).forEach(a=> mapCount.set(a,(mapCount.get(a)||0)+1) ); });
     let items=[...mapCount.entries()].sort((a,b)=> a[0].localeCompare(b[0],'fr',{sensitivity:'base'}));
     const qA=(authorSearch?.value||'').toLowerCase().trim();
     if (qA) items=items.filter(([name])=> name.toLowerCase().includes(qA));
@@ -483,7 +483,6 @@
   document.getElementById('exportJSON').onclick=()=>{ const filtered=applyFilters(DATA.slice()); download('bibliographie-filtre.json', JSON.stringify(filtered, null, 2)); };
   document.getElementById('exportCSV').onclick=()=>{ const filtered=applyFilters(DATA.slice()); if(!filtered.length) return download('bibliographie-filtre.csv',''); const keys=Object.keys(filtered[0]||{}); const esc=v=>('"' + String(v).replaceAll('"','""') + '"'); const rows=[keys.map(esc).join(',')].concat(filtered.map(r=> keys.map(k=> esc(r[k] || '')).join(','))); download('bibliographie-filtre.csv', rows.join('\n')); };
 
-  // Initial render after data load happens in tryFetch/readFile
 })();</script>
 </body>
 </html>
