@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA × OSINT — Entretiens (extraits exacts) × MatrioscIA</title>
+<meta name="description" content="Extraits exacts (anonymisés)des entretiens MatrioscIA avec articulation avec les profils.">
+<style>
+  :root{
+    --bg:#f7f9fb; --fg:#0b1220; --muted:#4b5563; --card:#ffffff; --line:#e2e8f0; --chip:#f1f5f9; --head:#f1f5f9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0b1020; --fg:#e5e7eb; --muted:#9aa6b2; --card:#0f172a; --line:#1f2a44; --chip:#101621; --head:#0b122c; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+  header{padding:22px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(16,24,64,.06),rgba(16,24,64,0))}
+  .wrap{max-width:1160px;margin:0 auto}
+  h1{margin:0 0 6px 0;font-size:clamp(20px,3vw,28px)}
+  .subtitle{margin:0;color:var(--muted)}
+  .links{margin-top:10px}
+  .links a{text-decoration:none;padding:6px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line)}
+  .container{max-width:1160px;margin:0 auto;padding:14px 16px 24px}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  .controls input,.controls select,.btn{padding:10px 12px;border-radius:12px;background:var(--chip);border:1px solid var(--line);color:var(--fg)}
+  .btn{cursor:pointer}
+
+  /* Table: improved legibility */
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:14px 0 18px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(2,6,23,.08)}
+  thead th{position:sticky;top:0;background:var(--head);padding:10px 10px;text-align:left;border-bottom:1px solid var(--line);font-weight:700;font-size:13px}
+  tbody td{padding:12px 10px;vertical-align:top;border-bottom:1px solid var(--line)}
+
+  /* Thicker separators between different profiles (grouping by Profil MatrioscIA) */
+  tbody tr.group-break td{border-top:3px solid var(--line)}
+
+  /* Zebra rows for readability */
+  tbody tr:nth-child(odd) td{background:rgba(2,6,23,.02)}
+  @media (prefers-color-scheme: dark){
+    tbody tr:nth-child(odd) td{background:rgba(255,255,255,.03)}
+  }
+
+  /* Rounded pills and color-coding */
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border-radius:999px;background:var(--chip);border:1px solid var(--line);font-size:12px;white-space:nowrap}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--chip);font-size:12px}
+  .dot{width:10px;height:10px;border-radius:999px;background:#999}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:999px;background:#eef2ff;border:1px solid var(--line);font-size:12px}
+
+  /* Layout: give the quote more space, reduce others */
+  colgroup col.col-actor{width:12%}
+  colgroup col.col-org{width:12%}
+  colgroup col.col-prof{width:16%}
+  colgroup col.col-desc{width:12%}
+  colgroup col.col-usage{width:14%}
+  colgroup col.col-quote{width:34%}  /* big place for citation */
+  colgroup col.col-phases{width:10%}
+  colgroup col.col-level{width:10%}
+  colgroup col.col-constraints{width:12%}
+  colgroup col.col-ref{width:10%}
+
+  /* Quote styling */
+  td.quote{font-size:1rem;line-height:1.55}
+  blockquote{margin:0;padding:0;border-left:4px solid rgba(2,6,23,.15);padding-left:10px}
+
+  footer{max-width:1160px;margin:24px auto 30px;padding:10px 16px;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>IA × OSINT — Entretiens (extraits exacts) × MatrioscIA</h1>
+        <div class="links">
+      <a href="matrice.html" title="Ouvrir la matrice des profils">↗ Ouvrir la matrice (référence)</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="controls">
+    <input id="q" placeholder="Recherche (organisation, citation, usage…)" style="flex:2">
+    <select id="profil"><option value="">Profil MatrioscIA (tous)</option></select>
+    <select id="usage"><option value="">Catégorie d’usage (toutes)</option></select>
+    <button id="export" class="btn" title="Exporter en CSV">Exporter CSV</button>
+  </div>
+
+  <table id="tbl">
+    <colgroup>
+      <col class="col-actor"><col class="col-org"><col class="col-prof"><col class="col-desc">
+      <col class="col-usage"><col class="col-quote"><col class="col-phases">
+      <col class="col-level"><col class="col-constraints"><col class="col-ref">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Acteur</th>
+        <th>Organisation</th>
+        <th>Profil MatrioscIA</th>
+        <th>Description profil</th>
+        <th>Usages (tags)</th>
+        <th>📌 Citation (extrait exact)</th>
+        <th>Phases</th>
+        <th>Niveau</th>
+        <th>Contraintes</th>
+        <th>Référence</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p style="font-size:12px;color:var(--muted)">
+    Une citation Viginum est issue du rapport SGDSN/VIGINUM du 7 février 2025 (extrait bref) pour contextualiser les potentiels IA.
+  </p>
+</div>
+
+<footer>
+  <div class="wrap">
+    <strong>Projet MatrioscIA – IHEMI – 2024–2025.</strong><br>
+    Olivier Le Deuff, Rayya Roumanos, Thaís Barbosa de Almeida. — <em>CC BY</em>
+  </div>
+</footer>
+
+<script>
+const raw = [{"Acteur": "Journaliste (anonymisé)", "Organisation": "France 24", "Type d'acteur": "Média", "Profil MatrioscIA": "Enquêteurs augmentés", "Description profil": "Pragmatisme; IA pour veille/traduction/rédaction; usages individuels.", "Usage IA": "Exploration; résumés; traduction; assistance code (potentiel)", "Citation (extrait)": "« C’est indispensable qu'on prenne ce virage là de toute façon (…) ces outils vont être super pertinents à mon avis pour le monde du journalisme, même s'ils vont poser des vrais enjeux parfois. »", "Phases IA": "Amont; Durant; Rédaction/Valorisation", "Catégories d’usage": "Résumé de documents; Traduction; Aide à la rédaction du code; Recherches approfondies", "Niveau d'institutionnalisation": "Faible", "Contraintes": "Temps; éthique; coûts; compétences", "Référence": "Entretien (anonymisé) – France 24"}, {"Acteur": "Professionnel·le tech (anonymisé)", "Organisation": "Startup OSINT & IA", "Type d'acteur": "Tech/Startup", "Profil MatrioscIA": "Explorateurs critiques", "Description profil": "OSINT partiel; technique comme objet d’enquête; vigilance face à l’automatisation.", "Usage IA": "Génération d'app; outils; amorçage enquête", "Citation (extrait)": "« Moi je vois un futur, et proche, qui va permettre (…) en langage naturel (…) de créer une application sans compétence (…) Peut-être qu'avec l’IA, vu que l’OSINT sera beaucoup plus accessible, (…) ça va rentrer dans le quotidien de plus de gens. »", "Phases IA": "Amont; Durant; Rédaction/Valorisation", "Catégories d’usage": "Recherches approfondies; Aide à la rédaction du code; AI comme outil d’aide à l’écriture", "Niveau d'institutionnalisation": "—", "Contraintes": "—", "Référence": "Entretien (anonymisé) – startup"}, {"Acteur": "Journaliste-développeur (anonymisé)", "Organisation": "AFP MediaLab", "Type d'acteur": "Média/R&D", "Profil MatrioscIA": "Ingénieurs de la preuve", "Description profil": "Prototypage R&D; open source; enquête comme expérimentation.", "Usage IA": "Assistance code; analyse texte/images (tests)", "Citation (extrait)": "« L'IA c'est la capacité à augmenter l'humain (…) on peut coder des choses assez sympa grâce à une IA (…) Il y a une certaine pensée magique autour de l'IA qui n'est pas suivie complètement des faits. »", "Phases IA": "Amont; Durant", "Catégories d’usage": "Résumé de documents; Aide à la rédaction du code; Outils de détection; Aide à vérification", "Niveau d'institutionnalisation": "Expérimentation R&D", "Contraintes": "Biais; versioning; fiabilité non garantie", "Référence": "Entretien (anonymisé) – AFP MediaLab"}, {"Acteur": "Rédaction (anonymisé)", "Organisation": "AFP Factuel", "Type d'acteur": "Média", "Profil MatrioscIA": "Artisans du récit", "Description profil": "IA/OSINT au service du récit; debunk; jamais une fin en soi.", "Usage IA": "InVID WeVerify; détection; résumés; traduction; transcription", "Citation (extrait)": "« L'idée c'est d'utiliser ces technologies comme un assistant pour être plus efficace, pas comme un remplaçant. (…) Aucun outil d’analyse d’image ne peut garantir 100%. »", "Phases IA": "Amont; Durant", "Catégories d’usage": "Traduction; Résumé de documents; Outils de détection; Aide à vérification; Transcription", "Niveau d'institutionnalisation": "Faible à moyen", "Contraintes": "Coûts; prise en main; méfiance", "Référence": "Entretien (anonymisé) – AFP Factuel"}, {"Acteur": "Journaliste (anonymisé)", "Organisation": "Le Monde", "Type d'acteur": "Média", "Profil MatrioscIA": "Enquêteurs augmentés", "Description profil": "Pragmatisme; IA pour veille/traduction/rédaction; usages individuels.", "Usage IA": "Classement; résumés; données non structurées", "Citation (extrait)": "« La pratique plus mainstream c'est utiliser de la donnée structurée alors que de plus en plus (…) il y a beaucoup de choses à faire sur de la donnée non structurée. (…) l'IA a beaucoup de potentiel. »", "Phases IA": "Amont; Durant", "Catégories d’usage": "Résumé de documents; Classer l’information; Aide à vérification", "Niveau d'institutionnalisation": "Faible", "Contraintes": "Temps; profils techniques rares; coûts énergétiques", "Référence": "Entretien (anonymisé) – Le Monde"}, {"Acteur": "Rédaction (anonymisé)", "Organisation": "Radio France", "Type d'acteur": "Média", "Profil MatrioscIA": "Gestionnaires techniques et solutionnistes", "Description profil": "Gouvernance; intégration; approche fonctionnelle.", "Usage IA": "Veille/monitoring; montée en compétences", "Citation (extrait)": "« On a un peu un rôle de poisson pilote pour Radio France (…) s'il y a une élection il peut y avoir des attaques informationnelles (…) qu'on puisse tous monter en niveau. »", "Phases IA": "Amont", "Catégories d’usage": "IA comme outil de veille et monitoring; Recherches approfondies", "Niveau d'institutionnalisation": "Moyen (discours global)", "Contraintes": "Méfiance; crainte de remplacement", "Référence": "Entretien (anonymisé) – Radio France"}, {"Acteur": "Journaliste (anonymisé)", "Organisation": "France Télévisions", "Type d'acteur": "Média", "Profil MatrioscIA": "Enquêteurs augmentés", "Description profil": "Pragmatisme; usages individuels avec contraintes terrain/production.", "Usage IA": "Détection patterns; protection des sources (floutage, voix)", "Citation (extrait)": "« Il y a une grosse partie d'IA maintenant dans nos feeds (…) on perd du temps à scroller des trucs inauthentiques. (…) Il faut renforcer la protection des sources. »", "Phases IA": "Durant", "Catégories d’usage": "Outils de détection; Aide à vérification", "Niveau d'institutionnalisation": "Faible", "Contraintes": "Inauthenticité; risques pour les sources", "Référence": "Entretien (anonymisé) – France Télévisions"}, {"Acteur": "Service public (anonymisé)", "Organisation": "Viginum (SGDSN)", "Type d'acteur": "Service public", "Profil MatrioscIA": "Ingénieurs de la preuve", "Description profil": "Datalab; méthodes ouvertes; R&D/outillage communauté.", "Usage IA": "Topic modeling; transcription; résumés LLM; classif. bots; détection synthétique", "Citation (extrait)": "« L’IA offre des opportunités pour contrer ces menaces (…) explorer des données massives et variées, ou détecter des comportements inauthentiques. »", "Phases IA": "Amont; Durant; Rédaction/Valorisation", "Catégories d’usage": "Transcription; Résumé de documents; Outils de détection; Aide à vérification; Déclinaison réseaux sociaux", "Niveau d'institutionnalisation": "Élevé (datalab)", "Contraintes": "Transparence; souveraineté; collecte déléguée", "Référence": "Rapport SGDSN/VIGINUM (07/02/2025)"}];
+const usageColors = {"Résumé de documents": "#2563EB", "Traduction": "#0EA5E9", "Aide à la rédaction du code": "#7C3AED", "Recherches approfondies": "#6B7280", "AI comme outil d’aide à l’écriture": "#F59E0B", "Outils de détection": "#EF4444", "Aide à vérification": "#10B981", "Classer l’information": "#22C55E", "IA comme outil de veille et monitoring": "#14B8A6", "Transcription": "#A855F7", "Déclinaison réseaux sociaux": "#E11D48"};
+const profileColors = {"Médiateurs réflexifs et  critiques": "#7C3AED", "Explorateurs critiques": "#F59E0B", "Artisans du récit": "#EF4444", "Enquêteurs augmentés": "#3B82F6", "Gestionnaires techniques et solutionnistes": "#10B981", "Ingénieurs de la preuve": "#8B5CF6"};
+
+const q = document.getElementById('q');
+const profilSel = document.getElementById('profil');
+const usageSel = document.getElementById('usage');
+const tbody = document.querySelector('#tbl tbody');
+
+// populate filters
+[...new Set(raw.map(d=>d["Profil MatrioscIA"]).filter(Boolean))].sort().forEach(v=>{
+  const o=document.createElement('option');o.value=v;o.textContent=v;profilSel.appendChild(o);
+});
+const allUsages = [...new Set(raw.flatMap(d=>String(d["Catégories d’usage"]||'').split(';').map(s=>s.trim()).filter(Boolean)))].sort();
+allUsages.forEach(v=>{ const o=document.createElement('option');o.value=v;o.textContent=v;usageSel.appendChild(o); });
+
+function profPill(name){
+  const color = profileColors[name] || '#6b7280';
+  const style = `background:${color}1A;border-color:${color};color:inherit`;
+  return `<span class="pill" style="${style}"><span class="dot" style="background:${color}"></span>${name}</span>`;
+}
+function tag(label){
+  const color = usageColors[label] || '#e5e7eb';
+  const style = `background:${color}22;border-color:${color}`;
+  return `<span class="tag" style="${style}"><span class="dot" style="background:${color}"></span>${label}</span>`;
+}
+
+function render(){
+  const qq = (q.value||'').toLowerCase();
+  const pf = profilSel.value;
+  const ug = usageSel.value;
+  tbody.innerHTML = '';
+
+  // sort by Profil then Organisation for stable grouping
+  const rows = raw.slice().sort((a,b)=>{
+    const A=(a["Profil MatrioscIA"]||'')+(a["Organisation"]||'');
+    const B=(b["Profil MatrioscIA"]||'')+(b["Organisation"]||'');
+    return A.localeCompare(B);
+  }).filter(d=>{
+    const hay = (d["Organisation"]+' '+d["Profil MatrioscIA"]+' '+d["Description profil"]+' '+d["Catégories d’usage"]+' '+d["Citation (extrait)"]).toLowerCase();
+    const okQ = !qq || hay.includes(qq);
+    const okP = !pf || d["Profil MatrioscIA"]===pf;
+    const okU = !ug || String(d["Catégories d’usage"]||'').includes(ug);
+    return okQ && okP && okU;
+  });
+
+  let lastProfile = null;
+  rows.forEach(d=>{
+    const usageTags = String(d["Catégories d’usage"]||'').split(';').map(s=>s.trim()).filter(Boolean).map(x=>tag(x)).join('');
+    const prof = d["Profil MatrioscIA"]||"";
+    const tr=document.createElement('tr');
+    if(lastProfile!==null && lastProfile!==prof){ tr.classList.add('group-break'); }
+    lastProfile = prof;
+
+    tr.innerHTML = `
+      <td><span class="badge">${d["Acteur"]||""}</span></td>
+      <td><span class="badge">${d["Organisation"]||""}</span></td>
+      <td>${profPill(prof)}</td>
+      <td>${d["Description profil"]||""}</td>
+      <td class="tags">${usageTags}</td>
+      <td class="quote"><blockquote>${d["Citation (extrait)"]||""}</blockquote></td>
+      <td>${d["Phases IA"]||""}</td>
+      <td>${d["Niveau d'institutionnalisation"]||d["Niveau"]||""}</td>
+      <td>${d["Contraintes"]||""}</td>
+      <td>${d["Référence"]||""}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function toCSV(rows){
+  const headers=Object.keys(rows[0]||{});
+  const esc=v=>`"${String(v??'').replace(/"/g,'""')}"`;
+  return [headers.map(esc).join(','),...rows.map(r=>headers.map(h=>esc(r[h])).join(','))].join('\\n');
+}
+
+document.getElementById('export').addEventListener('click', ()=>{
+  const csv=toCSV(raw);
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='ia_osint_matrioscia_quotes_exact.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+q.addEventListener('input',render);
+profilSel.addEventListener('change',render);
+usageSel.addEventListener('change',render);
+render();
+</script>
+</body>
+</html>

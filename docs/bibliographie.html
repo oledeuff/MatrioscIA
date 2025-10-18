@@ -22,13 +22,6 @@
   .small{font-size:.85rem; color:var(--muted)}.tabs{display:flex;gap:.4rem;margin:.6rem 0 1rem}.tab{padding:.45rem .7rem;border:1px solid var(--chip-border);background:var(--bg);border-radius:.6rem;cursor:pointer}.tab.active{border-color:var(--accent)}
   .authors{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.5rem}.author,.coll{display:flex;justify-content:space-between;gap:.6rem;padding:.5rem .6rem;border:1px solid var(--chip-border);border-radius:.6rem;background:var(--bg);cursor:pointer}
   .alpha{margin-top:1rem;font-weight:600;color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .5rem;border:1px solid var(--chip-border);border-radius:999px}.pill .x{cursor:pointer;font-weight:700}
-  .err{background:#fee2e2;color:#991b1b;border:1px solid #fecaca;padding:.7rem;border-radius:.6rem;margin-top:.6rem;display:none}
-  [data-theme="dark"] .err{background:#7f1d1d;color:#fee2e2;border-color:#ef4444}
-  .loader{padding:.8rem;border:1px dashed var(--border);border-radius:.8rem;background:var(--card);margin:.6rem 0}
-  .drop{margin-top:.6rem;border:2px dashed var(--chip-border);border-radius:.8rem;padding:1rem;text-align:center;color:var(--muted)}
-  .drop.drag{background:var(--card)}
-  .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
-  .row input[type="url"]{flex:1;min-width:280px;padding:.6rem .7rem;border:1px solid var(--border);background:var(--bg);border-radius:.6rem;color:var(--text)}
   .group{margin:1.2rem 0 .4rem; font-weight:700; color:var(--muted); border-bottom:1px dashed var(--border); padding-bottom:.25rem}
 </style>
 </head>
@@ -37,7 +30,7 @@
   <div class="wrap">
     <div class="top">
       <div><div class="title">Bibliographie — MatrioscIA</div><div class="sub">GitHub Pages, JSON externe (relatif ou ?data=URL). Catégories = collections Zotero. Sans tri.</div></div>
-    <div><button class="btn" id="themeToggle" title="Basculer clair/sombre">☀️/🌙</button></div>
+      <div><button class="btn" id="themeToggle" title="Basculer clair/sombre">☀️/🌙</button></div>
     </div>
     <div class="toolbar">
       <input id="q" type="search" placeholder="Rechercher titre, auteur·ice·s…" aria-label="Recherche" />
@@ -51,29 +44,6 @@
 <div class="wrap">
   <main>
     <aside>
-      <div class="panel" id="loaderPanel">
-        <h3>Données</h3>
-        <div id="errBox" class="err"></div>
-        <div class="loader">
-          <strong>Auto (GitHub Pages) :</strong> la page tente <code>MatrioscIA.json</code> en relatif (même dossier).<br/>
-          <small>Ex. <code>https://username.github.io/monrepo/bibliographie.html</code> et <code>https://username.github.io/monrepo/MatrioscIA.json</code></small>
-        </div>
-        <div class="loader">
-          <strong>Paramètre d’URL :</strong> <code>?data=https://…/MatrioscIA.json</code><br/>
-          <div class="row" style="margin-top:.4rem">
-            <input id="urlInput" type="url" placeholder="https://raw.githubusercontent.com/username/monrepo/branch/MatrioscIA.json" />
-            <button class="btn" id="btnLoadURL">Charger</button>
-          </div>
-        </div>
-        <div class="loader">
-          <strong>Fichier local :</strong><br/>
-          <div class="row" style="margin-top:.4rem">
-            <input id="fileInput" type="file" accept=".json,application/json" />
-            <button class="btn" id="btnReload">Réinitialiser</button>
-          </div>
-          <div id="dropZone" class="drop">Glisse-dépose ici ton fichier JSON (Zotero)</div>
-        </div>
-      </div>
       <div class="panel">
         <h3>Filtres rapides</h3>
         <label class="small"><input type="checkbox" id="hasDOI"/> Avec DOI</label><br/>
@@ -90,7 +60,7 @@
       </div>
       <div class="panel">
         <h3>À propos</h3>
-        <div class="small">Collections Zotero → thématiques. Icône 🔓 si accès ouvert détecté. Compatible HTTPS et file:// (via chargeur local).</div>
+        <div class="small">Collections Zotero → thématiques. Icône 🔓 si accès ouvert détecté.</div>
       </div>
     </aside>
     <section>
@@ -141,41 +111,21 @@
   const NEWS_DOMAINS=/(lemonde\.fr|nytimes\.com|theguardian\.com|lefigaro\.fr|liberation\.fr|washingtonpost\.com|bbc\.com|ft\.com|reuters\.com|apnews\.com)/i;
 
   // UI refs
-  const errBox=document.getElementById('errBox');
   const collSel=document.getElementById('collFilterSel');
   const yearSel=document.getElementById('yearFilter');
   const typeSel=document.getElementById('typeFilter');
-  const fileInput=document.getElementById('fileInput');
-  const dropZone=document.getElementById('dropZone');
-  const urlInput=document.getElementById('urlInput');
-  const btnLoadURL=document.getElementById('btnLoadURL');
-  const btnReload=document.getElementById('btnReload');
 
   let RAW=null; // original Zotero JSON
   let DATA=[]; // normalized records
   let AUTHOR_FILTER='';
 
-  // Choose data source:
+  // Choose data source: ?data=URL or relative MatrioscIA.json
   const params = new URLSearchParams(location.search);
   const dataURL = params.get('data');
   if (dataURL) tryFetch(dataURL);
   else tryFetch(new URL('MatrioscIA.json', location.href).href);
 
-  btnReload.onclick = () => { RAW=null; DATA=[]; clearUI(); err(''); };
-
-  function err(msg){
-    if (!msg){ errBox.style.display='none'; errBox.textContent=''; return; }
-    errBox.style.display='block'; errBox.textContent=msg;
-  }
-
-  function clearUI(){
-    document.getElementById('list').innerHTML='';
-    document.getElementById('count').textContent='';
-    document.getElementById('empty').style.display='none';
-    collSel.innerHTML='<option value="">Toutes thématiques (collections)</option>';
-    yearSel.innerHTML='<option value="">Toutes années</option>';
-    typeSel.innerHTML='<option value="">Tous types (Zotero)</option>';
-  }
+  function log(...a){ try{ console.log('[MatrioscIA]', ...a); }catch(e){} }
 
   async function tryFetch(url){
     try{
@@ -183,42 +133,11 @@
       if(!r.ok) throw new Error('HTTP '+r.status);
       const json = await r.json();
       RAW=json; normalize(); initFacets(); render();
-      err('Données chargées depuis : ' + url);
+      log('Données chargées depuis:', url);
     }catch(e){
-      err('Échec du chargement : ' + e.message + (location.protocol==='file:' ? ' — En file://, utilise le **fichier local** OU publie via HTTPS (GitHub Pages).' : ''));
+      log('Échec du chargement :', e.message);
     }
   }
-
-  // Local file input / drag & drop
-  fileInput.onchange = (ev)=>{
-    const f = ev.target.files && ev.target.files[0];
-    if(!f) return;
-    readFile(f);
-  };
-  ['dragenter','dragover'].forEach(evt => dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.add('drag'); }));
-  ['dragleave','drop'].forEach(evt => dropZone.addEventListener(evt, (e)=>{ e.preventDefault(); dropZone.classList.remove('drag'); }));
-  dropZone.addEventListener('drop', (e)=>{
-    const f = e.dataTransfer.files && e.dataTransfer.files[0];
-    if(!f) return;
-    readFile(f);
-  });
-  function readFile(file){
-    const reader=new FileReader();
-    reader.onload = () => {
-      try{
-        RAW = JSON.parse(reader.result);
-        clearUI(); normalize(); initFacets(); render(); err('Données chargées depuis fichier local : ' + (file.name||''));
-      }catch(e){ err('Fichier invalide : ' + e.message); }
-    };
-    reader.readAsText(file, 'utf-8');
-  }
-
-  // URL input
-  btnLoadURL.onclick = ()=>{
-    const url = (urlInput.value||'').trim();
-    if(!url) return err('Renseigne une URL valide.');
-    clearUI(); tryFetch(url);
-  };
 
   function creators_to_authors(creators, author_list){
     const names=[];
@@ -274,11 +193,9 @@
     return 'other';
   }
 
-  // Collections mapping — supports Zotero exports where `collections` is a dict OR an array of nodes {key,name,parent,items,collections}
+  // Collections mapping — supports dict OR array formats
   function build_collections_map(root){
-    const parents = {};
     let nodes = null;
-
     if (Array.isArray(root.collections)) {
       nodes = {};
       root.collections.forEach(n => {
@@ -295,13 +212,6 @@
       return {}; // no collections
     }
 
-    // build parents
-    Object.entries(nodes).forEach(([k, n]) => {
-      if (n.parent) {}
-      (n.children||[]).forEach(childKey => {});
-    });
-
-    // full path via recursion (avoid dependency on parent map)
     function full_path(k, seen=new Set()){
       if (seen.has(k)) return nodes[k]?.name || String(k);
       seen.add(k);
@@ -392,7 +302,7 @@
   }
 
   function render(){
-    let arr=applyFilters(DATA.slice()); // no sorting (preserve source order)
+    let arr=applyFilters(DATA.slice()); // preserve source order
     const listEl=document.getElementById('list');
     listEl.innerHTML = arr.map(rowHTML).join('');
     document.getElementById('count').textContent = `${arr.length} résultat(s) sur ${DATA.length}`;
@@ -406,7 +316,7 @@
   function renderAuthors(){
     const authorsList=document.getElementById('authorsList'); const authorSearch=document.getElementById('authorSearch'); const authorCount=document.getElementById('authorCount');
     const mapCount=new Map();
-    DATA.forEach(d=>{ (d.authors||'').split(/\s*(?:;|,| and | et |&|\\|)\\s*/i).map(s=>s.trim()).filter(Boolean).forEach(a=> mapCount.set(a,(mapCount.get(a)||0)+1) ); });
+    DATA.forEach(d=>{ (d.authors||'').split(/\s*(?:;|,| and | et |&|\|)\s*/i).map(s=>s.trim()).filter(Boolean).forEach(a=> mapCount.set(a,(mapCount.get(a)||0)+1) ); });
     let items=[...mapCount.entries()].sort((a,b)=> a[0].localeCompare(b[0],'fr',{sensitivity:'base'}));
     const qA=(authorSearch?.value||'').toLowerCase().trim();
     if (qA) items=items.filter(([name])=> name.toLowerCase().includes(qA));
@@ -482,7 +392,6 @@
   function download(filename, text){ const a=document.createElement('a'); a.setAttribute('href','data:text/plain;charset=utf-8,'+encodeURIComponent(text)); a.setAttribute('download',filename); a.style.display='none'; document.body.appendChild(a); a.click(); document.body.removeChild(a); }
   document.getElementById('exportJSON').onclick=()=>{ const filtered=applyFilters(DATA.slice()); download('bibliographie-filtre.json', JSON.stringify(filtered, null, 2)); };
   document.getElementById('exportCSV').onclick=()=>{ const filtered=applyFilters(DATA.slice()); if(!filtered.length) return download('bibliographie-filtre.csv',''); const keys=Object.keys(filtered[0]||{}); const esc=v=>('"' + String(v).replaceAll('"','""') + '"'); const rows=[keys.map(esc).join(',')].concat(filtered.map(r=> keys.map(k=> esc(r[k] || '')).join(','))); download('bibliographie-filtre.csv', rows.join('\n')); };
-
 })();</script>
 </body>
 </html>

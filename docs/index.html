@@ -43,6 +43,10 @@
     .hero{padding:24px 0 8px}
     .hero h1{font-size:clamp(28px,4vw,40px);margin:10px 0}
     .hero p{color:var(--muted);max-width:70ch}
+    /* Full-bleed hero */
+    .hero-full{padding:48px 0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border-bottom:1px solid rgba(255,255,255,.08)}
+    .hero-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+    .hero-full p{color:var(--muted);max-width:unset}
     /* Blocks */
     .grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:20px}
     @media(min-width:880px){.grid{grid-template-columns:1fr 1fr}}
@@ -83,6 +87,7 @@
         <a href="#frameworks">Frameworks</a>
         <a href="#graphes">Graphes IA</a>
         <a href="#matrice">Matrice</a>
+        <a href="#citations">Citations</a>
         <a href="#ressources">Ressources</a>
       </div>
       <a class="github" href="https://github.com/oledeuff/MatrioscIA" target="_blank" rel="noopener" aria-label="Espace GitHub du projet">
@@ -94,9 +99,12 @@
   </nav>
 
   <!-- HERO -->
-  <header class="container hero">
-    <h1>Livrables web du projet <span style="color:var(--accent)">MatrioscIA</span></h1>
-    <p>Cette page réunit les productions principales du projet : bases de données, frameworks, graphes d’enquêtes, matrice de positionnement et ressources. Chaque bloc ci‑dessous renvoie vers le livrable correspondant.</p>
+  <header class="hero-full">
+    <div class="hero-inner">
+      <h1>MatrioscIA — Hub des livrables</h1>
+      <p style="margin-top:8px">MatrioscIA (<strong>MATRI</strong>ce <strong>OS</strong>int pour les <strong>C</strong>as d’usage de l’<strong>IA</strong>).</p>
+      <p>Cette page réunit les productions principales du projet : bases de données, frameworks, graphes d’enquêtes, matrice de positionnement, citations & rapports, et ressources. Chaque bloc ci‑dessous renvoie vers le livrable correspondant.</p>
+    </div>
   </header>
 
   <main class="container">
@@ -126,7 +134,7 @@
       <article class="block">
         <div class="head">
           <h2>Catalogue d’outils OSINT</h2>
-          <span class="tag" style="background:var(--accent-2);color:white">Référentiel</span>
+          <span class="tag" style="background:var(--accent-2);color:white">Catalogue</span>
         </div>
         <div class="content">
           <p>Répertoire d’outils pour la collecte, la vérification, l’analyse et la visualisation. Filtrable par usages.</p>
@@ -146,7 +154,7 @@
       <article class="block">
         <div class="head">
           <h2>OSINT Literacy</h2>
-          <span class="tag" style="background:var(--accent-3)">Cadre</span>
+          <span class="tag" style="background:var(--accent-3)">Référentiel</span>
         </div>
         <div class="content">
           <p>Grille d’acculturation à l’OSINT : compétences, pratiques et éthique.</p>
@@ -157,6 +165,7 @@
             <div class="cap">Voir le framework</div>
           </div>
           <div class="links">
+            <a class="pill" href="https://github.com/oledeuff/Conferences/blob/main/ecil2025.pdf" target="_blank" rel="noopener">Slides ECIL (PDF)</a>
             <a class="pill" href="#" title="Lien vers le résumé ECIL (à renseigner)">Résumé ECIL</a>
           </div>
         </div>
@@ -164,8 +173,8 @@
 
       <article class="block">
         <div class="head">
-          <h2>IA &amp; OSINT Literacy <span style="font-weight:600;color:var(--accent)">WIP</span></h2>
-          <span class="tag">En cours</span>
+          <h2>IA &amp; OSINT Literacy </h2>
+          <span class="tag" style="background:var(--accent-3)">Référentiel</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
         </div>
         <div class="content">
           <p>Extension centrée sur les interactions entre IA génératives et pratiques OSINT (opportunités, risques, méthodes).</p>
@@ -185,7 +194,7 @@
       <article class="block">
         <div class="head">
           <h2>Enquête Bellingcat</h2>
-          <span class="tag">Graphe</span>
+          <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
         </div>
         <div class="content">
           <p>Cartographie des entités, sources et chaînes d’indices dans l’enquête Bellingcat.</p>
@@ -201,7 +210,7 @@
       <article class="block">
         <div class="head">
           <h2>Drones – Le Monde</h2>
-          <span class="tag">Graphe</span>
+          <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
         </div>
         <div class="content">
           <p>Visualisation des liens et vérifications menées dans l’enquête du <em>Monde</em> sur les drones.</p>
@@ -217,7 +226,7 @@
       <article class="block">
         <div class="head">
           <h2>Viginum – K Portail</h2>
-          <span class="tag">Graphe</span>
+          <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
         </div>
         <div class="content">
           <p>Schéma d’investigation autour de l’opération <em>K Portail</em> (Viginum) : acteurs, flux, plateformes.</p>
@@ -254,18 +263,59 @@
       </article>
     </section>
 
-    <!-- SECTION 6: Ressources -->
+    <!-- SECTION 6: Citations & Rapports -->
+    <h2 id="citations" class="section-title">Citations & rapports – OSINT et IA</h2>
+    <section class="grid">
+      <!-- Carte gauche : Définitions OSINT -->
+      <article class="block">
+        <div class="head">
+          <h2>Définitions de l’OSINT</h2>
+          <span class="tag" style="background:var(--accent-2);color:white">Références</span>
+          <span class="tag" style="background:var(--accent);color:#0b0c10">Entretiens</span>
+        </div>
+        <div class="content">
+          <p>Sélection de définitions et contours de l’OSINT (pratiques, périmètres, éthique).</p>
+          <div class="thumb">
+            <a href="/définitions" target="_blank" rel="noopener">
+              <img src="assets/definitions.png" alt="Miniature : définitions de l’OSINT" />
+            </a>
+            <div class="cap">Aller aux définitions</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Carte droite : Usages & IA -->
+      <article class="block">
+        <div class="head">
+          <h2>Usages & rapports à l’IA</h2>
+          <span class="tag">Citations</span>
+          <span class="tag" style="background:var(--accent);color:#0b0c10">Entretiens</span>
+        </div>
+        <div class="content">
+          <p>Corpus de citations sur les usages, bénéfices, limites et controverses liés à l’IA.</p>
+          <div class="thumb">
+            <a href="/citationsIA" target="_blank" rel="noopener">
+              <img src="assets/citations-ia.png" alt="Miniature : citations et rapports à l’IA" />
+            </a>
+            <div class="cap">Voir les citations</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- SECTION 7: ressources et bibliographie -->
     <h2 id="ressources" class="section-title">Ressources</h2>
     <section class="grid">
       <article class="block">
         <div class="head">
+          
           <h2>Bibliographie Zotero</h2>
           <span class="tag">Ressources</span>
         </div>
         <div class="content">
           <p>Bibliothèque collaborative du projet : articles, rapports, billets et matériaux connexes.</p>
           <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/bibliographie" target="_blank" rel="noopener">
+            <a href="https://www.zotero.org/groups/5684362/matrioscia/library" target="_blank" rel="noopener">
               <img src="assets/zotero.png" alt="Aperçu de la bibliothèque Zotero MatrioscIA" />
             </a>
             <div class="cap">Ouvrir la bibliothèque</div>
