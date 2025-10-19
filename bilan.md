@@ -110,11 +110,12 @@ Les outils d’intelligence artificielle, notamment génératifs, se sont diffus
 
 ---
 
-## **Hypothèse centrale**
+## **Hypothèse centrale** 
 
-Inspirée de **Bernard Stiegler** :  
-> à revoir L’enjeu n’est pas de s’adapter à une mutation subie, mais d’adopter des dispositifs — des greffes choisies, documentées et transmissibles — qui renforcent l’individuation.
+Inspirée de **Bernard Stiegler** et **ars industrialis** 
+> “Adoption est un terme qui dérive d’« ad-optare » qui signifie opter ou choisir, greffer ou acquérir. Toute individuation humaine est un processus d’adoption, et la santé d’une individuation se mesure à sa possibilité d’adoption – d’un mode de vie, d’une technique, d’une idée, d’un étranger, etc. Le « faire sien » qu’est l’adoption suppose une participation de ce qui adopte à ce qui est adopté. Adapter/adopter. L’adoption est le processus d’une individuation, c’est à dire d’un enrichissement, tandis que l’adaptation est une désindividuation : une restriction des possibilités de l’individu.”
 
+---
 - **Adoption** ≠ adaptation  
 - L’IA doit devenir un instrument d’**individuation**, non de désindividuation  
 - L’OSINT sert de terrain d’analyse privilégié pour observer ces tensions entre **technique, autonomie et culture professionnelle**
@@ -125,12 +126,14 @@ Inspirée de **Bernard Stiegler** :
 
 ## **Des auteurs pour penser l’adoption**
 
-- **Simondon** → L’IA comme *objet technique en cours d’individuation*  
+- **Simondon** → L’IA comme *objet technique en cours d’individuation* (+ individuation psychique et collective) 
 - **Stiegler** → L’adoption comme *greffe choisie*  
-- **Rieder** → Mécanologie : les *engines of order* (classement, pondération, génération)  
-- **Deleuze & Guattari** → Les *agencements machiniques* et les re-/dé-territorialisations
+- **Rieder** → Mécanologie à la suite de Simondon : les *engines of order* (classement, pondération, génération)sont des machines de pouvoir  
+- **Deleuze & Guattari** → Les *agencements machiniques* précèdent leur concrétisation technique. Les fameuses *machines désirantes*
 
 ---
+## hyperdocumentation
+Tout peut être documenté, donc devenir consultable... depuis son fauteuil.
 
 ## **Machines hyperdocumentaires**
 
@@ -140,6 +143,7 @@ Typologie conceptuelle :
 - **Machines dérivantes** → recentrent les métadonnées, créent de nouvelles centralités
 
 👉 L’enjeu : maintenir les machines *délivrantes* et surveiller les dérives.
+source : Olivier Le Deuff. Hyperdocumentation
 
 ---
 
@@ -155,22 +159,25 @@ Pratiques associées :
 - Formation à la gouvernance des outils IA  
 
 ➡️ **Littératie OSINT & IA = adoption éclairée et gouvernée**
-voir intervention à Rennes.
+voir intervention à Rennes sur les [**hyperlittératies**](https://github.com/oledeuff/Conferences/blob/main/hyperlittératies.pdf)
+cadre théorique de base : article sur la littératie algorithmique.
 
 ---
 
 # **3. Méthodologie**
 
-### Trois volets principaux :
+### Trois volets principaux à la base
 
 1. **Revue de littérature**  
-→ 55 publications analysées (OSINT, IA, journalisme, éthique)
+→ 55 publications analysées (OSINT, IA, journalisme, éthique) pour une premier état de l'art.
+→ [bibliographie complétée] (https://oledeuff.github.io/MatrioscIA/bibliographie)   
 
 2. **Analyse de discours**  
 → 362 enquêtes recensées dans 9 médias (NYT, Le Monde, Arte, AFP, France TV, BBC, etc.)
 
 3. **Entretiens semi-directifs**  
-→ 9 professionnels (journalistes, ingénieurs, développeurs, Bellingcat, analyste)
+→ 15 professionnels (journalistes, ingénieurs, développeurs, Bellingcat, analyste)
++ logique immersive (échanges, Festival OSINT, discussions J.E, sollicitations externes, etc.)
 
 ---
 
@@ -193,11 +200,14 @@ voir intervention à Rennes.
 ### **Adoption pragmatique**
 - L’usage de l’IA reste **marginal et individuel**  
 - Tâches privilégiées : traduction, transcription, synthèse  
-- Peu d’outils spécialisés intégrés en routine  
+- Peu d’outils *spécialisés* intégrés en routine  
+
+---
 
 ### **Approche réflexive**
 - Vigilance éthique (sources, transparence, biais)  
 - Importance d’une **liberté d’expérimentation**  
+- Dimension critique forte : *pharmacologique* ?
 
 ### **Trois besoins exprimés**
 1. Formation adaptée  
@@ -208,52 +218,13 @@ voir intervention à Rennes.
 
 ## **Une autonomie sous tension**
 
-D’après Roumanos, Barbosa et Le Deuff (Orbicom, 2025) :
+Pour les journalistes
 
 > L’adoption suppose une autonomie créative — un espace d’expérimentation qui permet aux journalistes d’innover sans être dépossédés de leur pratique.
+Roumanos, Barbosa et Le Deuff (Orbicom, 2025)
 
-- Freins : coût, temps, manque de culture technique  
-- Favoriser les **milieux associés** : documentation, collaboration, délibération collective  
-
----
-
-# **5. Publications et valorisation**
-
-### **ECIL 2025 **
-🧭 *OSINT and Literacies: Towards a Political and Technical Vision of Information and Media Literacies*  
-→ Définit un cadre de littératie OSINT : compétences techniques, éthiques et critiques  
-→ OSINT comme forme de **culture civique de l’investigation**
-
----
-
-### **OrbiCom 2025**
-📰 *Le recours à l’IA dans les enquêtes OSINT : innover depuis les marges*  
-→ Posture **pragmatique** des journalistes OSINT vis-à-vis de l’IA  
-→ Concept clé : **autonomie créative**  
-→ Adoption ≠ adaptation : appropriation choisie
-
----
-
-### **Digital Journalism (acceptée)**
-🧩 *L’IA comme ressource documentaire dans les enquêtes OSINT*  
-→ Analyse des pratiques hybrides IA/OSINT  
-→ Concept d’**hyperdocumentation** appliqué aux rédactions
-
----
-### **data papers**
-- un data paper sur les enquêtes pour la RFSIC
-- des data papers explicatifs intégrés à l'espace Github (sur les graphes)
-
----
-
-# **6. Journée d’étude — 7 avril 2025**
-
-🎓 *OSINT & IA : Enquêtes augmentées*  
-Organisée à l’IUT Bordeaux Montaigne avec l’Observatoire de l’OSINT
-- Conférence introductive par Rayya Roumanos
-- Table ronde avec Léa Sanchez (Le Monde), Alice Palussière (France TV), Nathan Gallo (France 24)
-- Conférence d'Hervé Letoqueux (Viginum) sur les usages de l'IA
-- Café IA avec Nicolas Rougier (INRIA), Yoann Nabat (juriste-MICA)
+- Freins : coût, temps, manque de **culture technique**  
+- Favoriser les **milieux associés** (Simondon-Stiegler) : documentation, collaboration, délibération collective  
 
 ---
 
@@ -268,6 +239,56 @@ Organisée à l’IUT Bordeaux Montaigne avec l’Observatoire de l’OSINT
 
 ➡️ Nécessité d’un **dialogue entre journalistes, chercheurs et développeurs**
 
+--- 
+### Pas d'outils miracles mais
+- l'IA n'est pas perçue directement comme remède ou poison (le risque du **pharmakon**)
+- Mais volonté de gagner du temps et en efficacité
+- Envie d'un outil proche de ses besoins personnels:
+    - le fantasme de l'outil tout en un prôné et vendu par les développeurs privés
+    ... ne se retrouvent pas dans les rédactions ou chez Viginum
+    - plutôt un outil qui regroupe des habitudes et des besoins spécifiques selon les profils
+
+# **5. Publications et valorisation**
+
+### **ECIL 2025 **
+🧭 *OSINT and Literacies: Towards a Political and Technical Vision of Information and Media Literacies*  
+→ Définit un cadre de littératie OSINT : compétences techniques, éthiques et critiques  
+→ OSINT comme forme de **culture civique de l’investigation**
+→ articulation avec les littératies existantes (notamment IL et ML parmi les anciennes, et les nouvelles Algorithm literacy)
+
+---
+
+### **OrbiCom 2025**
+📰 *Le recours à l’IA dans les enquêtes OSINT : innover depuis les marges*  
+→ Posture **pragmatique** des journalistes OSINT vis-à-vis de l’IA  
+→ Concept clé : **autonomie créative**  
+→ Adoption ≠ adaptation : appropriation choisie
+
+---
+
+### **Digital Journalism (acceptée)**
+🧩 processus de rationalisation qui précède l'institutionnalisation  
+→ Analyse des pratiques hybrides IA/OSINT  
+→ Concept d’**hyperdocumentation** appliqué aux rédactions
+
+---
+### **data papers**
+- un data paper sur les enquêtes cataloguées pour la RFSIC (en cours de rédaction)
+- des data papers explicatifs intégrés à l'espace Github (sur les graphes) (une possible version pour une revue orientée DH)
+
+---
+
+# **6. Journée d’étude — 7 avril 2025**
+
+🎓 *OSINT & IA : Enquêtes augmentées*  
+Organisée à l’IUT Bordeaux Montaigne avec l’Observatoire de l’OSINT
+- Conférence introductive par Rayya Roumanos
+- Table ronde avec Léa Sanchez (Le Monde), Alice Palussière (France TV), Nathan Gallo (France 24)
+- Conférence d'Hervé Letoqueux (Viginum) sur les usages de l'IA
+- Café IA avec Nicolas Rougier (INRIA), Yoann Nabat (juriste-MICA) sur les enjeux politiques, juridiques, éthiques et techniques
+    collaborations avec l'**observatoire de la surveillance**.
+
+
 ---
 
 # **7. Livrables et diffusion**
@@ -276,11 +297,14 @@ Organisée à l’IUT Bordeaux Montaigne avec l’Observatoire de l’OSINT
 👉 [https://oledeuff.github.io/MatrioscIA](https://oledeuff.github.io/MatrioscIA)
 
 Contenus :
+- Base des enquêtes de type Osint
+- catalogue des outils OSINT
+- Référentiels OSINT literacy et O& IA literacy
+- Graphes de 3 investigations (WIP)
 - Matrice des cas d’usage OSINT/IA  
-- Fiches typologiques colorées  
-- Tableau des pratiques et besoins  
-- Bibliographie, citations et positionnements OSINT/IA  
-- Accès aux publications et livrables du projet  
+- Citations et positionnements OSINT/IA    
+- Bibliographie 
+
 
 ---
 
@@ -300,12 +324,14 @@ Contenus :
 ### 🔍 **IUF – Projet HyperInvestigation**
 → Extension du cadre théorique vers l’**hyperdocumentation** des pratiques d’enquête.
 
-### 🧠 **ANR Medusa (projet déposé)**
+### 🧠 **ANR Medusa (projet déposé)** sur Surveillance et journalisme
 → Enjeux de **médiation algorithmique** et de gouvernance des traces.
 
 ### 🧩 ** des prolongations**
 → Finalisation des WIP  
-→ de nouvelles publications
+→ des bonus ([personas liés à la matrice](https://oledeuff.github.io/MatrioscIA\personas.html), autoests de positionnement, ludification ?)
+→ de nouvelles publications (articles, chapitres, conférences, etc.)
+→ des prolongations pédagogiques avec Osint4fun pour l'IUT, et  autres projets avec l'IJBA
 
 ---
 
@@ -318,6 +344,9 @@ MatrioscIA propose :
 
 > L’enjeu : faire de l’IA une alliée de l’enquête, non une boîte noire.  
 > Une adoption choisie, documentée et transmissible.
+    - au final le travail d'information est fortement lié à sa communication.
+
+Un cadre d'analyse à poursuivre au travers du prisme de l'*hyperinvestigation*
 
 ---
 
@@ -327,7 +356,7 @@ MatrioscIA propose :
 🌐 [https://oledeuff.github.io/MatrioscIA](https://oledeuff.github.io/MatrioscIA)  
 📧 oledeuff@gmail.com  
 🧩 Projet soutenu par l’IHEMI  
-🕸️ En lien avec HyperION & Medusa
+🕸️ 
 
 ---
 

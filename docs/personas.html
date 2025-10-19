@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MatrioscIA — Personas OSINT & IA (alignés sur la matrice)</title>
+<style>
+:root{--bg:#0b1020;--panel:#0f172a;--ink:#e5e7eb;--muted:#cbd5e1;--bord:#1f2a44;--accent:#93c5fd;--table-head:#0b122c;}
+:root.light{--bg:#f7f9fb;--panel:#ffffff;--ink:#0f172a;--muted:#475569;--bord:#e2e8f0;--accent:#3b82f6;--table-head:#f1f5f9;}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.header{padding:16px 22px;border-bottom:1px solid var(--bord);background:linear-gradient(180deg,rgba(16,24,64,.35), rgba(11,16,32,1));position:sticky;top:0;z-index:10}
+.header .wrap{max-width:1160px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.badge{background:linear-gradient(90deg,#17324D,#1C6EA4 55%,#46B3E6);color:#fff;padding:6px 12px;border-radius:999px;font-weight:700;font-size:.9em}
+h1{margin:0;font-size:1.25rem}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.controls input,.controls select,.controls a,.controls button{background:var(--panel);color:var(--ink);border:1px solid var(--bord);padding:8px 10px;border-radius:10px;text-decoration:none}
+.controls button{cursor:pointer}.wrap{max-width:1160px;margin:0 auto;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.card{position:relative;background:var(--panel);border:1px solid var(--bord);border-radius:14px;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--card-color,#93c5fd)}
+.head{display:flex;gap:14px;padding:14px;border-bottom:1px solid var(--bord)}.illu{width:80px;height:80px;border-radius:12px;background:linear-gradient(135deg,#17324D,#1C6EA4 60%,#46B3E6);display:grid;place-items:center;flex:0 0 auto}
+.illu svg{width:58px;height:58px;filter:drop-shadow(0 4px 16px rgba(0,0,0,.25))}.meta{display:flex;flex-direction:column;gap:4px;min-width:0}.title{font-size:1.05rem;font-weight:700}.kicker{font-size:.9rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.chip{font-size:.78rem;border:1px solid var(--bord);color:var(--ink);padding:4px 8px;border-radius:999px;background:rgba(147,197,253,.12)}
+.body{padding:14px;display:grid;grid-template-columns:1.1fr 1fr;gap:16px}@media (max-width:900px){.body{grid-template-columns:1fr}}.body h4{margin:.2rem 0 .4rem;color:var(--accent)}.body ul{margin:.2rem 0 1rem 1.1rem}.body li{margin:.2rem 0}
+.note{font-size:.85rem;color:var(--muted)}.footer{display:flex;justify-content:space-between;align-items:center;padding:10px 0 2px;color:var(--muted);font-size:.85rem}hr{border:none;border-top:1px solid var(--bord);margin:18px 0}.small{font-size:.85rem}a{color:var(--accent)}
+</style>
+
+<header class="header">
+  <div class="wrap">
+    <div class="brand"><div class="badge">MatrioscIA</div><h1>Personas (alignés sur la matrice)</h1></div>
+    <div class="controls">
+      <a href="matrice.html" target="_blank" rel="noopener">↩︎ Matrice</a>
+      <input id="q" placeholder="Rechercher (persona, rôle, besoins…)" />
+      <select id="os"><option value="">OSINT — Tous</option><option>Faible</option><option>Moyen</option><option>Fort</option><option>Moyen à fort</option><option>Fort à très fort</option></select>
+      <select id="ia"><option value="">IA — Tous</option><option>Absente ou très faible</option><option>Absente à exploratoire</option><option>Exploratoire ou ponctuelle</option><option>Intégrée ou en développement</option><option>En développement ou intégrée</option></select>
+      <select id="fam"><option value="">Famille (matrice) — Toutes</option>
+        <option>Médiateurs réflexifs et  critiques</option>
+        <option>Explorateurs critiques</option>
+        <option>Artisans du récit</option>
+        <option>Enquêteurs augmentés</option>
+        <option>Gestionnaires techniques et solutionnistes</option>
+        <option>Ingénieurs de la preuve</option>
+      </select>
+      <select id="fn"><option value="">Fonction (Lewis et al.) — Toutes</option><option>Attentionnelle</option><option>Orientationnelle</option><option>Signalisation</option><option>Mobilisation</option><option>Réflexive</option></select>
+      <button id="themeBtn">Palette clair/sombre</button>
+      <button id="exportBtn">Exporter JSON</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="small"><p>Catégorisation stricte selon la <em>matrice</em>. Les couleurs (bandeau des cartes) utilisent les <strong>mêmes codes hex</strong> que la matrice.</p><hr></section>
+  <section class="grid" id="cards"></section>
+  <section><hr><div class="footer">
+    <div>👤 Cette page — 🧩 <a href="matrice.html">Matrice</a></div>
+    <div>Réf. : Lewis, Zamith & Bunquin (2025) — <a href="https://doi.org/10.1080/21670811.2025.2557994" target="_blank" rel="noopener">doi</a></div>
+  </div></section>
+</main>
+
+<script>
+const SILH = {
+  neutral:`<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#e8f3ff" stop-opacity=".9"/></linearGradient></defs><circle cx="64" cy="64" r="58" fill="url(#g)" /><path d="M32 88c8-8 24-10 32-10s24 2 32 10c4 4 6 9 6 14v6H26v-6c0-5 2-10 6-14z" fill="#17324D" opacity=".9"/><circle cx="64" cy="52" r="22" fill="#17324D" opacity=".95"/></svg>`,
+  longhair:`<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#f1f9ff" stop-opacity=".9"/></linearGradient></defs><circle cx="64" cy="64" r="58" fill="url(#g2)"/><path d="M32 88c8-8 24-10 32-10s24 2 32 10c4 4 6 9 6 14v6H26v-6c0-5 2-10 6-14z" fill="#1C6EA4" opacity=".9"/><path d="M34 52c0-14 12-26 30-26s30 12 30 26c0 7-2 12-6 18-5-3-13-5-24-5s-19 2-24 5c-4-6-6-11-6-18z" fill="#17324D" opacity=".95"/></svg>`,
+  beard:`<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#eef6ff" stop-opacity=".9"/></linearGradient></defs><circle cx="64" cy="64" r="58" fill="url(#g3)"/><path d="M32 88c8-8 24-10 32-10s24 2 32 10c4 4 6 9 6 14v6H26v-6c0-5 2-10 6-14z" fill="#17324D" opacity=".9"/><circle cx="64" cy="52" r="20" fill="#17324D" opacity=".95"/><path d="M44 60c4 8 10 14 20 14s16-6 20-14c0 10-8 24-20 24S44 70 44 60z" fill="#1C6EA4"/></svg>`
+};
+
+// EXACT same hex colors as matrice.html
+const FAMILLE_COLORS = {
+  "Médiateurs réflexifs et  critiques":"#7C3AED",
+  "Explorateurs critiques":"#F59E0B",
+  "Artisans du récit":"#EF4444",
+  "Enquêteurs augmentés":"#3B82F6",
+  "Gestionnaires techniques et solutionnistes":"#10B981",
+  "Ingénieurs de la preuve":"#8B5CF6"
+};
+
+// Personas — familles alignées strictement sur l'une des 6 catégories ci-dessus
+const PERSONAS = [
+  {"id":"p1","nom":"Persona A","role":"Investigatrice OSINT — cellule proactive (enquête longue)","niveau_osint":"Fort","niveau_ia":"Moyen","fonction":"Orientationnelle","silhouette":"longhair","famille":"Enquêteurs augmentés","pitch":"Conçoit des enquêtes probatoires ; l’IA est utile si elle renforce la preuve.","objectifs":["Preuves robustes et auditables","Automatiser OCR/repérage/entités sans boîte noire","Formats innovants sans sacrifier la méthode"],"outils":["Imagerie ouverte/comm.","OCR + similarité","LLM (résumés contrôlés)","Montage/SIG","Automatisations légères"],"besoins":["Temps POC","Accès imagerie ponctuel","Appui dev pour scripts"],"vigilance":["Hallucinations de résumés","Biais de détection image","Coût/confidentialité"],"indicateurs":["Réutilisation scripts","Temps gagné vérifs","Assertions reliées à des preuves"],"citation":"« L’IA m’aide à prouver et documenter. »"},
+  {"id":"p2","nom":"Persona B","role":"Vérificateur réactif (audio/visuel)","niveau_osint":"Fort","niveau_ia":"Moyen","fonction":"Attentionnelle","silhouette":"beard","famille":"Explorateurs critiques","pitch":"Dépiste manipulations et deepfakes ; l’IA sert d’alerte, jamais de verdict.","objectifs":["Réduire temps de tri","Traçabilité publique minimale","Sensibiliser à la détection AV"],"outils":["Transcription auto","Indices forensics","Recherche inversée","LLM pour hypothèses contradictoires"],"besoins":["Modèles audio deepfake","Dashboard d’alerting","Procédure de publication transparente"],"vigilance":["Faux positifs spectaculaires","Opacité API","Biais accents/qualité"],"indicateurs":["Délai détection→publication","Faux positifs évités","Encadré méthodo présent"],"citation":"« L’algo propose, l’équipe dispose. »"},
+  {"id":"p3","nom":"Persona C","role":"Analyste imagerie — enquêtes géospatiales","niveau_osint":"Fort à très fort","niveau_ia":"En développement ou intégrée","fonction":"Orientationnelle","silhouette":"neutral","famille":"Ingénieurs de la preuve","pitch":"Combine imagerie avec détection assistée ; double vérification humaine.","objectifs":["Gains de temps sur balayages larges","Réduction du bruit algorithmique","Méthodes reproductibles"],"outils":["Vision par ordinateur","SIG raster/vector","Pipelines notariés"],"besoins":["Datasets annotés","Budget imagerie","Calcul ponctuel"],"vigilance":["Sur-ajustement","Heatmaps mal interprétées","Chaîne de garde"],"indicateurs":["Précision ajustée à la tâche","% événements confirmés","Temps/km²"],"citation":"« L’IA regarde partout ; la preuve reste humaine. »"},
+  {"id":"p4","nom":"Persona D","role":"Référent technique / communauté","niveau_osint":"Moyen","niveau_ia":"Intégrée ou en développement","fonction":"Mobilisation","silhouette":"beard","famille":"Gestionnaires techniques et solutionnistes","pitch":"Acculture la communauté, maintient outillage et guides de traçabilité.","objectifs":["Former par la pratique","Standards d’audit simples","Mutualiser scripts/checklists"],"outils":["Notebooks reproductibles","Guides OSINT responsable","Espace communautaire","CI/tests"],"besoins":["Maintenance","Financement open source","Interopérabilité API"],"vigilance":["Dépendances SaaS","Perte de doc","Turnover contributeurs"],"indicateurs":["Adoption guides","Contributions/sem.","Taux de reproduction"],"citation":"« Documenter augmente la puissance d’agir. »"},
+  {"id":"p5","nom":"Persona E","role":"Pigiste OSINT (multi-rédactions)","niveau_osint":"Basique au service du récit","niveau_ia":"Exploratoire ou ponctuelle","fonction":"Signalisation","silhouette":"longhair","famille":"Artisans du récit","pitch":"Présente des angles « méthode + preuve » ; outils accessibles.","objectifs":["Crédibilité auprès des desks","Standardiser preuves/captures","Automatiser tâches ingrates"],"outils":["Archivage/capture","Traduction/transcription","Tableurs","LLM pour briefs/checklists"],"besoins":["Outils pro abordables","Templates de preuve","Mentorat technique ponctuel"],"vigilance":["Surestimation IA","Sécurité opé","Protection non-publics"],"indicateurs":["Taux d’acceptation de pitch","Délai pitch→publication","Erreurs évitées"],"citation":"« Je vends la méthode avant l’histoire. »"},
+  {"id":"p6","nom":"Persona F","role":"Éditeur / Chef de desk","niveau_osint":"Faible à moyen","niveau_ia":"Absente ou très faible","fonction":"Réflexive","silhouette":"neutral","famille":"Médiateurs réflexifs et  critiques","pitch":"Cohérence éditoriale et transparence : où place-t-on la machine, où garde-t-on l’humain ?","objectifs":["Charte IA","Transparence méthodes","Arbitrage coûts/valeurs"],"outils":["Guide IA/OSINT","Journal d’audit","Tableau de risques"],"besoins":["Concertation","Veille juridique/éthique","Formation courte"],"vigilance":["Solutionnisme techno","Opacité fournisseurs","Érosion des compétences cœur"],"indicateurs":["Charte adoptée","% encadrés méthodo","Satisfaction rédaction"],"citation":"« On documente pour pouvoir expliquer. »"},
+  {"id":"p7","nom":"Persona G","role":"Analyste institutionnel (intérêt public)","niveau_osint":"Moyen à fort","niveau_ia":"Absente à exploratoire","fonction":"Mobilisation","silhouette":"beard","famille":"Enquêteurs augmentés","pitch":"Détecte campagnes d’ingérence ; outille les analystes ; interprétation humaine d’abord.","objectifs":["Détection précoce multi-plateformes","Autonomie via datalab","Partage méthodes"],"outils":["Clustering thématique","Transcription","Analyse de vignettes vidéo","Pipelines prudents"],"besoins":["Données ouvertes de qualité","Rétention gouvernée","Coopérations acad/OSINT"],"vigilance":["Bruit massif","Biais d’attribution","Stigmatisation"],"indicateurs":["Délai détection→qualification","Faux positifs","Méthodes publiées"],"citation":"« Beaucoup d’IA, encore plus d’humains. »"},
+  {"id":"p8","nom":"Persona H","role":"Médiatrice éthique & documentation","niveau_osint":"Faible à moyen","niveau_ia":"Absente ou très faible","fonction":"Réflexive","silhouette":"longhair","famille":"Médiateurs réflexifs et  critiques","pitch":"Fait tenir pédagogie, traçabilité et justice procédurale.","objectifs":["Chaînes de traitement lisibles","Formation aux cadres","Revue par les pairs"],"outils":["Guides théoriques","Tableaux de preuve","Modèles d’encadré"],"besoins":["Temps de formation","Soutien éditorial","Journalisation simple"],"vigilance":["Pédagogie tokenisée","Sous-traitance éthique","Fatigue documentaire"],"indicateurs":["% enquêtes avec chaînes complètes","Feedback lecteurs","Réutilisation gabarits"],"citation":"« L’adoption, pas l’adaptation — une greffe choisie. »"},
+  {"id":"p9","nom":"Persona I","role":"Journaliste reporter TV (terrain)","niveau_osint":"Basique au service du récit","niveau_ia":"Absente ou très faible","fonction":"Signalisation","silhouette":"beard","famille":"Artisans du récit","pitch":"OSINT pragmatique (repérages/vérifs). Très peu d’IA ; posture critique.","objectifs":["Repérages rapides","Vérifier images/social avant antenne","Traçabilité minimale à l’antenne"],"outils":["Recherche inversée","Géoloc basique","Listes/flux sources","Checklists vérif"],"besoins":["Outils simples/mobiles/offline","Formation courte traçabilité","Procédure de correction"],"vigilance":["Hoax viraux","Pression temps réel","Contraintes antenne"],"indicateurs":["Erreurs évitées","Délai vérif→antenne","Transparence méthodo"],"citation":"« Sur le terrain : du sûr, du simple, du prouvable. »"},
+  {"id":"p10","nom":"Persona J","role":"Développeuse (service public, outillage analystes)","niveau_osint":"Moyen","niveau_ia":"Intégrée ou en développement","fonction":"Mobilisation","silhouette":"longhair","famille":"Gestionnaires techniques et solutionnistes","pitch":"Développe des services ad hoc pour l’autonomie des analystes (datalab, pipelines).","objectifs":["Outiller sans enfermer","Réduire travail répétitif","Journaliser pour auditabilité"],"outils":["ETL/ELT","Index hybrides","Dashboards","CI/CD & monitoring"],"besoins":["Spécifs claires","Données ouvertes/fiables","Budget maintenance"],"vigilance":["Verrous API","Bruit algorithmique","Dette technique & docs"],"indicateurs":["Adoption analystes","Temps gagné/tâche","Bugs résolus en continu"],"citation":"« Un bon outil augmente l’analyste et reste portable. »"},
+  {"id":"p11","nom":"Persona K","role":"Analyste (service public, lutte désinformation)","niveau_osint":"Fort","niveau_ia":"Exploratoire ou ponctuelle","fonction":"Orientationnelle","silhouette":"neutral","famille":"Enquêteurs augmentés","pitch":"Veille/alerte ‘idéale’ : signaux pertinents, explicables, priorisés.","objectifs":["Détection précoce & priorisation","Réduire le bruit","Traçabilité pour qualification"],"outils":["Clustering thématique","ASR/transcription","Analyse vignettes vidéo","Tableaux de preuve"],"besoins":["Seuils configurables","Transparence modèles/versions","Explicabilité des alertes"],"vigilance":["Surveillance excessive","Biais d’attribution","Règles de rétention"],"indicateurs":["Délai alerte→qualification","% alertes pertinentes","Reproductibilité d’analyse"],"citation":"« Alerter utilement — et l’expliquer. »"}
+];
+
+function personaCard(p){
+  const svg = SILH[p.silhouette||'neutral'];
+  const famColor = (FAMILLE_COLORS[p.famille]||'#93c5fd');
+  const famChip = p.famille ? `<span class='chip'>🏷️ ${p.famille}</span>` : '';
+  const chips = [`OSINT : ${p.niveau_osint}`, `IA : ${p.niveau_ia}`, `🧭 ${p.fonction}`].map(x=>`<span class="chip">${x}</span>`).join('') + famChip;
+  return `
+  <article class="card" style="--card-color:${famColor}" data-os="${p.niveau_osint}" data-ia="${p.niveau_ia}" data-fn="${p.fonction}" data-fam="${p.famille}" data-text="${[p.nom,p.role,p.pitch,(p.outils||[]).join(' '),(p.besoins||[]).join(' '),(p.vigilance||[]).join(' ')].join(' ').toLowerCase()}">
+    <div class="head"><div class="illu">${svg}</div><div class="meta"><div class="title">${p.nom} — ${p.role}</div><div class="kicker">${p.pitch}</div><div class="chips">${chips}</div></div></div>
+    <div class="body">
+      <div><h4>🎯 Objectifs</h4><ul>${p.objectifs.map(x=>`<li>${x}</li>`).join('')}</ul><h4>🧰 Outils clés</h4><ul>${p.outils.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+      <div><h4>🤝 Besoins</h4><ul>${p.besoins.map(x=>`<li>${x}</li>`).join('')}</ul><h4>⚠️ Points de vigilance</h4><ul>${p.vigilance.map(x=>`<li>${x}</li>`).join('')}</ul><h4>📏 Indicateurs</h4><ul>${p.indicateurs.map(x=>`<li>${x}</li>`).join('')}</ul>
+        <p class="note">« ${p.citation} »</p>
+        <h4>🔗 Liens croisés</h4>
+        <ul><li><a href="matrice.html#cards" target="_blank" rel="noopener">Fiches MatrioscIA (profils)</a></li><li><a href="matrice.html#tabCats" target="_blank" rel="noopener">Tableau des catégories</a></li><li><a href="matrice.html#matrixWrap" target="_blank" rel="noopener">Matrice 3×3</a></li></ul>
+      </div>
+    </div>
+  </article>`;
+}
+
+const cards = document.getElementById('cards');
+cards.innerHTML = PERSONAS.map(personaCard).join('');
+
+// Filtres
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const q = $('#q'), os = $('#os'), ia = $('#ia'), fam = $('#fam'), fn = $('#fn');
+
+function initFromURL(){
+  const u = new URL(window.location.href);
+  const fam_p = u.searchParams.get('famille');
+  const os_p = u.searchParams.get('osint');
+  const ia_p = u.searchParams.get('ia');
+  const fn_p = u.searchParams.get('fonction');
+  if(os_p) os.value = os_p;
+  if(ia_p) ia.value = ia_p;
+  if(fn_p) fn.value = fn_p;
+  if(fam_p) fam.value = fam_p;
+}
+
+function applyFilters(){
+  const qv = (q.value||'').toLowerCase();
+  const osv = os.value, iav = ia.value, famv = fam.value, fnv = fn.value;
+  $$('#cards .card').forEach(card=>{
+    const ok =
+      (!osv || card.dataset.os === osv) &&
+      (!iav || card.dataset.ia === iav) &&
+      (!famv || card.dataset.fam === famv) &&
+      (!fnv || card.dataset.fn === fnv) &&
+      (card.dataset.text.includes(qv));
+    card.style.display = ok ? '' : 'none';
+  });
+}
+initFromURL();
+[q, os, ia, fam, fn].forEach(el=>{ el.addEventListener('input', applyFilters); el.addEventListener('change', applyFilters); });
+applyFilters();
+
+$('#themeBtn').addEventListener('click', ()=>{ document.documentElement.classList.toggle('light'); });
+$('#exportBtn').addEventListener('click', ()=>{
+  const blob = new Blob([JSON.stringify(PERSONAS, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'personas_matrioscia.json'; a.click(); URL.revokeObjectURL(url);
+});
+</script>
+</html>
