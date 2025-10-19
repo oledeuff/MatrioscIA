@@ -143,7 +143,7 @@ Typologie conceptuelle :
 
 ---
 
-## **Vers une littératie OSINT & IA**
+## **Vers une hyperlittératie OSINT & IA**
 
 Une **translittératie** articulant :
 - Littératies **informationnelles et médiatiques**
@@ -155,6 +155,7 @@ Pratiques associées :
 - Formation à la gouvernance des outils IA  
 
 ➡️ **Littératie OSINT & IA = adoption éclairée et gouvernée**
+voir intervention à Rennes.
 
 ---
 
@@ -239,7 +240,7 @@ D’après Roumanos, Barbosa et Le Deuff (Orbicom, 2025) :
 → Concept d’**hyperdocumentation** appliqué aux rédactions
 
 ---
-### ** data papers**
+### **data papers**
 - un data paper sur les enquêtes pour la RFSIC
 - des data papers explicatifs intégrés à l'espace Github (sur les graphes)
 
@@ -278,7 +279,7 @@ Contenus :
 - Matrice des cas d’usage OSINT/IA  
 - Fiches typologiques colorées  
 - Tableau des pratiques et besoins  
-- Bibliographie, citations et rapports OSINT/IA  
+- Bibliographie, citations et positionnements OSINT/IA  
 - Accès aux publications et livrables du projet  
 
 ---
