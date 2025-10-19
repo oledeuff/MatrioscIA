@@ -65,12 +65,12 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
         <option>En développement ou intégrée</option>
       </select>
       <select id="fonction">
-        <option value="">Fonctions (article) — Toutes</option>
-        <option>Attentional</option>
-        <option>Orientational</option>
-        <option>Signaling</option>
-        <option>Mobilizing</option>
-        <option>Reflexive</option>
+        <option value="">Fonctions (matrice Lewis et al.) — Toutes</option>
+        <option value="Attentional">Attentionnelle</option>
+        <option value="Orientational">Orientationnelle</option>
+        <option value="Signaling">Signalisation</option>
+        <option value="Mobilizing">Mobilisation</option>
+        <option value="Reflexive">Réflexive</option>
       </select>
       <button id="themeBtn">Palette clair/sombre</button>
       <button id="resetBtn">Réinitialiser</button>
@@ -78,7 +78,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
   </div>
 </header>
 <main class="wrap">
-  <section class="section">
+  <!-- Section info article Digital Journalism --><!-- Visualisation SVG --><!-- Tableau explicatif --><section class="section">
     <h2>Fiches profils</h2>
     <div class="grid" id="cards">
       
@@ -91,7 +91,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
             <li><strong>Usages typiques:</strong> Ateliers d’éthique, guides de traçabilité, protocoles de citation et vérification.</li>
             <li><strong>Besoins:</strong> Formations; autonomie d’expérimentation; temps de documentation.</li>
             <li><strong>Points de vigilance:</strong> Transparence; traçabilité; indépendance des sources.</li>
-            <li><strong>Fonctions (article):</strong> Reflexive; Orientational</li>
+            <li><strong>Fonctions (article):</strong> Réflexive; Orientationnelle</li>
           </ul>
         </article>
         
@@ -104,7 +104,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
             <li><strong>Usages typiques:</strong> Journalisation de méthodes; cartos d’acteurs; évaluation d’outils IA en POC.</li>
             <li><strong>Besoins:</strong> Formations ciblées; temps méthodologique; cadre permissif d’essais.</li>
             <li><strong>Points de vigilance:</strong> Expliciter les limites; éviter la boîte noire; documenter les biais.</li>
-            <li><strong>Fonctions (article):</strong> Reflexive; Attentional; Orientational</li>
+            <li><strong>Fonctions (article):</strong> Réflexive; Attentionnelle; Orientationnelle</li>
           </ul>
         </article>
         
@@ -117,7 +117,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
             <li><strong>Usages typiques:</strong> Narration critique; expositions; performances de debunk; cartels explicatifs.</li>
             <li><strong>Besoins:</strong> Autonomie créative; accès outils divers; documentation reproductible.</li>
             <li><strong>Points de vigilance:</strong> Distinguer fiction vs preuve; créditer les sources.</li>
-            <li><strong>Fonctions (article):</strong> Signaling; Reflexive</li>
+            <li><strong>Fonctions (article):</strong> Signalisation; Réflexive</li>
           </ul>
         </article>
         
@@ -130,7 +130,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
             <li><strong>Usages typiques:</strong> Extraction d’entités; OCR; chronologies assistées; résumés/traductions.</li>
             <li><strong>Besoins:</strong> Formations pratiques; budgets outils; partage inter-équipes.</li>
             <li><strong>Points de vigilance:</strong> Traçabilité; indépendance des sources; revue humaine systématique.</li>
-            <li><strong>Fonctions (article):</strong> Attentional; Orientational</li>
+            <li><strong>Fonctions (article):</strong> Attentionnelle; Orientationnelle</li>
           </ul>
         </article>
         
@@ -143,7 +143,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
             <li><strong>Usages typiques:</strong> Pipelines; monitoring; accès/données; intégration d’API IA.</li>
             <li><strong>Besoins:</strong> Coordination; standardisation; ressources stables; conformité.</li>
             <li><strong>Points de vigilance:</strong> Endettement technique; sécurité; auditabilité; cadrage juridique.</li>
-            <li><strong>Fonctions (article):</strong> Orientational; Mobilizing</li>
+            <li><strong>Fonctions (article):</strong> Orientationnelle; Mobilisation</li>
           </ul>
         </article>
         
@@ -156,7 +156,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
             <li><strong>Usages typiques:</strong> Computer vision; géoloc; pipelines ML; matching multi-sources.</li>
             <li><strong>Besoins:</strong> Cadre permissif; financements; infra; collaborations R&amp;D.</li>
             <li><strong>Points de vigilance:</strong> Biais modèles; reproductibilité; coûts; limites explicites.</li>
-            <li><strong>Fonctions (article):</strong> Mobilizing; Signaling; Attentional</li>
+            <li><strong>Fonctions (article):</strong> Mobilisation; Signalisation; Attentionnelle</li>
           </ul>
         </article>
         
@@ -167,7 +167,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
     <h2>Tableur — Categories (codes couleurs inclus)</h2>
     <table id="tabCats">
       <thead>
-        <tr><th>Famille</th><th>Niveau_OSINT</th><th>Niveau_IA</th><th>Description_courte</th><th>Usages_typiques</th><th>Besoins</th><th>Points_de_vigilance</th><th>Fonctions_dominantes</th></tr>
+        <tr><th>Famille</th><th>Niveau_OSINT</th><th>Niveau_IA</th><th>Description_courte</th><th>Usages_typiques</th><th>Besoins</th><th>Points_de_vigilance</th><th>Fonctions dominantes (matrice Lewis et al.)</th></tr>
       </thead>
       <tbody>
         
@@ -179,7 +179,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
           <td>Ateliers d’éthique, guides de traçabilité, protocoles de citation et vérification.</td>
           <td>Formations; autonomie d’expérimentation; temps de documentation.</td>
           <td>Transparence; traçabilité; indépendance des sources.</td>
-          <td>Reflexive; Orientational</td>
+          <td>Réflexive; Orientationnelle</td>
         </tr>
         
         <tr data-famille="Explorateurs critiques" data-osint="Moyen à fort" data-ia="Absente à exploratoire" data-fonctions="Reflexive; Attentional; Orientational">
@@ -190,7 +190,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
           <td>Journalisation de méthodes; cartos d’acteurs; évaluation d’outils IA en POC.</td>
           <td>Formations ciblées; temps méthodologique; cadre permissif d’essais.</td>
           <td>Expliciter les limites; éviter la boîte noire; documenter les biais.</td>
-          <td>Reflexive; Attentional; Orientational</td>
+          <td>Réflexive; Attentionnelle; Orientationnelle</td>
         </tr>
         
         <tr data-famille="Artisans du récit" data-osint="Basique au service du récit" data-ia="Exploratoire ou ponctuelle" data-fonctions="Signaling; Reflexive">
@@ -201,7 +201,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
           <td>Narration critique; expositions; performances de debunk; cartels explicatifs.</td>
           <td>Autonomie créative; accès outils divers; documentation reproductible.</td>
           <td>Distinguer fiction vs preuve; créditer les sources.</td>
-          <td>Signaling; Reflexive</td>
+          <td>Signalisation; Réflexive</td>
         </tr>
         
         <tr data-famille="Enquêteurs augmentés" data-osint="Fort" data-ia="Exploratoire ou ponctuelle" data-fonctions="Attentional; Orientational">
@@ -212,7 +212,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
           <td>Extraction d’entités; OCR; chronologies assistées; résumés/traductions.</td>
           <td>Formations pratiques; budgets outils; partage inter-équipes.</td>
           <td>Traçabilité; indépendance des sources; revue humaine systématique.</td>
-          <td>Attentional; Orientational</td>
+          <td>Attentionnelle; Orientationnelle</td>
         </tr>
         
         <tr data-famille="Gestionnaires techniques et solutionnistes" data-osint="Moyen" data-ia="Intégrée ou en développement" data-fonctions="Orientational; Mobilizing">
@@ -223,7 +223,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
           <td>Pipelines; monitoring; accès/données; intégration d’API IA.</td>
           <td>Coordination; standardisation; ressources stables; conformité.</td>
           <td>Endettement technique; sécurité; auditabilité; cadrage juridique.</td>
-          <td>Orientational; Mobilizing</td>
+          <td>Orientationnelle; Mobilisation</td>
         </tr>
         
         <tr data-famille="Ingénieurs de la preuve" data-osint="Fort à très fort" data-ia="En développement ou intégrée" data-fonctions="Mobilizing; Signaling; Attentional">
@@ -234,7 +234,7 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
           <td>Computer vision; géoloc; pipelines ML; matching multi-sources.</td>
           <td>Cadre permissif; financements; infra; collaborations R&amp;D.</td>
           <td>Biais modèles; reproductibilité; coûts; limites explicites.</td>
-          <td>Mobilizing; Signaling; Attentional</td>
+          <td>Mobilisation; Signalisation; Attentionnelle</td>
         </tr>
         
       </tbody>
@@ -248,6 +248,123 @@ hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
     </div>
   </section>
   <div class="footer">Filtres actifs sur fiches + table; la matrice indique (en grisé) les entrées hors filtre.</div>
+
+
+
+
+  <section class="section" id="ref-article" style="border:1px solid var(--bord); border-radius:12px; padding:16px; background: linear-gradient(180deg, rgba(70,179,230,.07), transparent 40%);">
+    <h2 style="margin-top:0;">Matrice « cinq fonctions de l’IA dans le journalisme »</h2>
+    <p>
+      D’après : <strong>Lewis, S. C., Zamith, R., &amp; Bunquin, J. B. A. (2025)</strong>. 
+      <em>Technological Hype and AI in Journalism: Five Functions and Why They Matter</em>. 
+      <em>Digital Journalism</em>, 1–12. 
+      <a href="https://doi.org/10.1080/21670811.2025.2557994" target="_blank" rel="noopener">https://doi.org/10.1080/21670811.2025.2557994</a>
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+      <a class="btn" href="#viz-fonctions" style="text-decoration:none; padding:8px 12px; border:1px solid var(--bord); border-radius:999px; background:var(--panel);">🎛️ Voir la visualisation</a>
+      <a class="btn" href="#table-fonctions" style="text-decoration:none; padding:8px 12px; border:1px solid var(--bord); border-radius:999px; background:var(--panel);">📋 Voir le tableau explicatif</a>
+    </div>
+    <p style="color:var(--muted); font-size:.95em; margin-top:10px;">
+      Axes : <strong>interne ⟷ externe</strong> (vertical) × <strong>symbolique ⟷ matériel</strong> (horizontal). 
+      Fonctions : <em>attentionnelle</em>, <em>orientationnelle</em>, <em>signalisation</em>, <em>mobilisation</em>, et <em>réflexive</em> (transversale).
+    </p>
+  </section>
+
+  
+
+  <section class="section" id="viz-fonctions">
+    <h2>Visualisation — Matrice 2×2 (fonctions)</h2>
+    <div class="panel" style="padding:12px; overflow:auto;">
+      <svg viewBox="0 0 800 520" width="100%" role="img" aria-label="Matrice 2x2 : Interne/Externe × Symbolique/Matériel">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#17324D"/>
+            <stop offset="50%" stop-color="#1C6EA4"/>
+            <stop offset="100%" stop-color="#46B3E6"/>
+          </linearGradient>
+          <style>
+            .ax { font: 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:var(--ink) }
+            .bx { font: 15px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#93c5fd; font-weight:700 }
+            .q  { font: 15px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:var(--ink) }
+            .box{ fill:transparent; stroke: var(--bord); stroke-width:1.4 }
+            .chip{ fill:url(#g1); rx:10; ry:10 }
+          </style>
+        </defs>
+
+        <!-- Cadre + axes -->
+        <rect x="40" y="40" width="720" height="420" rx="12" class="box"/>
+        <line x1="400" y1="40" x2="400" y2="460" stroke="var(--bord)" stroke-dasharray="4 6"/>
+        <line x1="40" y1="250" x2="760" y2="250" stroke="var(--bord)" stroke-dasharray="4 6"/>
+
+        <!-- Légendes axes -->
+        <text x="400" y="24" text-anchor="middle" class="ax">Symbolique ⟶ Matériel</text>
+        <text x="12" y="250" transform="rotate(-90,12,250)" text-anchor="middle" class="ax">Interne ⟶ Externe</text>
+
+        <!-- Quadrants -->
+        <rect x="60" y="60" width="320" height="170" fill="rgba(147,197,253,.10)" stroke="rgba(147,197,253,.35)"/>
+        <text x="220" y="110" text-anchor="middle" class="bx">🎯 Attentionnelle</text>
+        <foreignObject x="80" y="120" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Focaliser l’attention et le capital symbolique en interne ; baliser les références et priorités.
+          </div>
+        </foreignObject>
+
+        <rect x="420" y="60" width="320" height="170" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.30)"/>
+        <text x="580" y="110" text-anchor="middle" class="bx">⚙️ Orientationnelle</text>
+        <foreignObject x="440" y="120" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Planifier et allouer des ressources (outils, POC, budgets) ; ancrer des roadmaps internes.
+          </div>
+        </foreignObject>
+
+        <rect x="60" y="270" width="320" height="170" fill="rgba(251,191,36,.08)" stroke="rgba(251,191,36,.35)"/>
+        <text x="220" y="320" text-anchor="middle" class="bx">📢 Signalisation</text>
+        <foreignObject x="80" y="330" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Cadrage public de l’IA : discours d’innovation, transparence, opportunités/risques.
+          </div>
+        </foreignObject>
+
+        <rect x="420" y="270" width="320" height="170" fill="rgba(167,139,250,.10)" stroke="rgba(167,139,250,.35)"/>
+        <text x="580" y="320" text-anchor="middle" class="bx">🤝 Mobilisation</text>
+        <foreignObject x="440" y="330" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Actions collectives : chartes, partenariats, politiques de filière, accords fournisseurs.
+          </div>
+        </foreignObject>
+
+        <!-- Centre : Réflexive -->
+        <rect x="355" y="225" width="90" height="50" class="chip"/>
+        <text x="400" y="255" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">🧠 Réflexive</text>
+      </svg>
+    </div>
+    <p class="note">Astuce : identifiez la fonction dominante pour un cas donné, puis vérifiez la présence d’une couche <em>réflexive</em> (normes, rôles, documentation).</p>
+  </section>
+
+  
+
+  <section class="section" id="table-fonctions">
+    <h2>Tableau explicatif — définitions rapides</h2>
+    <div class="panel">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fonction</th><th>Localisation</th><th>Nature</th><th>Définition courte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🎯 Attentionnelle</td><td>Interne</td><td>Symbolique</td><td>Capital symbolique et focalisation interne ; positionnement, vitrine d’innovation.</td></tr>
+          <tr><td>⚙️ Orientationnelle</td><td>Interne</td><td>Matérielle</td><td>Planification, priorisation, allocation (outils, essais, budgets, compétences).</td></tr>
+          <tr><td>📢 Signalisation</td><td>Externe</td><td>Symbolique</td><td>Storytelling public, branding “IA responsable”, transparence méthodologique.</td></tr>
+          <tr><td>🤝 Mobilisation</td><td>Externe</td><td>Matérielle</td><td>Coalitions, chartes, accords fournisseurs, politiques sectorielles.</td></tr>
+          <tr><td>🧠 Réflexive</td><td>Centrale</td><td>Transversale</td><td>Rôles, normes, reddition de comptes ; où s’arrête l’humain, où commence la machine ?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Ces catégories reprennent la matrice de Lewis, Zamith &amp; Bunquin (2025) et servent de grille de lecture pour coder vos cas.</p>
+  </section>
+
+  
 </main>
 <script>
 const $ = (sel)=>document.querySelector(sel);
