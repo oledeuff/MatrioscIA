@@ -116,9 +116,10 @@ Inspirée de **Bernard Stiegler** et **ars industrialis**
 > “Adoption est un terme qui dérive d’« ad-optare » qui signifie opter ou choisir, greffer ou acquérir. Toute individuation humaine est un processus d’adoption, et la santé d’une individuation se mesure à sa possibilité d’adoption – d’un mode de vie, d’une technique, d’une idée, d’un étranger, etc. Le « faire sien » qu’est l’adoption suppose une participation de ce qui adopte à ce qui est adopté. Adapter/adopter. L’adoption est le processus d’une individuation, c’est à dire d’un enrichissement, tandis que l’adaptation est une désindividuation : une restriction des possibilités de l’individu.”
 
 ---
-- **Adoption** ≠ adaptation  
-- L’IA doit devenir un instrument d’**individuation**, non de désindividuation  
+## **Adoption** ≠ adaptation  
+- examens des rapports à l'IA 
 - L’OSINT sert de terrain d’analyse privilégié pour observer ces tensions entre **technique, autonomie et culture professionnelle**
+- mesure aussi du degré potentiel d'**institutionnalisation**
 
 ---
 
@@ -132,37 +133,24 @@ Inspirée de **Bernard Stiegler** et **ars industrialis**
 - **Deleuze & Guattari** → Les *agencements machiniques* précèdent leur concrétisation technique. Les fameuses *machines désirantes*
 
 ---
-## hyperdocumentation
-Tout peut être documenté, donc devenir consultable... depuis son fauteuil.
+## **Hyperdocumentation**
+ > « L’homme n’aurait plus besoin de documentation s’il était assimilé à un être devenu omniscient, à la manière de Dieu même. À un degré moins ultime serait créée une instrumentation agissant à distance qui combinerait à la fois la radio, les rayons Röntgen, le cinéma et la photographie microscopique. Toutes les choses de l’univers, et toutes celles de l’homme seraient enregistrées à distance à mesure qu’elles se produiraient. Ainsi serait établie l’image mouvante du monde, sa mémoire, son véritable double. Chacun à distance pourrait lire le passage lequel, agrandi et limité au sujet désiré, viendrait se projeter sur l’écran individuel. Ainsi, chacun dans son fauteuil pourrait contempler la création, en son entier ou en certaines de ses parties. P. Otlet. Monde, essai d'universalisme (1935) 
+ Voir aussi Traité de documentation (1934)et Le Deuff, Hyperdocumentation (2021)
+
+---
 
 ## **Machines hyperdocumentaires**
 
 Typologie conceptuelle :
+- **Machines dérivantes** → recentrent les métadonnées, créent de nouvelles centralités
 - **Machines délirantes** → dérives, opacité, perte de sens professionnel  
 - **Machines délivrantes** → renforcent l’humain, traçabilité, auditabilité  
-- **Machines dérivantes** → recentrent les métadonnées, créent de nouvelles centralités
 
 👉 L’enjeu : maintenir les machines *délivrantes* et surveiller les dérives.
 source : Olivier Le Deuff. Hyperdocumentation
 
 ---
 
-## **Vers une hyperlittératie OSINT & IA**
-
-Une **translittératie** articulant :
-- Littératies **informationnelles et médiatiques**
-- Littératies **numériques et algorithmiques**
-
-Pratiques associées :
-- Traçabilité et documentation des chaînes de traitement  
-- Journalisation et auditabilité  
-- Formation à la gouvernance des outils IA  
-
-➡️ **Littératie OSINT & IA = adoption éclairée et gouvernée**
-voir intervention à Rennes sur les [**hyperlittératies**](https://github.com/oledeuff/Conferences/blob/main/hyperlittératies.pdf)
-cadre théorique de base : article sur la littératie algorithmique.
-
----
 
 # **3. Méthodologie**
 
@@ -174,10 +162,9 @@ cadre théorique de base : article sur la littératie algorithmique.
 
 2. **Analyse de discours**  
 → 362 enquêtes recensées dans 9 médias (NYT, Le Monde, Arte, AFP, France TV, BBC, etc.)
-
 3. **Entretiens semi-directifs**  
 → 15 professionnels (journalistes, ingénieurs, développeurs, Bellingcat, analyste)
-+ logique immersive (échanges, Festival OSINT, discussions J.E, sollicitations externes, etc.)
+→ logique immersive (échanges, Festival OSINT, discussions J.E, sollicitations externes, etc.)
 
 ---
 
@@ -248,6 +235,21 @@ Roumanos, Barbosa et Le Deuff (Orbicom, 2025)
     ... ne se retrouvent pas dans les rédactions ou chez Viginum
     - plutôt un outil qui regroupe des habitudes et des besoins spécifiques selon les profils
 
+## **Vers une hyperlittératie OSINT & IA**
+
+Une **translittératie** articulant :
+- Littératies **informationnelles et médiatiques**
+- Littératies **numériques et algorithmiques**
+
+Pratiques associées :
+- Traçabilité et documentation des chaînes de traitement  
+- Journalisation et auditabilité  
+- Formation à la gouvernance des outils IA  
+
+➡️ **Littératie OSINT & IA = adoption éclairée et gouvernée**
+voir intervention à Rennes sur les [**hyperlittératies**](https://github.com/oledeuff/Conferences/blob/main/hyperlittératies.pdf)
+cadre théorique de base : article sur la littératie algorithmique.
+---
 # **5. Publications et valorisation**
 
 ### **ECIL 2025 **
@@ -267,7 +269,7 @@ Roumanos, Barbosa et Le Deuff (Orbicom, 2025)
 ---
 
 ### **Digital Journalism (acceptée)**
-🧩 processus de rationalisation qui précède l'institutionnalisation  
+🧩 processus de **rationalisation** qui précède l'institutionnalisation  
 → Analyse des pratiques hybrides IA/OSINT  
 → Concept d’**hyperdocumentation** appliqué aux rédactions
 
@@ -357,6 +359,5 @@ Un cadre d'analyse à poursuivre au travers du prisme de l'*hyperinvestigation*
 📧 oledeuff@gmail.com  
 🧩 Projet soutenu par l’IHEMI  
 🕸️ 
-
 ---
 
