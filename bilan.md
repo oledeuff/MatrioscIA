@@ -158,10 +158,13 @@ source : Olivier Le Deuff. Hyperdocumentation
 
 1. **Revue de littérature**  
 → 55 publications analysées (OSINT, IA, journalisme, éthique) pour une premier état de l'art.
-→ [bibliographie complétée] (https://oledeuff.github.io/MatrioscIA/bibliographie)   
+→ [bibliographie complétée](https://oledeuff.github.io/MatrioscIA/bibliographie)   
 
 2. **Analyse de discours**  
 → 362 enquêtes recensées dans 9 médias (NYT, Le Monde, Arte, AFP, France TV, BBC, etc.)
+[site web dédié](https://oledeuff.github.io/MatrioscIA/investigations
+---
+# **Méthodologie suite**
 3. **Entretiens semi-directifs**  
 → 15 professionnels (journalistes, ingénieurs, développeurs, Bellingcat, analyste)
 → logique immersive (échanges, Festival OSINT, discussions J.E, sollicitations externes, etc.)
@@ -235,26 +238,27 @@ Roumanos, Barbosa et Le Deuff (Orbicom, 2025)
     ... ne se retrouvent pas dans les rédactions ou chez Viginum
     - plutôt un outil qui regroupe des habitudes et des besoins spécifiques selon les profils
 
+---
 ## **Vers une hyperlittératie OSINT & IA**
 
 Une **translittératie** articulant :
 - Littératies **informationnelles et médiatiques**
 - Littératies **numériques et algorithmiques**
-
 Pratiques associées :
 - Traçabilité et documentation des chaînes de traitement  
 - Journalisation et auditabilité  
-- Formation à la gouvernance des outils IA  
+- Formation à la gouvernance des outils IA 
 
 ➡️ **Littératie OSINT & IA = adoption éclairée et gouvernée**
 voir intervention à Rennes sur les [**hyperlittératies**](https://github.com/oledeuff/Conferences/blob/main/hyperlittératies.pdf)
 cadre théorique de base : article sur la littératie algorithmique.
+
 ---
 # **5. Publications et valorisation**
 
 ### **ECIL 2025 **
 🧭 *OSINT and Literacies: Towards a Political and Technical Vision of Information and Media Literacies*  
-→ Définit un cadre de littératie OSINT : compétences techniques, éthiques et critiques  
+→ Définit un [référentiel de littératie OSINT](https://oledeuff.github.io/MatrioscIA/framework) : compétences techniques, éthiques et critiques  
 → OSINT comme forme de **culture civique de l’investigation**
 → articulation avec les littératies existantes (notamment IL et ML parmi les anciennes, et les nouvelles Algorithm literacy)
 
@@ -274,7 +278,7 @@ cadre théorique de base : article sur la littératie algorithmique.
 → Concept d’**hyperdocumentation** appliqué aux rédactions
 
 ---
-### **data papers**
+### **Data papers** WIP
 - un data paper sur les enquêtes cataloguées pour la RFSIC (en cours de rédaction)
 - des data papers explicatifs intégrés à l'espace Github (sur les graphes) (une possible version pour une revue orientée DH)
 
@@ -352,12 +356,10 @@ Un cadre d'analyse à poursuivre au travers du prisme de l'*hyperinvestigation*
 
 ---
 
-## **Merci**
+## **Merci pour votre attention**
 
-📍 Olivier Le Deuff — Université Bordeaux Montaigne / MICA/ Institut Universitaire de France
+site du projet
 🌐 [https://oledeuff.github.io/MatrioscIA](https://oledeuff.github.io/MatrioscIA)  
-📧 oledeuff@gmail.com  
-🧩 Projet soutenu par l’IHEMI  
-🕸️ 
----
+
+
 
