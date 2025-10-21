@@ -81,7 +81,6 @@ style: |
 ### Olivier Le Deuff **, Rayya Roumanos *, Thaïs Barbosa De Almeida * 
 - *Université Bordeaux Montaigne — MICA 
 - ** Institut Universitaire de France
-[🐙 Projet sur GitHub](https://oledeuff.github.io/MatrioscIA)
 IHEMI- 21 octobre 2025
 
 ---
@@ -101,9 +100,9 @@ IHEMI- 21 octobre 2025
 # **1. Contexte du projet**
 
 Les outils d’intelligence artificielle, notamment génératifs, se sont diffusés rapidement dans tous les secteurs (sécurité, éducation, santé, mobilité...).  
-➡️ Mais cette diffusion soulève des **incertitudes** : efficacité réelle, effets négatifs, enjeux éthiques et déontologiques.
+Mais cette diffusion soulève des **incertitudes** : efficacité réelle, effets négatifs, enjeux éthiques et déontologiques.
 
-🎯 **Objectif de MatrioscIA** :  
+**Objectif de MatrioscIA** :  
 Étudier les usages de l’IA par les **enquêteurs en sources ouvertes (OSINT)**, dans :
 - le **journalisme d’investigation**  
 - le **renseignement**
@@ -166,7 +165,7 @@ source : Olivier Le Deuff. Hyperdocumentation
 ---
 # **Méthodologie suite**
 3. **Entretiens semi-directifs**  
-→ 15 professionnels (journalistes, ingénieurs, développeurs, Bellingcat, analyste)
+→ 13 professionnels (journalistes, ingénieurs, développeurs, Bellingcat, analyste)
 → logique immersive (échanges, Festival OSINT, discussions J.E, sollicitations externes, etc.)
 
 ---
@@ -286,7 +285,7 @@ cadre théorique de base : article sur la littératie algorithmique.
 
 # **6. Journée d’étude — 7 avril 2025**
 
-🎓 *OSINT & IA : Enquêtes augmentées*  
+*OSINT & IA : Enquêtes augmentées*  
 Organisée à l’IUT Bordeaux Montaigne avec l’Observatoire de l’OSINT
 - Conférence introductive par Rayya Roumanos
 - Table ronde avec Léa Sanchez (Le Monde), Alice Palussière (France TV), Nathan Gallo (France 24)
@@ -299,8 +298,7 @@ Organisée à l’IUT Bordeaux Montaigne avec l’Observatoire de l’OSINT
 
 # **7. Livrables et diffusion**
 
-💻 **Site web du projet :**  
-👉 [https://oledeuff.github.io/MatrioscIA](https://oledeuff.github.io/MatrioscIA)
+**Site web du projet :**  [https://oledeuff.github.io/MatrioscIA](https://oledeuff.github.io/MatrioscIA)
 
 Contenus :
 - Base des enquêtes de type Osint
@@ -321,19 +319,19 @@ Contenus :
 - Hétérogénéité des définitions d’OSINT  
 - Faible acculturation technique dans les rédactions  
 - Données en évolution rapide
-- des contraintes personnelles 👶🍼
+- Des contraintes personnelles 👶🍼
 
 ---
 
 # **9. Poursuites**
 
-### 🔍 **IUF – Projet HyperInvestigation**
+### **IUF – Projet HyperInvestigation**
 → Extension du cadre théorique vers l’**hyperdocumentation** des pratiques d’enquête.
 
-### 🧠 **ANR Medusa (projet déposé)** sur Surveillance et journalisme
+### **ANR Medusa (projet déposé)** sur Surveillance et journalisme
 → Enjeux de **médiation algorithmique** et de gouvernance des traces.
 
-### 🧩 ** des prolongations**
+### ** des prolongations**
 → Finalisation des WIP  
 → des bonus ([personas liés à la matrice](https://oledeuff.github.io/MatrioscIA\personas.html), autoests de positionnement, ludification ?)
 → de nouvelles publications (articles, chapitres, conférences, etc.)
