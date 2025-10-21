@@ -100,7 +100,7 @@ IHEMI- 21 octobre 2025
 # **1. Contexte du projet**
 
 Les outils d’intelligence artificielle, notamment génératifs, se sont diffusés rapidement dans tous les secteurs (sécurité, éducation, santé, mobilité...).  
-Mais cette diffusion soulève des **incertitudes** : efficacité réelle, effets négatifs, enjeux éthiques et déontologiques.
+Mais cette diffusion soulève des incertitudes : efficacité réelle, effets négatifs, enjeux éthiques et déontologiques.
 
 **Objectif de MatrioscIA** :  
 Étudier les usages de l’IA par les **enquêteurs en sources ouvertes (OSINT)**, dans :
@@ -108,7 +108,16 @@ Mais cette diffusion soulève des **incertitudes** : efficacité réelle, effets
 - le **renseignement**
 
 ---
+# **2. Cadre théorique**
 
+## **Des auteurs pour penser l’adoption**
+
+- **Simondon** → L’IA comme *objet technique en cours d’individuation* (+ individuation psychique et collective) 
+- **Stiegler** → L’adoption comme *greffe choisie*  
+- **Rieder** → Mécanologie à la suite de Simondon : les *engines of order* (classement, pondération, génération) sont des machines de pouvoir  
+- **Deleuze & Guattari** → Les *agencements machiniques* précèdent leur concrétisation technique. Les fameuses *machines désirantes*
+
+---
 ## **Hypothèse centrale** 
 
 Inspirée de **Bernard Stiegler** et **ars industrialis** 
@@ -122,19 +131,10 @@ Inspirée de **Bernard Stiegler** et **ars industrialis**
 
 ---
 
-# **2. Cadre théorique**
-
-## **Des auteurs pour penser l’adoption**
-
-- **Simondon** → L’IA comme *objet technique en cours d’individuation* (+ individuation psychique et collective) 
-- **Stiegler** → L’adoption comme *greffe choisie*  
-- **Rieder** → Mécanologie à la suite de Simondon : les *engines of order* (classement, pondération, génération)sont des machines de pouvoir  
-- **Deleuze & Guattari** → Les *agencements machiniques* précèdent leur concrétisation technique. Les fameuses *machines désirantes*
-
----
 ## **Hyperdocumentation**
  > « L’homme n’aurait plus besoin de documentation s’il était assimilé à un être devenu omniscient, à la manière de Dieu même. À un degré moins ultime serait créée une instrumentation agissant à distance qui combinerait à la fois la radio, les rayons Röntgen, le cinéma et la photographie microscopique. Toutes les choses de l’univers, et toutes celles de l’homme seraient enregistrées à distance à mesure qu’elles se produiraient. Ainsi serait établie l’image mouvante du monde, sa mémoire, son véritable double. Chacun à distance pourrait lire le passage lequel, agrandi et limité au sujet désiré, viendrait se projeter sur l’écran individuel. Ainsi, chacun dans son fauteuil pourrait contempler la création, en son entier ou en certaines de ses parties. P. Otlet. Monde, essai d'universalisme (1935) 
- Voir aussi Traité de documentation (1934)et Le Deuff, Hyperdocumentation (2021)
+
+Voir aussi *Traité de documentation* (1934) et Le Deuff, *Hyperdocumentation* (2021)
 
 ---
 
@@ -145,8 +145,8 @@ Typologie conceptuelle :
 - **Machines délirantes** → dérives, opacité, perte de sens professionnel  
 - **Machines délivrantes** → renforcent l’humain, traçabilité, auditabilité  
 
-👉 L’enjeu : maintenir les machines *délivrantes* et surveiller les dérives.
-source : Olivier Le Deuff. Hyperdocumentation
+L’enjeu : adopter les machines *délivrantes* et surveiller les dérives notamment en ce qui concerne les IA.
+source : Olivier Le Deuff. *Hyperdocumentation*
 
 ---
 
@@ -161,7 +161,7 @@ source : Olivier Le Deuff. Hyperdocumentation
 
 2. **Analyse de discours**  
 → 362 enquêtes recensées dans 9 médias (NYT, Le Monde, Arte, AFP, France TV, BBC, etc.)
-[site web dédié](https://oledeuff.github.io/MatrioscIA/investigations
+[site web dédié](https://oledeuff.github.io/MatrioscIA/investigations)
 ---
 # **Méthodologie suite**
 3. **Entretiens semi-directifs**  
@@ -238,6 +238,48 @@ Roumanos, Barbosa et Le Deuff (Orbicom, 2025)
     - plutôt un outil qui regroupe des habitudes et des besoins spécifiques selon les profils
 
 ---
+
+### Vers une typologie des utilisateurs
+
+| **Profil** | **Description synthétique** |
+|:------------|:----------------------------|
+| **Médiateurs réflexifs** | Favorisent la réflexion éthique et critique sur les usages de l’IA et des données. |
+| **Explorateurs critiques** | Expérimentent les outils d’enquête numérique avec vigilance. Documentent méthodes et biais, transforment la technique en objet d’analyse. |
+| **Artisans du récit** | Utilisent l’IA ou l’OSINT au service du récit critique (debunk, expositions, narrations augmentées) sans en faire une fin en soi. |
+
+<!-- _style: |
+section {
+  font-size: 0.8em;
+}
+table {
+  font-size: 0.85em;
+  width: 100%;
+}
+th {
+  background-color: #f3f3f3;
+}
+--> 
+---
+| **Profil** | **Description synthétique** |
+|:------------|:----------------------------|
+|
+| **Enquêteurs augmentés** | Exploitent l’IA pour la veille, la traduction ou la rédaction. Visent l’efficacité tout en gardant une supervision humaine. |
+| **Gestionnaires techniques** | Assurent l’intégration et la maintenance d’outils IA/OSINT. Veillent à la gouvernance, la sécurité et la standardisation. Approche parfois solutionniste et peu éthique. |
+| **Ingénieurs de la preuve** | Développent ou prototypent des outils d’enquête avancés (vision, géoloc, ML). Travaillent dans une logique R&D ouverte et expérimentale. |
+
+<!-- _style: |
+section {
+  font-size: 0.9em;
+}
+table {
+  font-size: 0.85em;
+  width: 100%;
+}
+th {
+  background-color: #f3f3f3;
+}
+--> 
+---
 ## **Vers une hyperlittératie OSINT & IA**
 
 Une **translittératie** articulant :
@@ -245,8 +287,8 @@ Une **translittératie** articulant :
 - Littératies **numériques et algorithmiques**
 Pratiques associées :
 - Traçabilité et documentation des chaînes de traitement  
-- Journalisation et auditabilité  
-- Formation à la gouvernance des outils IA 
+- auditabilité des systèmes
+- Formation à la gouvernance des outils IA (et des données intégrées et produites)
 
 ➡️ **Littératie OSINT & IA = adoption éclairée et gouvernée**
 voir intervention à Rennes sur les [**hyperlittératies**](https://github.com/oledeuff/Conferences/blob/main/hyperlittératies.pdf)
@@ -255,8 +297,8 @@ cadre théorique de base : article sur la littératie algorithmique.
 ---
 # **5. Publications et valorisation**
 
-### **ECIL 2025 **
-🧭 *OSINT and Literacies: Towards a Political and Technical Vision of Information and Media Literacies*  
+### **ECIL 2025**
+*OSINT and Literacies: Towards a Political and Technical Vision of Information and Media Literacies*  
 → Définit un [référentiel de littératie OSINT](https://oledeuff.github.io/MatrioscIA/framework) : compétences techniques, éthiques et critiques  
 → OSINT comme forme de **culture civique de l’investigation**
 → articulation avec les littératies existantes (notamment IL et ML parmi les anciennes, et les nouvelles Algorithm literacy)
@@ -264,20 +306,20 @@ cadre théorique de base : article sur la littératie algorithmique.
 ---
 
 ### **OrbiCom 2025**
-📰 *Le recours à l’IA dans les enquêtes OSINT : innover depuis les marges*  
+*Le recours à l’IA dans les enquêtes OSINT : innover depuis les marges*  
 → Posture **pragmatique** des journalistes OSINT vis-à-vis de l’IA  
 → Concept clé : **autonomie créative**  
 → Adoption ≠ adaptation : appropriation choisie
 
 ---
 
-### **Digital Journalism (acceptée)**
-🧩 processus de **rationalisation** qui précède l'institutionnalisation  
+## **Digital Journalism (proposition acceptée)**
+- Processus de **rationalisation** qui précède l'institutionnalisation  
 → Analyse des pratiques hybrides IA/OSINT  
 → Concept d’**hyperdocumentation** appliqué aux rédactions
 
 ---
-### **Data papers** WIP
+## **Data papers** WIP
 - un data paper sur les enquêtes cataloguées pour la RFSIC (en cours de rédaction)
 - des data papers explicatifs intégrés à l'espace Github (sur les graphes) (une possible version pour une revue orientée DH)
 
@@ -331,7 +373,7 @@ Contenus :
 ### **ANR Medusa (projet déposé)** sur Surveillance et journalisme
 → Enjeux de **médiation algorithmique** et de gouvernance des traces.
 
-### ** des prolongations**
+### **Des prolongations**
 → Finalisation des WIP  
 → des bonus ([personas liés à la matrice](https://oledeuff.github.io/MatrioscIA\personas.html), autoests de positionnement, ludification ?)
 → de nouvelles publications (articles, chapitres, conférences, etc.)
