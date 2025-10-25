@@ -1,0 +1,80 @@
+[
+  {
+    "categorie_deduite": "Profil socio‑économique",
+    "description": "Profession, niveau d’études, revenus approximés",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Vie personnelle",
+    "description": "Habitudes, loisirs, déplacements",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Relations personnelles ou parentales",
+    "description": "Graphes sociaux, co‑présences",
+    "indices": "",
+    "ia": "Oui"
+  },
+  {
+    "categorie_deduite": "Préférences politiques, sexuelles, religieuses",
+    "description": "Likes, abonnements, dons",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Identification (désanonymisation)",
+    "description": "Lien entre alias et identité réelle",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Lieux visités",
+    "description": "Trajectoires, POI",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Vie cachée / Identités multiples",
+    "description": "Double vie numérique",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Activités illicites",
+    "description": "Fraudes, ventes interdites",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Identification de lieux",
+    "description": "Reconnaissance de sites",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Capacités techniques / TTP",
+    "description": "Outils et méthodes probables",
+    "indices": "",
+    "ia": "Partiel"
+  },
+  {
+    "categorie_deduite": "Surface d’exposition",
+    "description": "Actifs exposés et dépendances",
+    "indices": "",
+    "ia": "Oui"
+  },
+  {
+    "categorie_deduite": "Influence / amplification",
+    "description": "Réseaux de diffusion",
+    "indices": "",
+    "ia": "Oui"
+  },
+  {
+    "categorie_deduite": "Vulnérabilités procédurales",
+    "description": "Process à risque",
+    "indices": "",
+    "ia": "Non"
+  }
+]

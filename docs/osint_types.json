@@ -1,0 +1,112 @@
+[
+  {
+    "famille": "Personnelles",
+    "type_info": "Identité réelle",
+    "details": "Nom, prénom, alias, identifiants persistants"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Pseudonymes d’utilisateurs",
+    "details": "Handles, UID, cross‑platform mapping"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Adresses e‑mail",
+    "details": "MX, leaks, gravatars"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Numéros de téléphone",
+    "details": "Reverse lookup, formats E.164"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Date et lieu de naissance",
+    "details": "Annuaires, registres, posts"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Adresses postales",
+    "details": "Cadastre, données publiques, posts livraisons"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Carrière et formation",
+    "details": "CV, diplômes, LinkedIn, ORCID"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Photographies et visuels",
+    "details": "EXIF, contexte, reconnaissances d’objets"
+  },
+  {
+    "famille": "Personnelles",
+    "type_info": "Biométrie « soft »",
+    "details": "Voix, démarche, morphologie (prudence légale)"
+  },
+  {
+    "famille": "Organisationnelles",
+    "type_info": "Identité légale / Noms d’entreprise",
+    "details": "RCS, SIREN/SIRET, LEI"
+  },
+  {
+    "famille": "Organisationnelles",
+    "type_info": "Identifiants officiels",
+    "details": "DUNS, VAT, EIN"
+  },
+  {
+    "famille": "Organisationnelles",
+    "type_info": "Site web et sous‑domaines",
+    "details": "DNS, historiques, CDN"
+  },
+  {
+    "famille": "Organisationnelles",
+    "type_info": "Coordonnées GPS de sites",
+    "details": "Registres, géocodage, photos"
+  },
+  {
+    "famille": "Organisationnelles",
+    "type_info": "Organigrammes / équipes",
+    "details": "Annuaires, LinkedIn, Git commits"
+  },
+  {
+    "famille": "Organisationnelles",
+    "type_info": "Chaînes d’approvisionnement",
+    "details": "Douanes, documents logistiques"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Adresses IP",
+    "details": "Geoloc, ASNs, BGP, historique"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Hébergement et CDN",
+    "details": "Cloud, régions, buckets publics"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Certificats TLS / CT logs",
+    "details": "Émetteur, SAN, validité"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Systèmes exposés",
+    "details": "Bannières services, versions, ports"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Télémétrie mobile et SDKs",
+    "details": "Trackers, endpoints, analytics"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Artefacts techniques",
+    "details": "Fichiers .env, clés, build tags (éthique!)"
+  },
+  {
+    "famille": "Infrastructurelles",
+    "type_info": "Données on‑chain",
+    "details": "Transactions, smart contracts"
+  }
+]

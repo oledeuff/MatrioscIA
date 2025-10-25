@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Potentialités de recherche de l’OSINT</title>
+<style>
+  :root{
+    --bg:#ffffff; --text:#0f172a; --muted:#5b687c; --line:#e5e7eb; --panel:#ffffff;
+    --shadow:0 6px 30px rgba(15,23,42,.08);
+    --c1:#2563eb; --c2:#16a34a; --c3:#9333ea;
+    --fam-p:#f59e0b; --fam-o:#3b82f6; --fam-i:#8b5cf6;
+    --ia-oui:#16a34a; --ia-partiel:#eab308; --ia-non:#64748b;
+  }
+  [data-theme="dark"]{
+    --bg:#0f1220; --text:#e8ecff; --muted:#9aa3d1; --line:#223055; --panel:#121737;
+    --shadow:0 6px 30px rgba(2,6,23,.45);
+    --c1:#3b82f6; --c2:#22c55e; --c3:#a855f7;
+    --fam-p:#f59e0b; --fam-o:#60a5fa; --fam-i:#b388eb;
+    --ia-oui:#22c55e; --ia-partiel:#fbbf24; --ia-non:#94a3b8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{padding:22px 26px;border-bottom:1px solid var(--line);background:#fafafa}
+  [data-theme="dark"] header{background:color-mix(in oklab, var(--bg) 92%, black 8%)}
+  .title{margin:0;font-size:22px;font-weight:800}
+  .sub{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.35}
+  .wrap{padding:22px 22px 28px;max-width:1280px;margin:0 auto}
+  .controls{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+  input[type="search"]{flex:1;min-width:280px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 12px;font-size:14px;outline:none;box-shadow:var(--shadow);color:var(--text)}
+  .toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:12px;padding:10px 12px;cursor:pointer;box-shadow:var(--shadow)}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .col{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+  .col-head{display:flex;justify-content:space-between;align-items:center;padding:14px;color:#fff;border-bottom:1px solid var(--line)}
+  .col-head .ttl{font-weight:800}
+  .c1 .col-head{background:var(--c1)} .c2 .col-head{background:var(--c2)} .c3 .col-head{background:var(--c3)}
+  .btns{display:flex;gap:8px}
+  .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:10px;padding:6px 10px;font-size:12px;cursor:pointer}
+  .btn:hover{background:rgba(255,255,255,.25)}
+  .list{padding:12px 14px 18px;max-height:62vh;overflow:auto}
+  .item{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0}
+  .item .k{font-weight:700}
+  .muted{color:var(--muted)}
+  .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;margin-right:6px;color:#fff}
+  .tag.p{background:var(--fam-p)} .tag.o{background:var(--fam-o)} .tag.i{background:var(--fam-i)}
+  .iab{display:inline-block;padding:2px 8px;border-radius:8px;font-size:12px;margin-left:6px;color:#fff}
+  .iab.oui{background:var(--ia-oui)} .iab.partiel{background:var(--ia-partiel); color:#111} .iab.non{background:var(--ia-non)}
+  .lex{margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+  .lex h2{margin:0 0 10px 0;font-size:18px}
+  .lex .l-controls{display:flex;gap:8px;align-items:center;margin:8px 0 14px}
+  .lex input{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;box-shadow:var(--shadow);color:var(--text)}
+  .lex-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .lex-item{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--panel)}
+  .lex-item .term{font-weight:700;font-size:13px}
+  .lex-item .def{font-size:12px;color:var(--muted)}
+  footer{color:var(--muted);font-size:12px;margin-top:18px}
+  @media (max-width: 980px){ .grid{grid-template-columns:1fr} .lex-list{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="title">Potentialités de recherche de l’OSINT</div>
+  <div class="sub">Version 2025 du premier tableau de l’article : Le Deuff, O. (2021). L’Open Source Intelligence (OSINT) comme prisme hyperdocumentaire. I2D - Information, données & documents, 1(1), 56–62. https://doi-org.ezproxy.u-bordeaux-montaigne.fr/10.3917/i2d.211.0056</div>
+</header>
+<div class="wrap">
+  <div class="controls">
+    <input id="q" type="search" placeholder="Rechercher dans les trois colonnes…">
+    <button id="themeToggle" class="toggle" title="Basculer le thème">🌞 Thème clair</button>
+  </div>
+  <div class="grid" id="grid">
+    <section class="col c1" id="col1">
+      <div class="col-head">
+        <div class="ttl">Principales sources</div>
+        <div class="btns">
+          <button class="btn" onclick="exportCSV('sources')">CSV</button>
+          <button class="btn" onclick="exportJSON('sources')">JSON</button>
+        </div>
+      </div>
+      <div class="list" id="list-sources"></div>
+    </section>
+    <section class="col c2" id="col2">
+      <div class="col-head">
+        <div class="ttl">Types d’informations & métadonnées</div>
+        <div class="btns">
+          <button class="btn" onclick="exportCSV('types')">CSV</button>
+          <button class="btn" onclick="exportJSON('types')">JSON</button>
+        </div>
+      </div>
+      <div class="list" id="list-types"></div>
+    </section>
+    <section class="col c3" id="col3">
+      <div class="col-head">
+        <div class="ttl">Éléments extraits ou déduits</div>
+        <div class="btns">
+          <button class="btn" onclick="exportCSV('dedu')">CSV</button>
+          <button class="btn" onclick="exportJSON('dedu')">JSON</button>
+        </div>
+      </div>
+      <div class="list" id="list-dedu"></div>
+    </section>
+  </div>
+
+  <section class="lex" id="lexique">
+    <h2>Lexique (définitions en une ligne)</h2>
+    <div class="l-controls"><input id="qlex" type="search" placeholder="Rechercher dans le lexique…"></div>
+    <div class="lex-list" id="lex-list"></div>
+  </section>
+
+  <footer>© 2025 MatrioscIA — Thèmes clair/sombre, exports CSV/JSON, lexique en fin de page.</footer>
+</div>
+
+<script>
+(function(){
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('osint_theme');
+  if(saved) root.setAttribute('data-theme', saved);
+  updateBtn();
+  btn.addEventListener('click', ()=>{
+    const cur = root.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('osint_theme', next);
+    updateBtn();
+  });
+  function updateBtn(){
+    const cur = root.getAttribute('data-theme') || 'light';
+    btn.textContent = (cur==='dark') ? '🌙 Thème sombre' : '🌞 Thème clair';
+  }
+})();
+
+function esc(s){return (''+s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function famClass(f){ return f==='Personnelles' ? 'p' : (f==='Organisationnelles' ? 'o' : 'i'); }
+function iaBadge(v){ const cls = v==='Oui' ? 'oui' : (v==='Non' ? 'non' : 'partiel'); return `<span class="iab ${cls}">IA : ${v}</span>`; }
+
+const PATHS = {
+  sources: 'osint_sources.json',
+  types:   'osint_types.json',
+  dedu:    'osint_deductions.json'
+};
+// Inline fallback uses the exact latest JSON content
+const FALLBACK = {"sources": [{"categorie": "Documents et sites officiels", "description": "Portails gouvernementaux, JO, décisions de justice, marchés publics", "exemples": ""}, {"categorie": "Open Data", "description": "Portails nationaux/locaux, data thématiques", "exemples": ""}, {"categorie": "Données bibliographiques", "description": "Catalogues, bases de références, identifiants pérennes", "exemples": ""}, {"categorie": "Documents scientifiques", "description": "Préprints, revues, dépôts institutionnels", "exemples": ""}, {"categorie": "Médias", "description": "Presse, TV/Radio, agrégateurs", "exemples": ""}, {"categorie": "Médias sociaux", "description": "Réseaux et micro-blogs", "exemples": ""}, {"categorie": "Sites d’organisations", "description": "ONG, partis, syndicats, entreprises", "exemples": ""}, {"categorie": "Sites personnels et blogs", "description": "Pages perso, portfolios, newsletters", "exemples": ""}, {"categorie": "Outils de recherche et de veille", "description": "Meta-moteurs, alertes, flux", "exemples": ""}, {"categorie": "Bases et banques de données", "description": "Registres, annuaires, bases spécialisées", "exemples": ""}, {"categorie": "Données commerciales", "description": "Data brokers, marketing, e-commerce", "exemples": ""}, {"categorie": "Leaks", "description": "Dumps, paste sites, collections", "exemples": ""}, {"categorie": "Dark web", "description": "Forums, marketplaces, leak sites", "exemples": ""}, {"categorie": "Plateformes de messagerie publiques", "description": "Canaux/Groupes ouverts", "exemples": ""}, {"categorie": "Dépôts de code et registres packages", "description": "Repos, commits, issues, paquets", "exemples": ""}, {"categorie": "Archives web", "description": "Captures temporelles", "exemples": ""}, {"categorie": "Imagerie satellite et observation", "description": "EO, haute résolution, thermiques", "exemples": ""}, {"categorie": "Trafic maritime et aérien", "description": "Positions temps réel / historiques", "exemples": ""}, {"categorie": "Scan d’Internet/IoT", "description": "Bannières services, certificats, devices", "exemples": ""}, {"categorie": "DNS/Certificats/WHOIS/RDAP", "description": "Résolutions, historiques, CT logs", "exemples": ""}, {"categorie": "Transparence publicitaire", "description": "Bibliothèques d’annonces", "exemples": ""}, {"categorie": "Registres de transparence politique", "description": "Financement, lobbying", "exemples": ""}, {"categorie": "App stores et télémétrie apps", "description": "Permissions, versions, SDKs", "exemples": ""}, {"categorie": "Blockchain / On‑chain", "description": "Explorateurs, wallets, contrats", "exemples": ""}, {"categorie": "Données géo collaboratives", "description": "Édits, POI, tracés", "exemples": ""}, {"categorie": "Streams et live", "description": "Vidéos live, VOD", "exemples": ""}, {"categorie": "Audio social", "description": "Salons et replays", "exemples": ""}, {"categorie": "Journaux systèmes exposés", "description": "Dashboards non protégés", "exemples": ""}], "types": [{"famille": "Personnelles", "type_info": "Identité réelle", "details": "Nom, prénom, alias, identifiants persistants"}, {"famille": "Personnelles", "type_info": "Pseudonymes d’utilisateurs", "details": "Handles, UID, cross‑platform mapping"}, {"famille": "Personnelles", "type_info": "Adresses e‑mail", "details": "MX, leaks, gravatars"}, {"famille": "Personnelles", "type_info": "Numéros de téléphone", "details": "Reverse lookup, formats E.164"}, {"famille": "Personnelles", "type_info": "Date et lieu de naissance", "details": "Annuaires, registres, posts"}, {"famille": "Personnelles", "type_info": "Adresses postales", "details": "Cadastre, données publiques, posts livraisons"}, {"famille": "Personnelles", "type_info": "Carrière et formation", "details": "CV, diplômes, LinkedIn, ORCID"}, {"famille": "Personnelles", "type_info": "Photographies et visuels", "details": "EXIF, contexte, reconnaissances d’objets"}, {"famille": "Personnelles", "type_info": "Biométrie « soft »", "details": "Voix, démarche, morphologie (prudence légale)"}, {"famille": "Organisationnelles", "type_info": "Identité légale / Noms d’entreprise", "details": "RCS, SIREN/SIRET, LEI"}, {"famille": "Organisationnelles", "type_info": "Identifiants officiels", "details": "DUNS, VAT, EIN"}, {"famille": "Organisationnelles", "type_info": "Site web et sous‑domaines", "details": "DNS, historiques, CDN"}, {"famille": "Organisationnelles", "type_info": "Coordonnées GPS de sites", "details": "Registres, géocodage, photos"}, {"famille": "Organisationnelles", "type_info": "Organigrammes / équipes", "details": "Annuaires, LinkedIn, Git commits"}, {"famille": "Organisationnelles", "type_info": "Chaînes d’approvisionnement", "details": "Douanes, documents logistiques"}, {"famille": "Infrastructurelles", "type_info": "Adresses IP", "details": "Geoloc, ASNs, BGP, historique"}, {"famille": "Infrastructurelles", "type_info": "Hébergement et CDN", "details": "Cloud, régions, buckets publics"}, {"famille": "Infrastructurelles", "type_info": "Certificats TLS / CT logs", "details": "Émetteur, SAN, validité"}, {"famille": "Infrastructurelles", "type_info": "Systèmes exposés", "details": "Bannières services, versions, ports"}, {"famille": "Infrastructurelles", "type_info": "Télémétrie mobile et SDKs", "details": "Trackers, endpoints, analytics"}, {"famille": "Infrastructurelles", "type_info": "Artefacts techniques", "details": "Fichiers .env, clés, build tags (éthique!)"}, {"famille": "Infrastructurelles", "type_info": "Données on‑chain", "details": "Transactions, smart contracts"}], "dedu": [{"categorie_deduite": "Profil socio‑économique", "description": "Profession, niveau d’études, revenus approximés", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Vie personnelle", "description": "Habitudes, loisirs, déplacements", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Relations personnelles ou parentales", "description": "Graphes sociaux, co‑présences", "indices": "", "ia": "Oui"}, {"categorie_deduite": "Préférences politiques, sexuelles, religieuses", "description": "Likes, abonnements, dons", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Identification (désanonymisation)", "description": "Lien entre alias et identité réelle", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Lieux visités", "description": "Trajectoires, POI", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Vie cachée / Identités multiples", "description": "Double vie numérique", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Activités illicites", "description": "Fraudes, ventes interdites", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Identification de lieux", "description": "Reconnaissance de sites", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Capacités techniques / TTP", "description": "Outils et méthodes probables", "indices": "", "ia": "Partiel"}, {"categorie_deduite": "Surface d’exposition", "description": "Actifs exposés et dépendances", "indices": "", "ia": "Oui"}, {"categorie_deduite": "Influence / amplification", "description": "Réseaux de diffusion", "indices": "", "ia": "Oui"}, {"categorie_deduite": "Vulnérabilités procédurales", "description": "Process à risque", "indices": "", "ia": "Non"}]};
+
+async function loadAll(){
+  const out = {};
+  for (const k of Object.keys(PATHS)){
+    try{ const r = await fetch(PATHS[k]); if(!r.ok) throw 0; out[k] = await r.json(); }
+    catch(e){ out[k] = FALLBACK[k]; }
+  }
+  return out;
+}
+
+function renderAll(DATA, q=''){
+  const sbox = document.getElementById('list-sources'); sbox.innerHTML='';
+  DATA.sources.filter(r => (r.categorie+r.description+r.exemples).toLowerCase().includes(q.toLowerCase()))
+              .forEach(r => sbox.insertAdjacentHTML('beforeend', `
+                <div class="item">
+                  <div class="k">${esc(r.categorie||'')}</div>
+                  <div class="muted">${esc(r.description||'')}</div>
+                  <div>${esc(r.exemples||'')}</div>
+                </div>`));
+
+  const tbox = document.getElementById('list-types'); tbox.innerHTML='';
+  DATA.types.filter(r => (r.famille+r.type_info+r.details).toLowerCase().includes(q.toLowerCase()))
+            .forEach(r => tbox.insertAdjacentHTML('beforeend', `
+              <div class="item">
+                <div><span class="tag ${famClass(r.famille)}">${esc(r.famille||'')}</span> <span class="k">${esc(r.type_info||'')}</span></div>
+                <div class="muted">${esc(r.details||'')}</div>
+              </div>`));
+
+  const dbox = document.getElementById('list-dedu'); dbox.innerHTML='';
+  DATA.dedu.filter(r => (r.categorie_deduite+r.description+r.indices).toLowerCase().includes(q.toLowerCase()))
+           .forEach(r => dbox.insertAdjacentHTML('beforeend', `
+              <div class="item">
+                <div class="k">${esc(r.categorie_deduite||'')} ${iaBadge(r.ia||'Partiel')}</div>
+                <div class="muted">${esc(r.description||'')}</div>
+                <div>${esc(r.indices||'')}</div>
+              </div>`));
+
+  document.getElementById('q').oninput = (e)=>renderAll(DATA, e.target.value);
+  window.__DATA = DATA;
+}
+
+function toCSV(rows){
+  if (!rows || !rows.length) return '';
+  const headers = Object.keys(rows[0]);
+  const escField = v => ('"'+String(v).replace(/"/g,'""')+'"');
+  const lines = [headers.join(',')];
+  for (const r of rows) lines.push(headers.map(h => escField(r[h] ?? '')).join(','));
+  return lines.join('\n');
+}
+function download(filename, text, mime){
+  const blob = new Blob([text], {type: mime});
+  const url  = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 0);
+}
+function exportCSV(which) { download('OSINT_'+which+'.csv', toCSV(window.__DATA[which]), 'text/csv;charset=utf-8'); }
+function exportJSON(which) { download('OSINT_'+which+'.json', JSON.stringify(window.__DATA[which], null, 2), 'application/json'); }
+
+// Extended Lexicon (complete)
+const LEXICON = [["Archives web (Wayback, Archive.today)", "Copies datées de pages pour consulter l’historique d’un site."], ["App stores / Télémétrie", "Fiches d’applications (permissions, SDK) et traces techniques collectées par les apps."], ["Bases / Banques de données", "Répertoires spécialisés (brevets, entreprises, normes, essais cliniques)."], ["Blockchain / On-chain", "Registres publics de transactions et de contrats intelligents."], ["Données bibliographiques (DOI, ORCID, Crossref)", "Identifiants et métadonnées de publications/auteurs."], ["Données commerciales / Data brokers", "Fichiers vendus (marketing, localisation, profils sociodémographiques)."], ["Dépôts de code (GitHub, GitLab, Bitbucket)", "Code source, issues, PR, commits et métadonnées associées."], ["DNS / WHOIS / RDAP / CT logs", "Infos sur les domaines, propriétaires et certificats TLS."], ["Imagerie satellite / EO", "Observation de la Terre (résolutions variées, constellations publiques/privées)."], ["Journaux / Dashboards exposés", "Interfaces de monitoring (Grafana, Kibana) parfois laissées publiques."], ["Leaks / Paste sites / Dark web", "Données exfiltrées diffusées illégalement ou semi-publiquement."], ["Médias / Agrégateurs", "Presse, TV/radio, sites de news, agrégateurs (Google News, Factiva)."], ["Messageries publiques", "Canaux et groupes ouverts (Telegram, Discord, Slack publics)."], ["Open Data", "Portails publics de données (national, local, thématique), licences ouvertes."], ["Outils de recherche & veille (moteurs, RSS)", "Recherche plein-texte, alertes, flux d’actualisation."], ["Registres / Annuaires", "Informations légales/administratives d’entités (RCS, HATVP, EU Register)."], ["Réseaux sociaux", "Plateformes de partage (posts, profils, commentaires, graphes, ads libraries)."], ["Sites d’organisations", "Pages officielles d’entreprises, ONG, partis, syndicats, rapports annuels."], ["Sites personnels / Blogs / Newsletters", "Publications individuelles ou éditoriales autonomes."], ["Streams & Live / Audio social", "Contenus diffusés en direct (vidéo/audio), Spaces, Twitch, YouTube Live."], ["Trafic maritime (AIS) / aérien (ADS-B)", "Positions temps réel/historique de navires/aéronefs."], ["Transparence publicitaire", "Bibliothèques d’annonces (politiques/commerciales) avec critères ciblage."], ["Transparence politique", "Financements, lobbys, intérêts déclarés (registre transparence)."], ["Identité réelle", "Nom, prénoms, alias reliés à une personne physique."], ["Pseudonymes / Handles / UID", "Identifiants utilisés sur les plateformes et mappages cross-plateformes."], ["E-mail", "Adresses, empreintes (avatars, leaks), enregistrements DNS MX."], ["Téléphone", "Numéros, formats, annuaires inversés et empreintes associées."], ["Naissance", "Date, lieu, registres et mentions publiques."], ["Adresse postale", "Lieux d’habitation/activité identifiés via sources ouvertes."], ["Carrière / Formation", "CV, diplômes, profils (LinkedIn, ORCID), habilitations."], ["Photographies / Visuels", "Images + métadonnées (EXIF) et contexte d’apparition."], ["Biométrie « soft »", "Voix, démarche : indices contextuels (prudence légale)."], ["Nom légal / Raison sociale", "Identité enregistrée d’une entité (entreprise/asso, etc.)."], ["Identifiants officiels", "SIREN/SIRET, LEI, DUNS, TVA/VAT, EIN."], ["Sites / Sous-domaines", "Cartographie des domaines et services associés (DNS, historiques)."], ["Coordonnées de sites", "Adresses postales, géolocalisation, coordonnées GPS."], ["Organigrammes / Équipes", "Structures, rôles, comptes publics, board members."], ["Chaîne d’approvisionnement", "Partenaires, flux logistiques, données douanières."], ["IP / ASN / BGP", "Adresses IP, opérateurs réseau, routes Internet (routage inter-AS)."], ["Hébergement / CDN / Buckets", "Serveurs, régions cloud, stockages parfois exposés (S3, GCS)."], ["Certificats TLS / CT logs", "Preuve d’identité chiffrée des domaines, historique public de certificats."], ["Systèmes exposés", "Services ouverts (bannières/versions), ports, surfaces d’attaque."], ["Télémétrie mobile / SDK", "Collectes techniques embarquées par les applications."], ["Artefacts techniques", "Fichiers de config/variables (prudence éthique et légale)."], ["Données on-chain", "Traces techniques liées à des actifs et contrats blockchain."], ["Profil socio-économique", "Métier, études, niveau de revenus approximatif (indices)."], ["Vie personnelle", "Habitudes, loisirs, rythmes et déplacements."], ["Relations / Graphes", "Liens entre personnes/comptes (co-présences, mentions)."], ["Préférences sensibles", "Opinions, religions, sexualité — prudence et minimisation."], ["Désanonymisation", "Rapprochement alias ↔ identité réelle (validation humaine)."], ["Lieux visités", "Trajets, points d’intérêt, habitudes de mobilité."], ["Identités multiples / Vie cachée", "Empreintes divergentes d’une même personne."], ["Activités illicites", "Fraude, vente illicite, blanchiment, etc."], ["Reconnaissance de lieux", "Matching d’images/vidéos avec la cartographie (SIG)."], ["Capacités techniques / TTP", "Outils, techniques et procédures probables d’un acteur."], ["Surface d’exposition", "Actifs accessibles et dépendances externes."], ["Influence / Amplification", "Portée, réseaux de diffusion, bots/ads."], ["Vulnérabilités procédurales", "Failles de processus organisationnels (non techniques)."], ["AIS", "Automatic Identification System — localisation/identité des navires."], ["ADS-B", "Automatic Dependent Surveillance-Broadcast — position/identité d’aéronefs."], ["ASN", "Autonomous System Number — identifiant de réseau sur Internet."], ["BGP", "Border Gateway Protocol — protocole de routage inter-réseaux."], ["CT logs", "Certificate Transparency — registres publics de certificats TLS."], ["DNS", "Domain Name System — résolution noms ↔ adresses IP."], ["EO", "Earth Observation — observation de la Terre (satellites)."], ["EXIF", "Métadonnées d’images (date, appareil, parfois GPS)."], ["LEI", "Legal Entity Identifier — identifiant mondial d’entité légale."], ["MX", "Mail eXchanger — serveurs de courrier déclarés en DNS pour un domaine."], ["RDAP / WHOIS", "Services pour interroger noms de domaine et titulaires."], ["SDK", "Software Development Kit — briques logicielles intégrées dans des apps."], ["TTP", "Tactics, Techniques and Procedures — manières d’opérer d’un acteur."], ["UID", "Unique Identifier — identifiant unique d’un compte ou objet."]];
+function renderLex(q=''){
+  const box = document.getElementById('lex-list'); box.innerHTML='';
+  LEXICON.filter(([t,d]) => (t+' '+d).toLowerCase().includes((q||'').toLowerCase()))
+         .forEach(([t,d]) => box.insertAdjacentHTML('beforeend', `
+           <div class="lex-item"><div class="term">${esc(t)}</div><div class="def">${esc(d)}</div></div>`));
+}
+document.getElementById('qlex').addEventListener('input', e => renderLex(e.target.value));
+
+loadAll().then(DATA => { window.__DATA = DATA; renderAll(DATA); });
+renderLex();
+</script>
+</body>
+</html>
