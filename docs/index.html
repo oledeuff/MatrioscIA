@@ -47,13 +47,24 @@
     .hero-full{padding:48px 0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border-bottom:1px solid rgba(255,255,255,.08)}
     .hero-inner{max-width:1100px;margin:0 auto;padding:0 24px}
     .hero-full p{color:var(--muted);max-width:unset}
+    /* Matrioschka controls */
+    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);cursor:pointer}
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .matrio{font-size:20px;margin-right:8px}
+    /* Details sections */
+    details.section{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);margin:24px 0}
+    details.section > summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:10px}
+    details.section > summary::-webkit-details-marker{display:none}
+    details.section[open] > summary{border-bottom:1px solid rgba(255,255,255,.06)}
+    .section-title{font-size:22px;margin:0}
     /* Blocks */
-    .grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:20px}
+    .grid{display:grid;grid-template-columns:1fr;gap:22px;margin:20px 18px}
     @media(min-width:880px){.grid{grid-template-columns:1fr 1fr}}
     .block{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
       border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
     .block .head{display:flex;align-items:center;justify-content:space-between;padding:18px 18px 0 18px}
-    .block h2{font-size:20px;margin:0}
+    .block h2{font-size:20px;margin:0;display:flex;align-items:center;gap:8px}
     .tag{font-size:12px;color:#0b0c10;background:var(--accent);padding:4px 8px;border-radius:999px}
     .content{padding:14px 18px 20px;color:var(--muted)}
     .thumb{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
@@ -63,8 +74,6 @@
     .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12)}
     .pill:hover{background:rgba(255,255,255,.06)}
-    /* Section titles */
-    .section-title{margin:50px 0 14px;font-size:24px}
     /* Footer */
     footer{margin:40px 0 60px;color:var(--muted);font-size:14px}
     .credits{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -91,7 +100,6 @@
         <a href="#ressources">Ressources</a>
       </div>
       <a class="github" href="https://github.com/oledeuff/MatrioscIA" target="_blank" rel="noopener" aria-label="Espace GitHub du projet">
-        <!-- GitHub mark (inline SVG) -->
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58 0-.28-.01-1.02-.02-2-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.91 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.59-2.81 5.6-5.49 5.89.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.29 0 .32.22.69.83.58A12 12 0 0 0 12 .5Z"/></svg>
         <span>Projet</span>
       </a>
@@ -104,225 +112,262 @@
       <h1>MatrioscIA — Hub des livrables</h1>
       <p style="margin-top:8px">MatrioscIA (<strong>MATRI</strong>ce <strong>OS</strong>int pour les <strong>C</strong>as d’usage de l’<strong>IA</strong>).</p>
       <p>Cette page réunit les productions principales du projet : bases de données, frameworks, graphes d’enquêtes, matrice de positionnement, citations & positionnements, et ressources. Chaque bloc ci‑dessous renvoie vers le livrable correspondant.</p>
+      <div class="controls" aria-label="Contrôles de dépliage">
+        <button class="btn" id="expandAll" type="button">🪆 Tout déployer</button>
+        <button class="btn" id="collapseAll" type="button">🪆 Tout réduire</button>
+      </div>
     </div>
   </header>
 
   <main class="container">
+
     <!-- SECTION 1: Investigations -->
-    <h2 id="investigations" class="section-title">Base de données des investigations OSINT</h2>
-    <section class="grid">
-      <article class="block">
-        <div class="head">
-          <h2>Investigations OSINT</h2>
-          <span class="tag">Base web</span>
-        </div>
-        <div class="content">
-          <p>Catalogue d’enquêtes OSINT documentées : cas, sources, méthodes, usages de l’IA et points de vigilance.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/investigations" target="_blank" rel="noopener">
-              <img src="assets/investigations.png" alt="Capture d’écran de la base des investigations OSINT" />
-            </a>
-            <div class="cap">Ouvrir la base des investigations</div>
+    <details id="investigations" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Base de données des investigations OSINT</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Investigations OSINT</h2>
+            <span class="tag">Base web</span>
           </div>
-        </div>
-      </article>
-    </section>
+          <div class="content">
+            <p>Catalogue d’enquêtes OSINT documentées : cas, sources, méthodes, usages de l’IA et points de vigilance.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/investigations" target="_blank" rel="noopener">
+                <img src="assets/investigations.png" alt="Capture d’écran de la base des investigations OSINT" />
+              </a>
+              <div class="cap">Ouvrir la base des investigations</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </details>
 
     <!-- SECTION 2: Outils -->
-    <h2 id="outils" class="section-title">Base de données des outils OSINT</h2>
-    <section class="grid">
-      <article class="block">
-        <div class="head">
-          <h2>Catalogue d’outils OSINT</h2>
-          <span class="tag" style="background:var(--accent-2);color:white">Catalogue</span>
-        </div>
-        <div class="content">
-          <p>Répertoire d’outils pour la collecte, la vérification, l’analyse et la visualisation. Filtrable par usages.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/catalogue" target="_blank" rel="noopener">
-              <img src="assets/catalogue.png" alt="Capture d’écran de la base des outils OSINT" />
-            </a>
-            <div class="cap">Ouvrir le catalogue d’outils</div>
+    <details id="outils" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Base de données des outils OSINT</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Catalogue d’outils OSINT</h2>
+            <span class="tag" style="background:var(--accent-2);color:white">Catalogue</span>
           </div>
-        </div>
-      </article>
-    </section>
+          <div class="content">
+            <p>Répertoire d’outils pour la collecte, la vérification, l’analyse et la visualisation. Filtrable par usages.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/catalogue" target="_blank" rel="noopener">
+                <img src="assets/catalogue.png" alt="Capture d’écran de la base des outils OSINT" />
+              </a>
+              <div class="cap">Ouvrir le catalogue d’outils</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- NEW: Potentialités de recherche de l'OSINT -->
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Potentialités de recherche de l’OSINT</h2>
+            <span class="tag" style="background:var(--accent-3)">Exploration</span>
+          </div>
+          <div class="content">
+            <p>Ce livrable recense (et illustre) ce qu’il est possible de chercher, recouper et inférer en OSINT. Travaux inspirés du prisme hyperdocumentaire décrit par Le Deuff (2021, <em>I2D</em> 1(1), 56–62).</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/potentialites" target="_blank" rel="noopener">
+                <img src="assets/potentialites-osint.png" alt="Aperçu – Potentialités de recherche de l’OSINT" />
+              </a>
+              <div class="cap">Découvrir les potentialités</div>
+            </div>
+            <div class="links">
+              <a class="pill" href="https://oledeuff.github.io/MatrioscIA/potentialites" target="_blank" rel="noopener">Ouvrir le livrable</a>
+              <a class="pill" href="https://doi.org/10.3917/i2d.211.0056" target="_blank" rel="noopener">Référence (Le Deuff 2021)</a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </details>
 
     <!-- SECTION 3: Frameworks -->
-    <h2 id="frameworks" class="section-title">Frameworks</h2>
-    <section class="grid">
-      <article class="block">
-        <div class="head">
-          <h2>OSINT Literacy</h2>
-          <span class="tag" style="background:var(--accent-3)">Référentiel</span>
-        </div>
-        <div class="content">
-          <p>Grille d’acculturation à l’OSINT : compétences, pratiques et éthique.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/framework" target="_blank" rel="noopener">
-              <img src="assets/framework-osint.png" alt="Aperçu du framework OSINT Literacy" />
-            </a>
-            <div class="cap">Voir le framework</div>
+    <details id="frameworks" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Frameworks</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>OSINT Literacy</h2>
+            <span class="tag" style="background:var(--accent-3)">Référentiel</span>
           </div>
-          <div class="links">
-            <a class="pill" href="https://github.com/oledeuff/Conferences/blob/main/ecil2025.pdf" target="_blank" rel="noopener">Slides ECIL (PDF)</a>
-            <a class="pill" href="#" title="Lien vers le résumé ECIL (à renseigner)">Résumé ECIL</a>
+          <div class="content">
+            <p>Grille d’acculturation à l’OSINT : compétences, pratiques et éthique.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/framework" target="_blank" rel="noopener">
+                <img src="assets/framework-osint.png" alt="Aperçu du framework OSINT Literacy" />
+              </a>
+              <div class="cap">Voir le framework</div>
+            </div>
+            <div class="links">
+              <a class="pill" href="https://github.com/oledeuff/Conferences/blob/main/ecil2025.pdf" target="_blank" rel="noopener">Slides ECIL (PDF)</a>
+              <a class="pill" href="#" title="Lien vers le résumé ECIL (à renseigner)">Résumé ECIL</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="block">
-        <div class="head">
-          <h2>IA &amp; OSINT Literacy </h2>
-          <span class="tag" style="background:var(--accent-3)">Référentiel</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
-        </div>
-        <div class="content">
-          <p>Extension centrée sur les interactions entre IA génératives et pratiques OSINT (opportunités, risques, méthodes).</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/OsintIAframework" target="_blank" rel="noopener">
-              <img src="assets/framework-ia-osint.png" alt="Aperçu du framework IA &amp; OSINT" />
-            </a>
-            <div class="cap">Voir l’avancement</div>
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>IA &amp; OSINT Literacy</h2>
+            <span class="tag" style="background:var(--accent-3)">Référentiel</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
           </div>
-        </div>
-      </article>
-    </section>
+          <div class="content">
+            <p>Extension centrée sur les interactions entre IA génératives et pratiques OSINT (opportunités, risques, méthodes).</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/OsintIAframework" target="_blank" rel="noopener">
+                <img src="assets/framework-ia-osint.png" alt="Aperçu du framework IA &amp; OSINT" />
+              </a>
+              <div class="cap">Voir l’avancement</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </details>
 
     <!-- SECTION 4: Graphes IA -->
-    <h2 id="graphes" class="section-title">Graphes des investigations mobilisant de l’IA</h2>
-    <section class="grid">
-      <article class="block">
-        <div class="head">
-          <h2>Enquête Bellingcat</h2>
-          <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
-        </div>
-        <div class="content">
-          <p>Cartographie des entités, sources et chaînes d’indices dans l’enquête Bellingcat.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/bellingcat" target="_blank" rel="noopener">
-              <img src="assets/bellingcat.png" alt="Aperçu du graphe Bellingcat" />
-            </a>
-            <div class="cap">Voir le graphe</div>
+    <details id="graphes" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Graphes des investigations mobilisant de l’IA</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Enquête Bellingcat</h2>
+            <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
           </div>
-        </div>
-      </article>
+          <div class="content">
+            <p>Cartographie des entités, sources et chaînes d’indices dans l’enquête Bellingcat.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/bellingcat" target="_blank" rel="noopener">
+                <img src="assets/bellingcat.png" alt="Aperçu du graphe Bellingcat" />
+              </a>
+              <div class="cap">Voir le graphe</div>
+            </div>
+          </div>
+        </article>
 
-      <article class="block">
-        <div class="head">
-          <h2>Drones – Le Monde</h2>
-          <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
-        </div>
-        <div class="content">
-          <p>Visualisation des liens et vérifications menées dans l’enquête du <em>Monde</em> sur les drones.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/drones" target="_blank" rel="noopener">
-              <img src="assets/drones.png" alt="Aperçu du graphe de l’enquête sur les drones" />
-            </a>
-            <div class="cap">Voir le graphe</div>
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Drones – Le Monde</h2>
+            <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
           </div>
-        </div>
-      </article>
+          <div class="content">
+            <p>Visualisation des liens et vérifications menées dans l’enquête du <em>Monde</em> sur les drones.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/drones" target="_blank" rel="noopener">
+                <img src="assets/drones.png" alt="Aperçu du graphe de l’enquête sur les drones" />
+              </a>
+              <div class="cap">Voir le graphe</div>
+            </div>
+          </div>
+        </article>
 
-      <article class="block">
-        <div class="head">
-          <h2>Viginum – K Portal</h2>
-          <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
-        </div>
-        <div class="content">
-          <p>Schéma d’investigation autour de l’opération <em>K Portail</em> (Viginum) : acteurs, flux, plateformes.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/kportal" target="_blank" rel="noopener">
-              <img src="assets/viginum-kportail.png" alt="Aperçu du graphe Viginum K Portail" />
-            </a>
-            <div class="cap">Voir le graphe</div>
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Viginum – K Portal</h2>
+            <span class="tag">Graphe</span><span class="tag" style="background:var(--accent-2);color:white">WIP</span>
           </div>
-          <div class="links">
-            <a class="pill" href="#" title="Lien vers le datapaper explicatif (à renseigner)">Datapaper explicatif</a>
+          <div class="content">
+            <p>Schéma d’investigation autour de l’opération <em>K Portail</em> (Viginum) : acteurs, flux, plateformes.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/kportal" target="_blank" rel="noopener">
+                <img src="assets/viginum-kportail.png" alt="Aperçu du graphe Viginum K Portail" />
+              </a>
+              <div class="cap">Voir le graphe</div>
+            </div>
+            <div class="links">
+              <a class="pill" href="#" title="Lien vers le datapaper explicatif (à renseigner)">Datapaper explicatif</a>
+            </div>
           </div>
-        </div>
-      </article>
-    </section>
+        </article>
+      </section>
+    </details>
 
     <!-- SECTION 5: Matrice -->
-    <h2 id="matrice" class="section-title">Matrice des positionnements face à l’IA</h2>
-    <section class="grid">
-      <article class="block">
-        <div class="head">
-          <h2>Matrice de positionnement</h2>
-          <span class="tag" style="background:linear-gradient(90deg,var(--accent),var(--accent-2))">Visualisation</span>
-        </div>
-        <div class="content">
-          <p>Lecture 3×3 de postures et usages (OSINT × IA) : familles, niveaux, besoins et points de vigilance.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/matrice" target="_blank" rel="noopener">
-              <img src="assets/matrice.png" alt="Aperçu de la matrice des positionnements face à l’IA" />
-            </a>
-            <div class="cap">Explorer la matrice</div>
+    <details id="matrice" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Matrice des positionnements face à l’IA</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Matrice de positionnement</h2>
+            <span class="tag" style="background:linear-gradient(90deg,var(--accent),var(--accent-2))">Visualisation</span>
           </div>
-        </div>
-      </article>
-    </section>
+          <div class="content">
+            <p>Lecture 3×3 de postures et usages (OSINT × IA) : familles, niveaux, besoins et points de vigilance.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/matrice" target="_blank" rel="noopener">
+                <img src="assets/matrice.png" alt="Aperçu de la matrice des positionnements face à l’IA" />
+              </a>
+              <div class="cap">Explorer la matrice</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </details>
 
     <!-- SECTION 6: Citations & Positionnements -->
-    <h2 id="citations" class="section-title">Citations & positionnements – OSINT et IA</h2>
-    <section class="grid">
-      <!-- Carte gauche : Définitions OSINT -->
-      <article class="block">
-        <div class="head">
-          <h2>Définitions de l’OSINT</h2>
-          <span class="tag" style="background:var(--accent-2);color:white">Références</span>
-          <span class="tag" style="background:var(--accent);color:#0b0c10">Entretiens</span>
-        </div>
-        <div class="content">
-          <p>Sélection de définitions et contours de l’OSINT (pratiques, périmètres, éthique).</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/definitions" target="_blank" rel="noopener">
-              <img src="assets/definitions.png" alt="Miniature : définitions de l’OSINT" />
-            </a>
-            <div class="cap">Aller aux définitions</div>
+    <details id="citations" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Citations & positionnements – OSINT et IA</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Définitions de l’OSINT</h2>
+            <span class="tag" style="background:var(--accent-2);color:white">Références</span>
+            <span class="tag" style="background:var(--accent);color:#0b0c10">Entretiens</span>
           </div>
-        </div>
-      </article>
+          <div class="content">
+            <p>Sélection de définitions et contours de l’OSINT (pratiques, périmètres, éthique).</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/definitions" target="_blank" rel="noopener">
+                <img src="assets/definitions.png" alt="Miniature : définitions de l’OSINT" />
+              </a>
+              <div class="cap">Aller aux définitions</div>
+            </div>
+          </div>
+        </article>
 
-      <!-- Carte droite : Usages & IA -->
-      <article class="block">
-        <div class="head">
-          <h2>Usages & positionnements face à l’IA</h2>
-          <span class="tag">Citations</span>
-          <span class="tag" style="background:var(--accent);color:#0b0c10">Entretiens</span>
-        </div>
-        <div class="content">
-          <p>Corpus de citations sur les usages, bénéfices, limites et controverses liés à l’IA.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/citationsIA" target="_blank" rel="noopener">
-              <img src="assets/citations-ia.png" alt="Miniature : citations et rapports à l’IA" />
-            </a>
-            <div class="cap">Voir les citations</div>
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Usages & positionnements face à l’IA</h2>
+            <span class="tag">Citations</span>
+            <span class="tag" style="background:var(--accent);color:#0b0c10">Entretiens</span>
           </div>
-        </div>
-      </article>
-    </section>
+          <div class="content">
+            <p>Corpus de citations sur les usages, bénéfices, limites et controverses liés à l’IA.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/citationsIA" target="_blank" rel="noopener">
+                <img src="assets/citations-ia.png" alt="Miniature : citations et rapports à l’IA" />
+              </a>
+              <div class="cap">Voir les citations</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </details>
 
-    <!-- SECTION 7: ressources et bibliographie -->
-    <h2 id="ressources" class="section-title">Ressources</h2>
-    <section class="grid">
-      <article class="block">
-        <div class="head">
-          
-          <h2>Bibliographie Zotero</h2>
-          <span class="tag">Ressources</span>
-        </div>
-        <div class="content">
-          <p>Bibliothèque collaborative du projet : articles, rapports, billets et matériaux connexes.</p>
-          <div class="thumb">
-            <a href="https://oledeuff.github.io/MatrioscIA/bibliographie" target="_blank" rel="noopener">
-              <img src="assets/zotero.png" alt="Aperçu de la bibliothèque Zotero MatrioscIA" />
-            </a>
-            <div class="cap">Ouvrir la bibliothèque</div>
+    <!-- SECTION 7: Ressources -->
+    <details id="ressources" class="section" open>
+      <summary><span class="matrio">🪆</span><h2 class="section-title">Ressources</h2></summary>
+      <section class="grid">
+        <article class="block">
+          <div class="head">
+            <h2><span class="matrio">🪆</span>Bibliographie Zotero</h2>
+            <span class="tag">Ressources</span>
           </div>
-        </div>
-      </article>
-    </section>
+          <div class="content">
+            <p>Bibliothèque collaborative du projet : articles, rapports, billets et matériaux connexes.</p>
+            <div class="thumb">
+              <a href="https://oledeuff.github.io/MatrioscIA/bibliographie" target="_blank" rel="noopener">
+                <img src="assets/zotero.png" alt="Aperçu de la bibliothèque Zotero MatrioscIA" />
+              </a>
+              <div class="cap">Ouvrir la bibliothèque</div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </details>
 
     <!-- FOOTER -->
     <footer>
@@ -333,5 +378,16 @@
       </div>
     </footer>
   </main>
+
+  <script>
+    // Expand/Collapse all
+    const expandBtn = document.getElementById('expandAll');
+    const collapseBtn = document.getElementById('collapseAll');
+    function setAll(open){
+      document.querySelectorAll('details.section').forEach(d=>{ d.open = open; });
+    }
+    expandBtn.addEventListener('click', ()=> setAll(true));
+    collapseBtn.addEventListener('click', ()=> setAll(false));
+  </script>
 </body>
 </html>
