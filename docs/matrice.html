@@ -3,41 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MatrioscIA — Matrice· 4 profils · OSINT×IA </title>
-<meta name="description" content="Typologie  : 4 profils d’usagers et matrice OSINT×IA simplifiée (exploratoire, avancé, expert). Descriptions complètes, tableur de synthèse et mode sombre/clair.">
+<title>MatrioscIA — Matrice· 4 profils · OSINT×IA</title>
+<meta name="description" content="Typologie : 4 profils d’usagers et matrice OSINT×IA simplifiée (exploratoire, avancé, expert). Descriptions complètes, tableur de synthèse et mode sombre/clair.">
 <style>
 /* THEME */
 :root{
   --bg:#0c0f1a; --panel:#0f1526; --ink:#e6e9f3; --muted:#9aa6b2; --bord:#1e2742;
   --ink-strong:#f8fafc; --accent:#93c5fd; --table-head:#0b122c; --shadow:0 14px 42px rgba(0,0,0,.45);
 
-  /* Amélioration lisibilité filtres (sombre) */
-  --control-bg:#141c33;        /* plus clair que --panel */
-  --control-bord:#2a3860;      /* plus contrasté */
-  --control-ink:#e9edf8;       /* texte */
-  --control-ph:#b4bed0;        /* placeholder */
-  --control-focus:#7aa2ff;     /* anneau focus */
+  /* Filtres (sombre) */
+  --control-bg:#141c33; --control-bord:#2a3860; --control-ink:#e9edf8; --control-ph:#b4bed0; --control-focus:#7aa2ff;
 
-  /* Couleurs profils (dark-friendly) */
-  --c-prag:#22d3ee;   /* Pragmatistes critiques */
-  --c-arti:#fbbf24;   /* Artisans du récit */
-  --c-enq:#60a5fa;    /* Enquêteurs augmentés */
-  --c-arch:#a78bfa;   /* Architectes de la preuve */
+  /* Couleurs profils */
+  --c-prag:#22d3ee; --c-arti:#fbbf24; --c-enq:#60a5fa; --c-arch:#a78bfa;
   --grad-prag:linear-gradient(135deg,#0ea5e955,#22d3ee33);
   --grad-arti:linear-gradient(135deg,#f59e0b55,#fbbf2433);
   --grad-enq:linear-gradient(135deg,#3b82f655,#60a5fa33);
   --grad-arch:linear-gradient(135deg,#8b5cf655,#a78bfa33);
+
+  /* Niveaux OSINT (teal/blue/purple) */
+  --osint-exp:#14b8a6;   /* exploratoire */
+  --osint-adv:#3b82f6;   /* avancé */
+  --osint-exp2:#7c3aed;  /* expert */
+  /* Niveaux IA (lime/amber/rose) */
+  --ia-exp:#84cc16;      /* exploratoire */
+  --ia-adv:#f59e0b;      /* avancée */
+  --ia-exp2:#f43f5e;     /* experte */
 }
 html[data-theme="light"]{
   --bg:#f6f8fc; --panel:#ffffff; --ink:#0b1220; --muted:#4b5563; --bord:#e3e8f4;
   --ink-strong:#0b122c; --accent:#3b82f6; --table-head:#eff3fb; --shadow:0 12px 28px rgba(2,6,23,.12);
 
-  /* Filtres (clair) */
-  --control-bg:#ffffff;
-  --control-bord:#d7deee;
-  --control-ink:#0b1220;
-  --control-ph:#6b7280;
-  --control-focus:#3b82f6;
+  --control-bg:#ffffff; --control-bord:#d7deee; --control-ink:#0b1220; --control-ph:#6b7280; --control-focus:#3b82f6;
 
   --c-prag:#06b6d4; --c-arti:#f59e0b; --c-enq:#3b82f6; --c-arch:#8b5cf6;
   --grad-prag:linear-gradient(135deg,#06b6d43a,#22d3ee22);
@@ -47,15 +44,15 @@ html[data-theme="light"]{
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}
+
 /* HEADER */
 .header{padding:18px 16px;border-bottom:1px solid var(--bord);background:linear-gradient(180deg,rgba(148,163,184,.08),transparent)}
 .header .wrap{max-width:1160px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between}
 .title{display:flex;align-items:center;gap:12px}
-.title h1{margin:0;font-size:20px;color:var(--ink-strong)}
-.badge-app{font-size:12px;padding:4px 10px;border:1px solid var(--bord);border-radius:999px;background:rgba(255,255,255,.04)}
+.title h1{margin:0;font-size:22px;color:var(--ink-strong);letter-spacing:.2px}
 .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 
-/* FILTRES — meilleur contraste + focus visible */
+/* Filtres */
 .controls input,.controls select,.btn{
   padding:10px 12px;border-radius:12px;border:1px solid var(--control-bord);
   background:var(--control-bg);color:var(--control-ink);
@@ -66,50 +63,97 @@ body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,R
 .controls input:focus,.controls select:focus{box-shadow:0 0 0 3px color-mix(in srgb, var(--control-focus) 30%, transparent);border-color:var(--control-focus)}
 .controls a.btn{text-decoration:none}
 .btn{cursor:pointer}
-
-/* Bouton Réinitialiser plus lisible */
-#resetBtn{
-  font-weight:600;
-  border-color:var(--control-bord);
-}
+#resetBtn{font-weight:600;border-color:var(--control-bord)}
 #resetBtn:hover{border-color:var(--control-focus)}
 
 /* WRAP */
 .wrap{max-width:1160px;margin:0 auto;padding:18px 16px}
+
 /* GRID 2 COLS */
 .grid{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(320px,1fr))}
 @media (max-width:780px){ .grid{grid-template-columns:1fr} }
+
 /* CARD */
-.card{position:relative;overflow:hidden;border:1px solid var(--bord);border-radius:16px;background:
+.card{
+  position:relative;overflow:hidden;border:1px solid var(--bord);border-radius:16px;
+  background:
     radial-gradient(1200px 400px at -10% -10%, rgba(255,255,255,.06) 0%, transparent 60%),
     radial-gradient(900px 300px at 110% -20%, rgba(255,255,255,.05) 0%, transparent 60%),
     var(--panel);
   box-shadow:var(--shadow);
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
 .card:hover{transform:translateY(-2px);border-color:color-mix(in srgb, var(--accent) 30%, var(--bord));box-shadow:0 18px 50px rgba(0,0,0,.55)}
 .ribbon{height:70px;background:var(--grad);}
 .card-head{display:flex;align-items:flex-end;gap:10px;padding:0 16px;margin-top:-48px}
-.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid var(--bord);padding:6px 10px;border-radius:999px;font-size:12px}
+
+/* >>> Catégorie (plus lisible) */
+.pill{
+  display:inline-flex;gap:10px;align-items:center;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--bord);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:15px;          /* + lisible */
+  font-weight:700;         /* + fort */
+  letter-spacing:.2px;
+  color:var(--ink-strong);
+}
 .dot{width:10px;height:10px;border-radius:999px;display:inline-block}
-.card h3{margin:8px 16px 6px;font-size:18px;color:var(--ink-strong)}
-.meta{margin:-2px 16px 10px;color:var(--muted);font-size:12.5px}
+
+/* TITRES DANS LES CARTES */
+.card h3{display:none}     /* on masque l'ancien H3 */
 .card section{padding:0 16px 14px}
-.card section h4{margin:10px 0 6px;font-size:13.5px;color:var(--ink-strong)}
+.card section h4{
+  margin:12px 0 6px;
+  font-size:14px;          /* même niveau pour tous (Orientation/IA/Hyperdoc) */
+  color:var(--ink-strong);
+  letter-spacing:.15px;
+}
 .card section p{margin:0 0 8px;line-height:1.6}
-.list{margin:0;padding-left:18px}
 .sep{height:1px;background:var(--bord);margin:6px 16px}
+
+/* META + BADGES NIVEAUX */
+.meta{
+  margin:6px 16px 12px;
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+  color:var(--muted);font-size:13px
+}
+.level{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:4px 10px;border-radius:999px;border:1px solid transparent;
+  font-size:12.5px;font-weight:600; letter-spacing:.15px;
+  background:rgba(255,255,255,.04);
+}
+.level .dot{width:8px;height:8px}
+
+/* Codes couleur OSINT */
+.level.osint.exploratoire{ border-color: color-mix(in srgb, var(--osint-exp) 55%, transparent); }
+.level.osint.exploratoire .dot{ background: var(--osint-exp); }
+.level.osint.avancee{      border-color: color-mix(in srgb, var(--osint-adv) 55%, transparent); }
+.level.osint.avancee .dot{ background: var(--osint-adv); }
+.level.osint.experte{      border-color: color-mix(in srgb, var(--osint-exp2) 55%, transparent); }
+.level.osint.experte .dot{ background: var(--osint-exp2); }
+
+/* Codes couleur IA */
+.level.ia.exploratoire{    border-color: color-mix(in srgb, var(--ia-exp) 55%, transparent); }
+.level.ia.exploratoire .dot{ background: var(--ia-exp); }
+.level.ia.avancee{         border-color: color-mix(in srgb, var(--ia-adv) 55%, transparent); }
+.level.ia.avancee .dot{    background: var(--ia-adv); }
+.level.ia.experte{         border-color: color-mix(in srgb, var(--ia-exp2) 55%, transparent); }
+.level.ia.experte .dot{    background: var(--ia-exp2); }
+
 /* TABLE + MATRIX */
 .table-wrap, .matrix-wrap{overflow:auto;border:1px solid var(--bord);border-radius:14px;background:var(--panel);box-shadow:var(--shadow);margin-top:10px}
 table{border-collapse:separate;border-spacing:0;width:100%}
 th,td{border:1px solid var(--bord);padding:10px;vertical-align:top;line-height:1.45}
 thead th{background:var(--table-head)}
-tbody th{background:transparent}
 .fam{white-space:nowrap}
 .note{color:var(--muted);font-size:.95em;margin-top:8px}
 .dim{opacity:.35}
-/* FOOTER */
+
+/* FOOTER & LINKS */
 .footer{color:var(--muted);border-top:1px solid var(--bord);margin-top:20px;padding-top:10px;font-size:12.5px}
-/* LINKS */
 .links{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 0}
 .links a{padding:6px 10px;border:1px solid var(--bord);border-radius:10px;background:rgba(255,255,255,.03);text-decoration:none;color:var(--ink)}
 </style>
@@ -118,7 +162,7 @@ tbody th{background:transparent}
 <header class="header">
   <div class="wrap">
     <div class="title">
-            <h1>Typologie MatrioscIA</h1>
+      <h1>Typologie MatrioscIA</h1>
     </div>
     <div class="controls">
       <input id="q" placeholder="Rechercher (famille, notions, besoins…)" />
@@ -152,9 +196,12 @@ tbody th{background:transparent}
       <div class="card-head">
         <span class="pill"><span class="dot" style="background:var(--c-prag)"></span>Pragmatistes critiques</span>
       </div>
-      <h3>Orientation générale</h3>
-      <p class="meta"><strong>OSINT</strong> exploratoire · <strong>IA</strong> exploratoire</p>
+      <div class="meta">
+        <span class="level osint exploratoire"><span class="dot"></span>OSINT exploratoire</span>
+        <span class="level ia exploratoire"><span class="dot"></span>IA exploratoire</span>
+      </div>
       <section>
+        <h4>Orientation générale</h4>
         <p>Ce premier profil rassemble des acteurs dont la priorité est de rendre intelligibles, pour le public comme pour les pairs, les opérations de vérification effectuées sous contrainte de temps. Leur pratique s’appuie sur une panoplie Osint circonscrite : collecte raisonnée de traces ouvertes, vérification iconographique selon des protocoles standards, recoupements spatio-temporels élémentaires et contrôle de cohérence entre sources. Cette économie de moyens n’est pas un déficit de méthode ; elle correspond à un choix assumé de maintenir des procédures simples, traçables et explicables, compatibles avec le rythme de l’actualité et les exigences éditoriales de transparence.</p>
       </section>
       <div class="sep"></div>
@@ -175,9 +222,12 @@ tbody th{background:transparent}
       <div class="card-head">
         <span class="pill"><span class="dot" style="background:var(--c-arti)"></span>Artisans du récit</span>
       </div>
-      <h3>Orientation générale</h3>
-      <p class="meta"><strong>OSINT</strong> avancé · <strong>IA</strong> exploratoire</p>
+      <div class="meta">
+        <span class="level osint avancee"><span class="dot"></span>OSINT avancé</span>
+        <span class="level ia exploratoire"><span class="dot"></span>IA exploratoire</span>
+      </div>
       <section>
+        <h4>Orientation générale</h4>
         <p>Ce profil renvoie aux cellules visuelles des rédactions et aux équipes en charge des formats longs, pour lesquelles l’objectif premier est d’éclairer le public sans affaiblir la charge de preuve. L’Osint y est appréhendé comme matériau d’élucidation : établir des provenances d’images et de séquences, reconstituer des frises chronologiques, cartographier des acteurs ou des lieux, puis insérer ces éléments dans une narration lisible. La démarche repose sur une explicitation systématique des limites probatoires, afin d’éviter que la forme ne prenne le pas sur l’établissement des faits.</p>
       </section>
       <div class="sep"></div>
@@ -198,9 +248,12 @@ tbody th{background:transparent}
       <div class="card-head">
         <span class="pill"><span class="dot" style="background:var(--c-enq)"></span>Enquêteurs augmentés</span>
       </div>
-      <h3>Orientation générale</h3>
-      <p class="meta"><strong>OSINT</strong> expert · <strong>IA</strong> avancée</p>
+      <div class="meta">
+        <span class="level osint experte"><span class="dot"></span>OSINT expert</span>
+        <span class="level ia avancee"><span class="dot"></span>IA avancée</span>
+      </div>
       <section>
+        <h4>Orientation générale</h4>
         <p>Ce profil correspond aux journalistes d’investigation ou analystes confirmés dont la pratique repose sur une panoplie Osint étendue et maîtrisée. Le cœur de leur activité consiste à articuler, dans un cadre probatoire exigeant, des techniques de géolocalisation et de chronolocalisation, l’exploitation d’imageries multi-sources, l’exploration de registres hétérogènes ainsi que la construction et l’analyse de graphes relationnels.</p>
       </section>
       <div class="sep"></div>
@@ -221,9 +274,12 @@ tbody th{background:transparent}
       <div class="card-head">
         <span class="pill"><span class="dot" style="background:var(--c-arch)"></span>Architectes de la preuve</span>
       </div>
-      <h3>Orientation générale</h3>
-      <p class="meta"><strong>OSINT</strong> expert · <strong>IA</strong> experte</p>
+      <div class="meta">
+        <span class="level osint experte"><span class="dot"></span>OSINT expert</span>
+        <span class="level ia experte"><span class="dot"></span>IA experte</span>
+      </div>
       <section>
+        <h4>Orientation générale</h4>
         <p>Dans cette famille, l’enquête devient un espace d’expérimentation technique à part entière. Les acteurs conçoivent et ajustent des pipelines Osint et IA, instrumentent la collecte et l’enrichissement, posent des métriques et des seuils et documentent versions et journaux. Ils demandent un cadre de travail plus ouvert, des moyens financiers stables et une collaboration étroite entre ingénierie et investigation, afin d’aligner l’outillage sur les exigences probatoires.</p>
         <p>Deux orientations se distinguent : l’ingénierie ouverte, fondée sur des briques modulaires testées et documentées au sein de communautés qui partagent méthodes et valeurs, et la logique produit, qui privilégie des plateformes intégrées conçues pour l’échelle, au prix d’une auditabilité parfois réduite.</p>
       </section>
@@ -260,8 +316,8 @@ tbody th{background:transparent}
         <tbody>
           <tr data-famille="Pragmatistes critiques" data-osint="Osint exploratoire" data-ia="IA exploratoire">
             <td class="fam"><span class="dot" style="background:var(--c-prag)"></span>Pragmatistes critiques</td>
-            <td>Osint exploratoire</td>
-            <td>IA exploratoire</td>
+            <td><span class="level osint exploratoire"><span class="dot"></span>OSINT exploratoire</span></td>
+            <td><span class="level ia exploratoire"><span class="dot"></span>IA exploratoire</span></td>
             <td>Procédures simples, traçables et explicables.</td>
             <td>Collecte raisonnée ; vérification iconographique ; recoupements de base.</td>
             <td>Journal de vérif., captures horodatées, références croisées.</td>
@@ -269,8 +325,8 @@ tbody th{background:transparent}
           </tr>
           <tr data-famille="Artisans du récit" data-osint="Osint avancé" data-ia="IA exploratoire">
             <td class="fam"><span class="dot" style="background:var(--c-arti)"></span>Artisans du récit</td>
-            <td>Osint avancé</td>
-            <td>IA exploratoire</td>
+            <td><span class="level osint avancee"><span class="dot"></span>OSINT avancé</span></td>
+            <td><span class="level ia exploratoire"><span class="dot"></span>IA exploratoire</span></td>
             <td>Récit sans sacrifier la charge de preuve.</td>
             <td>Provenances ; frises chrono ; cartographies ; visualisations explicatives.</td>
             <td>Dossier public de preuve ; métadonnées essentielles.</td>
@@ -278,8 +334,8 @@ tbody th{background:transparent}
           </tr>
           <tr data-famille="Enquêteurs augmentés" data-osint="Osint expert" data-ia="IA avancée">
             <td class="fam"><span class="dot" style="background:var(--c-enq)"></span>Enquêteurs augmentés</td>
-            <td>Osint expert</td>
-            <td>IA avancée</td>
+            <td><span class="level osint experte"><span class="dot"></span>OSINT expert</span></td>
+            <td><span class="level ia avancee"><span class="dot"></span>IA avancée</span></td>
             <td>Panoplie étendue, exigences probatoires élevées.</td>
             <td>Similarité/priorisation ; résumés guidés ; exploration de corpus.</td>
             <td>Dossier opératoire complet et rejouable.</td>
@@ -287,8 +343,8 @@ tbody th{background:transparent}
           </tr>
           <tr data-famille="Architectes de la preuve" data-osint="Osint expert" data-ia="IA experte">
             <td class="fam"><span class="dot" style="background:var(--c-arch)"></span>Architectes de la preuve</td>
-            <td>Osint expert</td>
-            <td>IA experte</td>
+            <td><span class="level osint experte"><span class="dot"></span>OSINT expert</span></td>
+            <td><span class="level ia experte"><span class="dot"></span>IA experte</span></td>
             <td>Pipelines, instrumentation, métriques, logs.</td>
             <td>Briques modulaires / plateformes ; standards ; API ; tests.</td>
             <td>Gouvernance ; auditabilité ; politiques d’accès/conservation.</td>
@@ -388,9 +444,7 @@ function applyFilters(){
   });
 }
 [q,os,ia].forEach(el=>{el.addEventListener('input',applyFilters); el.addEventListener('change',applyFilters);});
-reset.addEventListener('click',()=>{
-  q.value=''; os.value=''; ia.value=''; applyFilters();
-});
+reset.addEventListener('click',()=>{ q.value=''; os.value=''; ia.value=''; applyFilters(); });
 applyFilters();
 </script>
 </body>
