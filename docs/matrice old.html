@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MatrioscIA — Profils, Tableurs & Matrices (Filtres)</title>
+
+<style>
+:root{
+  --bg:#0b1020; --panel:#0f172a; --ink:#e5e7eb; --muted:#cbd5e1; --bord:#1f2a44;
+  --ink-strong:#f8fafc; --accent:#93c5fd; --table-head:#0b122c;
+}
+:root.light{
+  --bg:#f7f9fb; --panel:#ffffff; --ink:#0f172a; --muted:#475569; --bord:#e2e8f0;
+  --ink-strong:#0b122c; --accent:#3b82f6; --table-head:#f1f5f9;
+}
+*{box-sizing:border-box}
+body{margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--ink);}
+.header{padding:16px 22px; border-bottom:1px solid var(--bord); background:linear-gradient(180deg,rgba(16,24,64,.35), rgba(11,16,32,1)); position:sticky; top:0; z-index:10;}
+.header .wrap{max-width:1160px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+.header h1{margin:0; font-size:22px; color:var(--ink-strong)}
+.controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+.controls select, .controls input{background:var(--panel); color:var(--ink); border:1px solid var(--bord); padding:8px 10px; border-radius:10px;}
+.controls button{background:var(--panel); color:var(--ink); border:1px solid var(--bord); padding:8px 12px; border-radius:10px; cursor:pointer;}
+.wrap{max-width:1160px; margin:0 auto; padding:20px;}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;}
+.card{position:relative; background:var(--panel); border:1px solid var(--bord); border-radius:14px; padding:16px 16px 14px; box-shadow:0 6px 24px rgba(0,0,0,.18);}
+.card .chip{position:absolute; top:-6px; left:16px; width:12px; height:12px; border-radius:50%;}
+.card h3{margin:8px 0 6px; font-size:18px;}
+.card .meta{margin:0 0 8px; font-size:13px; color:var(--muted);}
+.card .desc{margin:0 0 8px; line-height:1.5;}
+.card .bullets{margin:0; padding-left:18px;}
+.section h2{margin:14px 0 10px; font-size:20px; color:var(--ink-strong)}
+table{border-collapse:separate; border-spacing:0; width:100%; margin: 10px 0 18px; overflow:auto;}
+th, td{border:1px solid var(--bord); padding:10px; vertical-align:top; line-height:1.4;}
+thead th{background:var(--table-head); color:var(--ink);}
+tbody th{background:var(--panel)}
+.matrix td, .matrix th{white-space:nowrap;}
+td .dot, .fam .dot{width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:8px;}
+.fam{white-space:nowrap;}
+.dim{opacity:.35;}
+.footer{color:var(--muted); border-top:1px solid var(--bord); margin-top:22px; padding-top:10px; font-size:13px;}
+hr{border:none; border-top:1px solid var(--bord); margin: 18px 0;}
+</style>
+
+<header class="header">
+  <div class="wrap">
+    <h1>MatrioscIA — Profils, Tableurs & Matrices</h1>
+    <div class="controls">
+      <input id="q" placeholder="Rechercher (famille, usages, besoins…)" />
+      <select id="osint">
+        <option value="">OSINT — Tous</option>
+        <option>Faible à moyen</option>
+        <option>Moyen à fort</option>
+        <option>Basique au service du récit</option>
+        <option>Fort</option>
+        <option>Moyen</option>
+        <option>Fort à très fort</option>
+      </select>
+      <select id="ia">
+        <option value="">IA — Toutes</option>
+        <option>Absente ou très faible</option>
+        <option>Absente à exploratoire</option>
+        <option>Exploratoire ou ponctuelle</option>
+        <option>Intégrée ou en développement</option>
+        <option>En développement ou intégrée</option>
+      </select>
+      <select id="fonction">
+        <option value="">Fonctions (matrice Lewis et al.) — Toutes</option>
+        <option value="Attentional">Attentionnelle</option>
+        <option value="Orientational">Orientationnelle</option>
+        <option value="Signaling">Signalisation</option>
+        <option value="Mobilizing">Mobilisation</option>
+        <option value="Reflexive">Réflexive</option>
+      </select>
+      <button id="themeBtn">Palette clair/sombre</button>
+      <button id="resetBtn">Réinitialiser</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <!-- Section info article Digital Journalism --><!-- Visualisation SVG --><!-- Tableau explicatif --><section class="section">
+    <h2>Fiches profils</h2>
+    <div class="grid" id="cards">
+      
+        <article class="card" data-famille="Médiateurs réflexifs et  critiques" data-osint="Faible à moyen" data-ia="Absente ou très faible" data-fonctions="Reflexive; Orientational">
+          <div class="chip" style="background:#7C3AED"></div>
+          <h3>Médiateurs réflexifs et  critiques</h3>
+          <p class="meta"><strong>OSINT</strong> Faible à moyen &nbsp;|&nbsp; <strong>IA</strong> Absente ou très faible </p>
+          <p class="desc">Réflexion éthique/sociale; pédagogie; médiation; documentation critique.</p>
+          <ul class="bullets">
+            <li><strong>Usages typiques:</strong> Ateliers d’éthique, guides de traçabilité, protocoles de citation et vérification.</li>
+            <li><strong>Besoins:</strong> Formations; autonomie d’expérimentation; temps de documentation.</li>
+            <li><strong>Points de vigilance:</strong> Transparence; traçabilité; indépendance des sources.</li>
+            <li><strong>Fonctions (article):</strong> Réflexive; Orientationnelle</li>
+          </ul>
+        </article>
+        
+        <article class="card" data-famille="Explorateurs critiques" data-osint="Moyen à fort" data-ia="Absente à exploratoire" data-fonctions="Reflexive; Attentional; Orientational">
+          <div class="chip" style="background:#F59E0B"></div>
+          <h3>Explorateurs critiques</h3>
+          <p class="meta"><strong>OSINT</strong> Moyen à fort &nbsp;|&nbsp; <strong>IA</strong> Absente à exploratoire </p>
+          <p class="desc">OSINT partiel; technique comme objet d’enquête; vigilance face à l’automatisation.</p>
+          <ul class="bullets">
+            <li><strong>Usages typiques:</strong> Journalisation de méthodes; cartos d’acteurs; évaluation d’outils IA en POC.</li>
+            <li><strong>Besoins:</strong> Formations ciblées; temps méthodologique; cadre permissif d’essais.</li>
+            <li><strong>Points de vigilance:</strong> Expliciter les limites; éviter la boîte noire; documenter les biais.</li>
+            <li><strong>Fonctions (article):</strong> Réflexive; Attentionnelle; Orientationnelle</li>
+          </ul>
+        </article>
+        
+        <article class="card" data-famille="Artisans du récit" data-osint="Basique au service du récit" data-ia="Exploratoire ou ponctuelle" data-fonctions="Signaling; Reflexive">
+          <div class="chip" style="background:#EF4444"></div>
+          <h3>Artisans du récit</h3>
+          <p class="meta"><strong>OSINT</strong> Basique au service du récit &nbsp;|&nbsp; <strong>IA</strong> Exploratoire ou ponctuelle </p>
+          <p class="desc">IA/OSINT au service de la mise en scène; debunk; jamais une fin en soi.</p>
+          <ul class="bullets">
+            <li><strong>Usages typiques:</strong> Narration critique; expositions; performances de debunk; cartels explicatifs.</li>
+            <li><strong>Besoins:</strong> Autonomie créative; accès outils divers; documentation reproductible.</li>
+            <li><strong>Points de vigilance:</strong> Distinguer fiction vs preuve; créditer les sources.</li>
+            <li><strong>Fonctions (article):</strong> Signalisation; Réflexive</li>
+          </ul>
+        </article>
+        
+        <article class="card" data-famille="Enquêteurs augmentés" data-osint="Fort" data-ia="Exploratoire ou ponctuelle" data-fonctions="Attentional; Orientational">
+          <div class="chip" style="background:#3B82F6"></div>
+          <h3>Enquêteurs augmentés</h3>
+          <p class="meta"><strong>OSINT</strong> Fort &nbsp;|&nbsp; <strong>IA</strong> Exploratoire ou ponctuelle </p>
+          <p class="desc">Pragmatisme; IA pour veille/traduction/rédaction; usages individuels.</p>
+          <ul class="bullets">
+            <li><strong>Usages typiques:</strong> Extraction d’entités; OCR; chronologies assistées; résumés/traductions.</li>
+            <li><strong>Besoins:</strong> Formations pratiques; budgets outils; partage inter-équipes.</li>
+            <li><strong>Points de vigilance:</strong> Traçabilité; indépendance des sources; revue humaine systématique.</li>
+            <li><strong>Fonctions (article):</strong> Attentionnelle; Orientationnelle</li>
+          </ul>
+        </article>
+        
+        <article class="card" data-famille="Gestionnaires techniques et solutionnistes" data-osint="Moyen" data-ia="Intégrée ou en développement" data-fonctions="Orientational; Mobilizing">
+          <div class="chip" style="background:#10B981"></div>
+          <h3>Gestionnaires techniques et solutionnistes</h3>
+          <p class="meta"><strong>OSINT</strong> Moyen &nbsp;|&nbsp; <strong>IA</strong> Intégrée ou en développement </p>
+          <p class="desc">Maintenance/supervision; gouvernance; approche fonctionnelle; solutionnisme possible.</p>
+          <ul class="bullets">
+            <li><strong>Usages typiques:</strong> Pipelines; monitoring; accès/données; intégration d’API IA.</li>
+            <li><strong>Besoins:</strong> Coordination; standardisation; ressources stables; conformité.</li>
+            <li><strong>Points de vigilance:</strong> Endettement technique; sécurité; auditabilité; cadrage juridique.</li>
+            <li><strong>Fonctions (article):</strong> Orientationnelle; Mobilisation</li>
+          </ul>
+        </article>
+        
+        <article class="card" data-famille="Ingénieurs de la preuve" data-osint="Fort à très fort" data-ia="En développement ou intégrée" data-fonctions="Mobilizing; Signaling; Attentional">
+          <div class="chip" style="background:#8B5CF6"></div>
+          <h3>Ingénieurs de la preuve</h3>
+          <p class="meta"><strong>OSINT</strong> Fort à très fort &nbsp;|&nbsp; <strong>IA</strong> En développement ou intégrée </p>
+          <p class="desc">Prototypage R&amp;D; open source; enquête comme expérimentation.</p>
+          <ul class="bullets">
+            <li><strong>Usages typiques:</strong> Computer vision; géoloc; pipelines ML; matching multi-sources.</li>
+            <li><strong>Besoins:</strong> Cadre permissif; financements; infra; collaborations R&amp;D.</li>
+            <li><strong>Points de vigilance:</strong> Biais modèles; reproductibilité; coûts; limites explicites.</li>
+            <li><strong>Fonctions (article):</strong> Mobilisation; Signalisation; Attentionnelle</li>
+          </ul>
+        </article>
+        
+    </div>
+  </section>
+  <hr>
+  <section class="section">
+    <h2>Tableur — Categories (codes couleurs inclus)</h2>
+    <table id="tabCats">
+      <thead>
+        <tr><th>Famille</th><th>Niveau_OSINT</th><th>Niveau_IA</th><th>Description_courte</th><th>Usages_typiques</th><th>Besoins</th><th>Points_de_vigilance</th><th>Fonctions dominantes (matrice Lewis et al.)</th></tr>
+      </thead>
+      <tbody>
+        
+        <tr data-famille="Médiateurs réflexifs et  critiques" data-osint="Faible à moyen" data-ia="Absente ou très faible" data-fonctions="Reflexive; Orientational">
+          <td class="fam"><span class="dot" style="background:#7C3AED"></span>Médiateurs réflexifs et  critiques</td>
+          <td>Faible à moyen</td>
+          <td>Absente ou très faible</td>
+          <td>Réflexion éthique/sociale; pédagogie; médiation; documentation critique.</td>
+          <td>Ateliers d’éthique, guides de traçabilité, protocoles de citation et vérification.</td>
+          <td>Formations; autonomie d’expérimentation; temps de documentation.</td>
+          <td>Transparence; traçabilité; indépendance des sources.</td>
+          <td>Réflexive; Orientationnelle</td>
+        </tr>
+        
+        <tr data-famille="Explorateurs critiques" data-osint="Moyen à fort" data-ia="Absente à exploratoire" data-fonctions="Reflexive; Attentional; Orientational">
+          <td class="fam"><span class="dot" style="background:#F59E0B"></span>Explorateurs critiques</td>
+          <td>Moyen à fort</td>
+          <td>Absente à exploratoire</td>
+          <td>OSINT partiel; technique comme objet d’enquête; vigilance face à l’automatisation.</td>
+          <td>Journalisation de méthodes; cartos d’acteurs; évaluation d’outils IA en POC.</td>
+          <td>Formations ciblées; temps méthodologique; cadre permissif d’essais.</td>
+          <td>Expliciter les limites; éviter la boîte noire; documenter les biais.</td>
+          <td>Réflexive; Attentionnelle; Orientationnelle</td>
+        </tr>
+        
+        <tr data-famille="Artisans du récit" data-osint="Basique au service du récit" data-ia="Exploratoire ou ponctuelle" data-fonctions="Signaling; Reflexive">
+          <td class="fam"><span class="dot" style="background:#EF4444"></span>Artisans du récit</td>
+          <td>Basique au service du récit</td>
+          <td>Exploratoire ou ponctuelle</td>
+          <td>IA/OSINT au service de la mise en scène; debunk; jamais une fin en soi.</td>
+          <td>Narration critique; expositions; performances de debunk; cartels explicatifs.</td>
+          <td>Autonomie créative; accès outils divers; documentation reproductible.</td>
+          <td>Distinguer fiction vs preuve; créditer les sources.</td>
+          <td>Signalisation; Réflexive</td>
+        </tr>
+        
+        <tr data-famille="Enquêteurs augmentés" data-osint="Fort" data-ia="Exploratoire ou ponctuelle" data-fonctions="Attentional; Orientational">
+          <td class="fam"><span class="dot" style="background:#3B82F6"></span>Enquêteurs augmentés</td>
+          <td>Fort</td>
+          <td>Exploratoire ou ponctuelle</td>
+          <td>Pragmatisme; IA pour veille/traduction/rédaction; usages individuels.</td>
+          <td>Extraction d’entités; OCR; chronologies assistées; résumés/traductions.</td>
+          <td>Formations pratiques; budgets outils; partage inter-équipes.</td>
+          <td>Traçabilité; indépendance des sources; revue humaine systématique.</td>
+          <td>Attentionnelle; Orientationnelle</td>
+        </tr>
+        
+        <tr data-famille="Gestionnaires techniques et solutionnistes" data-osint="Moyen" data-ia="Intégrée ou en développement" data-fonctions="Orientational; Mobilizing">
+          <td class="fam"><span class="dot" style="background:#10B981"></span>Gestionnaires techniques et solutionnistes</td>
+          <td>Moyen</td>
+          <td>Intégrée ou en développement</td>
+          <td>Maintenance/supervision; gouvernance; approche fonctionnelle; solutionnisme possible.</td>
+          <td>Pipelines; monitoring; accès/données; intégration d’API IA.</td>
+          <td>Coordination; standardisation; ressources stables; conformité.</td>
+          <td>Endettement technique; sécurité; auditabilité; cadrage juridique.</td>
+          <td>Orientationnelle; Mobilisation</td>
+        </tr>
+        
+        <tr data-famille="Ingénieurs de la preuve" data-osint="Fort à très fort" data-ia="En développement ou intégrée" data-fonctions="Mobilizing; Signaling; Attentional">
+          <td class="fam"><span class="dot" style="background:#8B5CF6"></span>Ingénieurs de la preuve</td>
+          <td>Fort à très fort</td>
+          <td>En développement ou intégrée</td>
+          <td>Prototypage R&amp;D; open source; enquête comme expérimentation.</td>
+          <td>Computer vision; géoloc; pipelines ML; matching multi-sources.</td>
+          <td>Cadre permissif; financements; infra; collaborations R&amp;D.</td>
+          <td>Biais modèles; reproductibilité; coûts; limites explicites.</td>
+          <td>Mobilisation; Signalisation; Attentionnelle</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  <hr>
+  <section class="section">
+    <h2>Matrice 3×3 — (OSINT × IA)</h2>
+    <div id="matrixWrap">
+      <table class='matrix'><thead><thead><tr><th></th><th>OSINT faible / exploratoire</th><th>OSINT moyen / structuré</th><th>OSINT fort / expert</th></tr></thead></thead><tbody><tr><th>IA absente / très faible</th><td data-famille="Médiateurs réflexifs et  critiques"><span class="dot" style="background:#7C3AED"></span>Médiateurs réflexifs et  critiques</td><td data-famille="Explorateurs critiques"><span class="dot" style="background:#F59E0B"></span>Explorateurs critiques</td><td data-famille="—">—</td></tr><tr><th>IA exploratoire / ponctuelle</th><td data-famille="Artisans du récit"><span class="dot" style="background:#EF4444"></span>Artisans du récit</td><td data-famille="Enquêteurs augmentés"><span class="dot" style="background:#3B82F6"></span>Enquêteurs augmentés</td><td data-famille="Enquêteurs augmentés (variante experte selon contexte)">Enquêteurs augmentés (variante experte selon contexte)</td></tr><tr><th>IA intégrée / développement</th><td data-famille="—">—</td><td data-famille="Gestionnaires techniques et solutionnistes"><span class="dot" style="background:#10B981"></span>Gestionnaires techniques et solutionnistes</td><td data-famille="Ingénieurs de la preuve"><span class="dot" style="background:#8B5CF6"></span>Ingénieurs de la preuve</td></tr></tbody></table>
+    </div>
+  </section>
+  <div class="footer">Filtres actifs sur fiches + table; la matrice indique (en grisé) les entrées hors filtre.</div>
+
+
+
+
+  <section class="section" id="ref-article" style="border:1px solid var(--bord); border-radius:12px; padding:16px; background: linear-gradient(180deg, rgba(70,179,230,.07), transparent 40%);">
+    <h2 style="margin-top:0;">Matrice « cinq fonctions de l’IA dans le journalisme »</h2>
+    <p>
+      D’après : <strong>Lewis, S. C., Zamith, R., &amp; Bunquin, J. B. A. (2025)</strong>. 
+      <em>Technological Hype and AI in Journalism: Five Functions and Why They Matter</em>. 
+      <em>Digital Journalism</em>, 1–12. 
+      <a href="https://doi.org/10.1080/21670811.2025.2557994" target="_blank" rel="noopener">https://doi.org/10.1080/21670811.2025.2557994</a>
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+      <a class="btn" href="#viz-fonctions" style="text-decoration:none; padding:8px 12px; border:1px solid var(--bord); border-radius:999px; background:var(--panel);">🎛️ Voir la visualisation</a>
+      <a class="btn" href="#table-fonctions" style="text-decoration:none; padding:8px 12px; border:1px solid var(--bord); border-radius:999px; background:var(--panel);">📋 Voir le tableau explicatif</a>
+    </div>
+    <p style="color:var(--muted); font-size:.95em; margin-top:10px;">
+      Axes : <strong>interne ⟷ externe</strong> (vertical) × <strong>symbolique ⟷ matériel</strong> (horizontal). 
+      Fonctions : <em>attentionnelle</em>, <em>orientationnelle</em>, <em>signalisation</em>, <em>mobilisation</em>, et <em>réflexive</em> (transversale).
+    </p>
+  </section>
+
+  
+
+  <section class="section" id="viz-fonctions">
+    <h2>Visualisation — Matrice 2×2 (fonctions)</h2>
+    <div class="panel" style="padding:12px; overflow:auto;">
+      <svg viewBox="0 0 800 520" width="100%" role="img" aria-label="Matrice 2x2 : Interne/Externe × Symbolique/Matériel">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stop-color="#17324D"/>
+            <stop offset="50%" stop-color="#1C6EA4"/>
+            <stop offset="100%" stop-color="#46B3E6"/>
+          </linearGradient>
+          <style>
+            .ax { font: 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:var(--ink) }
+            .bx { font: 15px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#93c5fd; font-weight:700 }
+            .q  { font: 15px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:var(--ink) }
+            .box{ fill:transparent; stroke: var(--bord); stroke-width:1.4 }
+            .chip{ fill:url(#g1); rx:10; ry:10 }
+          </style>
+        </defs>
+
+        <!-- Cadre + axes -->
+        <rect x="40" y="40" width="720" height="420" rx="12" class="box"/>
+        <line x1="400" y1="40" x2="400" y2="460" stroke="var(--bord)" stroke-dasharray="4 6"/>
+        <line x1="40" y1="250" x2="760" y2="250" stroke="var(--bord)" stroke-dasharray="4 6"/>
+
+        <!-- Légendes axes -->
+        <text x="400" y="24" text-anchor="middle" class="ax">Symbolique ⟶ Matériel</text>
+        <text x="12" y="250" transform="rotate(-90,12,250)" text-anchor="middle" class="ax">Interne ⟶ Externe</text>
+
+        <!-- Quadrants -->
+        <rect x="60" y="60" width="320" height="170" fill="rgba(147,197,253,.10)" stroke="rgba(147,197,253,.35)"/>
+        <text x="220" y="110" text-anchor="middle" class="bx">🎯 Attentionnelle</text>
+        <foreignObject x="80" y="120" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Focaliser l’attention et le capital symbolique en interne ; baliser les références et priorités.
+          </div>
+        </foreignObject>
+
+        <rect x="420" y="60" width="320" height="170" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.30)"/>
+        <text x="580" y="110" text-anchor="middle" class="bx">⚙️ Orientationnelle</text>
+        <foreignObject x="440" y="120" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Planifier et allouer des ressources (outils, POC, budgets) ; ancrer des roadmaps internes.
+          </div>
+        </foreignObject>
+
+        <rect x="60" y="270" width="320" height="170" fill="rgba(251,191,36,.08)" stroke="rgba(251,191,36,.35)"/>
+        <text x="220" y="320" text-anchor="middle" class="bx">📢 Signalisation</text>
+        <foreignObject x="80" y="330" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Cadrage public de l’IA : discours d’innovation, transparence, opportunités/risques.
+          </div>
+        </foreignObject>
+
+        <rect x="420" y="270" width="320" height="170" fill="rgba(167,139,250,.10)" stroke="rgba(167,139,250,.35)"/>
+        <text x="580" y="320" text-anchor="middle" class="bx">🤝 Mobilisation</text>
+        <foreignObject x="440" y="330" width="280" height="90">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="q">
+            Actions collectives : chartes, partenariats, politiques de filière, accords fournisseurs.
+          </div>
+        </foreignObject>
+
+        <!-- Centre : Réflexive -->
+        <rect x="355" y="225" width="90" height="50" class="chip"/>
+        <text x="400" y="255" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">🧠 Réflexive</text>
+      </svg>
+    </div>
+    <p class="note">Astuce : identifiez la fonction dominante pour un cas donné, puis vérifiez la présence d’une couche <em>réflexive</em> (normes, rôles, documentation).</p>
+  </section>
+
+  
+
+  <section class="section" id="table-fonctions">
+    <h2>Tableau explicatif — définitions rapides</h2>
+    <div class="panel">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fonction</th><th>Localisation</th><th>Nature</th><th>Définition courte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🎯 Attentionnelle</td><td>Interne</td><td>Symbolique</td><td>Capital symbolique et focalisation interne ; positionnement, vitrine d’innovation.</td></tr>
+          <tr><td>⚙️ Orientationnelle</td><td>Interne</td><td>Matérielle</td><td>Planification, priorisation, allocation (outils, essais, budgets, compétences).</td></tr>
+          <tr><td>📢 Signalisation</td><td>Externe</td><td>Symbolique</td><td>Storytelling public, branding “IA responsable”, transparence méthodologique.</td></tr>
+          <tr><td>🤝 Mobilisation</td><td>Externe</td><td>Matérielle</td><td>Coalitions, chartes, accords fournisseurs, politiques sectorielles.</td></tr>
+          <tr><td>🧠 Réflexive</td><td>Centrale</td><td>Transversale</td><td>Rôles, normes, reddition de comptes ; où s’arrête l’humain, où commence la machine ?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Ces catégories reprennent la matrice de Lewis, Zamith &amp; Bunquin (2025).</p>
+  </section>
+
+  
+</main>
+<script>
+const $ = (sel)=>document.querySelector(sel);
+const $$ = (sel)=>Array.from(document.querySelectorAll(sel));
+
+const q = $('#q');
+const os = $('#osint');
+const ia = $('#ia');
+const fn = $('#fonction');
+
+function normalize(s){ return (s||'').toLowerCase(); }
+
+function matchFunctions(fns, term){
+  if(!term) return true;
+  return normalize(fns).includes(normalize(term));
+}
+
+function matchSelect(val, sel){
+  if(!sel) return true;
+  return normalize(val) === normalize(sel);
+}
+
+function matchQuery(el, query){
+  if(!query) return true;
+  const txt = normalize(el.textContent);
+  return txt.includes(normalize(query));
+}
+
+function applyFilters(){
+  const qv = q.value.trim();
+  const osv = os.value;
+  const iav = ia.value;
+  const fnv = fn.value;
+
+  // Cards
+  const cards = $$('#cards .card');
+  const visibleFamilles = new Set();
+  cards.forEach(card => {
+    const c_os = card.dataset.osint;
+    const c_ia = card.dataset.ia;
+    const c_fn = card.dataset.fonctions;
+    const ok = matchSelect(c_os, osv) && matchSelect(c_ia, iav) && matchFunctions(c_fn, fnv) && matchQuery(card, qv);
+    card.style.display = ok ? '' : 'none';
+    if(ok) visibleFamilles.add(card.dataset.famille);
+  });
+
+  // Table rows (Categories)
+  const rows = $$('#tabCats tbody tr');
+  rows.forEach(tr => {
+    const t_os = tr.dataset.osint;
+    const t_ia = tr.dataset.ia;
+    const t_fn = tr.dataset.fonctions;
+    const ok = matchSelect(t_os, osv) && matchSelect(t_ia, iav) && matchFunctions(t_fn, fnv) && matchQuery(tr, qv);
+    tr.style.display = ok ? '' : 'none';
+    if(ok) visibleFamilles.add(tr.dataset.famille);
+  });
+
+  // Matrix dimming
+  const cells = $$('#matrixWrap [data-famille]');
+  cells.forEach(td => {
+    const fam = td.getAttribute('data-famille');
+    if(fam && fam !== '—' && !visibleFamilles.has(fam)) td.classList.add('dim');
+    else td.classList.remove('dim');
+  });
+}
+
+[q, os, ia, fn].forEach(el => el.addEventListener('input', applyFilters));
+[q, os, ia, fn].forEach(el => el.addEventListener('change', applyFilters));
+
+$('#resetBtn').addEventListener('click', ()=>{
+  q.value=''; os.value=''; ia.value=''; fn.value=''; applyFilters();
+});
+
+$('#themeBtn').addEventListener('click', ()=>{
+  document.documentElement.classList.toggle('light');
+});
+
+applyFilters();
+</script>
+</html>
