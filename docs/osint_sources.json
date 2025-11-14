@@ -1,0 +1,142 @@
+[
+  {
+    "categorie": "Documents et sites officiels",
+    "description": "Portails gouvernementaux, JO, décisions de justice, marchés publics",
+    "exemples": ""
+  },
+  {
+    "categorie": "Open Data",
+    "description": "Portails nationaux/locaux, data thématiques",
+    "exemples": ""
+  },
+  {
+    "categorie": "Données bibliographiques",
+    "description": "Catalogues, bases de références, identifiants pérennes",
+    "exemples": ""
+  },
+  {
+    "categorie": "Documents scientifiques",
+    "description": "Préprints, revues, dépôts institutionnels",
+    "exemples": ""
+  },
+  {
+    "categorie": "Médias",
+    "description": "Presse, TV/Radio, agrégateurs",
+    "exemples": ""
+  },
+  {
+    "categorie": "Médias sociaux",
+    "description": "Réseaux et micro-blogs",
+    "exemples": ""
+  },
+  {
+    "categorie": "Sites d’organisations",
+    "description": "ONG, partis, syndicats, entreprises",
+    "exemples": ""
+  },
+  {
+    "categorie": "Sites personnels et blogs",
+    "description": "Pages perso, portfolios, newsletters",
+    "exemples": ""
+  },
+  {
+    "categorie": "Outils de recherche et de veille",
+    "description": "Meta-moteurs, alertes, flux",
+    "exemples": ""
+  },
+  {
+    "categorie": "Bases et banques de données",
+    "description": "Registres, annuaires, bases spécialisées",
+    "exemples": ""
+  },
+  {
+    "categorie": "Données commerciales",
+    "description": "Data brokers, marketing, e-commerce",
+    "exemples": ""
+  },
+  {
+    "categorie": "Leaks",
+    "description": "Dumps, paste sites, collections",
+    "exemples": ""
+  },
+  {
+    "categorie": "Dark web",
+    "description": "Forums, marketplaces, leak sites",
+    "exemples": ""
+  },
+  {
+    "categorie": "Plateformes de messagerie publiques",
+    "description": "Canaux/Groupes ouverts",
+    "exemples": ""
+  },
+  {
+    "categorie": "Dépôts de code et registres packages",
+    "description": "Repos, commits, issues, paquets",
+    "exemples": ""
+  },
+  {
+    "categorie": "Archives web",
+    "description": "Captures temporelles",
+    "exemples": ""
+  },
+  {
+    "categorie": "Imagerie satellite et observation",
+    "description": "EO, haute résolution, thermiques",
+    "exemples": ""
+  },
+  {
+    "categorie": "Trafic maritime et aérien",
+    "description": "Positions temps réel / historiques",
+    "exemples": ""
+  },
+  {
+    "categorie": "Scan d’Internet/IoT",
+    "description": "Bannières services, certificats, devices",
+    "exemples": ""
+  },
+  {
+    "categorie": "DNS/Certificats/WHOIS/RDAP",
+    "description": "Résolutions, historiques, CT logs",
+    "exemples": ""
+  },
+  {
+    "categorie": "Transparence publicitaire",
+    "description": "Bibliothèques d’annonces",
+    "exemples": ""
+  },
+  {
+    "categorie": "Registres de transparence politique",
+    "description": "Financement, lobbying",
+    "exemples": ""
+  },
+  {
+    "categorie": "App stores et télémétrie apps",
+    "description": "Permissions, versions, SDKs",
+    "exemples": ""
+  },
+  {
+    "categorie": "Blockchain / On‑chain",
+    "description": "Explorateurs, wallets, contrats",
+    "exemples": ""
+  },
+  {
+    "categorie": "Données géo collaboratives",
+    "description": "Édits, POI, tracés",
+    "exemples": ""
+  },
+  {
+    "categorie": "Streams et live",
+    "description": "Vidéos live, VOD",
+    "exemples": ""
+  },
+  {
+    "categorie": "Audio social",
+    "description": "Salons et replays",
+    "exemples": ""
+  },
+  {
+    "categorie": "Journaux systèmes exposés",
+    "description": "Dashboards non protégés",
+    "exemples": ""
+  }
+]
